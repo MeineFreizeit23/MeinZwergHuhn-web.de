@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Klein aber Fein – Frische Eier von Gartenhühnern</title>
+  <style>
+    :root{
+      --bg:#fff8ec;
+      --card:#ffffff;
+      --ink:#2e2a24;
+      --brand:#d4a373;
+      --brand-dark:#b97b4a;
+      --muted:#6b6156;
+    }
+    *{box-sizing:border-box}
+    body{ margin:0; font-family: system-ui, -apple-system, Arial, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); }
+    .wrap{ max-width: 680px; margin: 0 auto; padding: 24px 18px 36px; }
+    header{ text-align:center; padding: 28px 18px 10px; }
+    .badge{ display:inline-block; background: var(--brand); color:#fff; padding:6px 10px; border-radius:999px; font-size:.85rem; letter-spacing:.2px; }
+    h1{ margin:14px 0 10px; font-size: clamp(1.8rem, 2.4vw + 1.2rem, 2.4rem); color:#5c3d00; line-height:1.2; }
+    .lead{ max-width:52ch; margin: 0 auto 14px; color: var(--muted); }
+    .card{ background: var(--card); border-radius:14px; padding:18px; box-shadow: 0 6px 20px rgba(0,0,0,.06); margin-top:18px; }
+    .hero{ overflow:hidden; border-radius:14px; aspect-ratio: 16/9; background: #f0e6d8; display:flex; align-items:center; justify-content:center; }
+    form{ display:grid; gap:12px; margin-top:6px; }
+    label{font-weight:600; font-size:.95rem}
+    input, select, button, textarea{ width:100%; padding:12px 14px; border:1px solid #e6dccf; border-radius:10px; font-size:1rem; background:#fff; }
+    button{ border:none; background: var(--brand); color:#fff; font-weight:700; cursor:pointer; transition:.2s transform ease, .2s background ease; }
+    button:active{ transform: translateY(1px); }
+    button:hover{ background: var(--brand-dark); }
+    .note{ background:#fff4df; border:1px dashed #e7c79f; color:#5b4a34; border-radius:12px; padding:14px; line-height:1.5; }
+    .footer{ text-align:center; color: #8a7e6c; font-size:.9rem; margin-top:26px; }
+    #danke{ display:none; }        /* Danke-Meldung nach Absenden (#danke in URL) */
+    :target#danke{ display:block; }
+    .center{ text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="badge">Frische Eier aus liebevoller Haltung</span>
+      <h1>Klein aber Fein</h1>
+      <p class="lead">
+        Direkt aus dem Garten – regionale Eier von glücklichen Hühnern.
+        Bestelle 6 oder 10 Eier und hole sie später bequem ab.
+      </p>
+    </header>
+
+    <!-- Comic-Hühner als eingebettetes SVG (kein Upload nötig) -->
+    <div class="card hero" aria-label="Drei Comic-Hühner">
+      <svg viewBox="0 0 360 200" width="100%" height="100%" role="img" aria-labelledby="title">
+        <title id="title">Drei Comic-Hühner</title>
+        <!-- Boden -->
+        <ellipse cx="180" cy="160" rx="140" ry="18" fill="#ead8bf"/>
+        <!-- Huhn links -->
+        <g transform="translate(50,40)" stroke="#3b3027" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="50" cy="70" rx="34" ry="28" fill="#fff3c4"/>
+          <ellipse cx="30" cy="60" rx="20" ry="18" fill="#fff3c4"/>
+          <circle cx="38" cy="58" r="3.5" fill="#3b3027" stroke="none"/>
+          <polygon points="20,62 6,68 20,74" fill="#f29b2f" stroke="none"/>
+          <path d="M30,40 q6,-14 0,-20 q-8,6 -6,20 z" fill="#e24b3b" stroke="none"/>
+          <path d="M40,98 l-8,18 M60,98 l8,18" />
+        </g>
+        <!-- Huhn Mitte -->
+        <g transform="translate(150,30)" stroke="#3b3027" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="50" cy="78" rx="38" ry="32" fill="#f6e0b8"/>
+          <ellipse cx="32" cy="68" rx="22" ry="20" fill="#f6e0b8"/>
+          <circle cx="40" cy="66" r="3.5" fill="#3b3027" stroke="none"/>
+          <polygon points="24,70 10,78 24,86" fill="#f29b2f" stroke="none"/>
+          <path d="M32,48 q6,-16 0,-22 q-8,6 -6,22 z" fill="#e24b3b" stroke="none"/>
+          <path d="M42,112 l-9,20 M62,112 l9,20" />
+        </g>
+        <!-- Huhn rechts -->
+        <g transform="translate(250,40)" stroke="#3b3027" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="34" cy="70" rx="34" ry="28" fill="#fff3c4"/>
+          <ellipse cx="52" cy="60" rx="20" ry="18" fill="#fff3c4"/>
+          <circle cx="48" cy="58" r="3.5" fill="#3b3027" stroke="none"/>
+          <polygon points="64,62 78,68 64,74" fill="#f29b2f" stroke="none"/>
+          <path d="M52,40 q-6,-14 0,-20 q8,6 6,20 z" fill="#e24b3b" stroke="none"/>
+          <path d="M28,98 l-8,18 M48,98 l8,18" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- Bestellformular -->
+    <div class="card">
+      <h2 style="margin-top:0">Jetzt bestellen</h2>
+      <form action="https://formsubmit.co/ihr_rundum_service@web.de" method="POST">
+        <!-- FormSubmit Optionen -->
+        <input type="hidden" name="_captcha" value="false" />
+        <!-- nach dem Absenden wieder auf diese Seite und Danke-Block zeigen -->
+        <input type="hidden" name="_next" value="./#danke" />
+
+        <label for="name">Dein Name</label>
+        <input id="name" name="name" type="text" placeholder="Vor- und Nachname" required />
+
+        <label for="email">Deine E-Mail</label>
+        <input id="email" name="email" type="email" placeholder="z. B. max@example.com" required />
+
+        <label for="menge">Menge</label>
+        <select id="menge" name="menge" required>
+          <option value="6 Eier">6 Eier</option>
+          <option value="10 Eier">10 Eier</option>
+        </select>
+
+        <label for="nachricht">Nachricht (optional)</label>
+        <textarea id="nachricht" name="nachricht" rows="3" placeholder="Gewünschter Abholzeitraum …"></textarea>
+
+        <button type="submit">Bestellung absenden</button>
+      </form>
+    </div>
+
+    <!-- Hinweis für Käufer -->
+    <div class="card note">
+      <h3 style="margin-top:0">Hinweis für Käufer</h3>
+      <p>
+        Der Verkauf der Eier erfolgt nicht gewerblich, sondern dient ausschließlich der Deckung der
+        Futterkosten und zur Unterstützung meiner kleinen Hühnerhaltung. Es handelt sich hierbei um
+        ein privates Angebot ohne Gewinnerzielungsabsicht.
+      </p>
+      <p style="margin:0">
+        Vielen Dank für Ihre Unterstützung und Ihr Interesse an regionalen, tierfreundlich gehaltenen Hühnern.
+      </p>
+    </div>
+
+    <!-- Danke-Block (wird nach Absenden angezeigt) -->
+    <div id="danke" class="card center">
+      <h2>Danke für deine Bestellung!</h2>
+      <p>Wir melden uns per E-Mail mit Abholinfos. Bis bald 🐣</p>
+    </div>
+
+    <p class="footer">© 2025 Klein aber Fein – Gartenhühner</p>
+  </div>
+</body>
+</html>
