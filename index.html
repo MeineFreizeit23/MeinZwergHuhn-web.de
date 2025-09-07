@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -48,12 +47,13 @@
 
     header{
       background:#fff9cc;
-      border:4px solid var(--accent-border);
+      border: none; /* Strich entfernt */
       border-radius:16px;
       padding:20px;
       margin-bottom:18px;
       box-shadow:var(--shadow);
     }
+
     h1{
       color:var(--brand);
       margin:0 0 .25rem;
@@ -63,6 +63,7 @@
       font-family:"Trebuchet MS", Verdana, sans-serif;
       line-height:1.12;
     }
+
     .subtitle{ text-align:center; color:var(--ink-muted); margin:.5rem 0 0.25rem; font-size:1rem; }
 
     .card{
@@ -114,13 +115,12 @@
       box-shadow:var(--shadow);
       transition:transform .06s ease, filter .12s ease;
       border:0;
+      cursor:pointer;
     }
     .wa-btn{ background:var(--wa); }
     .wa-btn:hover{ background:var(--wa-hover); transform:translateY(-2px); }
     .mail-btn{ background:var(--mail); }
     .mail-btn:hover{ background:var(--mail-hover); transform:translateY(-2px); }
-
-    .wa-icon{ width:20px; height:20px; display:inline-block; vertical-align:middle; }
 
     @media (max-width:600px){
       .btn-row{ flex-direction:column; gap:10px; }
@@ -128,6 +128,14 @@
     }
 
     .footer{ margin-top:28px; color:#666; font-size:.92rem; text-align:center; }
+
+    select{
+      padding:8px 12px;
+      font-size:1rem;
+      border-radius:8px;
+      border:1px solid var(--panel-border);
+      margin-top:6px;
+    }
 
   </style>
 </head>
@@ -220,19 +228,19 @@
       <p class="highlight">Es geht ausschließlich um glückliche Hennen und gesunde Eier – die Freude unserer Hennen an ihrem Leben möchten wir mit allen teilen.</p>
     </section>
 
-    <!-- Bestellbuttons: WhatsApp + E-Mail -->
-    <section style="text-align:center; margin-top:18px;">
-      <div class="btn-row" role="group" aria-label="Bestelloptionen">
-        <a class="wa-btn" aria-label="Per WhatsApp bestellen"
-           href="https://wa.me/491638306166?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eure%20frischen%20Zwerghuhn-Eier.%20K%C3%B6nnt%20ihr%20mir%20bitte%20die%20n%C3%A4chste%20Abholm%C3%B6glichkeit%20nennen%3F%20Vielen%20Dank%20schon%20einmal%21"
-           target="_blank" rel="noopener">
-          Über WhatsApp bestellen
-        </a>
-        <a class="mail-btn" aria-label="Per E-Mail bestellen"
-           href="mailto:info@deine-e-mail.de?subject=Bestellung%20frische%20Zwerghuhn-Eier&body=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eure%20frischen%20Zwerghuhn-Eier.%20K%C3%B6nnt%20ihr%20mir%20bitte%20die%20n%C3%A4chste%20Abholm%C3%B6glichkeit%20nennen%3F%20Vielen%20Dank%20schon%20einmal%21"
-           target="_blank" rel="noopener">
-          Per E-Mail bestellen
-        </a>
+    <!-- Bestellbereich -->
+    <section class="card" aria-labelledby="bestellen-title">
+      <h2 id="bestellen-title" style="margin-top:0; text-align:center">Jetzt bestellen</h2>
+      <div style="text-align:center; margin-top:12px;">
+        <label for="anzahl">Anzahl auswählen:</label>
+        <select id="anzahl">
+          <option value="6">6 Eier</option>
+          <option value="12">12 Eier</option>
+        </select>
+      </div>
+      <div class="btn-row" role="group" aria-label="Bestelloptionen" style="margin-top:18px;">
+        <a class="wa-btn" id="wa-bestellen">Über WhatsApp bestellen</a>
+        <a class="mail-btn" id="mail-bestellen">Per E-Mail bestellen</a>
       </div>
     </section>
 
@@ -241,5 +249,29 @@
     </footer>
 
   </main>
+
+  <script>
+    const waBtn = document.getElementById('wa-bestellen');
+    const mailBtn = document.getElementById('mail-bestellen');
+    const select = document.getElementById('anzahl');
+
+    function getOrderText() {
+      const anzahl = select.value;
+      return encodeURIComponent(
+        `Hallo, ich interessiere mich für ${anzahl} frische Zwerghuhn-Eier. Könnt ihr mir bitte die nächste Abholmöglichkeit nennen? Vielen Dank und liebe Grüße!`
+      );
+    }
+
+    waBtn.addEventListener('click', () => {
+      const url = `https://wa.me/491638306166?text=${getOrderText()}`;
+      window.open(url, '_blank');
+    });
+
+    mailBtn.addEventListener('click', () => {
+      const url = `mailto:info@deine-e-mail.de?subject=Bestellung frische Zwerghuhn-Eier&body=${getOrderText()}`;
+      window.open(url, '_blank');
+    });
+  </script>
+
 </body>
 </html>
