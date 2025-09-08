@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -121,8 +122,8 @@
 
     /* Dankesnote: Überschrift größer & fetter, Text kleiner */
     .note h2 {
-      font-size:2rem;      /* größer */
-      font-weight:900;     /* sehr fett */
+      font-size:2rem;      
+      font-weight:900;     
       color:var(--brand);
       margin:0;
       text-align:center;
@@ -131,7 +132,7 @@
     .note .highlight {
       display:block;
       font-weight:700;
-      font-size:1rem;     /* kleiner, wie oben */
+      font-size:1rem;    
       color:#2e7d32;
       line-height:1.4;
       margin-top:8px;
@@ -167,7 +168,7 @@
       <p><strong>Unsere Hennen Wella, Wilma und Lupni</strong> leben frei und zufrieden im Garten. Sie legen kleine Eier, die dich mit ihrem intensiven Geschmack überraschen werden – unvergleichlich mit dem, was du aus dem Laden kennst. Wenn du sie probierst, merkst du sofort den Unterschied zu jedem Supermarkt-Ei.</p>
     </section><section class="card" aria-labelledby="snack-title">
       <h2 id="snack-title" style="margin-top:0">Mach den Hühnern eine Freude 🐔</h2>
-      <p>Neben dem Hühner-Zaun steht eine kleine Snack-Kiste. Du kannst dort Gurken, Möhrchen, verschiedene Salate oder frische Kräuter hineinlegen – die Hennen sagen Dankeschön mit fröhlichem Gegacker.</p>
+      <p>Neben dem Hühner-Zaun steht eine kleine Snack-Kiste. Du kannst dort Gurken, Möhrchen oder verschiedene Salate hineinlegen – die Hennen sagen Dankeschön mit fröhlichem Gegacker.</p>
 
       <div style="display:flex; gap:18px; flex-wrap:wrap; margin-top:12px;">
         <div style="flex:1; min-width:220px;">
@@ -178,7 +179,7 @@
             <li>🥬 Verschiedene Salate</li>
             <li>🍓 Beeren</li>
             <li>🌿 Frisches Grün</li>
-            <li>🌱 Frische Kräuter</li>
+            <li>🌱 Frische Kräuter (z. B. Petersilie, Dill, Basilikum, Koriander)</li>
           </ul>
         </div>
 
@@ -190,8 +191,6 @@
             <li>❌ rohe Kartoffeln</li>
             <li>❌ Zwiebeln</li>
             <li>❌ Süßigkeiten &amp; Gewürze</li>
-            <li>❌ Knoblauch</li>
-            <li>❌ Schokolade</li>
           </ul>
         </div>
       </div>
@@ -255,7 +254,13 @@
 
   </main>
 
+  <!-- Schutz der Kontaktinfos + Buttons -->
   <script>
+    // WhatsApp-Nummer und E-Mail verschlüsselt
+    const waNumber = ["49","163","8306166"].join(""); // zusammensetzen
+    const emailUser = "info";
+    const emailDomain = "deine-e-mail.de";
+
     const waBtn = document.getElementById('wa-bestellen');
     const mailBtn = document.getElementById('mail-bestellen');
     const select = document.getElementById('anzahl');
@@ -268,12 +273,12 @@
     }
 
     waBtn.addEventListener('click', () => {
-      const url = `https://wa.me/491638306166?text=${getOrderText()}`;
+      const url = `https://wa.me/${waNumber}?text=${getOrderText()}`;
       window.open(url, '_blank');
     });
 
     mailBtn.addEventListener('click', () => {
-      const url = `mailto:info@deine-e-mail.de?subject=Bestellung extra frische Zwerghuhn-Eier&body=${getOrderText()}`;
+      const url = `mailto:${emailUser}@${emailDomain}?subject=Bestellung extra frische Zwerghuhn-Eier&body=${getOrderText()}`;
       window.open(url, '_blank');
     });
   </script>
