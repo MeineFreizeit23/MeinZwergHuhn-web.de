@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -119,6 +118,25 @@
       border:1px solid var(--panel-border);
       margin-top:6px;
     }
+
+    /* Dankesnote: Überschrift größer & fetter, Text kleiner */
+    .note h2 {
+      font-size:2rem;      /* größer */
+      font-weight:900;     /* sehr fett */
+      color:var(--brand);
+      margin:0;
+      text-align:center;
+    }
+
+    .note .highlight {
+      display:block;
+      font-weight:700;
+      font-size:1rem;     /* kleiner, wie oben */
+      color:#2e7d32;
+      line-height:1.4;
+      margin-top:8px;
+      text-align:center;
+    }
   </style>
 </head>
 <body>
@@ -211,8 +229,8 @@
 
     <!-- Dankesnote -->
     <section class="note" aria-labelledby="danke-title">
-      <h2 id="danke-title" style="margin:0; text-align:center; color:var(--brand)">Vielen Dank!</h2>
-      <p class="highlight">Es geht ausschließlich um glückliche Hennen und <strong>extra frische Eier</strong> – die Freude unserer Hennen an ihrem Leben möchten wir mit allen teilen.</p>
+      <h2 id="danke-title">Vielen Dank!</h2>
+      <p class="highlight">Glückliche Hennen und extra frische Eier. Ihre Freude am Leben möchten wir mit allen teilen.</p>
     </section>
 
     <!-- Bestellbereich -->
