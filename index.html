@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -14,7 +15,6 @@
     gtag('config', 'G-7560QNW1QH');
   </script>
 
-  <!-- Content Security Policy für Sicherheit -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline';">
 
   <style>
@@ -132,8 +132,8 @@
       </div>
     </section>
 
-    <section class="card" aria-labelledby="futter-liste">
-      <h2 id="futter-liste" style="text-align:center">Futterliste für unsere Hühner</h2>
+    <section class="card" aria-labelledby="futter-title">
+      <h2 id="futter-title" style="text-align:center">Hühner-Futterliste</h2>
       <p>Die Snack-Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
       <p>✔️ Geeignete Snacks<br>
       🥒 Gurke<br>
@@ -186,7 +186,7 @@
         Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt-Eiern zu vergleichen. Probier selbst!<br><br>
         Vielen Dank für deinen Besuch
       </p>
-      <p style="text-align:center; font-size:0.75rem;">&copy; 2025 Kleine Eier, großes Lächeln</p>
+      <p style="text-align:center; font-size:0.8rem;">&copy; 2025 Kleine Eier, großes Lächeln</p>
     </footer>
 
     <script>
@@ -194,19 +194,19 @@
       const mailBtn = document.getElementById('mail-anfragen');
       const waIdeen = document.getElementById('wa-ideen');
 
-      const messageText = encodeURIComponent("Hallo, ich möchte 6 frische Eier bestellen. Vielen Dank!");
-      const ideenMessage = encodeURIComponent("Hallo, ich habe Ideen oder Anregungen zum Hühnerfreilauf.");
+      const messageText = "Hallo, ich möchte 6 frische Eier bestellen (innerhalb 7 Tagen abholbereit). Vielen Dank!";
+      const ideenMessage = "Hallo, ich habe Ideen oder Anregungen zum Hühnerfreilauf.";
 
-      waBtn.addEventListener('click', () => { 
-        window.open(`https://wa.me/491638306166?text=${messageText}`, '_blank'); 
+      waBtn.addEventListener('click', () => {
+        window.location.href = "https://wa.me/491638306166?text=" + encodeURIComponent(messageText);
       });
 
-      mailBtn.addEventListener('click', () => { 
-        window.open(`mailto:MeinZwergHuhn@web.de?subject=Anfrage%20frische%20Eier&body=${messageText}`, '_blank'); 
+      mailBtn.addEventListener('click', () => {
+        window.location.href = "mailto:MeinZwergHuhn@web.de?subject=" + encodeURIComponent("Anfrage frische Eier") + "&body=" + encodeURIComponent(messageText);
       });
 
-      waIdeen.addEventListener('click', () => { 
-        window.open(`https://wa.me/491638306166?text=${ideenMessage}`, '_blank'); 
+      waIdeen.addEventListener('click', () => {
+        window.location.href = "https://wa.me/491638306166?text=" + encodeURIComponent(ideenMessage);
       });
     </script>
   </main>
