@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kleine Eier, großes Lächeln</title>
-  
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7560QNW1QH"></script>
   <script>
@@ -13,7 +14,10 @@
     gtag('js', new Date());
     gtag('config', 'G-7560QNW1QH');
   </script>
-  
+
+  <!-- Content Security Policy für Sicherheit -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline';">
+
   <style>
     :root{
       --bg:#fffdf5;
@@ -149,9 +153,38 @@
       </div>
     </div>
 
+    <section class="card" aria-labelledby="futterliste-title">
+      <h2 id="futterliste-title" style="text-align:center">Was unsere Hühner gerne fressen</h2>
+      <p>Mach den Hühnern eine Freude 🐔! Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein.</p>
+      <p>Die Snack-Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
+      <ul>
+        <li>✔️ Geeignete Snacks
+          <ul>
+            <li>🥒 Gurke</li>
+            <li>🥕 Karotte</li>
+            <li>🥬 Verschiedene Salate</li>
+            <li>🍓 Beeren</li>
+            <li>🌿 Frisches Grün (z. B. Löwenzahn, Rucola, Feldsalat, Spinat)</li>
+            <li>🌱 Frische Kräuter (z. B. Petersilie, Koriander, Basilikum)</li>
+          </ul>
+        </li>
+        <li>❌ Nicht geeignet
+          <ul>
+            <li>❌ Zitrusfrüchte</li>
+            <li>❌ Avocado</li>
+            <li>❌ rohe Kartoffeln</li>
+            <li>❌ Zwiebeln</li>
+            <li>❌ Süßigkeiten & Gewürze</li>
+            <li>❌ Knoblauch</li>
+            <li>❌ Schokolade</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
     <section class="card" aria-labelledby="anfragen-title">
       <h2 id="anfragen-title" style="margin-top:0; text-align:center">Jetzt Eier bestellen</h2>
-      <p style="text-align:center;">Wenn ihr frische Eier bestellen möchtet, sendet uns eine Nachricht über WhatsApp oder E-Mail. Wir geben Bescheid, sobald sie abholbereit sind.</p>
+      <p style="text-align:center;">Wenn ihr frische Eier bestellen möchtet, kostet <strong>6 Eier 5 €</strong> und sie sind garantiert innerhalb von 7 Tagen abholbereit. Wir freuen uns auf eure Nachricht und wünschen euch einen schönen Tag!</p>
       <div class="btn-row" role="group" aria-label="Kontaktoptionen" style="justify-content:center; margin-top:18px;">
         <a class="wa-btn" id="wa-anfragen">Über WhatsApp bestellen</a>
         <a class="mail-btn" id="mail-anfragen">Per E-Mail bestellen</a>
@@ -167,25 +200,4 @@
     </footer>
 
     <script>
-      const waBtn = document.getElementById('wa-anfragen');
-      const mailBtn = document.getElementById('mail-anfragen');
-      const waIdeen = document.getElementById('wa-ideen');
-
-      const messageText = encodeURIComponent("Hallo, ich möchte 6 frische Eier bestellen. Bitte gebt Bescheid, wann sie abholbereit sind.");
-      const ideenMessage = encodeURIComponent("Hallo, ich habe Ideen oder Anregungen zum Hühnerfreilauf.");
-
-      waBtn.addEventListener('click', () => { 
-        window.open(`https://wa.me/491638306166?text=${messageText}`, '_blank'); 
-      });
-
-      mailBtn.addEventListener('click', () => { 
-        window.open(`mailto:MeinZwergHuhn@web.de?subject=Anfrage%20frische%20Eier&body=${messageText}`, '_blank'); 
-      });
-
-      waIdeen.addEventListener('click', () => { 
-        window.open(`https://wa.me/491638306166?text=${ideenMessage}`, '_blank'); 
-      });
-    </script>
-  </main>
-</body>
-</html>
+      const waBtn = document.getElementById('wa-an
