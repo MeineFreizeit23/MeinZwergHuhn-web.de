@@ -1,229 +1,93 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kleine Eier, großes Lächeln</title>
-  <meta name="theme-color" content="#25D366" />
-  <style>
-    :root{
-      --bg:#fffdf5;
-      --ink:#263b26;
-      --ink-muted:#4d5d4d;
-      --brand:#3d602f;
-      --panel:#edfbea;
-      --panel-border:#d8e9b2;
-      --accent:#f5e97c;
-      --accent-border:#e6a347;
-      --wa:#25D366;
-      --wa-hover:#1ebd5a;
-      --mail:#3a78c0;
-      --mail-hover:#2f5f96;
-      --shadow:0 6px 18px rgba(0,0,0,.08);
-      --radius:14px;
-    }
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      color:var(--ink);
-      background:var(--bg);
-      line-height:1.6;
-      padding:24px;
-      display:flex;
-      justify-content:center;
-      min-height:100vh;
-      flex-direction:column;
-    }
-    .wrap{
-      width:100%;
-      max-width:820px;
-      display:flex;
-      flex-direction:column;
-      flex-grow:1;
-    }
-    header{
-      background:#fff9cc;
-      border:none;
-      border-radius:16px;
-      padding:20px;
-      margin-bottom:18px;
-      box-shadow:var(--shadow);
-    }
-    h1{
-      color:var(--brand);
-      margin:0 0 .25rem;
-      text-align:center;
-      font-size:clamp(2.4rem,5vw,3rem);
-      font-weight:900;
-      font-family:"Trebuchet MS", Verdana, sans-serif;
-      line-height:1.12;
-    }
-    .subtitle{
-      text-align:center; 
-      color:var(--ink-muted); 
-      margin:.5rem 0 0.25rem; 
-      font-size:1rem;
-    }
-    .card{
-      background:var(--panel);
-      border:2px solid var(--panel-border);
-      border-radius:var(--radius);
-      padding:20px;
-      margin:18px 0;
-      box-shadow:var(--shadow);
-    }
-    .micro{
-      color:var(--ink-muted);
-      margin:.25rem 0 .5rem;
-      font-size:.95rem;
-    }
-    ul{margin:.25rem 0 0 1.05rem;}
-    li{margin:.28rem 0;}
-    .btn-row{ display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:12px; }
-    .wa-btn, .mail-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:.6rem;
-      padding:12px 18px;
-      border-radius:12px;
-      color:#fff;
-      text-decoration:none;
-      font-weight:700;
-      box-shadow:var(--shadow);
-      transition:transform .06s ease, filter .12s ease;
-      border:0;
-      cursor:pointer;
-    }
-    .wa-btn{ background:var(--wa); }
-    .wa-btn:hover{ background:var(--wa-hover); transform:translateY(-2px); }
-    .mail-btn{ background:var(--mail); }
-    .mail-btn:hover{ background:var(--mail-hover); transform:translateY(-2px); }
-    @media (max-width:600px){
-      .btn-row{ flex-direction:column; gap:10px; }
-      .wa-btn, .mail-btn{ width:100%; justify-content:center; }
-    }
-    .footer{ margin-top:28px; color:#666; font-size:.92rem; text-align:center; }
-    select{
-      padding:8px 12px;
-      font-size:1rem;
-      border-radius:8px;
-      border:1px solid var(--panel-border);
-      margin-top:6px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kleine Eier, großes Lächeln</title>
+<style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #fff8f0; color: #333; }
+  header, section, footer { padding: 20px; max-width: 800px; margin: auto; }
+  h1 { text-align: center; color: #d35400; }
+  h2 { color: #c0392b; margin-top: 30px; }
+  .center { text-align: center; }
+  ul { list-style-type: none; padding-left: 0; }
+  li { margin-bottom: 5px; }
+  .button { display: inline-block; padding: 10px 20px; margin: 10px 0; background-color: #3498db; color: #fff; text-decoration: none; border-radius: 5px; }
+  .button:hover { background-color: #2980b9; }
+  .huhn { margin-bottom: 20px; }
+</style>
 </head>
 <body>
-<main class="wrap">
 
 <header>
-  <h1>Kleine Eier,<br>großes Lächeln</h1>
-  <p class="subtitle">Treffe unsere Hühner, lerne sie ein bisschen kennen und erfahre, wie du ihnen eine Freude machen kannst. Wir halten sie im Garten, weil sie Freude bringen, den Alltag bereichern und besondere Momente im Grünen schenken.</p>
+  <h1>Kleine Eier, großes Lächeln</h1>
+  <p>Wir halten unsere Hühner im Garten, weil sie Freude bringen, den Alltag bereichern und besondere Momente schenken.</p>
+  <p>Treffe unsere Hühner, lerne sie ein bisschen kennen und erfahre, wie du ihnen eine Freude machen kannst.</p>
 </header>
 
-<section class="card" aria-labelledby="warum-title">
-  <h2 id="warum-title" style="margin-top:0">Warum diese Eier?</h2>
-  <p><strong>Unsere Hennen Wella, Wilma und Lupni</strong> leben frei und zufrieden im Garten. Sie legen kleine Eier, deren Geschmack du so im Supermarkt nicht findest. Wer sie probiert, merkt sofort den Unterschied.</p>
-</section>
-  <section class="card" aria-labelledby="snack-title">
-  <h2 id="snack-title" style="margin-top:0">Mach den Hühnern eine Freude 🐔</h2>
+<section>
+  <h2>Mach den Hühnern eine Freude 🐔</h2>
   <p>Die Snack-Kiste hängt direkt am Hühnerzaun. Wer den Hühnern etwas Gutes tun möchte, kann dort frisches Gemüse oder Grün hineinlegen.</p>
+  <h3>Geeignete Snacks:</h3>
+  <ul>
+    <li>🥒 Gurke</li>
+    <li>🥕 Karotte</li>
+    <li>🥬 Verschiedene Salate</li>
+    <li>🍓 Beeren</li>
+    <li>🌿 Frisches Grün (z. B. Löwenzahn, Rucola, Feldsalat, Spinat)</li>
+    <li>🌱 Frische Kräuter (z. B. Petersilie, Koriander, Basilikum)</li>
+  </ul>
+  <h3>Nicht geeignet:</h3>
+  <ul>
+    <li>❌ Zitrusfrüchte</li>
+    <li>❌ Avocado</li>
+    <li>❌ rohe Kartoffeln</li>
+    <li>❌ Zwiebeln</li>
+    <li>❌ Süßigkeiten & Gewürze</li>
+    <li>❌ Knoblauch</li>
+    <li>❌ Schokolade</li>
+  </ul>
+  <p>Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen!</p>
 </section>
 
-<section class="card" aria-labelledby="snack-liste">
-  <div style="display:flex; gap:18px; flex-wrap:wrap; margin-top:12px;">
-    <div style="flex:1; min-width:220px;">
-      <h3 style="color:var(--brand); margin:6px 0;">✔️ Geeignete Snacks</h3>
-      <ul>
-        <li>🥒 Gurke</li>
-        <li>🥕 Karotte</li>
-        <li>🥬 Verschiedene Salate</li>
-        <li>🍓 Beeren</li>
-        <li>🌿 Frisches Grün (z. B. Löwenzahn, Rucola, Feldsalat, Spinat)</li>
-        <li>🌱 Frische Kräuter (z. B. Petersilie, Koriander, Basilikum)</li>
-      </ul>
-    </div>
-    <div style="flex:1; min-width:220px;">
-      <h3 style="color:#b33; margin:6px 0;">❌ Nicht geeignet</h3>
-      <ul>
-        <li>❌ Zitrusfrüchte</li>
-        <li>❌ Avocado</li>
-        <li>❌ rohe Kartoffeln</li>
-        <li>❌ Zwiebeln</li>
-        <li>❌ Süßigkeiten &amp; Gewürze</li>
-        <li>❌ Knoblauch</li>
-        <li>❌ Schokolade</li>
-      </ul>
-    </div>
+<section>
+  <h2>Unsere Hühner</h2>
+  <div class="huhn">
+    <strong>Wella:</strong> Eine ruhige, kuschelbedürftige Japanische Seidenhuhn-Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant – nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.
   </div>
-  <p style="margin-top:12px; font-weight:700;"><span style="color:#b33;">Wichtig:</span> Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen!</p>
-</section>
-
-<section id="huehner" style="text-align:center; padding:2rem 0; background:var(--bg);">
-  <h2 style="font-size:2rem; margin-bottom:1.5rem; color:var(--ink);">Unsere Hühner</h2>
-  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:25px; max-width:1000px; margin:0 auto;">
-    <div style="background:#ffffff; border-radius:20px; padding:20px; box-shadow:var(--shadow);">
-      <img src="huhn1.jpg" alt="Wella" style="width:100%; border-radius:15px;">
-      <h3 style="margin-top:12px; font-size:1.4rem; color:var(--ink);">Wella</h3>
-      <p style="font-size:1rem; line-height:1.5; color:var(--ink-muted);">
-        Eine ruhige, kuschelbedürftige Japanische Seidenhuhn-Henne mit sanfter und liebevoller Persönlichkeit. 
-        Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. 
-        Für mich ist sie ein wahrer Diamant – nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.
-      </p>
-    </div>
-
-    <div style="background:#ffffff; border-radius:20px; padding:20px; box-shadow:var(--shadow);">
-      <img src="huhn2.jpg" alt="Wilma" style="width:100%; border-radius:15px;">
-      <h3 style="margin-top:12px; font-size:1.4rem; color:var(--ink);">Wilma</h3>
-      <p style="font-size:1rem; line-height:1.5; color:var(--ink-muted);">
-        Eine selbstbewusste Zwerg-Wyandotten-Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.
-      </p>
-    </div>
-
-    <div style="background:#ffffff; border-radius:20px; padding:20px; box-shadow:var(--shadow);">
-      <img src="huhn3.jpg" alt="Lupni" style="width:100%; border-radius:15px;">
-      <h3 style="margin-top:12px; font-size:1.4rem; color:var(--ink);">Lupni</h3>
-      <p style="font-size:1rem; line-height:1.5; color:var(--ink-muted);">
-        Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.
-      </p>
-    </div>
+  <div class="huhn">
+    <strong>Wilma:</strong> Eine selbstbewusste Zwerg-Wyandotten-Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.
+  </div>
+  <div class="huhn">
+    <strong>Lupni:</strong> Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.
   </div>
 </section>
-
-<section class="card" aria-labelledby="bestellen-title">
-  <h2 id="bestellen-title" style="margin-top:0; text-align:center">Frische Eier anfragen</h2>
-  <p style="text-align:center;">Wenn frische Eier verfügbar sind, könnt ihr eine Anfrage für <strong>6 Eier (5 €)</strong> stellen. Nutzt dafür WhatsApp oder E-Mail.</p>
-  <p style="text-align:center;">Die Eier gibt es, damit Familien und Kinder den besonderen, frischen Geschmack unserer Hühner kennenlernen können.</p>
-  <div class="btn-row" role="group" aria-label="Bestelloptionen" style="margin-top:18px;">
-    <a class="wa-btn" id="wa-bestellen">Über WhatsApp anfragen</a>
-    <a class="mail-btn" id="mail-bestellen">Per E-Mail anfragen</a>
-  </div>
+  <section>
+  <h2>Warum wir dir Eier weitergeben</h2>
+  <p>Die Eier gibt es, damit Familien und Kinder den besonderen, frischen Geschmack unserer Hühnereier kennenlernen können.</p>
 </section>
-  <footer class="footer">
-  &copy; 2025 Zwerg Hühner
+
+<section>
+  <h2>Frische Hühnereier anfragen</h2>
+  <p>Wenn ihr eine Anfrage stellen möchtet, nutzt dafür WhatsApp oder E-Mail. Erst beim Absenden der Anfrage bekommt ihr Informationen zu Menge und Preis.</p>
+  <a href="https://wa.me/DEINE_NUMMER_HIER?text=Hallo,%20ich%20möchte%20gerne%20frische%20Hühnereier%20anfragen." class="button">WhatsApp</a>
+  <a href="mailto:deine@emailadresse.de?subject=Frische%20Hühnereier%20anfragen" class="button">E-Mail</a>
+</section>
+
+<section>
+  <h2>Ideen für unseren Hühnerfreiraum</h2>
+  <p>Wenn du Vorschläge hast, wie der Hühnerfreilauf gestaltet oder bepflanzt werden kann, melde dich gerne bei uns. Wir freuen uns auf Ideen!</p>
+  <a href="https://wa.me/DEINE_NUMMER_HIER?text=Hallo,%20ich%20habe%20eine%20Idee%20für%20den%20Hühnerfreilauf." class="button">Ideen senden via WhatsApp</a>
+</section>
+  <section>
+  <h2>Unsere Hühner freuen sich über Besuch</h2>
+  <p style="text-align:center;">Schau gerne vorbei</p>
+</section>
+
+<section>
+  <p>Wir freuen uns, wenn ihr unsere Hühner besucht und die Zeit mit ihnen genießt.</p>
+</section>
+
+<footer style="text-align:center; margin-top:20px;">
+  <p>© 2025 Kleine Eier, großes Lächeln</p>
 </footer>
-
-<script>
-  const waBtn = document.getElementById('wa-bestellen');
-  const mailBtn = document.getElementById('mail-bestellen');
-
-  function getOrderText() {
-    return encodeURIComponent(
-      "Hallo, ich interessiere mich für 6 extra frische Zwerghuhn-Eier. Könnt ihr mir bitte die nächste Abholmöglichkeit nennen? Vielen Dank und liebe Grüße!"
-    );
-  }
-
-  waBtn.addEventListener('click', () => {
-    const url = `https://wa.me/491638306166?text=${getOrderText()}`;
-    window.open(url, '_blank');
-  });
-
-  mailBtn.addEventListener('click', () => {
-    const url = `mailto:info@deine-e-mail.de?subject=Anfrage extra frische Zwerghuhn-Eier&body=${getOrderText()}`;
-    window.open(url, '_blank');
-  });
-</script>
-
-</body>
-</html>
