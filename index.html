@@ -4,6 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kleine Eier, großes Lächeln</title>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7560QNW1QH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7560QNW1QH');
+  </script>
+  
   <style>
     :root{
       --bg:#fffdf5;
@@ -109,35 +119,35 @@
       <h2 id="freilauf-idee">Unsere Hühner im Freilauf</h2>
       <p>Die Hühner können frei scharren, picken und die Natur genießen – so sehen wir, wie lebendig und fröhlich sie sind.</p>
       <p>Die Idee: Glückliche Hühner bereichern unseren Alltag. Lasst euch inspirieren und entdeckt ihre Eigenheiten!</p>
+    </section>
 
-      <section class="card" aria-labelledby="ideen-title">
-        <h2 id="ideen-title" style="text-align:center">Ideen & Anregungen für den Hühnerfreilauf</h2>
-        <p style="text-align:center;">Wenn ihr Anregungen zur Gestaltung oder Bepflanzung unseres Hühnerfreilaufs habt, schreibt uns gerne.</p>
-        <div class="btn-row" style="justify-content:center;">
-          <a class="wa-btn" id="wa-ideen">Über WhatsApp senden</a>
-        </div>
-      </section>
-
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:25px; margin-top:20px;">
-        <div style="background:#ffffff; border-radius:20px; padding:15px; box-shadow:var(--shadow); text-align:center;">
-          <img src="huhn1.jpg" alt="Wella" style="width:100%; border-radius:15px;">
-          <h3>Wella</h3>
-          <p>Eine ruhige, kuschelbedürftige Japanische Seidenhuhn-Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant – nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.</p>
-        </div>
-
-        <div style="background:#ffffff; border-radius:20px; padding:15px; box-shadow:var(--shadow); text-align:center;">
-          <img src="huhn2.jpg" alt="Wilma" style="width:100%; border-radius:15px;">
-          <h3>Wilma</h3>
-          <p>Eine selbstbewusste Zwerg-Wyandotten-Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.</p>
-        </div>
-
-        <div style="background:#ffffff; border-radius:20px; padding:15px; box-shadow:0 6px 18px rgba(0,0,0,.08); text-align:center;">
-          <img src="huhn3.jpg" alt="Lupni" style="width:100%; border-radius:15px;">
-          <h3>Lupni</h3>
-          <p>Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
-        </div>
+    <section class="card" aria-labelledby="ideen-title">
+      <h2 id="ideen-title" style="text-align:center">Ideen & Anregungen für den Hühnerfreilauf</h2>
+      <p style="text-align:center;">Wenn ihr Anregungen zur Gestaltung oder Bepflanzung unseres Hühnerfreilaufs habt, schreibt uns gerne.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="wa-btn" id="wa-ideen">Über WhatsApp senden</a>
       </div>
     </section>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:25px; margin-top:20px;">
+      <div style="background:#ffffff; border-radius:20px; padding:15px; box-shadow:var(--shadow); text-align:center;">
+        <img src="huhn1.jpg" alt="Wella" style="width:100%; border-radius:15px;">
+        <h3>Wella</h3>
+        <p>Eine ruhige, kuschelbedürftige Japanische Seidenhuhn-Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant – nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.</p>
+      </div>
+
+      <div style="background:#ffffff; border-radius:20px; padding:15px; box-shadow:var(--shadow); text-align:center;">
+        <img src="huhn2.jpg" alt="Wilma" style="width:100%; border-radius:15px;">
+        <h3>Wilma</h3>
+        <p>Eine selbstbewusste Zwerg-Wyandotten-Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.</p>
+      </div>
+
+      <div style="background:#ffffff; border-radius:20px; padding:15px; box-shadow:0 6px 18px rgba(0,0,0,.08); text-align:center;">
+        <img src="huhn3.jpg" alt="Lupni" style="width:100%; border-radius:15px;">
+        <h3>Lupni</h3>
+        <p>Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
+      </div>
+    </div>
 
     <section class="card" aria-labelledby="anfragen-title">
       <h2 id="anfragen-title" style="margin-top:0; text-align:center">Jetzt Eier bestellen</h2>
@@ -167,23 +177,15 @@
       waBtn.addEventListener('click', () => { 
         window.open(`https://wa.me/491638306166?text=${messageText}`, '_blank'); 
       });
+
       mailBtn.addEventListener('click', () => { 
         window.open(`mailto:MeinZwergHuhn@web.de?subject=Anfrage%20frische%20Eier&body=${messageText}`, '_blank'); 
       });
+
       waIdeen.addEventListener('click', () => { 
         window.open(`https://wa.me/491638306166?text=${ideenMessage}`, '_blank'); 
       });
     </script>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1665R35R6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-H1665R35R6');
-    </script>
-
   </main>
 </body>
 </html>
