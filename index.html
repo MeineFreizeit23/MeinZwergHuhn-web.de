@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -148,7 +147,17 @@
         <li>❌ Knoblauch</li>
         <li>❌ Schokolade</li>
       </ul>
-      <p>Wichtig: Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen!</p>
+      <p><strong>Wichtig:</strong> Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen!</p>
+
+      <!-- Neuer Hinweistext Variante 4 -->
+      <p style="font-weight:600; margin-top:1rem; text-align:center;">
+        Leg ein paar Leckerlis in die Kiste und hol dir 6 frische Eier 🥚
+      </p>
+
+      <!-- Neuer WhatsApp Button -->
+      <div class="btn-row" style="justify-content:center; margin-top:8px;">
+        <a class="wa-btn" id="wa-tausch">Snacks gegen Eier tauschen</a>
+      </div>
     </section>
 
     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:25px; margin-top:20px;">
@@ -191,9 +200,18 @@
       const waBtn = document.getElementById('wa-anfragen');
       const mailBtn = document.getElementById('mail-anfragen');
       const waIdeen = document.getElementById('wa-ideen');
+      const waTausch = document.getElementById('wa-tausch');
 
-      const messageText = encodeURIComponent("Hallo, ich möchte 6 frische Eier bestellen. Vielen Dank!");
+      // Einheitlicher Bestelltext
+      const messageText = encodeURIComponent(
+        "Hallo, ich möchte gerne die extra frischen Eier bestellen. 6 Stück für 5 €. Bitte teile mir mit, wann ich die Bestellung abholen kann. Vielen Dank!"
+      );
+
+      // Ideen
       const ideenMessage = encodeURIComponent("Hallo, ich habe Ideen oder Anregungen zum Hühnerfreilauf.");
+
+      // Tausch
+      const tauschMessage = encodeURIComponent("Hallo, ich habe Snacks in die Kiste gelegt und möchte diese gerne gegen 6 frische Eier tauschen. Ich habe hineingelegt: ...");
 
       waBtn.addEventListener('click', () => { 
         window.open(`https://wa.me/491638306166?text=${messageText}`, '_blank'); 
@@ -205,6 +223,10 @@
 
       waIdeen.addEventListener('click', () => { 
         window.open(`https://wa.me/491638306166?text=${ideenMessage}`, '_blank'); 
+      });
+
+      waTausch.addEventListener('click', () => { 
+        window.open(`https://wa.me/491638306166?text=${tauschMessage}`, '_blank'); 
       });
     </script>
   </main>
