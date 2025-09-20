@@ -136,25 +136,13 @@
       <p>Die Idee: Glückliche Hühner bereichern unseren Alltag. Lasst euch inspirieren und entdeckt ihre Eigenheiten!</p>
     </section>
 
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:25px; margin-top:20px;">
-      <div style="background:#ffffff; border-radius:20px; padding:15px; box-shadow:var(--shadow); text-align:center;">
-        <img src="huhn1.jpg" alt="Wella" style="width:100%; border-radius:15px;">
-        <h3>Wella</h3>
-        <p>Eine ruhige, kuschelbedürftige Japanische Seidenhuhn-Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant – nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.</p>
+    <section class="card" aria-labelledby="ideen-title">
+      <h2 id="ideen-title" style="text-align:center">Ideen & Anregungen für den Hühnerfreilauf</h2>
+      <p style="text-align:center;">Wenn ihr Anregungen zur Gestaltung oder Bepflanzung unseres Hühnerfreilaufs habt, schreibt uns gerne.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="wa-btn" id="wa-ideen">Über WhatsApp senden</a>
       </div>
-
-      <div style="background:#ffffff; border-radius:20px; padding:15px; box-shadow:var(--shadow); text-align:center;">
-        <img src="huhn2.jpg" alt="Wilma" style="width:100%; border-radius:15px;">
-        <h3>Wilma</h3>
-        <p>Eine selbstbewusste Zwerg-Wyandotten-Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.</p>
-      </div>
-
-      <div style="background:#ffffff; border-radius:20px; padding:15px; box-shadow:0 6px 18px rgba(0,0,0,.08); text-align:center;">
-        <img src="huhn3.jpg" alt="Lupni" style="width:100%; border-radius:15px;">
-        <h3>Lupni</h3>
-        <p>Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
-      </div>
-    </div>
+    </section>
     <section class="card" aria-labelledby="futterliste-title">
   <h2 id="futterliste-title">Futter & Snacks für unsere Hühner</h2>
   <p>Die Snack-Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
@@ -235,11 +223,13 @@
 <script>
 const waBtn = document.getElementById('wa-anfragen');
 const mailBtn = document.getElementById('mail-anfragen');
+const waIdeen = document.getElementById('wa-ideen');
 const waTausch = document.getElementById('wa-tausch');
 
 const messageText = encodeURIComponent(
   "Hallo, ich möchte gerne die extra frischen Eier bestellen. 6 Stück für 5 €. Bitte teile mir mit, wann ich die Bestellung abholen kann. Vielen Dank!"
 );
+const ideenMessage = encodeURIComponent("Hallo, ich habe Ideen oder Anregungen zum Hühnerfreilauf.");
 const tauschMessage = encodeURIComponent(
   "Hallo, ich habe Snacks in die Kiste gelegt und möchte diese gerne gegen 6 frische Eier tauschen. Ich habe hineingelegt: ..."
 );
@@ -250,22 +240,31 @@ waBtn.addEventListener('click', () => {
 mailBtn.addEventListener('click', () => { 
   window.open(`mailto:MeinZwergHuhn@web.de?subject=Anfrage%20frische%20Eier&body=${messageText}`, '_blank'); 
 });
+waIdeen.addEventListener('click', () => { 
+  window.open(`https://wa.me/491638306166?text=${ideenMessage}`, '_blank'); 
+});
 waTausch.addEventListener('click', () => { 
   window.open(`https://wa.me/491638306166?text=${tauschMessage}`, '_blank'); 
 });
 
-// Feedback Button
+// Feedback Button persistent mit localStorage
 const likeBtn = document.getElementById('like-btn');
 const likeMsg = document.getElementById('like-msg');
 const likeCountBox = document.getElementById('like-count-box');
-let count = 0;
+
+// Lade gespeicherten Wert
+let count = parseInt(localStorage.getItem('likeCount')) || 0;
+likeCountBox.textContent = count;
 
 likeBtn.addEventListener('click', () => {
   count++;
   likeCountBox.textContent = count;
+  localStorage.setItem('likeCount', count);
+
   likeBtn.style.transform = "scale(1.1)";
   likeBtn.style.background = "#28a745";
   likeMsg.style.display = "block";
+
   setTimeout(() => {
     likeBtn.style.transform = "scale(1)";
     likeBtn.style.background = "#e07b00";
@@ -273,3 +272,6 @@ likeBtn.addEventListener('click', () => {
   }, 2000);
 });
 </script>
+</main>
+</body>
+</html>
