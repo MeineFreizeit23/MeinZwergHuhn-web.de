@@ -1,5 +1,5 @@
-('click', () => {
-    <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
@@ -258,23 +258,6 @@
 
       likeBtn.addEventListener('click', () => {
         count++;
-        likeCountBox.textContent = count;
-        localStorage.setItem('likeCount', count);
-
-        likeBtn.style.transform = "scale(1.1)";
-        likeBtn.style.background = "#28a745";
-        likeMsg.style.display = "block";
-
-        setTimeout(() => {
-          likeBtn.style.transform = "scale(1)";
-          likeBtn.style.background = "#e07b00";
-          likeMsg.style.display = "none";
-        }, 2000);
-      });
-    </script>
-  </main>
-</body>
-</html>    count++;
         likeCountBox.textContent = count;
         localStorage.setItem('likeCount', count);
 
