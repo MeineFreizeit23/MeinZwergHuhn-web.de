@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -103,10 +104,25 @@
     }
     .footer{ margin-top:28px; color:#666; font-size:.92rem; text-align:center; }
     h2{ color:var(--brand); margin-top:0; }
+    .qr-welcome-inline {
+      color: #e07b00;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    @media (max-width:600px){
+      .qr-welcome-inline { font-size: 0.95rem; }
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
+
+    <!-- Fließender Hinweistext -->
+    <div class="qr-welcome-inline">Neugierig geworden? Dann schau dich hier in Ruhe um.</div>
+
     <header>
       <h1>Kleine Eier<br>großes Lächeln</h1>
       <p class="subtitle">Liebe Nachbarn, Besucher und Freunde, schön, dass ihr da seid!</p>
@@ -149,12 +165,10 @@
       </ul>
       <p><strong>Wichtig:</strong> Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen!</p>
 
-      <!-- Neuer Hinweistext Variante 4 -->
       <p style="font-weight:600; margin-top:1rem; text-align:center;">
         Leg ein paar Leckerlis in die Kiste und hol dir 6 frische Eier 🥚
       </p>
 
-      <!-- Neuer WhatsApp Button -->
       <div class="btn-row" style="justify-content:center; margin-top:8px;">
         <a class="wa-btn" id="wa-tausch">Snacks gegen Eier tauschen</a>
       </div>
@@ -188,12 +202,43 @@
       </div>
     </section>
 
+    <!-- Feedback-Bereich mit Kästchen unter Button -->
+    <section class="card" aria-labelledby="feedback-title" style="border:none; box-shadow:none; padding:20px 0;">
+      <h2 id="feedback-title" style="text-align:center; border:none; margin-bottom:0;">Wenn dir unsere Hühner und Ideen gefallen haben – sag’s uns!</h2>
+      <div style="text-align:center; margin-top:12px;">
+        <button id="like-btn" style="
+          background:#e07b00;
+          color:#fff;
+          font-weight:600;
+          border:none;
+          padding:10px 20px;
+          border-radius:12px;
+          cursor:pointer;
+          box-shadow:0 4px 12px rgba(0,0,0,0.1);
+          transition:transform 0.1s ease, background 0.2s ease;
+        ">👍 Gefällt mir</button>
+
+        <div id="like-count-box" style="
+          display:block;
+          margin:8px auto 0 auto;
+          padding:4px 8px;
+          background:#f0f0f0;
+          color:#333;
+          font-size:0.8rem;
+          border-radius:8px;
+          width:50px;
+          text-align:center;
+        ">0</div>
+
+        <p id="like-msg" style="margin-top:6px; font-size:0.95rem; color:green; display:none;">Danke für dein Feedback! 😊</p>
+      </div>
+    </section>
+
     <footer class="footer">
       <p style="text-align:center; font-weight:700; line-height:1.5;">
         Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt-Eiern zu vergleichen. Probier selbst!<br><br>
         Vielen Dank für deinen Besuch
       </p>
-      <p style="text-align:center; font-size:0.75rem;">&copy; 2025 Kleine Eier, großes Lächeln</p>
     </footer>
 
     <script>
@@ -202,15 +247,11 @@
       const waIdeen = document.getElementById('wa-ideen');
       const waTausch = document.getElementById('wa-tausch');
 
-      // Einheitlicher Bestelltext
       const messageText = encodeURIComponent(
         "Hallo, ich möchte gerne die extra frischen Eier bestellen. 6 Stück für 5 €. Bitte teile mir mit, wann ich die Bestellung abholen kann. Vielen Dank!"
       );
 
-      // Ideen
       const ideenMessage = encodeURIComponent("Hallo, ich habe Ideen oder Anregungen zum Hühnerfreilauf.");
-
-      // Tausch
       const tauschMessage = encodeURIComponent("Hallo, ich habe Snacks in die Kiste gelegt und möchte diese gerne gegen 6 frische Eier tauschen. Ich habe hineingelegt: ...");
 
       waBtn.addEventListener('click', () => { 
@@ -227,6 +268,25 @@
 
       waTausch.addEventListener('click', () => { 
         window.open(`https://wa.me/491638306166?text=${tauschMessage}`, '_blank'); 
+      });
+
+      // Feedback Button
+      const likeBtn = document.getElementById('like-btn');
+      const likeMsg = document.getElementById('like-msg');
+      const likeCountBox = document.getElementById('like-count-box');
+      let count = 0;
+
+      likeBtn.addEventListener('click', () => {
+        count++;
+        likeCountBox.textContent = count;
+        likeBtn.style.transform = "scale(1.1)";
+        likeBtn.style.background = "#28a745";
+        likeMsg.style.display = "block";
+        setTimeout(() => {
+          likeBtn.style.transform = "scale(1)";
+          likeBtn.style.background = "#e07b00";
+          likeMsg.style.display = "none";
+        }, 2000);
       });
     </script>
   </main>
