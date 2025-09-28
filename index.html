@@ -222,23 +222,23 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
     <!-- Frage 1 -->
     <div class="question">
       <h3>Frage 1: Wie schnüffelst du nach neuen Düften in der Natur? 🌸</h3>
-      <label class="answer-option"><input type="radio" name="q1" value="A"><span class="option-text">A: Kuschelig mit 'ner Freundin schnuppern und teilen – der Duft wird zu 'nem gemeinsamen Geheimnis! 💕</span></label>
-      <label class="answer-option"><input type="radio" name="q1" value="B"><span class="option-text">B: Ruhig und aufmerksam prüfen – bis der Geruch 'ne Geschichte erzählt und du's verstehst! 🔍</span></label>
-      <label class="answer-option"><input type="radio" name="q1" value="C"><span class="option-text">C: Frech und neugierig hinterherjagen – je intensiver, desto wilder die Jagd! 🌪️</span></label>
+      <label class="answer-option"><input type="radio" name="q1" value="A"><span class="option-text">A: Mit einer Freundin kichernd schnuppern – der Duft wird sofort geteilt! 💕</span></label>
+      <label class="answer-option"><input type="radio" name="q1" value="B"><span class="option-text">B: Geduldig prüfen, bis sich dahinter eine kleine Geschichte offenbart. 🔍</span></label>
+      <label class="answer-option"><input type="radio" name="q1" value="C"><span class="option-text">C: Neugierig losstürmen – je intensiver, desto spannender! 🌪️</span></label>
     </div>
     <!-- Frage 2 -->
     <div class="question">
       <h3>Frage 2: Wie flattern deine Flügel bei 'nem plötzlichen Windstoß? 🦋</h3>
-      <label class="answer-option"><input type="radio" name="q2" value="A"><span class="option-text">A: Sanft und eng mit Freunden gleiten – das Fliegen wird zu 'nem gemeinsamen Abenteuer! 🥰</span></label>
-      <label class="answer-option"><input type="radio" name="q2" value="B"><span class="option-text">B: Ruhig die Böe beobachten und steuern – präzise und mit klarem Kurs durch die Luft! 🕊️</span></label>
-      <label class="answer-option"><input type="radio" name="q2" value="C"><span class="option-text">C: Frech hochjagen und wirbeln – lass den Wind toben, ich mach die Show! 🎉</span></label>
+      <label class="answer-option"><input type="radio" name="q2" value="A"><span class="option-text">A: Gemeinsam getragen gleiten – das Abenteuer in der Luft zählt! 🥰</span></label>
+      <label class="answer-option"><input type="radio" name="q2" value="B"><span class="option-text">B: Konzentriert steuern, jede Böe genau im Griff. 🕊️</span></label>
+      <label class="answer-option"><input type="radio" name="q2" value="C"><span class="option-text">C: Wild hochwirbeln und den Wind zu deiner Bühne machen! 🎉</span></label>
     </div>
     <!-- Frage 3 -->
     <div class="question">
       <h3>Frage 3: Wie bereitest du dich auf 'ne gemütliche Nacht im Nest vor? 🌙</h3>
-      <label class="answer-option"><input type="radio" name="q3" value="A"><span class="option-text">A: Weich kuscheln und gurren – mit der Truppe, für süße Träume! 😴</span></label>
-      <label class="answer-option"><input type="radio" name="q3" value="B"><span class="option-text">B: Ruhig den Tag reflektieren und einrichten – alles perfekt sortiert! 🕊️</span></label>
-      <label class="answer-option"><input type="radio" name="q3" value="C"><span class="option-text">C: Frech nochmal flattern und schnüffeln – bis der Schlaf lachend kommt! 😜</span></label>
+      <label class="answer-option"><input type="radio" name="q3" value="A"><span class="option-text">A: Gemütlich kuscheln und dicht aneinanderdrücken – süße Träume garantiert. 😴</span></label>
+      <label class="answer-option"><input type="radio" name="q3" value="B"><span class="option-text">B: Alles ordentlich herrichten und im Kopf den Tag abschließen. 🕊️</span></label>
+      <label class="answer-option"><input type="radio" name="q3" value="C"><span class="option-text">C: Noch einmal herumtollen, bevor der Schlaf dich kichernd packt. 😜</span></label>
     </div>
 
     <div class="btn-row" style="justify-content: center; margin-top: 20px;">
@@ -264,16 +264,41 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
     let answers = { q1: null, q2: null, q3: null };
 
     const textParts = {
-      q1: { A:'kuschelig mit \'ner Freundin schnuppern und teilen – der Duft wird zu \'nem gemeinsamen Geheimnis!', B:'ruhig und aufmerksam prüfen – bis der Geruch \'ne Geschichte erzählt und du\'s verstehst!', C:'frech und neugierig hinterherjagen – je intensiver, desto wilder die Jagd!' },
-      q2: { A:'sanft und eng mit Freunden gleiten – das Fliegen wird zu \'nem gemeinsamen Abenteuer!', B:'ruhig die Böe beobachten und steuern – präzise und mit klarem Kurs durch die Luft!', C:'frech hochjagen und wirbeln – lass den Wind toben, ich mach die Show!' },
-      q3: { A:'weich kuscheln und gurren – mit der Truppe, für süße Träume!', B:'ruhig den Tag reflektieren und einrichten – alles perfekt sortiert!', C:'frech nochmal flattern und schnüffeln – bis der Schlaf lachend kommt!' },
-      twists: { A:'das macht\'s weich und herzlich', B:'das bringt smarte Tiefe rein', C:'das kickt mit wildem Schwung' },
-      huens: { A:'Wella – die Kuschel-Queen! 🐥', B:'Wilma – die Zen-Weise! 🦊', C:'Lupni – die Frechdachs! ⚡' },
-      mixes: { '2A':'Kuschel-Power dominiert, mit \'nem Hauch von...', '2B':'Ruhiger Plan rockt, gewürzt mit...', '2C':'Frecher Schwung führt, plus...', 'mix':'ein wilder Hühner-Mix – unschlagbar!' }
+      q1: {
+        A: "Mit einer Freundin kichernd schnuppern – der Duft wird sofort geteilt!",
+        B: "Geduldig prüfen, bis sich dahinter eine kleine Geschichte offenbart.",
+        C: "Neugierig losstürmen – je intensiver, desto spannender!"
+      },
+      q2: {
+        A: "Gemeinsam getragen gleiten – das Abenteuer in der Luft zählt!",
+        B: "Konzentriert steuern, jede Böe genau im Griff.",
+        C: "Wild hochwirbeln und den Wind zu deiner Bühne machen!"
+      },
+      q3: {
+        A: "Gemütlich kuscheln und dicht aneinanderdrücken – süße Träume garantiert.",
+        B: "Alles ordentlich herrichten und im Kopf den Tag abschließen.",
+        C: "Noch einmal herumtollen, bevor der Schlaf dich kichernd packt."
+      },
+      twists: {
+        A: "das macht's warmherzig und verbindend",
+        B: "das bringt ruhige Klarheit und Tiefe",
+        C: "das sorgt für Schwung, Mut und Überraschung"
+      },
+      huens: {
+        A: "Wella – die Kuschel-Queen! 🐥",
+        B: "Wilma – die Zen-Weise! 🦊",
+        C: "Lupni – die Frechdachs! ⚡"
+      },
+      mixes: {
+        '2A': "Kuschel-Power dominiert, mit 'nem Hauch von...",
+        '2B': "Ruhiger Plan rockt, gewürzt mit...",
+        '2C': "Frecher Schwung führt, plus...",
+        'mix': "ein wilder Hühner-Mix – unschlagbar!"
+      }
     };
 
     form.addEventListener('change', (e) => {
-      if (e.target.name.startsWith('q')) {
+      if (e.target.name && e.target.name.startsWith('q')) {
         answers[e.target.name] = e.target.value;
         const allAnswered = Object.values(answers).every(val => val !== null);
         submitBtn.disabled = !allAnswered;
