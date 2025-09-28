@@ -113,25 +113,12 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
 
 .huhn-card img { width: 100%; border-radius: 15px; }
 
-.gluecksmomente-title { text-align: center; position: relative; }
-.gluecksmomente-eggs { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; pointer-events: none; z-index: 0; }
-.gluecksmomente-eggs .egg {
-  width: 12px; height: 18px; background: radial-gradient(ellipse 60% 80% at 50% 20%, #f5e97c 0%, #e67e22 70%);
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  animation: egg-bounce 3s ease-in-out infinite;
-}
-.gluecksmomente-eggs .egg:nth-child(2) { animation-delay: 1s; }
-.gluecksmomente-eggs .egg:nth-child(3) { animation-delay: 2s; }
-@keyframes egg-bounce { 0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-4px) scale(1.1);} }
-
-.gluecksmomente-title span.main { display: block; font-size: clamp(2.8rem,6vw,3.2rem); font-weight:900; color:#FF7F50; font-family:'Comic Sans MS', cursive; animation: glow-pulse 3s ease-in-out infinite; text-shadow: 0 0 8px rgba(255,127,80,0.3); margin-bottom: 4px; }
-.gluecksmomente-title span.sub { display: block; font-size: clamp(0.95rem,2.5vw,1rem); color: var(--brand); margin-top: 0; font-weight: 500; opacity: 0.9; }
-@keyframes glow-pulse {0%,100%{opacity:1; text-shadow:0 0 8px rgba(255,127,80,0.3),0 0 16px rgba(255,127,80,0.1); transform:scale(1);}50%{opacity:0.95; text-shadow:0 0 16px rgba(255,127,80,0.6),0 0 24px rgba(255,127,80,0.2); transform:scale(1.02);} }
-
 .like-section { text-align:center; margin-top:12px; }
 #like-btn { background:#e07b00; color:#fff; font-weight:600; border:none; padding:6px 16px; font-size:.9rem; border-radius:10px; cursor:pointer; box-shadow:0 3px 10px rgba(0,0,0,0.08); transition: transform .1s ease, background .2s ease; }
 #like-count-box { display:block; margin:6px auto 0 auto; padding:3px 6px; background:#f0f0f0; color:#333; font-size:.75rem; border-radius:6px; width:40px; text-align:center; }
 #like-msg { margin-top:5px; font-size:.9rem; color:green; display:none; }
+
+.center { text-align: center; }
 
 @media (max-width:600px){.btn-row{flex-direction:column;gap:10px;}.wa-btn,.mail-btn{width:100%;justify-content:center;font-size:0.9rem;padding:10px 16px;}}
 </style>
@@ -139,7 +126,6 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
 <body>
 <main class="wrap">
 
-<!-- =================== BLOCK 1: ALLES VOR DEM QUIZ =================== -->
 <header>
   <div class="header-content">
     <h1>Kleine Eier<br>großes Lächeln</h1>
@@ -185,23 +171,23 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
 </section>
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:20px;">
-  <div class="huhn-card">
+  <div class="huhn-card" id="wella-card">
     <img src="huhn1.jpg" alt="Wella" loading="lazy">
     <h3>Wella</h3>
     <p>Eine ruhige, kuschelbedürftige Japanische Seidenhuhn-Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant – nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.</p>
   </div>
-  <div class="huhn-card">
+  <div class="huhn-card" id="wilma-card">
     <img src="huhn2.jpg" alt="Wilma" loading="lazy">
     <h3>Wilma</h3>
     <p>Eine selbstbewusste Zwerg-Wyandotten-Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.</p>
   </div>
-  <div class="huhn-card">
+  <div class="huhn-card" id="lupni-card">
     <img src="huhn3.jpg" alt="Lupni" loading="lazy">
     <h3>Lupni</h3>
     <p>Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
   </div>
 </div>
-  <!-- =================== BLOCK 2: QUIZ =================== -->
+
 <section class="card" id="quiz-section">
   <style>
     .question { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
@@ -212,28 +198,26 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
     #submit-quiz:disabled { opacity: 0.6; cursor: not-allowed; }
     .result-popup { border: 2px dashed var(--brand); }
     @keyframes pop-in { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+    @keyframes egg-bounce { 0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-4px) scale(1.1);} }
     @media (max-width: 600px) { .question { padding: 12px; } .answer-option { font-size: 0.95rem; } }
   </style>
 
   <h2 class="center">Quiz: Welches Huhn passt zu dir? 🐔</h2>
-  <p class="center">Klick dich durch – und entdecke dein Hühner-Ich! (Nur eine Antwort pro Frage.)</p>
+  <p class="center">Klick dich durch – und entdecke dein Hühner-Ich!</p>
 
   <form id="quiz-form">
-    <!-- Frage 1 -->
     <div class="question">
       <h3>Frage 1: Wie schnüffelst du nach neuen Düften in der Natur? 🌸</h3>
       <label class="answer-option"><input type="radio" name="q1" value="A"><span class="option-text">A: Mit einer Freundin kichernd schnuppern – der Duft wird sofort geteilt! 💕</span></label>
       <label class="answer-option"><input type="radio" name="q1" value="B"><span class="option-text">B: Geduldig prüfen, bis sich dahinter eine kleine Geschichte offenbart. 🔍</span></label>
       <label class="answer-option"><input type="radio" name="q1" value="C"><span class="option-text">C: Neugierig losstürmen – je intensiver, desto spannender! 🌪️</span></label>
     </div>
-    <!-- Frage 2 -->
     <div class="question">
       <h3>Frage 2: Wie flattern deine Flügel bei 'nem plötzlichen Windstoß? 🦋</h3>
       <label class="answer-option"><input type="radio" name="q2" value="A"><span class="option-text">A: Gemeinsam getragen gleiten – das Abenteuer in der Luft zählt! 🥰</span></label>
       <label class="answer-option"><input type="radio" name="q2" value="B"><span class="option-text">B: Konzentriert steuern, jede Böe genau im Griff. 🕊️</span></label>
       <label class="answer-option"><input type="radio" name="q2" value="C"><span class="option-text">C: Wild hochwirbeln und den Wind zu deiner Bühne machen! 🎉</span></label>
     </div>
-    <!-- Frage 3 -->
     <div class="question">
       <h3>Frage 3: Wie bereitest du dich auf 'ne gemütliche Nacht im Nest vor? 🌙</h3>
       <label class="answer-option"><input type="radio" name="q3" value="A"><span class="option-text">A: Gemütlich kuscheln und dicht aneinanderdrücken – süße Träume garantiert. 😴</span></label>
@@ -246,7 +230,6 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
     </div>
   </form>
 
-  <!-- Ergebnis-Bereich -->
   <div id="quiz-result" class="result-popup" style="display: none; text-align: center; margin-top: 20px; padding: 20px; background: var(--accent); border-radius: var(--radius); animation: pop-in 0.5s ease;">
     <h3 id="result-title"></h3>
     <p id="result-text"></p>
@@ -286,14 +269,18 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
       },
       huens: {
         A: "Wella – die Kuschel-Queen! 🐥",
-        B: "Wilma – die Zen-Weise! 🦊",
+        B: "Wilma – sanft & clever! 🕊️",
         C: "Lupni – die Frechdachs! ⚡"
       },
-      mixes: {
-        '2A': "Kuschel-Power dominiert, mit 'nem Hauch von...",
-        '2B': "Ruhiger Plan rockt, gewürzt mit...",
-        '2C': "Frecher Schwung führt, plus...",
-        'mix': "ein wilder Hühner-Mix – unschlagbar!"
+      huenNames: {
+        A: "Wella",
+        B: "Wilma",
+        C: "Lupni"
+      },
+      twistPhrases: {
+        A: "Deine A-Wahlen machen dich zur Kuschel-Queen Wella, und der {other}-Twist bringt 'n warmes Kichern rein – du kuschelst und lachst dann los! Die beste Hühner-Freundin! 🌟",
+        B: "Deine B-Wahlen machen dich zu Wilma, der Sanft-Clever-Henne, und der {other}-Twist bringt 'n lustiges Hoppeln rein – du planst klug und kicherst dann los! Die beste Hühner-Freundin! 🌟",
+        C: "Deine C-Wahlen machen dich zur frechen Lupni, und der {other}-Twist bringt 'n wildes Wirbeln rein – du stürmst vor und tanzt dann! Die beste Hühner-Freundin! 🌟"
       }
     };
 
@@ -322,18 +309,21 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
 
       let title,text,linkHref;
       if(maxCount===3){
-        title=`Perfekter Match: ${textParts.huens[winner]}`;
-        text=`${fazitParts.join(' ')} Fazit: Du bist ${textParts.huens[winner].toLowerCase()} – dein Stil lebt von dieser ${winner==='A'?'warmen':winner==='B'?'tiefen':'wilden'} Energie! 🥚`;
-        linkHref=`#${winner==='A'?'wella':winner==='B'?'wilma':'lupni'}-card`;
+        title = textParts.huens[winner];
+        const name = textParts.huenNames[winner];
+        text = `${fazitParts.join(' Und ')} Fazit: Alle deine ${winner}-Wahlen passen zu ${name} – du bist die sanfte, clevere Henne, die alles beobachtet und lächelt! Wie 'n weiches Nest voller Geheimnisse. 🕊️💕`;
+        linkHref = `#${winner==='A'?'wella':winner==='B'?'wilma':'lupni'}-card`;
       } else if(maxCount===2){
-        const otherKey=Object.keys(counts).find(k=>k!==winner && counts[k]===1);
-        title=`Starker ${textParts.huens[winner]} mit Twist!`;
-        text=`${fazitParts.join(' ')} Fazit: ${textParts.mixes['2'+winner]} ${otherKey}'s Vibes. Du balancierst wie 'n Traum-Huhn – clever und charmant! 🎉`;
-        linkHref=`#${winner==='A'?'wella':winner==='B'?'wilma':'lupni'}-card`;
+        const otherKey = Object.keys(counts).find(k=>k!==winner && counts[k]===1);
+        const baseName = textParts.huenNames[winner];
+        title = `${baseName} mit kleinem Twist! ${textParts.huens[winner].split(' – ')[1] || ''}`;
+        const twistText = textParts.twistPhrases[winner].replace('{other}', otherKey);
+        text = `${fazitParts.join(', ')} Fazit: ${twistText}`;
+        linkHref = `#${winner==='A'?'wella':winner==='B'?'wilma':'lupni'}-card`;
       } else {
-        title=`Hühner-Mix: Du bist Alleskönner! 🐔🐔🐔`;
-        text=`${fazitParts.join(' ')} Fazit: ${textParts.mixes.mix} – Wella's Herz, Wilma's Plan und Lupni's Feuer in dir. Der ultimative Hof-Rockstar! 🌟`;
-        linkHref='.huhn-card';
+        title = `Hühner-Mix: Du bist Alleskönner! 🐔🐔🐔`;
+        text = `${fazitParts.join(' ')} Fazit: ${textParts.mixes.mix} – Wella's Herz, Wilma's Plan und Lupni's Feuer in dir. Der ultimative Hof-Rockstar! 🌟`;
+        linkHref = '.huhn-card';
       }
 
       resultTitle.textContent=title;
@@ -348,7 +338,6 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
   </script>
 </section>
 
-<!-- =================== BLOCK 3: GEFÄLLT MIR + SCHLUSS =================== -->
 <section class="card like-section">
   <h2>Gefällt dir unser Hühner-Content? 🥚</h2>
   <button id="like-btn">Gefällt mir ❤️</button>
@@ -361,42 +350,26 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
   const likeBtn=document.getElementById('like-btn');
   const likeBox=document.getElementById('like-count-box');
   const likeMsg=document.getElementById('like-msg');
-  let count=0;
+  let count= parseInt(localStorage.getItem('likeCount')) || 0;
+  likeBox.textContent=count;
   likeBtn.addEventListener('click',()=>{
     count++;
     likeBox.textContent=count;
+    localStorage.setItem('likeCount', count);
     likeMsg.style.display='block';
+    setTimeout(() => { likeMsg.style.display = 'none'; }, 2000);
   });
 </script>
 
 <footer class="footer">
-  &copy; 2025 Hühnerfreilauf – Alle Rechte vorbehalten
-</footer>
-</main>
-</body>
-</html>
-  <!-- BLOCK 3: Gefällt mir + Footer -->
-<section class="card no-border" aria-labelledby="feedback-title">
-  <div style="text-align: center; margin-top: 12px;">
-    <button id="like-btn" style="background:#e07b00;color:#fff;font-weight:600;border:none;padding:6px 16px;font-size:.9rem;border-radius:10px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,0.08);transition:transform .1s ease,background .2s ease;">👍 Gefällt mir</button>
-    <div id="like-count-box" style="display:block;margin:6px auto 0 auto;padding:3px 6px;background:#f0f0f0;color:#333;font-size:.75rem;border-radius:6px;width:40px;text-align:center;">0</div>
-    <p id="like-msg" style="margin-top:5px;font-size:.9rem;color:green;display:none;">Danke für dein Feedback! 😊</p>
+  <!-- FIX: Emoji-Row über dem Text hinzugefügt -->
+  <div style="text-align: center; margin-bottom: 10px;">
+    <span style="font-size: 2rem;">☘️💯☘️</span>
   </div>
-</section>
-
-<footer class="footer">
   <p style="text-align: center; font-weight: 700; line-height: 1.5;">Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt-Eiern zu vergleichen. Probier selbst!<br><br>Vielen Dank für deinen Besuch</p>
   <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier, großes Lächeln</p>
 </footer>
 
-<script>
-const likeBtn = document.getElementById('like-btn'), likeMsg = document.getElementById('like-msg'),
-likeCountBox = document.getElementById('like-count-box');
-let count = parseInt(localStorage.getItem('likeCount')) || 0;
-likeCountBox.textContent = count;
-likeBtn.addEventListener('click', () => {
-  count++; likeCountBox.textContent = count; localStorage.setItem('likeCount', count);
-  likeBtn.style.transform = "scale(1.1)"; likeBtn.style.background = "#28a745"; likeMsg.style.display = "block";
-  setTimeout(() => { likeBtn.style.transform = "scale(1)"; likeBtn.style.background = "#e07b00"; likeMsg.style.display = "none"; }, 2000);
-});
-</script>
+</main>
+</body>
+</html>
