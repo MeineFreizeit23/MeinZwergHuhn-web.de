@@ -1,9 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kleine Eier, großes Lächeln</title>
+
+<!-- Google Analytics (mit Fallback für Privacy) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7560QNW1Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7560QNW1Q');
+</script>
+
 <style>
 :root {
   --bg: #fffdf5;
@@ -56,8 +67,20 @@ header {
   z-index: 2;
 }
 
-h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem); font-weight: 900; line-height: 1.12; }
-.subtitle { color: var(--ink-muted); font-size: 1rem; margin: 0.5rem 0 0.25rem; }
+h1 {
+  color: var(--brand);
+  margin: 0 0 .25rem;
+  font-size: clamp(2.4rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.12;
+}
+
+.subtitle {
+  color: var(--ink-muted);
+  font-size: 1rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
 .subtitle.extra { margin-top: 4px; }
 
 .card {
@@ -69,9 +92,20 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
   box-shadow: var(--shadow);
 }
 
-.card.no-border { border: none; box-shadow: none; padding: 20px 0; }
+.card.no-border {
+  border: none;
+  box-shadow: none;
+  padding: 20px 0;
+}
 
-.btn-row { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 16px; }
+.btn-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
 
 .wa-btn, .mail-btn {
   display: inline-flex;
@@ -97,7 +131,20 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
 .mail-btn { background: var(--mail); }
 .mail-btn:hover { background: var(--mail-hover); transform: translateY(-2px); }
 
-.footer { margin-top: 28px; color: #666; font-size: .92rem; text-align: center; }
+@media (max-width: 600px) {
+  .btn-row { flex-direction: column; gap: 10px; }
+  .wa-btn, .mail-btn { width: 100%; justify-content: center; font-size: 0.9rem; padding: 10px 16px; }
+}
+
+.footer {
+  margin-top: 28px;
+  color: #666;
+  font-size: .92rem;
+  text-align: center;
+}
+
+h2 { color: var(--brand); margin-top: 0; }
+h2.center { text-align: center; }
 
 .huhn-card {
   background: #fff;
@@ -105,407 +152,429 @@ h1 { color: var(--brand); margin: 0 0 .25rem; font-size: clamp(2.4rem, 5vw, 3rem
   padding: 15px;
   box-shadow: var(--shadow);
   text-align: center;
-  transition: transform .2s ease;
+  transition: transform .2s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.huhn-card.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .huhn-card:hover { transform: scale(1.02); }
 
-.huhn-card img { 
-  width: 100%; 
-  border-radius: 15px; 
-  display: none;  /* Standard: Versteckt bis Quiz */
+.huhn-card img {
+  width: 100%;
+  border-radius: 15px;
+  loading: lazy;
 }
 
-.huhn-card .teaser {
-  color: var(--ink-muted);
-  font-style: italic;
-  margin-top: 10px;
-  padding: 10px;
-  background: var(--accent);
-  border-radius: 8px;
-  opacity: 1;
-  transition: opacity 0.3s ease;
+.gluecksmomente-title {
+  text-align: center;
+  position: relative; /* Für Eier-Position */
 }
 
-.huhn-card .desc-hidden {
-  display: none;  /* Versteckt Beschreibung bis Quiz */
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.5s ease-out;
+/* 🥚 HÜPFENDE EIER BEI "GLÜCKSMOMENTE" 🥚 */
+.gluecksmomente-eggs {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.huhn-card .desc-reveal {
+.gluecksmomente-eggs .egg {
+  width: 12px;
+  height: 18px;
+  background: radial-gradient(ellipse 60% 80% at 50% 20%, #f5e97c 0%, #e67e22 70%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: egg-bounce 3s ease-in-out infinite;
+}
+
+.gluecksmomente-eggs .egg:nth-child(2) { animation-delay: 1s; }
+.gluecksmomente-eggs .egg:nth-child(3) { animation-delay: 2s; }
+
+@keyframes egg-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.1); }
+}
+
+.gluecksmomente-title span.main {
   display: block;
-  opacity: 1;
-  transform: translateY(0);
+  font-size: clamp(2.8rem, 6vw, 3.2rem);
+  font-weight: 900;
+  color: #FF7F50;
+  font-family: 'Comic Sans MS', cursive;
+  animation: glow-pulse 3s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(255, 127, 80, 0.3);
+  margin-bottom: 4px;
 }
 
-.huhn-card.zoom-ready {
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: scale(1);
+.gluecksmomente-title span.sub {
+  display: block;
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
+  color: var(--brand);
+  margin-top: 0;
+  font-weight: 500;
+  opacity: 0.9;
 }
 
-.huhn-card.camera-zoom {
-  transform: scale(1.05) translateY(-10px);
-  box-shadow: var(--shadow), 0 0 20px rgba(61, 96, 47, 0.2);
-}
-
-.huhn-card img.zoom-hidden {
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.5s ease-out;
-}
-
-.huhn-card img.image-zoom {
-  opacity: 1;
-  transform: scale(1.1);
-  animation: cameraZoomIn 0.8s ease-out forwards;
-}
-
-@keyframes cameraZoomIn {
-  0% { 
-    opacity: 0; 
-    transform: scale(0.5) rotate(-2deg);
+@keyframes glow-pulse {
+  0%, 100% { 
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255, 127, 80, 0.3), 0 0 16px rgba(255, 127, 80, 0.1);
+    transform: scale(1);
   }
-  70% { 
-    opacity: 1; 
-    transform: scale(1.15) rotate(0deg);
-  }
-  100% { 
-    transform: scale(1) rotate(0deg);
+  50% { 
+    opacity: 0.95;
+    text-shadow: 0 0 16px rgba(255, 127, 80, 0.6), 0 0 24px rgba(255, 127, 80, 0.2);
+    transform: scale(1.02);
   }
 }
 
-.like-section { text-align:center; margin-top:12px; }
-#like-btn { background:#e07b00; color:#fff; font-weight:600; border:none; padding:6px 16px; font-size:.9rem; border-radius:10px; cursor:pointer; box-shadow:0 3px 10px rgba(0,0,0,0.08); transition: transform .1s ease, background .2s ease; }
-#like-count-box { display:block; margin:6px auto 0 auto; padding:3px 6px; background:#f0f0f0; color:#333; font-size:.75rem; border-radius:6px; width:40px; text-align:center; }
-#like-msg { margin-top:5px; font-size:.9rem; color:green; display:none; }
-
-.center { text-align: center; }
-
-@media (max-width:600px){
-  .btn-row{flex-direction:column;gap:10px;}
-  .wa-btn,.mail-btn{width:100%;justify-content:center;font-size:0.9rem;padding:10px 16px;}
-  .huhn-card.camera-zoom {
-    transform: scale(1.02) translateY(-5px);
-  }
+.like-section {
+  text-align: center;
+  margin-top: 12px;
 }
 
-.question { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-.answer-option { display: block; margin: 10px 0; cursor: pointer; padding: 8px; border-radius: 8px; transition: background 0.2s ease; }
-.answer-option:hover { background: var(--panel); }
-.answer-option input[type="radio"] { margin-right: 8px; accent-color: var(--brand); }
-.answer-option input[type="radio"]:checked + .option-text { background: linear-gradient(135deg, var(--accent), #ffd700); color: var(--brand); padding: 8px; border-radius: 8px; animation: egg-bounce 0.5s ease; }
-#submit-quiz:disabled { opacity: 0.6; cursor: not-allowed; }
-.result-popup { border: 2px dashed var(--brand); }
-@keyframes pop-in { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-@keyframes egg-bounce { 0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-4px) scale(1.1);} }
-@media (max-width: 600px) { .question { padding: 12px; } .answer-option { font-size: 0.95rem; } }
+#like-btn {
+  background: #e07b00;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 6px 16px;
+  font-size: .9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform .1s ease, background .2s ease;
+}
+
+#like-count-box {
+  display: block;
+  margin: 6px auto 0 auto;
+  padding: 3px 6px;
+  background: #f0f0f0;
+  color: #333;
+  font-size: .75rem;
+  border-radius: 6px;
+  width: 40px;
+  text-align: center;
+}
+
+#like-msg {
+  margin-top: 5px;
+  font-size: .9rem;
+  color: green;
+  display: none;
+}
+
+.futter-list { 
+  list-style: none; 
+  padding: 0; 
+}
+.futter-list li { 
+  margin: 4px 0; 
+}
+
+/* Sekundäre Buttons: Kleiner */
+#wa-ideen, #wa-tausch {
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  min-height: 40px;
+}
+
+/* Quiz Styles */
+.quiz-card {
+  background: linear-gradient(135deg, #fff9cc, #f5e97c);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--card-padding);
+  margin: 18px 0;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.quiz-question {
+  font-size: 1.2rem;
+  color: var(--brand);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.quiz-option {
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  width: 80%;
+  max-width: 300px;
+  font-size: 1rem;
+}
+
+.quiz-option:hover {
+  background: #f0f8ff;
+  transform: scale(1.02);
+}
+
+.quiz-option.correct {
+  background: #d4edda;
+  border-color: #28a745;
+}
+
+.quiz-option.incorrect {
+  background: #f8d7da;
+  border-color: #dc3545;
+}
+
+.quiz-feedback {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#quiz-complete {
+  color: #28a745;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #wa-ideen, #wa-tausch {
+    font-size: 0.88rem;
+    padding: 9px 12px;
+    width: 100%;
+  }
+  .gluecksmomente-eggs .egg { width: 10px; height: 15px; animation-duration: 3.5s; }
+  .quiz-option { width: 95%; }
+}
 </style>
 </head>
 <body>
 <main class="wrap">
-
-<header>
-  <div class="header-content">
-    <h1>Kleine Eier<br>großes Lächeln</h1>
-  </div>
-  <p class="subtitle">Hallo und willkommen!</p>
-  <p class="subtitle extra">Freut mich, dass du den QR-Code entdeckt hast!</p>
-</header>
-
-<section class="card" aria-labelledby="garten-huehner">
-  <h2 id="garten-huehner">Warum wir unsere Hühner im Garten halten</h2>
-  <p>Sie bringen Freude, bereichern den Alltag und schenken ein glückliches Miteinander. Das Verhalten der Tiere ist unbezahlbar – und ganz nebenbei schenken sie uns frische Eier, direkt aus dem eigenen Garten.</p>
-</section>
-
-<section class="card" aria-labelledby="freilauf-title">
-  <h2 id="freilauf-title">Unsere Hühner im Freilauf</h2>
-  <p>Die Hühner scharren neugierig und genießen die Natur. Ihr Scharren macht den Garten lebendig, ihr Flattern erfüllt den Alltag mit Bewegung und Freude. <strong>Jeder Moment erinnert uns daran, das Leben bewusst wahrzunehmen.</strong></p>
-  <p><strong>Die Idee:</strong> Glückliche Hühner lehren uns Gelassenheit, Achtsamkeit und Freude. Lasst euch von ihrer Lebendigkeit inspirieren und entdeckt die schönen Dinge im Alltag.</p>
-</section>
-
-<section class="card" aria-labelledby="ideen-title">
-  <h2 id="ideen-title" class="center">Ideen & Anregungen für den Hühnerfreilauf</h2>
-  <p class="center">Wenn ihr Anregungen zur Gestaltung oder Bepflanzung unseres Hühnerfreilaufs habt, schreibt uns gerne.</p>
-  <div class="btn-row" style="justify-content:center;margin-top:12px;">
-    <a class="wa-btn" id="wa-ideen">Über WhatsApp senden</a>
-  </div>
-</section>
-
-<section class="card" aria-labelledby="futterliste-title">
-  <h2 id="futterliste-title">Futter & Snacks für unsere Hühner</h2>
-  <p>Die Snack-Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
-  <ul class="futter-list">
-    <li>✔️ Gurke</li><li>✔️ Karotte</li><li>✔️ Verschiedene Salate</li><li>✔️ Beeren</li>
-    <li>✔️ Frisches Grün (z. B. Löwenzahn, Rucola, Feldsalat, Spinat)</li>
-    <li>✔️ Frische Kräuter (z. B. Petersilie, Koriander, Basilikum)</li>
-    <li>❌ Zitrusfrüchte</li><li>❌ Avocado</li><li>❌ rohe Kartoffeln</li>
-    <li>❌ Zwiebeln</li><li>❌ Süßigkeiten & Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
-  </ul>
-  <p><strong>Wichtig:</strong> Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen!</p>
-  <p style="font-weight:600;margin-top:1rem;text-align:center;">Leg ein paar Leckerlis in die Kiste und hol dir 6 frische Eier 🥚</p>
-  <div class="btn-row" style="justify-content:center;margin-top:8px;">
-    <a class="wa-btn" id="wa-tausch">Snacks gegen Eier tauschen</a>
-  </div>
-</section>
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:20px;">
-  <div class="huhn-card zoom-ready" id="wella-card">
-    <img class="zoom-hidden" data-src="huhn1.jpg" alt="Wella" loading="lazy">
-    <h3>Wella</h3>
-    <p class="teaser">Entdecke mich im Quiz! 🐥</p>
-    <p class="desc-hidden">Eine ruhige, kuschelbedürftige Japanische Seidenhuhn-Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant – nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.</p>
-  </div>
-  <div class="huhn-card zoom-ready" id="wilma-card">
-    <img class="zoom-hidden" data-src="huhn2.jpg" alt="Wilma" loading="lazy">
-    <h3>Wilma</h3>
-    <p class="teaser">Entdecke mich im Quiz! 🕊️</p>
-    <p class="desc-hidden">Eine selbstbewusste Zwerg-Wyandotten-Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.</p>
-  </div>
-  <div class="huhn-card zoom-ready" id="lupni-card">
-    <img class="zoom-hidden" data-src="huhn3.jpg" alt="Lupni" loading="lazy">
-    <h3>Lupni</h3>
-    <p class="teaser">Entdecke mich im Quiz! ⚡</p>
-    <p class="desc-hidden">Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
-  </div>
-</div>
-
-<section class="card" id="quiz-section">
-  <h2 class="center">Quiz: Welches Huhn passt zu dir? 🐔</h2>
-  <p class="center">Klick dich durch – und entdecke dein Hühner-Ich!</p>
-
-  <form id="quiz-form">
-    <div class="question">
-      <h3>Frage 1: Wie schnüffelst du nach neuen Düften in der Natur? 🌸</h3>
-      <label class="answer-option"><input type="radio" name="q1" value="A"><span class="option-text">A: Mit einer Freundin kichernd schnuppern – der Duft wird sofort geteilt! 💕</span></label>
-      <label class="answer-option"><input type="radio" name="q1" value="B"><span class="option-text">B: Geduldig prüfen, bis sich dahinter eine kleine Geschichte offenbart. 🔍</span></label>
-      <label class="answer-option"><input type="radio" name="q1" value="C"><span class="option-text">C: Neugierig losstürmen – je intensiver, desto spannender! 🌪️</span></label>
+  <header>
+    <div class="header-content">
+      <h1>Kleine Eier<br>großes Lächeln</h1>
     </div>
-    <div class="question">
-      <h3>Frage 2: Wie flattern deine Flügel bei 'nem plötzlichen Windstoß? 🦋</h3>
-      <label class="answer-option"><input type="radio" name="q2" value="A"><span class="option-text">A: Gemeinsam getragen gleiten – das Abenteuer in der Luft zählt! 🥰</span></label>
-      <label class="answer-option"><input type="radio" name="q2" value="B"><span class="option-text">B: Konzentriert steuern, jede Böe genau im Griff. 🕊️</span></label>
-      <label class="answer-option"><input type="radio" name="q2" value="C"><span class="option-text">C: Wild hochwirbeln und den Wind zu deiner Bühne machen! 🎉</span></label>
-    </div>
-    <div class="question">
-      <h3>Frage 3: Wie bereitest du dich auf 'ne gemütliche Nacht im Nest vor? 🌙</h3>
-      <label class="answer-option"><input type="radio" name="q3" value="A"><span class="option-text">A: Gemütlich kuscheln und dicht aneinanderdrücken – süße Träume garantiert. 😴</span></label>
-      <label class="answer-option"><input type="radio" name="q3" value="B"><span class="option-text">B: Alles ordentlich herrichten und im Kopf den Tag abschließen. 🕊️</span></label>
-      <label class="answer-option"><input type="radio" name="q3" value="C"><span class="option-text">C: Noch einmal herumtollen, bevor der Schlaf dich kichernd packt. 😜</span></label>
-    </div>
+    <p class="subtitle">Hallo und willkommen!</p>
+    <p class="subtitle extra">Freut mich, dass du den QR-Code entdeckt hast!</p>
+  </header>
 
-    <div class="btn-row" style="justify-content: center; margin-top: 20px;">
-      <button type="button" id="submit-quiz" class="wa-btn" disabled>Quiz abschicken! 🥚</button>
-    </div>
-  </form>
+  <section class="card" aria-labelledby="garten-huehner">
+    <h2 id="garten-huehner">Warum wir unsere Hühner im Garten halten</h2>
+    <p>Sie bringen Freude, bereichern den Alltag und schenken ein glückliches Miteinander. Das Verhalten der Tiere ist unbezahlbar – und ganz nebenbei schenken sie uns frische Eier, direkt aus dem eigenen Garten.</p>
+  </section>
 
-  <div id="quiz-result" class="result-popup" style="display: none; text-align: center; margin-top: 20px; padding: 20px; background: var(--accent); border-radius: var(--radius); animation: pop-in 0.5s ease;">
-    <h3 id="result-title"></h3>
-    <p id="result-text"></p>
-    <a id="result-link" class="wa-btn" style="margin-top: 10px;">Zum Huhn-Portrait hüpfen! 🐔</a>
+  <section class="card" aria-labelledby="freilauf-title">
+    <h2 id="freilauf-title">Unsere Hühner im Freilauf</h2>
+    <p>Die Hühner scharren neugierig und genießen die Natur. Ihr Scharren macht den Garten lebendig, ihr Flattern erfüllt den Alltag mit Bewegung und Freude. <strong>Jeder Moment erinnert uns daran, das Leben bewusst wahrzunehmen.</strong></p>
+    <p><strong>Die Idee:</strong> Glückliche Hühner lehren uns Gelassenheit, Achtsamkeit und Freude. Lasst euch von ihrer Lebendigkeit inspirieren und entdeckt die schönen Dinge im Alltag.</p>
+  </section>
+
+  <section class="card" aria-labelledby="ideen-title">
+    <h2 id="ideen-title" class="center">Ideen & Anregungen für den Hühnerfreilauf</h2>
+    <p class="center">Wenn ihr Anregungen zur Gestaltung oder Bepflanzung unseres Hühnerfreilaufs habt, schreibt uns gerne.</p>
+    <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+      <a class="wa-btn" id="wa-ideen">Über WhatsApp senden</a>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="futterliste-title">
+    <h2 id="futterliste-title">Futter & Snacks für unsere Hühner</h2>
+    <p>Die Snack-Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
+    <ul class="futter-list">
+      <li>✔️ Gurke</li><li>✔️ Karotte</li><li>✔️ Verschiedene Salate</li><li>✔️ Beeren</li>
+      <li>✔️ Frisches Grün (z. B. Löwenzahn, Rucola, Feldsalat, Spinat)</li>
+      <li>✔️ Frische Kräuter (z. B. Petersilie, Koriander, Basilikum)</li>
+      <li>❌ Zitrusfrüchte</li><li>❌ Avocado</li><li>❌ rohe Kartoffeln</li>
+      <li>❌ Zwiebeln</li><li>❌ Süßigkeiten & Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
+    </ul>
+    <p><strong>Wichtig:</strong> Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen!</p>
+    <p style="font-weight: 600; margin-top: 1rem; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir 6 frische Eier 🥚</p>
+    <div class="btn-row" style="justify-content: center; margin-top: 8px;">
+      <a class="wa-btn" id="wa-tausch">Snacks gegen Eier tauschen</a>
+    </div>
+  </section>
+
+  <!-- Hühnerkarten: Anfangs versteckt -->
+  <div id="huhn-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px; display: none;">
+    <div class="huhn-card">
+      <img src="huhn1.jpg" alt="Wella" loading="lazy">
+      <h3>Wella</h3>
+      <p>Eine ruhige, kuschelbedürftige Japanische Seidenhuhn-Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant – nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.</p>
+    </div>
+    <div class="huhn-card">
+      <img src="huhn2.jpg" alt="Wilma" loading="lazy">
+      <h3>Wilma</h3>
+      <p>Eine selbstbewusste Zwerg-Wyandotten-Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.</p>
+    </div>
+    <div class="huhn-card">
+      <img src="huhn3.jpg" alt="Lupni" loading="lazy">
+      <h3>Lupni</h3>
+      <p>Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
+    </div>
   </div>
 
-  <script>
-    // Verstecke Bilder & Beschreibungen, zeige Teaser
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.huhn-card img').forEach(img => {
-        img.style.display = 'none';
-        img.classList.add('zoom-hidden');
-      });
-      document.querySelectorAll('.huhn-card .desc-hidden').forEach(desc => {
-        desc.classList.add('desc-hidden');  // Bleibt versteckt
-      });
-      // Teaser sichtbar lassen
-    });
+  <section class="card quiz-card" aria-labelledby="quiz-title">
+    <h2 id="quiz-title">🥚 Hühner-Quiz für kleine Entdecker! 🐔</h2>
+    <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast, lernst du unsere Hühner kennen! 😊</p>
+    
+    <div class="quiz-question">Frage 1: Wie oft legen Hühner Eier? 🥚</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-correct="false">a) Einmal im Monat 🌙</div>
+      <div class="quiz-option" data-correct="false">b) Alle paar Tage 📅</div>
+      <div class="quiz-option" data-correct="true">c) Jeden Tag ☀️</div>
+    </div>
+    <div class="quiz-feedback" id="feedback1"></div>
 
-    const form = document.getElementById('quiz-form');
-    const submitBtn = document.getElementById('submit-quiz');
-    const resultDiv = document.getElementById('quiz-result');
-    const resultTitle = document.getElementById('result-title');
-    const resultText = document.getElementById('result-text');
-    const resultLink = document.getElementById('result-link');
+    <div class="quiz-question">Frage 2: Was essen Hühner am liebsten? 🥬</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-correct="true">a) Frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
+      <div class="quiz-option" data-correct="false">b) Schokolade 🍫</div>
+      <div class="quiz-option" data-correct="false">c) Eiscreme 🍦</div>
+    </div>
+    <div class="quiz-feedback" id="feedback2"></div>
 
-    let answers = { q1: null, q2: null, q3: null };
+    <div class="quiz-question">Frage 3: Wie heißen unsere drei Hühner? 🐥</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-correct="false">a) Mia, Max und Leo</div>
+      <div class="quiz-option" data-correct="true">b) Wella, Wilma und Lupni</div>
+      <div class="quiz-option" data-correct="false">c) Sunny, Happy und Joy</div>
+    </div>
+    <div class="quiz-feedback" id="feedback3"></div>
 
-    const textParts = {
-      q1: {
-        A: "Mit einer Freundin kichernd schnuppern – der Duft wird sofort geteilt!",
-        B: "Geduldig prüfen, bis sich dahinter eine kleine Geschichte offenbart.",
-        C: "Neugierig losstürmen – je intensiver, desto spannender!"
-      },
-      q2: {
-        A: "Gemeinsam getragen gleiten – das Abenteuer in der Luft zählt!",
-        B: "Konzentriert steuern, jede Böe genau im Griff.",
-        C: "Wild hochwirbeln und den Wind zu deiner Bühne machen!"
-      },
-      q3: {
-        A: "Gemütlich kuscheln und dicht aneinanderdrücken – süße Träume garantiert.",
-        B: "Alles ordentlich herrichten und im Kopf den Tag abschließen.",
-        C: "Noch einmal herumtollen, bevor der Schlaf dich kichernd packt."
-      },
-      twists: {
-        A: "das macht's warmherzig und verbindend",
-        B: "das bringt ruhige Klarheit und Tiefe",
-        C: "das sorgt für Schwung, Mut und Überraschung"
-      },
-      huens: {
-        A: "Wella – die Kuschel-Queen! 🐥",
-        B: "Wilma – sanft & clever! 🕊️",
-        C: "Lupni – die Frechdachs! ⚡"
-      },
-      huenNames: {
-        A: "Wella",
-        B: "Wilma",
-        C: "Lupni"
-      },
-      twistPhrases: {
-        A: "Deine A-Wahlen machen dich zur Kuschel-Queen Wella, und der {other}-Twist bringt 'n warmes Kichern rein – du kuschelst und lachst dann los! Die beste Hühner-Freundin! 🌟",
-        B: "Deine B-Wahlen machen dich zu Wilma, der Sanft-Clever-Henne, und der {other}-Twist bringt 'n lustiges Hoppeln rein – du planst klug und kicherst dann los! Die beste Hühner-Freundin! 🌟",
-        C: "Deine C-Wahlen machen dich zur frechen Lupni, und der {other}-Twist bringt 'n wildes Wirbeln rein – du stürmst vor und tanzt dann! Die beste Hühner-Freundin! 🌟"
-      }
-    };
+    <div class="quiz-question">Frage 4: Was macht ein Huhn, wenn es glücklich ist? 🐔</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-correct="true">a) Gackert laut und scharrt fröhlich im Dreck (wie unsere Wella beim Spielen!) 😄</div>
+      <div class="quiz-option" data-correct="false">b) Singt Lieder wie ein Star 🎤</div>
+      <div class="quiz-option" data-correct="false">c) Malt Bilder mit den Füßen 🖌️</div>
+    </div>
+    <div class="quiz-feedback" id="feedback4"></div>
 
-    form.addEventListener('change', (e) => {
-      if (e.target.name && e.target.name.startsWith('q')) {
-        answers[e.target.name] = e.target.value;
-        const allAnswered = Object.values(answers).every(val => val !== null);
-        submitBtn.disabled = !allAnswered;
-        if (allAnswered) submitBtn.textContent = 'Quiz abschicken! 🥚';
-      }
-    });
+    <div class="quiz-question">Frage 5: Was passiert, wenn ein Huhn ein Ei legt? 🥚</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-correct="false">a) Es feiert mit einem kleinen Tanz! 💃</div>
+      <div class="quiz-option" data-correct="true">b) Das Ei rollt aus dem Nest – und ein neues Frühstück ist bereit! (Danke, Lupni!) 🐔</div>
+      <div class="quiz-option" data-correct="false">c) Es schickt das Ei per Post weg 📬</div>
+    </div>
+    <div class="quiz-feedback" id="feedback5"></div>
 
-    submitBtn.addEventListener('click', () => {
-      const counts = { A:0, B:0, C:0 };
-      Object.values(answers).forEach(val => counts[val]++);
-      let winner='A', maxCount=counts.A;
-      for(let key in counts){ if(counts[key]>maxCount){winner=key; maxCount=counts[key];} }
-      const isMix = maxCount<2;
+    <div class="quiz-question">Frage 6: Wie kommunizieren Hühner untereinander? 🗣️</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-correct="false">a) Mit Geheimsprache und Morse-Code 🔢</div>
+      <div class="quiz-option" data-correct="true">b) Mit Gackern, Glucksen und Scharren (wie ein Hühner-Chat!) 😊</div>
+      <div class="quiz-option" data-correct="false">c) Indem sie Selfies machen 📱</div>
+    </div>
+    <div class="quiz-feedback" id="feedback6"></div>
 
-      let fazitParts=[];
-      Object.keys(answers).forEach(q=>{
-        const ans=answers[q];
-        const part=`Beim ${q==='q1'?'Schnüffeln nach Düften':q==='q2'?'Flattern bei Wind':'Nest-Vorbereiten'} hast du ${textParts[q][ans]} gewählt – ${textParts.twists[ans]}!`;
-        fazitParts.push(part);
-      });
+    <div id="quiz-complete">Toll gemacht! 🎉 Jetzt lernst du unsere Hühner kennen! 🐥</div>
+  </section>
 
-      let title,text,linkHref;
-      if(maxCount===3){
-        title = textParts.huens[winner];
-        const name = textParts.huenNames[winner];
-        text = `${fazitParts.join(' Und ')} Fazit: Alle deine ${winner}-Wahlen passen zu ${name} – du bist die sanfte, clevere Henne, die alles beobachtet und lächelt! Wie 'n weiches Nest voller Geheimnisse. 🕊️💕`;
-        linkHref = `#${winner==='A'?'wella':winner==='B'?'wilma':'lupni'}-card`;
-      } else if(maxCount===2){
-        const otherKey = Object.keys(counts).find(k=>k!==winner && counts[k]===1);
-        const baseName = textParts.huenNames[winner];
-        title = `${baseName} mit kleinem Twist! ${textParts.huens[winner].split(' – ')[1] || ''}`;
-        const twistText = textParts.twistPhrases[winner].replace('{other}', otherKey);
-        text = `${fazitParts.join(', ')} Fazit: ${twistText}`;
-        linkHref = `#${winner==='A'?'wella':winner==='B'?'wilma':'lupni'}-card`;
-      } else {
-        title = `Hühner-Mix: Du bist Alleskönner! 🐔🐔🐔`;
-        text = `${fazitParts.join(' ')} Fazit: Wella's Herz, Wilma's Plan und Lupni's Feuer in dir. Der ultimative Hof-Rockstar! 🌟`;
-        linkHref = '.huhn-card';
-      }
+  <section class="card" aria-labelledby="bestellung-title">
+    <h2 id="bestellung-title" class="gluecksmomente-title">
+      <div class="gluecksmomente-eggs" aria-hidden="true">
+        <div class="egg"></div>
+        <div class="egg"></div>
+        <div class="egg"></div>
+      </div>
+      <span class="main">Glücksmomente</span>
+      <span class="sub">Harmonie für deinen Tag</span>
+    </h2>
+    <div class="btn-row" role="group" aria-label="Kontaktoptionen" style="justify-content: center; margin-top: 18px;">
+      <a class="wa-btn" id="wa-anfragen">Frische Eier per WhatsApp</a>
+      <a class="mail-btn" id="mail-anfragen">Frische Eier per E-Mail</a>
+    </div>
+  </section>
 
-      resultTitle.textContent=title;
-      resultText.textContent=text;
-      resultLink.textContent='Zum passenden Huhn gackern! 🐔';
-      resultLink.href=linkHref;
-      resultDiv.style.display='block';
-      resultDiv.scrollIntoView({ behavior:'smooth' });
+  <section class="card no-border" aria-labelledby="feedback-title">
+    <div style="text-align: center; margin-top: 12px;">
+      <button id="like-btn" style="background:#e07b00;color:#fff;font-weight:600;border:none;padding:6px 16px;font-size:.9rem;border-radius:10px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,0.08);transition:transform .1s ease,background .2s ease;">👍 Gefällt mir</button>
+      <div id="like-count-box" style="display:block;margin:6px auto 0 auto;padding:3px 6px;background:#f0f0f0;color:#333;font-size:.75rem;border-radius:6px;width:40px;text-align:center;">0</div>
+      <p id="like-msg" style="margin-top:5px;font-size:.9rem;color:green;display:none;">Danke für dein Feedback! 😊</p>
+    </div>
+  </section>
 
-      // Für Mix: Alle Bilder & Beschreibungen zeigen (staggered)
-      if (isMix) {
-        document.querySelectorAll('.huhn-card').forEach((card, index) => {
-          setTimeout(() => {
-            const img = card.querySelector('img');
-            const desc = card.querySelector('.desc-hidden');
-            if (img) {
-              img.src = img.dataset.src;
-              img.style.display = 'block';
-              img.classList.remove('zoom-hidden');
-              img.classList.add('image-zoom');
-            }
-            if (desc) {
-              desc.classList.remove('desc-hidden');
-              desc.classList.add('desc-reveal');
-            }
-            card.classList.add('camera-zoom');
-            card.querySelector('.teaser').style.opacity = '0';  // Teaser ausblenden
-          }, index * 300);
-        });
-        setTimeout(() => {
-          document.querySelector('.huhn-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 500);
-        submitBtn.textContent='Nochmal quizzen? 😊';
-        submitBtn.onclick=()=>location.reload();
-        return;
-      }
-
-      // Für klare Winner: Nur das passende Bild & Beschreibung + Zoom
-      const targetCardId = `${winner.toLowerCase()}-card`;
-      const targetCard = document.querySelector(`#${targetCardId}`);
-      const targetImg = targetCard.querySelector('img');
-      const targetDesc = targetCard.querySelector('.desc-hidden');
-
-      if (targetImg) {
-        targetImg.src = targetImg.dataset.src;
-        targetImg.style.display = 'block';
-        targetImg.classList.remove('zoom-hidden');
-        targetImg.classList.add('image-zoom');
-      }
-      if (targetDesc) {
-        targetDesc.classList.remove('desc-hidden');
-        targetDesc.classList.add('desc-reveal');
-        targetCard.querySelector('.teaser').style.opacity = '0';  // Teaser ausblenden
-      }
-
-      setTimeout(() => {
-        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 300);
-
-      setTimeout(() => {
-        if (targetCard) targetCard.classList.add('camera-zoom');
-      }, 800);
-
-      submitBtn.textContent='Nochmal quizzen? 😊';
-      submitBtn.onclick=()=>location.reload();
-    });
-  </script>
-</section>
-
-<section class="card like-section">
-  <h2>Gefällt dir unser Hühner-Content? 🥚</h2>
-  <button id="like-btn">Gefällt mir ❤️</button>
-  <span id="like-count-box">0</span>
-  <p id="like-msg">Danke für dein Like! 😊</p>
-  <p style="margin-top:12px;">Vielen Dank für dein Like! Unsere Hühner flattern schon vor Freude – wir zählen die Eier bis zu deinem Kommen! 🥚😄</p>
-</section>
+  <footer class="footer">
+    <div style="text-align: center; margin-bottom: 5px;">☘️💯☘️</div>
+    <p style="text-align: center; font-weight: 700; line-height: 1.5;">Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt-Eiern zu vergleichen. Probier selbst!<br><br>Vielen Dank für deinen Besuch</p>
+    <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier, großes Lächeln</p>
+  </footer>
 
 <script>
-  const likeBtn=document.getElementById('like-btn');
-  const likeBox=document.getElementById('like-count-box');
-  const likeMsg=document.getElementById('like-msg');
-  let count= parseInt(localStorage.getItem('likeCount')) || 0;
-  likeBox.textContent=count;
-  likeBtn.addEventListener('click',()=>{
-    count++;
-    likeBox.textContent=count;
-    localStorage.setItem('likeCount', count);
-    likeMsg.style.display='block';
-    setTimeout(() => { likeMsg.style.display = 'none'; }, 2000);
-  });
-</script>
+const waBtn = document.getElementById('wa-anfragen'), mailBtn = document.getElementById('mail-anfragen'),
+waIdeen = document.getElementById('wa-ideen'), waTausch = document.getElementById('wa-tausch'),
+messageText = encodeURIComponent("Hallo, ich möchte gerne die extra frischen Eier bestellen. 6 Stück für 5 €. Bitte teile mir mit, wann ich die Bestellung abholen kann. Vielen Dank!"),
+ideenMessage = encodeURIComponent("Hallo, ich habe Ideen oder Anregungen zum Hühnerfreilauf."),
+tauschMessage = encodeURIComponent("Hallo, ich habe Snacks in die Kiste gelegt und möchte diese gerne gegen 6 frische Eier tauschen. Ich habe hineingelegt: ...");
 
-<footer class="footer">
-  <div style="text-align: center; margin-bottom: 10px;">
-    <span style="font-size: 2rem;">☘️💯☘️</span>
-  </div>
-  <p style="text-align: center; font-weight: 700; line-height: 1.5;">Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt-Eiern zu vergleichen. Probier selbst!<br><br>Vielen Dank für deinen Besuch</p>
-  <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier, großes Lächeln</p>
-</footer>
+waBtn.addEventListener('click', () => { window.open(`https://wa.me/491638306166?text=${messageText}`, '_blank'); });
+mailBtn.addEventListener('click', () => { window.open(`mailto:MeinZwergHuhn@web.de?subject=Anfrage%20frische%20Eier&body=${messageText}`, '_blank'); });
+waIdeen.addEventListener('click', () => { window.open(`https://wa.me/491638306166?text=${ideenMessage}`, '_blank'); });
+waTausch.addEventListener('click', () => { window.open(`https://wa.me/491638306166?text=${tauschMessage}`, '_blank'); });
 
-</main>
-</body>
-</html>
+const likeBtn = document.getElementById('like-btn'), likeMsg = document.getElementById('like-msg'),
+likeCountBox = document.getElementById('like-count-box');
+let count = parseInt(localStorage.getItem('likeCount')) || 0;
+likeCountBox.textContent = count;
+likeBtn.addEventListener('click', () => {
+  count++; likeCountBox.textContent = count; localStorage.setItem('likeCount', count);
+  likeBtn.style.transform = "scale(1.1)"; likeBtn.style.background = "#28a745"; likeMsg.style.display = "block";
+  setTimeout(() => { likeBtn.style.transform = "scale(1)"; likeBtn.style.background = "#e07b00"; likeMsg.style.display = "none"; }, 2000);
+});
+
+// Quiz-Funktionalität mit Zähler für abgeschlossene Fragen
+let completedQuestions = 0;
+const totalQuestions = 6;
+const quizComplete = document.getElementById('quiz-complete');
+const huhnGrid = document.getElementById('huhn-grid');
+const huhnCards = document.querySelectorAll('.huhn-card');
+
+document.querySelectorAll('.quiz-option').forEach(option => {
+  option.addEventListener('click', function() {
+    if (this.style.pointerEvents === 'none') return; // Bereits beantwortet
+    const isCorrect = this.dataset.correct === 'true';
+    const feedback = this.closest('.quiz-options').nextElementSibling;
+    
+    // Markiere alle Optionen
+    this.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt.dataset.correct === 'true') {
+        opt.classList.add('correct');
+      } else if (opt === this && !isCorrect) {
+        opt.classList.add('incorrect');
+      }
+    });
+    
+    // Feedback anzeigen
+    feedback.textContent = isCorrect ? `Super! 🎉 Richtig!` : `Fast! 😊 Die richtige Antwort ist...`;
+    feedback.style.color = isCorrect ? 'green' : 'orange';
+    
+    // Zähle abgeschlossene Frage
+    completedQuestions++;
+    if (completedQuestions === totalQuestions) {
+      quizComplete.style.display = 'block';
+      huhnGrid.style.display = 'grid';
+      // Zeige Karten mit Animation
+      huhnCards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add('visible');
+        }, index * 200); // Stufenweise einblenden
+      });
+      // Automatischer Scroll zu den Hühner-Bildern
+      setTimeout(() => {
+        huhnGrid.scrollInt
