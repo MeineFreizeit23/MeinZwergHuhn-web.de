@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -346,11 +347,45 @@ h2.center { text-align: center; }
   font-weight: bold;
 }
 
+/* Pop-up Styles */
 #quiz-complete {
-  color: #28a745;
-  font-size: 1.1rem;
-  margin-top: 20px;
   display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #fff9cc, #f5e97c);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  max-width: 90%;
+  font-size: 1.3rem;
+  color: #28a745;
+}
+
+#quiz-complete::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+
+#quiz-complete button {
+  margin-top: 15px;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 @media (max-width: 600px) {
@@ -361,6 +396,7 @@ h2.center { text-align: center; }
   }
   .gluecksmomente-eggs .egg { width: 10px; height: 15px; animation-duration: 3.5s; }
   .quiz-option { width: 95%; }
+  #quiz-complete { font-size: 1.1rem; padding: 20px; }
 }
 </style>
 </head>
@@ -481,7 +517,6 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback6"></div>
 
-    <div id="quiz-complete">Toll gemacht! 🎉 Jetzt lernst du unsere Hühner kennen! 🐥</div>
   </section>
 
   <section class="card" aria-labelledby="bestellung-title">
@@ -513,6 +548,12 @@ h2.center { text-align: center; }
     <p style="text-align: center; font-weight: 700; line-height: 1.5;">Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt-Eiern zu vergleichen. Probier selbst!<br><br>Vielen Dank für deinen Besuch</p>
     <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier, großes Lächeln</p>
   </footer>
+
+  <!-- Pop-up für Quiz-Abschluss -->
+  <div id="quiz-complete">
+    <p>Toll gemacht! 🎉 Jetzt lernst du unsere Hühner kennen! 🐥</p>
+    <button onclick="closeQuizPopup()">Weiter zu den Hühnern</button>
+  </div>
 
 <script>
 const waBtn = document.getElementById('wa-anfragen'), mailBtn = document.getElementById('mail-anfragen'),
@@ -566,14 +607,28 @@ document.querySelectorAll('.quiz-option').forEach(option => {
     // Zähle abgeschlossene Frage
     completedQuestions++;
     if (completedQuestions === totalQuestions) {
-      quizComplete.style.display = 'block';
-      huhnGrid.style.display = 'grid';
-      // Zeige Karten mit Animation
-      huhnCards.forEach((card, index) => {
-        setTimeout(() => {
-          card.classList.add('visible');
-        }, index * 200); // Stufenweise einblenden
-      });
-      // Automatischer Scroll zu den Hühner-Bildern
+      // Zeige Pop-up
       setTimeout(() => {
-        huhnGrid.scrollInt
+        quizComplete.style.display = 'block';
+      }, 300);
+    }
+  });
+});
+
+function closeQuizPopup() {
+  quizComplete.style.display = 'none';
+  huhnGrid.style.display = 'grid';
+  // Zeige Karten mit Animation
+  huhnCards.forEach((card, index) => {
+    setTimeout(() => {
+      card.classList.add('visible');
+    }, index * 200); // Stufenweise einblenden
+  });
+  // Automatischer Scroll zu den Hühner-Bildern
+  setTimeout(() => {
+    huhnGrid.scrollIntoView({ behavior: 'smooth' });
+  }, 800);
+}
+</script>
+</body>
+</html>
