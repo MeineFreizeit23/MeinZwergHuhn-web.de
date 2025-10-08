@@ -1,20 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kleine Eier, großes Lächeln</title>
-
-<!-- Google Analytics (mit Fallback für Privacy) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7560QNW1Q"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7560QNW1QH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-7560QNW1Q');
+  gtag('config', 'G-7560QNW1QH');
 </script>
-
 <style>
 :root {
   --bg: #fffdf5;
@@ -224,12 +221,12 @@ h2.center { text-align: center; }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { 
+  0%, 100% {   
     opacity: 1;
     text-shadow: 0 0 8px rgba(255, 127, 80, 0.3), 0 0 16px rgba(255, 127, 80, 0.1);
     transform: scale(1);
   }
-  50% { 
+  50% {   
     opacity: 0.95;
     text-shadow: 0 0 16px rgba(255, 127, 80, 0.6), 0 0 24px rgba(255, 127, 80, 0.2);
     transform: scale(1.02);
@@ -273,12 +270,12 @@ h2.center { text-align: center; }
   display: none;
 }
 
-.futter-list { 
-  list-style: none; 
-  padding: 0; 
+.futter-list {   
+  list-style: none;   
+  padding: 0;   
 }
-.futter-list li { 
-  margin: 4px 0; 
+.futter-list li {   
+  margin: 4px 0;   
 }
 
 /* Sekundäre Buttons: Kleiner */
@@ -432,18 +429,15 @@ h2.center { text-align: center; }
     <p class="subtitle">Hallo und willkommen!</p>
     <p class="subtitle extra">Freut mich, dass du den QR-Code entdeckt hast!</p>
   </header>
-
   <section class="card" aria-labelledby="garten-huehner">
     <h2 id="garten-huehner">Warum wir unsere Hühner im Garten halten</h2>
     <p>Sie bringen Freude, bereichern den Alltag und schenken ein glückliches Miteinander. Das Verhalten der Tiere ist unbezahlbar – und ganz nebenbei schenken sie uns frische Eier, direkt aus dem eigenen Garten.</p>
   </section>
-
   <section class="card" aria-labelledby="freilauf-title">
     <h2 id="freilauf-title">Unsere Hühner im Freilauf</h2>
     <p>Die Hühner scharren neugierig und genießen die Natur. Ihr Scharren macht den Garten lebendig, ihr Flattern erfüllt den Alltag mit Bewegung und Freude. <strong>Jeder Moment erinnert uns daran, das Leben bewusst wahrzunehmen.</strong></p>
     <p><strong>Die Idee:</strong> Glückliche Hühner lehren uns Gelassenheit, Achtsamkeit und Freude. Lasst euch von ihrer Lebendigkeit inspirieren und entdeckt die schönen Dinge im Alltag.</p>
   </section>
-
   <section class="card" aria-labelledby="ideen-title">
     <h2 id="ideen-title" class="center">Ideen & Anregungen für den Hühnerfreilauf</h2>
     <p class="center">Wenn ihr Anregungen zur Gestaltung oder Bepflanzung unseres Hühnerfreilaufs habt, schreibt uns gerne.</p>
@@ -451,7 +445,6 @@ h2.center { text-align: center; }
       <a class="wa-btn" id="wa-ideen">Über WhatsApp senden</a>
     </div>
   </section>
-
   <section class="card" aria-labelledby="futterliste-title">
     <h2 id="futterliste-title">Futter & Snacks für unsere Hühner</h2>
     <p>Die Snack-Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
@@ -468,7 +461,6 @@ h2.center { text-align: center; }
       <a class="wa-btn" id="wa-tausch">Snacks gegen Eier tauschen</a>
     </div>
   </section>
-
   <!-- Hühnerkarten: Anfangs versteckt -->
   <div id="huhn-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px; display: none;">
     <div class="huhn-card">
@@ -487,63 +479,60 @@ h2.center { text-align: center; }
       <p>Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
     </div>
   </div>
-
   <section class="card quiz-card" aria-labelledby="quiz-title">
     <h2 id="quiz-title">🥚 Hühner-Quiz für kleine Entdecker! 🐔</h2>
     <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast, lernst du unsere Hühner kennen! 😊</p>
-    
-    <div class="quiz-question">Frage 1: Wie oft legen Hühner Eier? 🥚</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Einmal im Monat 🌙</div>
-      <div class="quiz-option" data-correct="false">b) Alle paar Tage 📅</div>
-      <div class="quiz-option" data-correct="true">c) Jeden Tag ☀️</div>
-    </div>
-    <div class="quiz-feedback" id="feedback1"></div>
+  <div class="quiz-question">Frage 1: Wie oft legen Hühner Eier? 🥚</div>
+<div class="quiz-options">
+  <div class="quiz-option" data-correct="false">a) Einmal im Monat 🌙</div>
+  <div class="quiz-option" data-correct="false">b) Alle paar Tage 📅</div>
+  <div class="quiz-option" data-correct="true">c) Jeden Tag ☀️</div>
+</div>
+<div class="quiz-feedback" id="feedback1"></div>
 
-    <div class="quiz-question">Frage 2: Was essen Hühner am liebsten? 🥬</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a) Frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
-      <div class="quiz-option" data-correct="false">b) Schokolade 🍫</div>
-      <div class="quiz-option" data-correct="false">c) Eiscreme 🍦</div>
-    </div>
-    <div class="quiz-feedback" id="feedback2"></div>
+<div class="quiz-question">Frage 2: Was essen Hühner am liebsten? 🥬</div>
+<div class="quiz-options">
+  <div class="quiz-option" data-correct="true">a) Frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
+  <div class="quiz-option" data-correct="false">b) Schokolade 🍫</div>
+  <div class="quiz-option" data-correct="false">c) Eiscreme 🍦</div>
+</div>
+<div class="quiz-feedback" id="feedback2"></div>
 
-    <div class="quiz-question">Frage 3: Wie heißen unsere drei Hühner? 🐥</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Mia, Max und Leo</div>
-      <div class="quiz-option" data-correct="true">b) Wella, Wilma und Lupni</div>
-      <div class="quiz-option" data-correct="false">c) Sunny, Happy und Joy</div>
-    </div>
-    <div class="quiz-feedback" id="feedback3"></div>
+<div class="quiz-question">Frage 3: Wie heißen unsere drei Hühner? 🐥</div>
+<div class="quiz-options">
+  <div class="quiz-option" data-correct="false">a) Mia, Max und Leo</div>
+  <div class="quiz-option" data-correct="true">b) Wella, Wilma und Lupni</div>
+  <div class="quiz-option" data-correct="false">c) Sunny, Happy und Joy</div>
+</div>
+<div class="quiz-feedback" id="feedback3"></div>
 
-    <div class="quiz-question">Frage 4: Was macht ein Huhn, wenn es glücklich ist? 🐔</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a) Gackert laut und scharrt fröhlich im Dreck (wie unsere Wella beim Spielen!) 😄</div>
-      <div class="quiz-option" data-correct="false">b) Singt Lieder wie ein Star 🎤</div>
-      <div class="quiz-option" data-correct="false">c) Malt Bilder mit den Füßen 🖌️</div>
-    </div>
-    <div class="quiz-feedback" id="feedback4"></div>
+<div class="quiz-question">Frage 4: Was macht ein Huhn, wenn es glücklich ist? 🐔</div>
+<div class="quiz-options">
+  <div class="quiz-option" data-correct="true">a) Gackert laut und scharrt fröhlich im Dreck (wie unsere Wella beim Spielen!) 😄</div>
+  <div class="quiz-option" data-correct="false">b) Singt Lieder wie ein Star 🎤</div>
+  <div class="quiz-option" data-correct="false">c) Malt Bilder mit den Füßen 🖌️</div>
+</div>
+<div class="quiz-feedback" id="feedback4"></div>
 
-    <div class="quiz-question">Frage 5: Was passiert, wenn ein Huhn ein Ei legt? 🥚</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Es feiert mit einem kleinen Tanz! 💃</div>
-      <div class="quiz-option" data-correct="true">b) Das Ei rollt aus dem Nest – und ein neues Frühstück ist bereit! (Danke, Lupni!) 🐔</div>
-      <div class="quiz-option" data-correct="false">c) Es schickt das Ei per Post weg 📬</div>
-    </div>
-    <div class="quiz-feedback" id="feedback5"></div>
+<div class="quiz-question">Frage 5: Was passiert, wenn ein Huhn ein Ei legt? 🥚</div>
+<div class="quiz-options">
+  <div class="quiz-option" data-correct="false">a) Es feiert mit einem kleinen Tanz! 💃</div>
+  <div class="quiz-option" data-correct="true">b) Das Ei rollt aus dem Nest – und ein neues Frühstück ist bereit! (Danke, Lupni!) 🐔</div>
+  <div class="quiz-option" data-correct="false">c) Es schickt das Ei per Post weg 📬</div>
+</div>
+<div class="quiz-feedback" id="feedback5"></div>
 
-    <div class="quiz-question">Frage 6: Wie kommunizieren Hühner untereinander? 🗣️</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Mit Geheimsprache und Morse-Code 🔢</div>
-      <div class="quiz-option" data-correct="true">b) Mit Gackern, Glucksen und Scharren (wie ein Hühner-Chat!) 😊</div>
-      <div class="quiz-option" data-correct="false">c) Indem sie Selfies machen 📱</div>
-    </div>
-    <div class="quiz-feedback" id="feedback6"></div>
+<div class="quiz-question">Frage 6: Wie kommunizieren Hühner untereinander? 🗣️</div>
+<div class="quiz-options">
+  <div class="quiz-option" data-correct="false">a) Mit Geheimsprache und Morse-Code 🔢</div>
+  <div class="quiz-option" data-correct="true">b) Mit Gackern, Glucksen und Scharren (wie ein Hühner-Chat!) 😊</div>
+  <div class="quiz-option" data-correct="false">c) Indem sie Selfies machen 📱</div>
+</div>
+<div class="quiz-feedback" id="feedback6"></div>
 
-    <button id="reset-quiz">Quiz neu starten</button>
+<button id="reset-quiz">Quiz neu starten</button>
 
   </section>
-
   <section class="card" aria-labelledby="bestellung-title">
     <h2 id="bestellung-title" class="gluecksmomente-title">
       <div class="gluecksmomente-eggs" aria-hidden="true">
@@ -559,7 +548,6 @@ h2.center { text-align: center; }
       <a class="mail-btn" id="mail-anfragen">Frische Eier per E-Mail</a>
     </div>
   </section>
-
   <section class="card no-border" aria-labelledby="feedback-title">
     <div style="text-align: center; margin-top: 12px;">
       <button id="like-btn" style="background:#e07b00;color:#fff;font-weight:600;border:none;padding:6px 16px;font-size:.9rem;border-radius:10px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,0.08);transition:transform .1s ease,background .2s ease;">👍 Gefällt mir</button>
@@ -567,19 +555,16 @@ h2.center { text-align: center; }
       <p id="like-msg" style="margin-top:5px;font-size:.9rem;color:green;display:none;">Danke für dein Feedback! 😊</p>
     </div>
   </section>
-
   <footer class="footer">
     <div style="text-align: center; margin-bottom: 5px;">☘️💯☘️</div>
     <p style="text-align: center; font-weight: 700; line-height: 1.5;">Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt-Eiern zu vergleichen. Probier selbst!<br><br>Vielen Dank für deinen Besuch</p>
     <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier, großes Lächeln</p>
   </footer>
-
   <!-- Pop-up für Quiz-Abschluss -->
   <div id="quiz-complete">
     <p>Toll gemacht! 🎉 Jetzt lernst du unsere Hühner kennen! 🐥</p>
     <button onclick="closeQuizPopup()">Weiter zu den Hühnern</button>
   </div>
-
 <script>
 const waBtn = document.getElementById('wa-anfragen'), mailBtn = document.getElementById('mail-anfragen'),
 waIdeen = document.getElementById('wa-ideen'), waTausch = document.getElementById('wa-tausch'),
@@ -616,7 +601,7 @@ document.querySelectorAll('.quiz-option').forEach(option => {
     const isCorrect = this.dataset.correct === 'true';
     const optionsContainer = this.closest('.quiz-options');
     const feedback = optionsContainer.nextElementSibling;
-    
+
     // Markiere alle Optionen
     optionsContainer.querySelectorAll('.quiz-option').forEach(opt => {
       opt.style.pointerEvents = 'none';
@@ -626,7 +611,7 @@ document.querySelectorAll('.quiz-option').forEach(option => {
         opt.classList.add('incorrect');
       }
     });
-    
+
     // Feedback anzeigen
     if (isCorrect) {
       feedback.textContent = `Super! 🎉 Richtig!`;
@@ -636,7 +621,7 @@ document.querySelectorAll('.quiz-option').forEach(option => {
       feedback.textContent = `Fast! 😊 Die richtige Antwort ist: "${correctOption.textContent}"`;
       feedback.style.color = 'orange';
     }
-    
+
     // Zähle abgeschlossene Frage
     completedQuestions++;
     if (completedQuestions === totalQuestions) {
