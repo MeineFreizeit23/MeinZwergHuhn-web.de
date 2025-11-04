@@ -154,7 +154,7 @@ h2.center { text-align: center; }
   padding: 15px;
   box-shadow: var(--shadow);
   text-align: center;
-  transition: transform .2s ease, opacity: 0.5s ease;
+  transition: transform .2s ease, opacity 0.5s ease;
   opacity: 0;
   transform: scale(0.9);
 }
@@ -259,7 +259,7 @@ h2.center { text-align: center; }
 #like-count-box {
   display: block;
   margin: 6px auto 0 auto;
-  padding: 3px 16px;
+  padding: 3px 6px;
   background: #f0f0f0;
   color: #333;
   font-size: .75rem;
@@ -347,6 +347,12 @@ h2.center { text-align: center; }
   margin-top: 10px;
   font-size: 1rem;
   font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.quiz-feedback.show {
+  opacity: 1;
 }
 
 /* Reset Button Styles */
@@ -426,7 +432,7 @@ h2.center { text-align: center; }
 
 /* CSS für den neuen kinderfreundlichen Rezepte-Block – optisch nahtlos im .card-Stil */
 .rezepte-card .rezept-header {
-  font-family: 'Fredoka', system-ui, sans-serif;
+  font-family: 'Fredoka', sans-serif;
   color: var(--brand);
   font-size: 1.3em;
   font-weight: 600;
@@ -534,7 +540,7 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback2"></div>
 
-    <div class="quiz-question">Frage 3: Wie heißen unsere drei Hühner? 🐥</div>
+    <div class="quiz-question">Frage 3: Rate mal – Wie heißen unsere drei Hühner? 🐥</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a) Mia, Max und Leo</div>
       <div class="quiz-option" data-correct="true">b) Wella, Wilma und Lupni</div>
@@ -587,83 +593,10 @@ h2.center { text-align: center; }
   </section>
 
   <section class="card rezepte-card" aria-labelledby="rezepte-title">
-    <h2 id="rezepte-title" class="rezept-header">🥚 Hühner-Quiz für kleine Entdecker! 🐔</h2>
-    <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast, lernst du unsere Hühner kennen! 😊</p>
-    
-    <div class="quiz-question">Frage 1: Wie oft legen Hühner Eier? 🥚</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Einmal im Monat 🌙</div>
-      <div class="quiz-option" data-correct="false">b) Alle paar Tage 📅</div>
-      <div class="quiz-option" data-correct="true">c) Jeden Tag ☀️</div>
-    </div>
-    <div class="quiz-feedback" id="feedback1"></div>
-
-    <div class="quiz-question">Frage 2: Was essen Hühner am liebsten? 🥬</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a) Frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
-      <div class="quiz-option" data-correct="false">b) Schokolade 🍫</div>
-      <div class="quiz-option" data-correct="false">c) Eiscreme 🍦</div>
-    </div>
-    <div class="quiz-feedback" id="feedback2"></div>
-
-    <div class="quiz-question">Frage 3: Wie heißen unsere drei Hühner? 🐥</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Mia, Max und Leo</div>
-      <div class="quiz-option" data-correct="true">b) Wella, Wilma und Lupni</div>
-      <div class="quiz-option" data-correct="false">c) Sunny, Happy und Joy</div>
-    </div>
-    <div class="quiz-feedback" id="feedback3"></div>
-
-    <div class="quiz-question">Frage 4: Was macht ein Huhn, wenn es glücklich ist? 🐔</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a) Gackert laut und scharrt fröhlich im Dreck (wie unsere Wella beim Spielen!) 😄</div>
-      <div class="quiz-option" data-correct="false">b) Singt Lieder wie ein Star 🎤</div>
-      <div class="quiz-option" data-correct="false">c) Malt Bilder mit den Füßen 🖌️</div>
-    </div>
-    <div class="quiz-feedback" id="feedback4"></div>
-
-    <div class="quiz-question">Frage 5: Was passiert, wenn ein Huhn ein Ei legt? 🥚</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Es feiert mit einem kleinen Tanz! 💃</div>
-      <div class="quiz-option" data-correct="true">b) Das Ei rollt aus dem Nest – und ein neues Frühstück ist bereit! (Danke, Lupni!) 🐔</div>
-      <div class="quiz-option" data-correct="false">c) Es schickt das Ei per Post weg 📬</div>
-    </div>
-    <div class="quiz-feedback" id="feedback5"></div>
-
-    <div class="quiz-question">Frage 6: Wie kommunizieren Hühner untereinander? 🗣️</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Mit Geheimsprache und Morse-Code 🔢</div>
-      <div class="quiz-option" data-correct="true">b) Mit Gackern, Glucksen und Scharren (wie ein Hühner-Chat!) 😊</div>
-      <div class="quiz-option" data-correct="false">c) Indem sie Selfies machen 📱</div>
-    </div>
-    <div class="quiz-feedback" id="feedback6"></div>
-
-    <button id="reset-quiz">Quiz neu starten</button>
-
-  </section>
-
-  <section class="card" aria-labelledby="bestellung-title">
-    <h2 id="bestellung-title" class="gluecksmomente-title">
-      <div class="gluecksmomente-eggs" aria-hidden="true">
-        <div class="egg"></div>
-        <div class="egg"></div>
-        <div class="egg"></div>
-      </div>
-      <span class="main">Glücksmomente</span>
-      <span class="sub">Harmonie für deinen Tag</span>
-    </h2>
-    <div class="btn-row" role="group" aria-label="Kontaktoptionen" style="justify-content: center; margin-top: 18px;">
-      <a class="wa-btn" id="wa-anfragen">Frische Eier per WhatsApp</a>
-      <a class="mail-btn" id="mail-anfragen">Frische Eier per E-Mail</a>
-    </div>
-  </section>
-
-  <!-- NEUER ABSCHNITT: Die 5 kinderfreundlichen Rezepte – direkt unter Glücksmomente, als .card nahtlos integriert -->
-  <section class="card" aria-labelledby="rezepte-title">
-    <h2 id="rezepte-title" class="rezept-header">🥚 Super-Eier-Abenteuer: 5 coole Rezepte für kleine Köche! 🐔👨‍👩‍👧‍👦</h2>
+    <h2 id="rezepte-title" class="rezept-header">🥚 Super-Eier-Abenteuer: 10 coole Rezepte für kleine Köche! 🐔👨‍👩‍👧‍👦</h2>
     <p>Bist du bereit zum Zaubern in der Küche? Rühr mit, forme mit und nasch mit! Unsere 50g-Eier sind der Star – super frisch und blitzschnell fertig. Welches Abenteuer zuerst? 🌟</p>
     
-    <h4>1. Eier-Bootchen mit Gemüse (Piraten-Frühstück, 12 Min.) 🏴‍☠️</h4>
+    <h4>1. Eier-Bootchen mit Gemüse (Piranten-Frühstück, 12 Min.) 🏴‍☠️</h4>
     <p><strong>Was du brauchst (für 4 Helden):</strong> 8 Eier, 2 Karotten-Sticks, 1 Paprika-Streifen, Käse raspeln, Salz, Öl.</p>
     <p><strong>Zauberei:</strong> Eier verrühren und in Muffinförmchen füllen. Gemüse wie Segel reinschieben, Käse drauf! 8–10 Min. backen bei 180°C. Tadaa – dein Schiff ist fertig! ⛵</p>
     <p class="rezept-tip">Dein Super-Trick: "Bau dein Schiff – welches Segel ist am höchsten? Erzähl's Mama!" 🚀</p>
@@ -692,13 +625,43 @@ h2.center { text-align: center; }
     <p><strong>Zauberei:</strong> Eier mit Milch andicken (5 Min. rühren), schichten und kühlen. Regenbogen-Party! 🎊</p>
     <p class="rezept-tip">Dein Super-Trick: "Schichte wie einen Turm – rot, grün, gelb! Wer baut höher? Dein Turm ist der Beste! 🏰"</p>
     <p class="rezept-tip">Eier-Trick: "Eier färben für Spaß: Mische Essig mit Lebensmittelfarbe – tauche die Schalen ein, zaubere bunte Eier!" 🎨</p>
+    
+    <h4>6. Kräuter-Rührei (Locker, mild und einfach, 10 Min.) 🥣</h4>
+    <p><strong>Was du brauchst:</strong> 4 Eier, 2 EL Milch, Schnittlauch, Butter, Salz.</p>
+    <p><strong>Zauberei:</strong> Eier mit Milch verquirlen, würzen, in Butter stocken lassen. Mit frischen Kräutern bestreuen. Fertig in 5 Min. – super zum Frühstück!</p>
+    <p class="rezept-tip">Dein Super-Trick: "Rühre wie ein Wirbelsturm – das macht's fluffig! Wer rührt am schnellsten? 🌀"</p>
+    <p class="rezept-tip">Eier-Trick: "Eier verquirlen mit Gabel: Zähle 10 Runden – wird cremig ohne Klümpchen! 🔄"</p>
+    
+    <h4>7. Shakshuka (Herzhaft mit Ei in Tomatensoße, 15 Min.) 🍅</h4>
+    <p><strong>Was du brauchst:</strong> Tomaten, Paprika, Zwiebel, 3 Eier, Knoblauch, Salz.</p>
+    <p><strong>Zauberei:</strong> Gemüse köcheln, Eier hineinschlagen, zugedeckt stocken lassen. Mit Brot genießen – perfekt für Abenteuer-Mahlzeit!</p>
+    <p class="rezept-tip">Dein Super-Trick: "Lass Eier wie Vulkane einsinken – wer sieht den ersten Lavabubbel? 🌋"</p>
+    <p class="rezept-tip">Eier-Trick: "Eier in Soße schlagen: Mach ein Loch mit Löffel – das Ei bleibt rund und saftig! 🕳️"</p>
+    
+    <h4>8. Mini-Quiches (Leicht und sättigend, 25 Min.) 🧁</h4>
+    <p><strong>Was du brauchst:</strong> 3 Eier, 100ml Sahne, Lauch, Käse, Salz, Pfeffer.</p>
+    <p><strong>Zauberei:</strong> In Muffinförmchen füllen, bei 180°C 20 Min. backen. Kleine Portionen für unterwegs – wie Eier-Piraten!</p>
+    <p class="rezept-tip">Dein Super-Trick: "Fülle Förmchen wie Schätze – wer stopft am vollständigsten? 💰"</p>
+    <p class="rezept-tip">Eier-Trick: "Eier mit Sahne mischen: Schüttle die Schüssel – wird schaumig wie Wolken! ☁️"</p>
+    
+    <h4>9. Vanille-Muffins (Fluffig und süß, 25 Min.) 🍪</h4>
+    <p><strong>Was du brauchst:</strong> 2 Eier, 200g Mehl, 100g Zucker, 100ml Milch, 80ml Öl, 1 TL Vanillezucker, 1 TL Backpulver.</p>
+    <p><strong>Zauberei:</strong> Alles verrühren, in Förmchen geben, 20 Min. bei 180°C backen. Süßes Abenteuer für Naschkatzen!</p>
+    <p class="rezept-tip">Dein Super-Trick: "Rühre mit Vanille – riecht wie Magie! Wer riecht's zuerst? 👃"</p>
+    <p class="rezept-tip">Eier-Trick: "Eier in Muffinteig schlagen: Lass sie in die Mitte tropfen – wird extra fluffig! 💨"</p>
+    
+    <h4>10. Gemüse-Nudelauflauf (Gesund und bunt, 30 Min.) 🍲</h4>
+    <p><strong>Was du brauchst:</strong> 250g Nudeln, 2 Eier, 150ml Milch, 1 Zucchini, 1 Karotte, 50g Käse, Salz, Pfeffer.</p>
+    <p><strong>Zauberei:</strong> Nudeln kochen, Gemüse raspeln, mit Eier-Milch-Mischung und Käse vermengen. In Auflaufform füllen, bei 180°C 25 Min. backen. Bunter Familienhit!</p>
+    <p class="rezept-tip">Dein Super-Trick: "Raspel Gemüse wie Schneesturm – wer macht die längste 'Schneeflocke'? ❄️"</p>
+    <p class="rezept-tip">Eier-Trick: "Eier mit Milch quirl: Rühre 10 Runden – wird cremig wie Sahne! 🥛"</p>
   </section>
 
   <section class="card no-border" aria-labelledby="feedback-title">
-    <div class="like-section">
-      <button id="like-btn">👍 Gefällt mir</button>
-      <div id="like-count-box">0</div>
-      <p id="like-msg">Danke für dein Feedback! 😊</p>
+    <div style="text-align: center; margin-top: 12px;">
+      <button id="like-btn" style="background:#e07b00;color:#fff;font-weight:600;border:none;padding:6px 16px;font-size:.9rem;border-radius:10px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.08);transition:transform .1s ease,background .2s ease;">👍 Gefällt mir</button>
+      <div id="like-count-box" style="display:block;margin:6px auto 0 auto;padding:3px 6px;background:#f0f0f0;color:#333;font-size:.75rem;border-radius:6px;width:40px;text-align:center;">0</div>
+      <p id="like-msg" style="margin-top:5px;font-size:.9rem;color:green;display:none;">Danke für dein Feedback! 😊</p>
     </div>
   </section>
 
@@ -733,17 +696,9 @@ likeCountBox = document.getElementById('like-count-box');
 let count = parseInt(localStorage.getItem('likeCount')) || 0;
 likeCountBox.textContent = count;
 likeBtn.addEventListener('click', () => {
-  count++;
-  likeCountBox.textContent = count;
-  localStorage.setItem('likeCount', count);
-  likeBtn.style.transform = "scale(1.1)";
-  likeBtn.style.background = "#28a745";
-  likeMsg.style.display = "block";
-  setTimeout(() => {
-    likeBtn.style.transform = "scale(1)";
-    likeBtn.style.background = "#e07b00";
-    likeMsg.style.display = "none";
-  }, 2000);
+  count++; likeCountBox.textContent = count; localStorage.setItem('likeCount', count);
+  likeBtn.style.transform = "scale(1.1)"; likeBtn.style.background = "#28a745"; likeMsg.style.display = "block";
+  setTimeout(() => { likeBtn.style.transform = "scale(1)"; likeBtn.style.background = "#e07b00"; likeMsg.style.display = "none"; }, 2000);
 });
 
 // Quiz-Funktionalität mit Zähler für abgeschlossene Fragen
@@ -784,6 +739,8 @@ document.querySelectorAll('.quiz-option').forEach((option, index) => {
 
 function closeQuizPopup() {
   quizComplete.style.display = 'none';
+  // Scroll zu den Hühnerkarten
+  document.getElementById('huhn-grid').scrollIntoView({ behavior: 'smooth' });
 }
 
 resetQuizBtn.addEventListener('click', () => {
