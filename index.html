@@ -472,6 +472,30 @@ h2.center { text-align: center; }
   color: var(--ink-muted);
   margin: 0;
 }
+
+/* Animierte Zwerg-Hühner am Ende der Seite */
+.footer-chickens {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.footer-chicken {
+  font-size: 3rem;
+  animation: chicken-bounce 2s ease-in-out infinite;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+}
+
+.footer-chicken:nth-child(2) { animation-delay: 0.5s; }
+.footer-chicken:nth-child(3) { animation-delay: 1s; }
+
+@keyframes chicken-bounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
 </style>
 </head>
 <body>
@@ -633,6 +657,10 @@ h2.center { text-align: center; }
       <p><strong>Zubereitung:</strong> Eier in einer Schüssel verquirlen, Milch hinzufügen, salzen und pfeffern. Butter in einer Pfanne erhitzen und die Eiermasse bei mittlerer Hitze stocken lassen, dabei vorsichtig rühren.</p>
       <p><em>Dein Supertrick: Für extra fluffiges Rührei ein bisschen Sprudelwasser hinzufügen.</em></p>
       <p><em>Eier-Zauber: Unsere kleinen Zwerg-Eier machen das Rührei super weich und lustig zu portionieren – wie kleine Wolken für kleine Bäuche! 🥚☁️</em></p>
+      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+        <a class="wa-btn" href="https://wa.me/491638306166?text=*RÜHREI DELUXE* 🥚☁️%0AZutaten: 4 Eier (8 Zwerghuhneier), 1 EL Milch, Salz & Pfeffer, 1 TL Butter.%0AZubereitung: Eier verquirlen, Milch hinzufügen, würzen. Butter erhitzen, Eiermasse stocken lassen.%0ASupertrick: Sprudelwasser für Fluffigkeit!%0AEier-Zauber: Zwerg-Eier machen es weich wie Wolken! Probier es aus!">Per WhatsApp teilen</a>
+        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Rührei Deluxe&body=*RÜHREI DELUXE* 🥚☁️%0AZutaten: 4 Eier (8 Zwerghuhneier), 1 EL Milch, Salz & Pfeffer, 1 TL Butter.%0AZubereitung: Eier verquirlen, Milch hinzufügen, würzen. Butter erhitzen, Eiermasse stocken lassen.%0ASupertrick: Sprudelwasser für Fluffigkeit!%0AEier-Zauber: Zwerg-Eier machen es weich wie Wolken!">Per Mail teilen</a>
+      </div>
     </div>
 
     <!-- Rezept 2 -->
@@ -650,6 +678,10 @@ h2.center { text-align: center; }
       <p><strong>Zubereitung:</strong> Eier mit Milch und Ahornsirup verquirlen. Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken, bis sie goldbraun sind.</p>
       <p><em>Dein Supertrick: Den Teig 10 Minuten ruhen lassen – das macht ihn noch geschmeidiger.</em></p>
       <p><em>Eier-Abenteuer: Mit Zwerg-Eiern backst du winzige Pfannkuchen, die wie goldene Schätze schmecken – ideal für kleine Entdecker! 🥞🌟</em></p>
+      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+        <a class="wa-btn" href="https://wa.me/491638306166?text=*EIERKUCHEN SÜSS* 🥞🌟%0AZutaten: 2 Eier (3 Zwerghuhneier), 150g Mehl, 250ml Milch, 1 EL Ahornsirup, Prise Salz, Butter.%0AZubereitung: Eier mit Milch & Sirup verquirlen, Mehl & Salz einrühren, Teig backen.%0ASupertrick: 10 Min ruhen lassen!%0AEier-Abenteuer: Winzige Pfannkuchen wie goldene Schätze!">Per WhatsApp teilen</a>
+        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Eierkuchen süß&body=*EIERKUCHEN SÜSS* 🥞🌟%0AZutaten: 2 Eier (3 Zwerghuhneier), 150g Mehl, 250ml Milch, 1 EL Ahornsirup, Prise Salz, Butter.%0AZubereitung: Eier mit Milch & Sirup verquirlen, Mehl & Salz einrühren, Teig backen.%0ASupertrick: 10 Min ruhen lassen!%0AEier-Abenteuer: Winzige Pfannkuchen wie goldene Schätze!">Per Mail teilen</a>
+      </div>
     </div>
 
     <!-- Rezept 3 -->
@@ -667,6 +699,10 @@ h2.center { text-align: center; }
       <p><strong>Zubereitung:</strong> Eier mit Milch, Salz und Pfeffer verquirlen. Gemüse in Öl kurz anbraten, Eiermasse darüber gießen und bei mittlerer Hitze stocken lassen.</p>
       <p><em>Dein Supertrick: Omelette einmal wenden – bleibt saftig.</em></p>
       <p><em>Eier-Magie: Zwerg-Eier passen perfekt zu buntem Gemüse und zaubern ein Omelett, das wie ein Regenbogenbrot aussieht – yummi für kleine Helden! 🌈🥚</em></p>
+      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+        <a class="wa-btn" href="https://wa.me/491638306166?text=*OMELETTE GEMÜSE* 🌈🥚%0AZutaten: 3 Eier (5 Zwerghuhneier), 50g Paprika, 50g Zucchini, 1 EL Milch, Salz & Pfeffer, 1 TL Öl.%0AZubereitung: Eier verquirlen, Gemüse anbraten, Ei drüber & stocken lassen.%0ASupertrick: Wenden für Saftigkeit!%0AEier-Magie: Wie Regenbogenbrot für Helden!">Per WhatsApp teilen</a>
+        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Omelette Gemüse&body=*OMELETTE GEMÜSE* 🌈🥚%0AZutaten: 3 Eier (5 Zwerghuhneier), 50g Paprika, 50g Zucchini, 1 EL Milch, Salz & Pfeffer, 1 TL Öl.%0AZubereitung: Eier verquirlen, Gemüse anbraten, Ei drüber & stocken lassen.%0ASupertrick: Wenden für Saftigkeit!%0AEier-Magie: Wie Regenbogenbrot für Helden!">Per Mail teilen</a>
+      </div>
     </div>
 
     <!-- Rezept 4 -->
@@ -683,6 +719,10 @@ h2.center { text-align: center; }
       <p><strong>Zubereitung:</strong> Eier hart kochen, schälen und längs halbieren. Eigelbe herausnehmen, mit Joghurt, Senf, Salz und Pfeffer vermengen. Masse zurück in die Eiweißhälften füllen und mit Paprika bestreuen.</p>
       <p><em>Dein Supertrick: Eier vor dem Füllen leicht mit heißem Wasser übergießen – das erleichtert das Schälen.</em></p>
       <p><em>Eier-Spaß: Kleine Zwerg-Eier werden zu lustigen "Eier-Bomben" – füll sie und lass sie explodieren vor Geschmack für kleine Partys! 💥🥚</em></p>
+      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+        <a class="wa-btn" href="https://wa.me/491638306166?text=*GEFÜLLTE EIER* 💥🥚%0AZutaten: 6 Eier (12 Zwerghuhneier), 2 EL Joghurt, 1 TL Senf, Salz & Pfeffer, Paprika.%0AZubereitung: Eier kochen, halbieren, Eigelb mit Joghurt & Senf mischen, füllen & bestreuen.%0ASupertrick: Heißes Wasser für leichtes Schälen!%0AEier-Spaß: Wie Eier-Bomben für Partys!">Per WhatsApp teilen</a>
+        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Gefüllte Eier&body=*GEFÜLLTE EIER* 💥🥚%0AZutaten: 6 Eier (12 Zwerghuhneier), 2 EL Joghurt, 1 TL Senf, Salz & Pfeffer, Paprika.%0AZubereitung: Eier kochen, halbieren, Eigelb mit Joghurt & Senf mischen, füllen & bestreuen.%0ASupertrick: Heißes Wasser für leichtes Schälen!%0AEier-Spaß: Wie Eier-Bomben für Partys!">Per Mail teilen</a>
+      </div>
     </div>
 
     <!-- Rezept 5 -->
@@ -699,6 +739,10 @@ h2.center { text-align: center; }
       <p><strong>Zubereitung:</strong> Eier hart kochen, schälen und würfeln. Mit Mayonnaise, Senf, Salz, Pfeffer und Frühlingszwiebel vermengen. Kurz ziehen lassen und servieren.</p>
       <p><em>Dein Supertrick: Eier noch warm hacken – dadurch wird der Salat cremiger.</em></p>
       <p><em>Eier-Geheimnis: Zwerg-Eier machen den Salat zu kleinen cremigen Schätzen – perfekt, um mit Freunden zu teilen und zu kichern! 😄🥗</em></p>
+      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+        <a class="wa-btn" href="https://wa.me/491638306166?text=*EIERSALAT KLASSISCH* 😄🥗%0AZutaten: 4 Eier (8 Zwerghuhneier), 2 EL Mayonnaise, 1 TL Senf, Salz & Pfeffer, Frühlingszwiebel.%0AZubereitung: Eier kochen, würfeln & mischen.%0ASupertrick: Warm hacken für Cremigkeit!%0AEier-Geheimnis: Cremige Schätze zum Teilen!">Per WhatsApp teilen</a>
+        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Eiersalat klassisch&body=*EIERSALAT KLASSISCH* 😄🥗%0AZutaten: 4 Eier (8 Zwerghuhneier), 2 EL Mayonnaise, 1 TL Senf, Salz & Pfeffer, Frühlingszwiebel.%0AZubereitung: Eier kochen, würfeln & mischen.%0ASupertrick: Warm hacken für Cremigkeit!%0AEier-Geheimnis: Cremige Schätze zum Teilen!">Per Mail teilen</a>
+      </div>
     </div>
 
     <!-- Rezept 6 -->
@@ -716,6 +760,10 @@ h2.center { text-align: center; }
       <p><strong>Zubereitung:</strong> Eier, Milch, Salz, Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180°C 20–25 Minuten backen.</p>
       <p><em>Dein Supertrick: Muffins nach 15 Minuten mit Alufolie abdecken, dann werden sie nicht zu braun.</em></p>
       <p><em>Eier-Zauber: Mit Zwerg-Eiern entstehen Mini-Muffins, die wie flauschige Wolken hüpfen – back-Abenteuer für kleine Chefs! ☁️🍪</em></p>
+      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+        <a class="wa-btn" href="https://wa.me/491638306166?text=*FRÜHSTÜCKS-MUFFINS MIT EI* ☁️🍪%0AZutaten: 3 Eier (5 Zwerghuhneier), 100g Mehl, 50ml Milch, 50g Käse, Salz & Pfeffer, 1 TL Backpulver.%0AZubereitung: Alles verquirln, in Formen füllen, 180°C 20-25 Min backen.%0ASupertrick: Nach 15 Min abdecken!%0AEier-Zauber: Mini-Muffins wie hüpfende Wolken!">Per WhatsApp teilen</a>
+        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Frühstücks-Muffins&body=*FRÜHSTÜCKS-MUFFINS MIT EI* ☁️🍪%0AZutaten: 3 Eier (5 Zwerghuhneier), 100g Mehl, 50ml Milch, 50g Käse, Salz & Pfeffer, 1 TL Backpulver.%0AZubereitung: Alles verquirln, in Formen füllen, 180°C 20-25 Min backen.%0ASupertrick: Nach 15 Min abdecken!%0AEier-Zauber: Mini-Muffins wie hüpfende Wolken!">Per Mail teilen</a>
+      </div>
     </div>
 
     <!-- Rezept 7 -->
@@ -732,6 +780,10 @@ h2.center { text-align: center; }
       <p><strong>Zubereitung:</strong> Zwiebel in Öl anbraten, Spinat hinzufügen und zusammenfallen lassen. Eier verquirlen, darüber geben und stocken lassen.</p>
       <p><em>Dein Supertrick: Mit etwas Wasser ablöschen – Spinat bleibt saftig.</em></p>
       <p><em>Eier-Abenteuer: Zwerg-Eier tanzen mit grünem Spinat zu einem superhelden-starken Pfannengericht – Kraft für kleine Ritter! 🦸🥬</em></p>
+      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+        <a class="wa-btn" href="https://wa.me/491638306166?text=*SPINAT-EI-PFANNE* 🦸🥬%0AZutaten: 2 Eier (3 Zwerghuhneier), 150g Spinat, 1 TL Öl, Salz & Pfeffer, Zwiebel.%0AZubereitung: Zwiebel anbraten, Spinat fallen lassen, Eier drüber & stocken.%0ASupertrick: Ablöschen für Saftigkeit!%0AEier-Abenteuer: Superhelden-Kraft für Ritter!">Per WhatsApp teilen</a>
+        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Spinat-Ei-Pfanne&body=*SPINAT-EI-PFANNE* 🦸🥬%0AZutaten: 2 Eier (3 Zwerghuhneier), 150g Spinat, 1 TL Öl, Salz & Pfeffer, Zwiebel.%0AZubereitung: Zwiebel anbraten, Spinat fallen lassen, Eier drüber & stocken.%0ASupertrick: Ablöschen für Saftigkeit!%0AEier-Abenteuer: Superhelden-Kraft für Ritter!">Per Mail teilen</a>
+      </div>
     </div>
 
     <!-- Rezept 8 -->
@@ -748,6 +800,10 @@ h2.center { text-align: center; }
       <p><strong>Zubereitung:</strong> Eier hart kochen. Brühe erhitzen, Joghurt und Senf einrühren, würzen. Eier halbieren und in die Soße legen.</p>
       <p><em>Dein Supertrick: Eier vor dem Servieren kurz in kaltem Wasser abschrecken – Soße bleibt cremig.</em></p>
       <p><em>Eier-Magie: Kleine Zwerg-Eier schwimmen in der Soße wie goldene Schiffe – ein Geschmacksabenteuer für kleine Seefahrer! ⛵🥚</em></p>
+      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+        <a class="wa-btn" href="https://wa.me/491638306166?text=*EIER IN SENFSOßE* ⛵🥚%0AZutaten: 4 Eier (8 Zwerghuhneier), 200ml Brühe, 2 EL Joghurt, 1 TL Senf, Salz & Pfeffer.%0AZubereitung: Eier kochen, Soße rühren, Eier rein.%0ASupertrick: Abschrecken für Cremigkeit!%0AEier-Magie: Goldene Schiffe im Abenteuer!">Per WhatsApp teilen</a>
+        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Eier in Senfsoße&body=*EIER IN SENFSOßE* ⛵🥚%0AZutaten: 4 Eier (8 Zwerghuhneier), 200ml Brühe, 2 EL Joghurt, 1 TL Senf, Salz & Pfeffer.%0AZubereitung: Eier kochen, Soße rühren, Eier rein.%0ASupertrick: Abschrecken für Cremigkeit!%0AEier-Magie: Goldene Schiffe im Abenteuer!">Per Mail teilen</a>
+      </div>
     </div>
 
     <!-- Rezept 9 -->
@@ -764,6 +820,10 @@ h2.center { text-align: center; }
       <p><strong>Zubereitung:</strong> Eier hart kochen, würfeln und mit allen Zutaten vermengen. Kurz ziehen lassen und servieren.</p>
       <p><em>Dein Supertrick: Eier noch warm hacken – Salat wird cremiger.</em></p>
       <p><em>Eier-Geheimnis: Zwerg-Eier mit roter Paprika ergeben einen Salat wie einen Schatzfund – teile ihn mit Freunden und lach dabei! 💎😊</em></p>
+      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+        <a class="wa-btn" href="https://wa.me/491638306166?text=*EIERSALAT DELUXE* 💎😊%0AZutaten: 5 Eier (10 Zwerghuhneier), 3 EL Mayonnaise, 1 TL Senf, rote Paprika, Salz & Pfeffer.%0AZubereitung: Eier kochen, würfeln & mischen, ziehen lassen.%0ASupertrick: Warm hacken!%0AEier-Geheimnis: Schatzfund zum Lachen!">Per WhatsApp teilen</a>
+        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Eiersalat Deluxe&body=*EIERSALAT DELUXE* 💎😊%0AZutaten: 5 Eier (10 Zwerghuhneier), 3 EL Mayonnaise, 1 TL Senf, rote Paprika, Salz & Pfeffer.%0AZubereitung: Eier kochen, würfeln & mischen, ziehen lassen.%0ASupertrick: Warm hacken!%0AEier-Geheimnis: Schatzfund zum Lachen!">Per Mail teilen</a>
+      </div>
     </div>
 
     <!-- Rezept 10 -->
@@ -780,6 +840,10 @@ h2.center { text-align: center; }
       <p><strong>Zubereitung:</strong> Eier hart kochen, hacken und mit Frischkäse, Senf, Salz, Pfeffer und Frühlingszwiebel verrühren. Auf frisches Brot streichen.</p>
       <p><em>Dein Supertrick: Etwas Schnittlauch darüber streuen – sieht toll aus!</em></p>
       <p><em>Eier-Spaß: Zwerg-Eier machen den Aufstrich zu einer cremigen Überraschung – streich's auf Brot und lass die Fantasie fliegen! 🧚‍♂️🥖</em></p>
+      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
+        <a class="wa-btn" href="https://wa.me/491638306166?text=*EIER-BROTAUFSTRICH* 🧚‍♂️🥖%0AZutaten: 3 Eier (5 Zwerghuhneier), 2 EL Frischkäse, 1 TL Senf, Salz & Pfeffer, Frühlingszwiebel.%0AZubereitung: Eier kochen, hacken & verrühren, auf Brot streichen.%0ASupertrick: Schnittlauch drüber!%0AEier-Spaß: Cremige Überraschung für Fantasie!">Per WhatsApp teilen</a>
+        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Eier-Brotaufstrich&body=*EIER-BROTAUFSTRICH* 🧚‍♂️🥖%0AZutaten: 3 Eier (5 Zwerghuhneier), 2 EL Frischkäse, 1 TL Senf, Salz & Pfeffer, Frühlingszwiebel.%0AZubereitung: Eier kochen, hacken & verrühren, auf Brot streichen.%0ASupertrick: Schnittlauch drüber!%0AEier-Spaß: Cremige Überraschung für Fantasie!">Per Mail teilen</a>
+      </div>
     </div>
 
     <!-- Abschließender Text unten im Rezept-Bereich (als eigene Card für Konsistenz) -->
@@ -794,6 +858,12 @@ h2.center { text-align: center; }
   </div>
 
   <footer class="footer">
+    <!-- Animierte Zwerg-Hühner am Ende -->
+    <div class="footer-chickens">
+      <div class="footer-chicken">🐣</div>
+      <div class="footer-chicken">🐥</div>
+      <div class="footer-chicken">🐤</div>
+    </div>
     <div class="footer-emojis">☘️💯☘️</div>
     <p style="text-align: center; font-weight: 700; line-height: 1.5;">
       Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt-Eiern zu vergleichen. Probier selbst!<br><br>
