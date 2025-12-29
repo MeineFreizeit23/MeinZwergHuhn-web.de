@@ -174,10 +174,10 @@ h2.center { text-align: center; }
 
 .gluecksmomente-title {
   text-align: center;
-  position: relative; /* Für Eier-Position */
+  position: relative;
 }
 
-/* 🥚 HÜPFENDE EIER BEI "GLÜCKSMOMENTE" 🥚 */
+/* Eier Animation */
 .gluecksmomente-eggs {
   position: absolute;
   top: -10px;
@@ -226,64 +226,27 @@ h2.center { text-align: center; }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { 
+  0%, 100% {
     opacity: 1;
     text-shadow: 0 0 8px rgba(255, 127, 80, 0.3), 0 0 16px rgba(255, 127, 80, 0.1);
     transform: scale(1);
   }
-  50% { 
+  50% {
     opacity: 0.95;
     text-shadow: 0 0 16px rgba(255, 127, 80, 0.6), 0 0 24px rgba(255, 127, 80, 0.2);
     transform: scale(1.02);
   }
 }
 
-.like-section {
-  text-align: center;
-  margin-top: 12px;
+.futter-list {
+  list-style: none;
+  padding: 0;
+}
+.futter-list li {
+  margin: 4px 0;
 }
 
-#like-btn {
-  background: #e07b00;
-  color: #fff;
-  font-weight: 600;
-  border: none;
-  padding: 6px 16px;
-  font-size: .9rem;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 3px 10px rgba(0,0,0,.08);
-  transition: transform .1s ease, background .2s ease;
-}
-
-#like-count-box {
-  display: block;
-  margin: 6px auto 0 auto;
-  padding: 3px 6px;
-  background: #f0f0f0;
-  color: #333;
-  font-size: .75rem;
-  border-radius: 6px;
-  width: 40px;
-  text-align: center;
-}
-
-#like-msg {
-  margin-top: 5px;
-  font-size: .9rem;
-  color: green;
-  display: none;
-}
-
-.futter-list { 
-  list-style: none; 
-  padding: 0; 
-}
-.futter-list li { 
-  margin: 4px 0; 
-}
-
-/* Sekundäre Buttons: Kleiner */
+/* Sekundäre Buttons */
 #wa-ideen, #wa-tausch {
   font-size: 0.9rem;
   padding: 8px 12px;
@@ -355,7 +318,6 @@ h2.center { text-align: center; }
   opacity: 1;
 }
 
-/* Reset Button Styles */
 #reset-quiz {
   display: none;
   background: #e07b00;
@@ -376,7 +338,7 @@ h2.center { text-align: center; }
   transform: scale(1.02);
 }
 
-/* Pop-up Styles */
+/* Pop up Quiz */
 #quiz-complete {
   display: none;
   position: fixed;
@@ -430,7 +392,7 @@ h2.center { text-align: center; }
   #quiz-complete { font-size: 1.1rem; padding: 20px; }
 }
 
-/* CSS für den neuen kinderfreundlichen Rezepte-Block – optisch nahtlos im .card-Stil */
+/* Rezepte Styles */
 .rezepte-card .rezept-header {
   font-family: 'Fredoka', sans-serif;
   color: var(--brand);
@@ -454,7 +416,6 @@ h2.center { text-align: center; }
   margin-top: 6px;
 }
 
-/* Stil für den abschließenden Text im Rezept-Bereich */
 .recipe-closing {
   font-family: 'Fredoka', sans-serif;
   background: var(--panel);
@@ -472,7 +433,7 @@ h2.center { text-align: center; }
   margin: 0;
 }
 
-/* Animierte Zwerg-Hühner am Ende der Seite */
+/* Footer Hühner */
 .footer-chickens {
   display: flex;
   justify-content: center;
@@ -495,6 +456,31 @@ h2.center { text-align: center; }
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-10px) rotate(5deg); }
 }
+
+/* Button für die Rezeptanleitung */
+.show-rezept-btn {
+  background: #e07b00;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 8px 16px;
+  font-size: .9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,.08);
+  transition: transform .1s ease, background .2s ease;
+  margin-top: 10px;
+}
+
+.show-rezept-btn:hover {
+  background: #d06a00;
+  transform: scale(1.02);
+}
+
+.rezept-anleitung {
+  display: none;
+  margin-top: 12px;
+}
 </style>
 </head>
 <body>
@@ -504,12 +490,12 @@ h2.center { text-align: center; }
       <h1>Kleine Eier<br>großes Lächeln</h1>
     </div>
     <p class="subtitle">Hallo und willkommen!</p>
-    <p class="subtitle extra">Freut mich, dass du den QR-Code entdeckt hast!</p>
+    <p class="subtitle extra">Freut mich, dass du den QR Code entdeckt hast!</p>
   </header>
 
   <section class="card" aria-labelledby="garten-huehner">
     <h2 id="garten-huehner">Warum wir unsere Hühner im Garten halten</h2>
-    <p>Sie bringen Freude, bereichern den Alltag und schenken ein glückliches Miteinander. Das Verhalten der Tiere ist unbezahlbar – und ganz nebenbei schenken sie uns frische Eier, direkt aus dem eigenen Garten.</p>
+    <p>Sie bringen Freude, bereichern den Alltag und schenken ein glückliches Miteinander. Das Verhalten der Tiere ist unbezahlbar und ganz nebenbei schenken sie uns frische Eier direkt aus dem eigenen Garten.</p>
   </section>
 
   <section class="card" aria-labelledby="freilauf-title">
@@ -519,7 +505,7 @@ h2.center { text-align: center; }
   </section>
 
   <section class="card" aria-labelledby="ideen-title">
-    <h2 id="ideen-title" class="center">Ideen & Anregungen für den Hühnerfreilauf</h2>
+    <h2 id="ideen-title" class="center">Ideen und Anregungen für den Hühnerfreilauf</h2>
     <p class="center">Wenn ihr Anregungen zur Gestaltung oder Bepflanzung unseres Hühnerfreilaufs habt, schreibt uns gerne.</p>
     <div class="btn-row" style="justify-content: center; margin-top: 12px;">
       <a class="wa-btn" id="wa-ideen">Über WhatsApp senden</a>
@@ -527,98 +513,98 @@ h2.center { text-align: center; }
   </section>
 
   <section class="card" aria-labelledby="futterliste-title">
-    <h2 id="futterliste-title">Futter & Snacks für unsere Hühner</h2>
-    <p>Die Snack-Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
+    <h2 id="futterliste-title">Futter und Snacks für unsere Hühner</h2>
+    <p>Die Snack Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
     <ul class="futter-list">
       <li>✔️ Gurke</li><li>✔️ Karotte</li><li>✔️ Verschiedene Salate</li><li>✔️ Beeren</li>
-      <li>✔️ Frisches Grün (z. B. Löwenzahn, Rucola, Feldsalat, Spinat)</li>
-      <li>✔️ Frische Kräuter (z. B. Petersilie, Koriander, Basilikum)</li>
+      <li>✔️ Frisches Grün wie Löwenzahn Rucola Feldsalat Spinat</li>
+      <li>✔️ Frische Kräuter wie Petersilie Koriander Basilikum</li>
       <li>❌ Zitrusfrüchte</li><li>❌ Avocado</li><li>❌ rohe Kartoffeln</li>
-      <li>❌ Zwiebeln</li><li>❌ Süßigkeiten & Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
+      <li>❌ Zwiebeln</li><li>❌ Süßigkeiten und Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
     </ul>
-    <p><strong>Wichtig:</strong> Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen!</p>
-    <p style="font-weight: 600; margin-top: 1rem; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir 6 frische Eier 🥚</p>
+    <p><strong>Wichtig:</strong> Alles sollte frisch unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen.</p>
+    <p style="font-weight: 600; margin-top: 1rem; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir sechs frische Eier 🥚</p>
     <div class="btn-row" style="justify-content: center; margin-top: 8px;">
       <a class="wa-btn" id="wa-tausch">Snacks gegen Eier tauschen</a>
     </div>
   </section>
 
-  <!-- Hühnerkarten: Anfangs versteckt -->
+  <!-- Hühnerkarten -->
   <div id="huhn-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px; display: none;">
     <div class="huhn-card">
       <img src="huhn1.jpg" alt="Wella" loading="lazy">
       <h3>Wella</h3>
-      <p>Eine ruhige, kuschelbedürftige Japanische Seidenhuhn-Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant – nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.</p>
+      <p>Eine ruhige kuschelbedürftige japanische Seidenhuhn Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant nicht nur wegen ihres besonderen Aussehens sondern auch wegen ihres einzigartigen Charakters.</p>
     </div>
     <div class="huhn-card">
       <img src="huhn2.jpg" alt="Wilma" loading="lazy">
       <h3>Wilma</h3>
-      <p>Eine selbstbewusste Zwerg-Wyandotten-Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.</p>
+      <p>Eine selbstbewusste Zwerg Wyandotten Henne mit ruhigem beobachtendem Wesen. Sie nimmt sich Zeit bevor sie Neues wagt. Wer ihr Vertrauen gewinnt entdeckt eine sanfte herzliche Henne mit liebevollem Verhalten.</p>
     </div>
     <div class="huhn-card">
       <img src="huhn3.jpg" alt="Lupni" loading="lazy">
       <h3>Lupni</h3>
-      <p>Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
+      <p>Eine entdeckungsfreudige Henne die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
     </div>
   </div>
 
   <section class="card quiz-card" aria-labelledby="quiz-title">
-    <h2 id="quiz-title">🥚 Hühner-Quiz für kleine Entdecker! 🐔</h2>
-    <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast, lernst du unsere Hühner kennen! 😊</p>
+    <h2 id="quiz-title">Hühner Quiz für kleine Entdecker</h2>
+    <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
     
-    <div class="quiz-question">Frage 1: Wie oft legen Hühner Eier? 🥚</div>
+    <div class="quiz-question">Frage eins Wie oft legen Hühner Eier</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Einmal im Monat 🌙</div>
-      <div class="quiz-option" data-correct="false">b) Alle paar Tage 📅</div>
-      <div class="quiz-option" data-correct="true">c) Jeden Tag ☀️</div>
+      <div class="quiz-option" data-correct="false">a einmal im Monat</div>
+      <div class="quiz-option" data-correct="false">b alle paar Tage</div>
+      <div class="quiz-option" data-correct="true">c jeden Tag</div>
     </div>
     <div class="quiz-feedback" id="feedback1"></div>
 
-    <div class="quiz-question">Frage 2: Was essen Hühner am liebsten? 🥬</div>
+    <div class="quiz-question">Frage zwei Was essen Hühner am liebsten</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a) Frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
-      <div class="quiz-option" data-correct="false">b) Schokolade 🍫</div>
-      <div class="quiz-option" data-correct="false">c) Eiscreme 🍦</div>
+      <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten</div>
+      <div class="quiz-option" data-correct="false">b Schokolade</div>
+      <div class="quiz-option" data-correct="false">c Eiscreme</div>
     </div>
     <div class="quiz-feedback" id="feedback2"></div>
 
-    <div class="quiz-question">Frage 3: Rate mal – Wie heißen unsere drei Hühner? 🐥</div>
+    <div class="quiz-question">Frage drei Wie heißen unsere drei Hühner</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Mia, Max und Leo</div>
-      <div class="quiz-option" data-correct="true">b) Wella, Wilma und Lupni</div>
-      <div class="quiz-option" data-correct="false">c) Sunny, Happy und Joy</div>
+      <div class="quiz-option" data-correct="false">a Mia Max und Leo</div>
+      <div class="quiz-option" data-correct="true">b Wella Wilma und Lupni</div>
+      <div class="quiz-option" data-correct="false">c Sunny Happy und Joy</div>
     </div>
     <div class="quiz-feedback" id="feedback3"></div>
 
-    <div class="quiz-question">Frage 4: Was macht ein Huhn, wenn es glücklich ist? 🐔</div>
+    <div class="quiz-question">Frage vier Was macht ein Huhn wenn es glücklich ist</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a) Gackert laut und scharrt fröhlich im Dreck (wie unsere Wella beim Spielen!) 😄</div>
-      <div class="quiz-option" data-correct="false">b) Singt Lieder wie ein Star 🎤</div>
-      <div class="quiz-option" data-correct="false">c) Malt Bilder mit den Füßen 🖌️</div>
+      <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck</div>
+      <div class="quiz-option" data-correct="false">b singt Lieder wie ein Star</div>
+      <div class="quiz-option" data-correct="false">c malt Bilder mit den Füßen</div>
     </div>
     <div class="quiz-feedback" id="feedback4"></div>
 
-    <div class="quiz-question">Frage 5: Was passiert, wenn ein Huhn ein Ei legt? 🥚</div>
+    <div class="quiz-question">Frage fünf Was passiert wenn ein Huhn ein Ei legt</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Es feiert mit einem kleinen Tanz! 💃</div>
-      <div class="quiz-option" data-correct="true">b) Das Ei rollt aus dem Nest – und ein neues Frühstück ist bereit! (Danke, Lupni!) 🐔</div>
-      <div class="quiz-option" data-correct="false">c) Es schickt das Ei per Post weg 📬</div>
+      <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz</div>
+      <div class="quiz-option" data-correct="true">b das Ei rollt aus dem Nest und ein neues Frühstück ist bereit</div>
+      <div class="quiz-option" data-correct="false">c es schickt das Ei per Post weg</div>
     </div>
     <div class="quiz-feedback" id="feedback5"></div>
 
-    <div class="quiz-question">Frage 6: Wie kommunizieren Hühner untereinander? 🗣️</div>
+    <div class="quiz-question">Frage sechs Wie kommunizieren Hühner untereinander</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Mit Geheimsprache und Morse-Code 🔢</div>
-      <div class="quiz-option" data-correct="true">b) Mit Gackern, Glucksen und Scharren (wie ein Hühner-Chat!) 😊</div>
-      <div class="quiz-option" data-correct="false">c) Indem sie Selfies machen 📱</div>
+      <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code</div>
+      <div class="quiz-option" data-correct="true">b mit Gackern Glucksen und Scharren</div>
+      <div class="quiz-option" data-correct="false">c indem sie Selfies machen</div>
     </div>
     <div class="quiz-feedback" id="feedback6"></div>
 
-    <div class="quiz-question">Frage 7: Warum sind unsere Eier so besonders? 🥚✨</div>
+    <div class="quiz-question">Frage sieben Warum sind unsere Eier so besonders</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a) Weil sie fliegen können! ✈️</div>
-      <div class="quiz-option" data-correct="true">b) Weil glückliche Hühner im Freilauf sie legen – frisch und lecker! 🌿</div>
-      <div class="quiz-option" data-correct="false">c) Weil sie magisch sind und zaubern! 🪄</div>
+      <div class="quiz-option" data-correct="false">a weil sie fliegen können</div>
+      <div class="quiz-option" data-correct="true">b weil glückliche Hühner im Freilauf sie legen frisch und lecker</div>
+      <div class="quiz-option" data-correct="false">c weil sie magisch sind und zaubern</div>
     </div>
     <div class="quiz-feedback" id="feedback7"></div>
 
@@ -638,226 +624,216 @@ h2.center { text-align: center; }
     </h2>
     <div class="btn-row" role="group" aria-label="Kontaktoptionen" style="justify-content: center; margin-top: 18px;">
       <a class="wa-btn" id="wa-anfragen">Frische Eier per WhatsApp</a>
-      <a class="mail-btn" id="mail-anfragen">Frische Eier per E-Mail</a>
+      <a class="mail-btn" id="mail-anfragen">Frische Eier per Mail</a>
     </div>
   </section>
 
   <section id="rezepte">
-    <!-- Rezept 1 -->
+    <!-- Rezepte mit Anleitung Button -->
     <div class="card">
       <h2>Rührei Deluxe</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>4 Eier (8 Zwerghuhneier)</li>
-        <li>1 EL Milch</li>
-        <li>Salz & Pfeffer nach Geschmack</li>
-        <li>1 TL Butter</li>
+        <li>4 Eier 8 Zwerghuhneier</li>
+        <li>1 Esslöffel Milch</li>
+        <li>Salz und Pfeffer nach Geschmack</li>
+        <li>1 Teelöffel Butter</li>
       </ul>
-      <p><strong>Zubereitung:</strong> Eier in einer Schüssel verquirlen, Milch hinzufügen, salzen und pfeffern. Butter in einer Pfanne erhitzen und die Eiermasse bei mittlerer Hitze stocken lassen, dabei vorsichtig rühren.</p>
-      <p><em>Dein Supertrick: Für extra fluffiges Rührei ein bisschen Sprudelwasser hinzufügen.</em></p>
-      <p><em>Eier-Zauber: Unsere kleinen Zwerg-Eier machen das Rührei super weich und lustig zu portionieren – wie kleine Wolken für kleine Bäuche! 🥚☁️</em></p>
-      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=*RÜHREI DELUXE* 🥚☁️%0A%0AZutaten:%0A- 4 Eier (8 Zwerghuhneier)%0A- 1 EL Milch%0A- Salz & Pfeffer nach Geschmack%0A- 1 TL Butter%0A%0AZubereitung: Eier in einer Schüssel verquirlen, Milch hinzufügen, salzen und pfeffern. Butter in einer Pfanne erhitzen und die Eiermasse bei mittlerer Hitze stocken lassen, dabei vorsichtig rühren.%0A%0ADein Supertrick: Für extra fluffiges Rührei ein bisschen Sprudelwasser hinzufügen.%0A%0AEier-Zauber: Unsere kleinen Zwerg-Eier machen das Rührei super weich und lustig zu portionieren – wie kleine Wolken für kleine Bäuche! 🥚☁️%0A%0AProbier es aus!">Per WhatsApp teilen</a>
-        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Rührei Deluxe&body=*RÜHREI DELUXE* 🥚☁️%0A%0AZutaten:%0A- 4 Eier (8 Zwerghuhneier)%0A- 1 EL Milch%0A- Salz & Pfeffer nach Geschmack%0A- 1 TL Butter%0A%0AZubereitung: Eier in einer Schüssel verquirlen, Milch hinzufügen, salzen und pfeffern. Butter in einer Pfanne erhitzen und die Eiermasse bei mittlerer Hitze stocken lassen, dabei vorsichtig rühren.%0A%0ADein Supertrick: Für extra fluffiges Rührei ein bisschen Sprudelwasser hinzufügen.%0A%0AEier-Zauber: Unsere kleinen Zwerg-Eier machen das Rührei super weich und lustig zu portionieren – wie kleine Wolken für kleine Bäuche! 🥚☁️">Per Mail teilen</a>
+
+      <button class="show-rezept-btn">Anleitung zum Rezept</button>
+      <div class="rezept-anleitung">
+        <p><strong>Zubereitung:</strong> Eier in einer Schüssel verquirlen Milch hinzufügen salzen und pfeffern. Butter in einer Pfanne erhitzen und die Eiermasse bei mittlerer Hitze stocken lassen dabei vorsichtig rühren.</p>
+        <p><em>Dein Supertrick Für extra fluffiges Rührei ein bisschen Sprudelwasser hinzufügen.</em></p>
+        <p><em>Eier Zauber Unsere kleinen Zwerg Eier machen das Rührei super weich und lustig zu portionieren wie kleine Wolken für kleine Bäuche.</em></p>
       </div>
     </div>
 
-    <!-- Rezept 2 -->
     <div class="card">
       <h2>Eierkuchen süß</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>2 Eier (3 Zwerghuhneier)</li>
-        <li>150 g Mehl</li>
-        <li>250 ml Milch</li>
-        <li>1 EL Ahornsirup</li>
+        <li>2 Eier 3 Zwerghuhneier</li>
+        <li>150 Gramm Mehl</li>
+        <li>250 Milliliter Milch</li>
+        <li>1 Esslöffel Ahornsirup</li>
         <li>1 Prise Salz</li>
         <li>Butter zum Braten</li>
       </ul>
-      <p><strong>Zubereitung:</strong> Eier mit Milch und Ahornsirup verquirlen. Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken, bis sie goldbraun sind.</p>
-      <p><em>Dein Supertrick: Den Teig 10 Minuten ruhen lassen – das macht ihn noch geschmeidiger.</em></p>
-      <p><em>Eier-Abenteuer: Mit Zwerg-Eiern backst du winzige Pfannkuchen, die wie goldene Schätze schmecken – ideal für kleine Entdecker! 🥞🌟</em></p>
-      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=*EIERKUCHEN SÜSS* 🥞🌟%0A%0AZutaten:%0A- 2 Eier (3 Zwerghuhneier)%0A- 150 g Mehl%0A- 250 ml Milch%0A- 1 EL Ahornsirup%0A- 1 Prise Salz%0A- Butter zum Braten%0A%0AZubereitung: Eier mit Milch und Ahornsirup verquirlen. Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken, bis sie goldbraun sind.%0A%0ADein Supertrick: Den Teig 10 Minuten ruhen lassen – das macht ihn noch geschmeidiger.%0A%0AEier-Abenteuer: Mit Zwerg-Eiern backst du winzige Pfannkuchen, die wie goldene Schätze schmecken – ideal für kleine Entdecker! 🥞🌟%0A%0AProbier es aus!">Per WhatsApp teilen</a>
-        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Eierkuchen süß&body=*EIERKUCHEN SÜSS* 🥞🌟%0A%0AZutaten:%0A- 2 Eier (3 Zwerghuhneier)%0A- 150 g Mehl%0A- 250 ml Milch%0A- 1 EL Ahornsirup%0A- 1 Prise Salz%0A- Butter zum Braten%0A%0AZubereitung: Eier mit Milch und Ahornsirup verquirlen. Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken, bis sie goldbraun sind.%0A%0ADein Supertrick: Den Teig 10 Minuten ruhen lassen – das macht ihn noch geschmeidiger.%0A%0AEier-Abenteuer: Mit Zwerg-Eiern backst du winzige Pfannkuchen, die wie goldene Schätze schmecken – ideal für kleine Entdecker! 🥞🌟">Per Mail teilen</a>
+
+      <button class="show-rezept-btn">Anleitung zum Rezept</button>
+      <div class="rezept-anleitung">
+        <p><strong>Zubereitung:</strong> Eier mit Milch und Ahornsirup verquirlen Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken bis sie goldbraun sind.</p>
+        <p><em>Dein Supertrick Den Teig zehn Minuten ruhen lassen das macht ihn noch geschmeidiger.</em></p>
+        <p><em>Eier Abenteuer Mit Zwerg Eiern backst du kleine Pfannkuchen die wie goldene Schätze schmecken ideal für kleine Entdecker.</em></p>
       </div>
     </div>
 
-    <!-- Rezept 3 -->
     <div class="card">
       <h2>Omelette Gemüse</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>3 Eier (5 Zwerghuhneier)</li>
-        <li>50 g Paprika, gewürfelt</li>
-        <li>50 g Zucchini, gewürfelt</li>
-        <li>1 EL Milch</li>
-        <li>Salz & Pfeffer</li>
-        <li>1 TL Öl</li>
+        <li>3 Eier 5 Zwerghuhneier</li>
+        <li>50 Gramm Paprika gewürfelt</li>
+        <li>50 Gramm Zucchini gewürfelt</li>
+        <li>1 Esslöffel Milch</li>
+        <li>Salz und Pfeffer</li>
+        <li>1 Teelöffel Öl</li>
       </ul>
-      <p><strong>Zubereitung:</strong> Eier mit Milch, Salz und Pfeffer verquirlen. Gemüse in Öl kurz anbraten, Eiermasse darüber gießen und bei mittlerer Hitze stocken lassen.</p>
-      <p><em>Dein Supertrick: Omelette einmal wenden – bleibt saftig.</em></p>
-      <p><em>Eier-Magie: Zwerg-Eier passen perfekt zu buntem Gemüse und zaubern ein Omelett, das wie ein Regenbogenbrot aussieht – yummi für kleine Helden! 🌈🥚</em></p>
-      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=*OMELETTE GEMÜSE* 🌈🥚%0A%0AZutaten:%0A- 3 Eier (5 Zwerghuhneier)%0A- 50 g Paprika, gewürfelt%0A- 50 g Zucchini, gewürfelt%0A- 1 EL Milch%0A- Salz & Pfeffer%0A- 1 TL Öl%0A%0AZubereitung: Eier mit Milch, Salz und Pfeffer verquirlen. Gemüse in Öl kurz anbraten, Eiermasse darüber gießen und bei mittlerer Hitze stocken lassen.%0A%0ADein Supertrick: Omelette einmal wenden – bleibt saftig.%0A%0AEier-Magie: Zwerg-Eier passen perfekt zu buntem Gemüse und zaubern ein Omelett, das wie ein Regenbogenbrot aussieht – yummi für kleine Helden! 🌈🥚%0A%0AProbier es aus!">Per WhatsApp teilen</a>
-        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Omelette Gemüse&body=*OMELETTE GEMÜSE* 🌈🥚%0A%0AZutaten:%0A- 3 Eier (5 Zwerghuhneier)%0A- 50 g Paprika, gewürfelt%0A- 50 g Zucchini, gewürfelt%0A- 1 EL Milch%0A- Salz & Pfeffer%0A- 1 TL Öl%0A%0AZubereitung: Eier mit Milch, Salz und Pfeffer verquirlen. Gemüse in Öl kurz anbraten, Eiermasse darüber gießen und bei mittlerer Hitze stocken lassen.%0A%0ADein Supertrick: Omelette einmal wenden – bleibt saftig.%0A%0AEier-Magie: Zwerg-Eier passen perfekt zu buntem Gemüse und zaubern ein Omelett, das wie ein Regenbogenbrot aussieht – yummi für kleine Helden! 🌈🥚">Per Mail teilen</a>
+
+      <button class="show-rezept-btn">Anleitung zum Rezept</button>
+      <div class="rezept-anleitung">
+        <p><strong>Zubereitung:</strong> Eier mit Milch Salz und Pfeffer verquirlen. Gemüse in Öl kurz anbraten Eiermasse darüber gießen und bei mittlerer Hitze stocken lassen.</p>
+        <p><em>Dein Supertrick Omelette einmal wenden so bleibt es saftig.</em></p>
+        <p><em>Eier Magie Zwerg Eier passen perfekt zu buntem Gemüse und zaubern ein Omelett das wie ein Regenbogen aussieht.</em></p>
       </div>
     </div>
 
-    <!-- Rezept 4 -->
     <div class="card">
       <h2>Gefüllte Eier</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>6 Eier (12 Zwerghuhneier)</li>
-        <li>2 EL Joghurt</li>
-        <li>1 TL Senf</li>
-        <li>Salz & Pfeffer</li>
+        <li>6 Eier 12 Zwerghuhneier</li>
+        <li>2 Esslöffel Joghurt</li>
+        <li>1 Teelöffel Senf</li>
+        <li>Salz und Pfeffer</li>
         <li>Paprika zum Bestreuen</li>
       </ul>
-      <p><strong>Zubereitung:</strong> Eier hart kochen, schälen und längs halbieren. Eigelbe herausnehmen, mit Joghurt, Senf, Salz und Pfeffer vermengen. Masse zurück in die Eiweißhälften füllen und mit Paprika bestreuen.</p>
-      <p><em>Dein Supertrick: Eier vor dem Füllen leicht mit heißem Wasser übergießen – das erleichtert das Schälen.</em></p>
-      <p><em>Eier-Spaß: Kleine Zwerg-Eier werden zu lustigen "Eier-Bomben" – füll sie und lass sie explodieren vor Geschmack für kleine Partys! 💥🥚</em></p>
-      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=*GEFÜLLTE EIER* 💥🥚%0A%0AZutaten:%0A- 6 Eier (12 Zwerghuhneier)%0A- 2 EL Joghurt%0A- 1 TL Senf%0A- Salz & Pfeffer%0A- Paprika zum Bestreuen%0A%0AZubereitung: Eier hart kochen, schälen und längs halbieren. Eigelbe herausnehmen, mit Joghurt, Senf, Salz und Pfeffer vermengen. Masse zurück in die Eiweißhälften füllen und mit Paprika bestreuen.%0A%0ADein Supertrick: Eier vor dem Füllen leicht mit heißem Wasser übergießen – das erleichtert das Schälen.%0A%0AEier-Spaß: Kleine Zwerg-Eier werden zu lustigen "Eier-Bomben" – füll sie und lass sie explodieren vor Geschmack für kleine Partys! 💥🥚%0A%0AProbier es aus!">Per WhatsApp teilen</a>
-        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Gefüllte Eier&body=*GEFÜLLTE EIER* 💥🥚%0A%0AZutaten:%0A- 6 Eier (12 Zwerghuhneier)%0A- 2 EL Joghurt%0A- 1 TL Senf%0A- Salz & Pfeffer%0A- Paprika zum Bestreuen%0A%0AZubereitung: Eier hart kochen, schälen und längs halbieren. Eigelbe herausnehmen, mit Joghurt, Senf, Salz und Pfeffer vermengen. Masse zurück in die Eiweißhälften füllen und mit Paprika bestreuen.%0A%0ADein Supertrick: Eier vor dem Füllen leicht mit heißem Wasser übergießen – das erleichtert das Schälen.%0A%0AEier-Spaß: Kleine Zwerg-Eier werden zu lustigen "Eier-Bomben" – füll sie und lass sie explodieren vor Geschmack für kleine Partys! 💥🥚">Per Mail teilen</a>
+
+      <button class="show-rezept-btn">Anleitung zum Rezept</button>
+      <div class="rezept-anleitung">
+        <p><strong>Zubereitung:</strong> Eier hart kochen schälen und längs halbieren. Eigelbe herausnehmen mit Joghurt Senf Salz und Pfeffer vermengen. Masse zurück in die Eiweiß Hälften füllen und mit Paprika bestreuen.</p>
+        <p><em>Dein Supertrick Eier vor dem Füllen leicht mit heißem Wasser übergießen dann lassen sie sich leichter schälen.</em></p>
+        <p><em>Eier Spaß Kleine Zwerg Eier werden zu lustigen kleinen Happen ideal für Kindergeburtstage.</em></p>
       </div>
     </div>
 
-    <!-- Rezept 5 -->
     <div class="card">
       <h2>Eiersalat klassisch</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>4 Eier (8 Zwerghuhneier)</li>
-        <li>2 EL Mayonnaise</li>
-        <li>1 TL Senf</li>
-        <li>Salz & Pfeffer</li>
-        <li>1 kleine Frühlingszwiebel, fein gehackt</li>
+        <li>4 Eier 8 Zwerghuhneier</li>
+        <li>2 Esslöffel Mayonnaise</li>
+        <li>1 Teelöffel Senf</li>
+        <li>Salz und Pfeffer</li>
+        <li>1 kleine Frühlingszwiebel fein gehackt</li>
       </ul>
-      <p><strong>Zubereitung:</strong> Eier hart kochen, schälen und würfeln. Mit Mayonnaise, Senf, Salz, Pfeffer und Frühlingszwiebel vermengen. Kurz ziehen lassen und servieren.</p>
-      <p><em>Dein Supertrick: Eier noch warm hacken – dadurch wird der Salat cremiger.</em></p>
-      <p><em>Eier-Geheimnis: Zwerg-Eier machen den Salat zu kleinen cremigen Schätzen – perfekt, um mit Freunden zu teilen und zu kichern! 😄🥗</em></p>
-      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=*EIERSALAT KLASSISCH* 😄🥗%0A%0AZutaten:%0A- 4 Eier (8 Zwerghuhneier)%0A- 2 EL Mayonnaise%0A- 1 TL Senf%0A- Salz & Pfeffer%0A- 1 kleine Frühlingszwiebel, fein gehackt%0A%0AZubereitung: Eier hart kochen, schälen und würfeln. Mit Mayonnaise, Senf, Salz, Pfeffer und Frühlingszwiebel vermengen. Kurz ziehen lassen und servieren.%0A%0ADein Supertrick: Eier noch warm hacken – dadurch wird der Salat cremiger.%0A%0AEier-Geheimnis: Zwerg-Eier machen den Salat zu kleinen cremigen Schätzen – perfekt, um mit Freunden zu teilen und zu kichern! 😄🥗%0A%0AProbier es aus!">Per WhatsApp teilen</a>
-        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Eiersalat klassisch&body=*EIERSALAT KLASSISCH* 😄🥗%0A%0AZutaten:%0A- 4 Eier (8 Zwerghuhneier)%0A- 2 EL Mayonnaise%0A- 1 TL Senf%0A- Salz & Pfeffer%0A- 1 kleine Frühlingszwiebel, fein gehackt%0A%0AZubereitung: Eier hart kochen, schälen und würfeln. Mit Mayonnaise, Senf, Salz, Pfeffer und Frühlingszwiebel vermengen. Kurz ziehen lassen und servieren.%0A%0ADein Supertrick: Eier noch warm hacken – dadurch wird der Salat cremiger.%0A%0AEier-Geheimnis: Zwerg-Eier machen den Salat zu kleinen cremigen Schätzen – perfekt, um mit Freunden zu teilen und zu kichern! 😄🥗">Per Mail teilen</a>
+
+      <button class="show-rezept-btn">Anleitung zum Rezept</button>
+      <div class="rezept-anleitung">
+        <p><strong>Zubereitung:</strong> Eier hart kochen schälen und würfeln. Mit Mayonnaise Senf Salz Pfeffer und Frühlingszwiebel vermengen kurz ziehen lassen und servieren.</p>
+        <p><em>Dein Supertrick Eier noch warm hacken dadurch wird der Salat cremiger.</em></p>
+        <p><em>Eier Geheimnis Zwerg Eier machen den Salat besonders fein und cremig ideal als Brotbelag oder Beilage.</em></p>
       </div>
     </div>
 
-    <!-- Rezept 6 -->
     <div class="card">
-      <h2>Frühstücks-Muffins mit Ei</h2>
+      <h2>Frühstücks Muffins mit Ei</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>3 Eier (5 Zwerghuhneier)</li>
-        <li>100 g Mehl</li>
-        <li>50 ml Milch</li>
-        <li>50 g geriebener Käse</li>
-        <li>Salz & Pfeffer</li>
-        <li>1 TL Backpulver</li>
+        <li>3 Eier 5 Zwerghuhneier</li>
+        <li>100 Gramm Mehl</li>
+        <li>50 Milliliter Milch</li>
+        <li>50 Gramm geriebener Käse</li>
+        <li>Salz und Pfeffer</li>
+        <li>1 Teelöffel Backpulver</li>
       </ul>
-      <p><strong>Zubereitung:</strong> Eier, Milch, Salz, Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180°C 20–25 Minuten backen.</p>
-      <p><em>Dein Supertrick: Muffins nach 15 Minuten mit Alufolie abdecken, dann werden sie nicht zu braun.</em></p>
-      <p><em>Eier-Zauber: Mit Zwerg-Eiern entstehen Mini-Muffins, die wie flauschige Wolken hüpfen – back-Abenteuer für kleine Chefs! ☁️🍪</em></p>
-      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=*FRÜHSTÜCKS-MUFFINS MIT EI* ☁️🍪%0A%0AZutaten:%0A- 3 Eier (5 Zwerghuhneier)%0A- 100 g Mehl%0A- 50 ml Milch%0A- 50 g geriebener Käse%0A- Salz & Pfeffer%0A- 1 TL Backpulver%0A%0AZubereitung: Eier, Milch, Salz, Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180°C 20–25 Minuten backen.%0A%0ADein Supertrick: Muffins nach 15 Minuten mit Alufolie abdecken, dann werden sie nicht zu braun.%0A%0AEier-Zauber: Mit Zwerg-Eiern entstehen Mini-Muffins, die wie flauschige Wolken hüpfen – back-Abenteuer für kleine Chefs! ☁️🍪%0A%0AProbier es aus!">Per WhatsApp teilen</a>
-        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Frühstücks-Muffins&body=*FRÜHSTÜCKS-MUFFINS MIT EI* ☁️🍪%0A%0AZutaten:%0A- 3 Eier (5 Zwerghuhneier)%0A- 100 g Mehl%0A- 50 ml Milch%0A- 50 g geriebener Käse%0A- Salz & Pfeffer%0A- 1 TL Backpulver%0A%0AZubereitung: Eier, Milch, Salz, Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180°C 20–25 Minuten backen.%0A%0ADein Supertrick: Muffins nach 15 Minuten mit Alufolie abdecken, dann werden sie nicht zu braun.%0A%0AEier-Zauber: Mit Zwerg-Eiern entstehen Mini-Muffins, die wie flauschige Wolken hüpfen – back-Abenteuer für kleine Chefs! ☁️🍪">Per Mail teilen</a>
+
+      <button class="show-rezept-btn">Anleitung zum Rezept</button>
+      <div class="rezept-anleitung">
+        <p><strong>Zubereitung:</strong> Eier Milch Salz Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180 Grad etwa zwanzig bis fünfundzwanzig Minuten backen.</p>
+        <p><em>Dein Supertrick Muffins nach fünfzehn Minuten mit Alufolie abdecken dann werden sie nicht zu dunkel.</em></p>
+        <p><em>Eier Zauber Mit Zwerg Eiern entstehen kleine Muffins die perfekt in Kinderhände passen.</em></p>
       </div>
     </div>
 
-    <!-- Rezept 7 -->
     <div class="card">
-      <h2>Spinat-Ei-Pfanne</h2>
+      <h2>Spinat Ei Pfanne</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>2 Eier (3 Zwerghuhneier)</li>
-        <li>150 g frischer Spinat</li>
-        <li>1 TL Öl</li>
-        <li>Salz & Pfeffer</li>
+        <li>2 Eier 3 Zwerghuhneier</li>
+        <li>150 Gramm frischer Spinat</li>
+        <li>1 Teelöffel Öl</li>
+        <li>Salz und Pfeffer</li>
         <li>1 kleine Zwiebel</li>
       </ul>
-      <p><strong>Zubereitung:</strong> Zwiebel in Öl anbraten, Spinat hinzufügen und zusammenfallen lassen. Eier verquirlen, darüber geben und stocken lassen.</p>
-      <p><em>Dein Supertrick: Mit etwas Wasser ablöschen – Spinat bleibt saftig.</em></p>
-      <p><em>Eier-Abenteuer: Zwerg-Eier tanzen mit grünem Spinat zu einem superhelden-starken Pfannengericht – Kraft für kleine Ritter! 🦸🥬</em></p>
-      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=*SPINAT-EI-PFANNE* 🦸🥬%0A%0AZutaten:%0A- 2 Eier (3 Zwerghuhneier)%0A- 150 g frischer Spinat%0A- 1 TL Öl%0A- Salz & Pfeffer%0A- 1 kleine Zwiebel%0A%0AZubereitung: Zwiebel in Öl anbraten, Spinat hinzufügen und zusammenfallen lassen. Eier verquirlen, darüber geben und stocken lassen.%0A%0ADein Supertrick: Mit etwas Wasser ablöschen – Spinat bleibt saftig.%0A%0AEier-Abenteuer: Zwerg-Eier tanzen mit grünem Spinat zu einem superhelden-starken Pfannengericht – Kraft für kleine Ritter! 🦸🥬%0A%0AProbier es aus!">Per WhatsApp teilen</a>
-        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Spinat-Ei-Pfanne&body=*SPINAT-EI-PFANNE* 🦸🥬%0A%0AZutaten:%0A- 2 Eier (3 Zwerghuhneier)%0A- 150 g frischer Spinat%0A- 1 TL Öl%0A- Salz & Pfeffer%0A- 1 kleine Zwiebel%0A%0AZubereitung: Zwiebel in Öl anbraten, Spinat hinzufügen und zusammenfallen lassen. Eier verquirlen, darüber geben und stocken lassen.%0A%0ADein Supertrick: Mit etwas Wasser ablöschen – Spinat bleibt saftig.%0A%0AEier-Abenteuer: Zwerg-Eier tanzen mit grünem Spinat zu einem superhelden-starken Pfannengericht – Kraft für kleine Ritter! 🦸🥬">Per Mail teilen</a>
+
+      <button class="show-rezept-btn">Anleitung zum Rezept</button>
+      <div class="rezept-anleitung">
+        <p><strong>Zubereitung:</strong> Zwiebel in Öl anbraten Spinat hinzufügen und zusammenfallen lassen. Eier verquirlen darüber geben und stocken lassen.</p>
+        <p><em>Dein Supertrick Mit etwas Wasser ablöschen so bleibt der Spinat schön saftig.</em></p>
+        <p><em>Eier Abenteuer Zwerg Eier tanzen mit grünem Spinat zu einem kräftigen Pfannengericht.</em></p>
       </div>
     </div>
 
-    <!-- Rezept 8 -->
     <div class="card">
       <h2>Eier in Senfsoße</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>4 Eier (8 Zwerghuhneier)</li>
-        <li>200 ml Gemüsebrühe</li>
-        <li>2 EL Joghurt</li>
-        <li>1 TL Senf</li>
-        <li>Salz & Pfeffer</li>
+        <li>4 Eier 8 Zwerghuhneier</li>
+        <li>200 Milliliter Gemüsebrühe</li>
+        <li>2 Esslöffel Joghurt</li>
+        <li>1 Teelöffel Senf</li>
+        <li>Salz und Pfeffer</li>
       </ul>
-      <p><strong>Zubereitung:</strong> Eier hart kochen. Brühe erhitzen, Joghurt und Senf einrühren, würzen. Eier halbieren und in die Soße legen.</p>
-      <p><em>Dein Supertrick: Eier vor dem Servieren kurz in kaltem Wasser abschrecken – Soße bleibt cremig.</em></p>
-      <p><em>Eier-Magie: Kleine Zwerg-Eier schwimmen in der Soße wie goldene Schiffe – ein Geschmacksabenteuer für kleine Seefahrer! ⛵🥚</em></p>
-      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=*EIER IN SENFSOßE* ⛵🥚%0A%0AZutaten:%0A- 4 Eier (8 Zwerghuhneier)%0A- 200 ml Gemüsebrühe%0A- 2 EL Joghurt%0A- 1 TL Senf%0A- Salz & Pfeffer%0A%0AZubereitung: Eier hart kochen. Brühe erhitzen, Joghurt und Senf einrühren, würzen. Eier halbieren und in die Soße legen.%0A%0ADein Supertrick: Eier vor dem Servieren kurz in kaltem Wasser abschrecken – Soße bleibt cremig.%0A%0AEier-Magie: Kleine Zwerg-Eier schwimmen in der Soße wie goldene Schiffe – ein Geschmacksabenteuer für kleine Seefahrer! ⛵🥚%0A%0AProbier es aus!">Per WhatsApp teilen</a>
-        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Eier in Senfsoße&body=*EIER IN SENFSOßE* ⛵🥚%0A%0AZutaten:%0A- 4 Eier (8 Zwerghuhneier)%0A- 200 ml Gemüsebrühe%0A- 2 EL Joghurt%0A- 1 TL Senf%0A- Salz & Pfeffer%0A%0AZubereitung: Eier hart kochen. Brühe erhitzen, Joghurt und Senf einrühren, würzen. Eier halbieren und in die Soße legen.%0A%0ADein Supertrick: Eier vor dem Servieren kurz in kaltem Wasser abschrecken – Soße bleibt cremig.%0A%0AEier-Magie: Kleine Zwerg-Eier schwimmen in der Soße wie goldene Schiffe – ein Geschmacksabenteuer für kleine Seefahrer! ⛵🥚">Per Mail teilen</a>
+
+      <button class="show-rezept-btn">Anleitung zum Rezept</button>
+      <div class="rezept-anleitung">
+        <p><strong>Zubereitung:</strong> Eier hart kochen. Brühe erhitzen Joghurt und Senf einrühren würzen. Eier halbieren und in die Soße legen.</p>
+        <p><em>Dein Supertrick Eier vor dem Servieren kurz in kaltem Wasser abschrecken so bleibt die Soße cremig.</em></p>
+        <p><em>Eier Magie Kleine Zwerg Eier schwimmen in der Soße wie kleine Boote ein schöner Teller für Kinder.</em></p>
       </div>
     </div>
 
-    <!-- Rezept 9 -->
     <div class="card">
       <h2>Eiersalat Deluxe</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>5 Eier (10 Zwerghuhneier)</li>
-        <li>3 EL Mayonnaise</li>
-        <li>1 TL Senf</li>
-        <li>1 kleine rote Paprika, gewürfelt</li>
-        <li>Salz & Pfeffer</li>
+        <li>5 Eier 10 Zwerghuhneier</li>
+        <li>3 Esslöffel Mayonnaise</li>
+        <li>1 Teelöffel Senf</li>
+        <li>1 kleine rote Paprika gewürfelt</li>
+        <li>Salz und Pfeffer</li>
       </ul>
-      <p><strong>Zubereitung:</strong> Eier hart kochen, würfeln und mit allen Zutaten vermengen. Kurz ziehen lassen und servieren.</p>
-      <p><em>Dein Supertrick: Eier noch warm hacken – Salat wird cremiger.</em></p>
-      <p><em>Eier-Geheimnis: Zwerg-Eier mit roter Paprika ergeben einen Salat wie einen Schatzfund – teile ihn mit Freunden und lach dabei! 💎😊</em></p>
-      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=*EIERSALAT DELUXE* 💎😊%0A%0AZutaten:%0A- 5 Eier (10 Zwerghuhneier)%0A- 3 EL Mayonnaise%0A- 1 TL Senf%0A- 1 kleine rote Paprika, gewürfelt%0A- Salz & Pfeffer%0A%0AZubereitung: Eier hart kochen, würfeln und mit allen Zutaten vermengen. Kurz ziehen lassen und servieren.%0A%0ADein Supertrick: Eier noch warm hacken – Salat wird cremiger.%0A%0AEier-Geheimnis: Zwerg-Eier mit roter Paprika ergeben einen Salat wie einen Schatzfund – teile ihn mit Freunden und lach dabei! 💎😊%0A%0AProbier es aus!">Per WhatsApp teilen</a>
-        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Eiersalat Deluxe&body=*EIERSALAT DELUXE* 💎😊%0A%0AZutaten:%0A- 5 Eier (10 Zwerghuhneier)%0A- 3 EL Mayonnaise%0A- 1 TL Senf%0A- 1 kleine rote Paprika, gewürfelt%0A- Salz & Pfeffer%0A%0AZubereitung: Eier hart kochen, würfeln und mit allen Zutaten vermengen. Kurz ziehen lassen und servieren.%0A%0ADein Supertrick: Eier noch warm hacken – Salat wird cremiger.%0A%0AEier-Geheimnis: Zwerg-Eier mit roter Paprika ergeben einen Salat wie einen Schatzfund – teile ihn mit Freunden und lach dabei! 💎😊">Per Mail teilen</a>
+
+      <button class="show-rezept-btn">Anleitung zum Rezept</button>
+      <div class="rezept-anleitung">
+        <p><strong>Zubereitung:</strong> Eier hart kochen würfeln und mit allen Zutaten vermengen kurz ziehen lassen und servieren.</p>
+        <p><em>Dein Supertrick Eier noch warm hacken dann wird der Salat besonders cremig.</em></p>
+        <p><em>Eier Geheimnis Zwerg Eier mit roter Paprika ergeben einen bunten Salat der auf dem Teller richtig fröhlich aussieht.</em></p>
       </div>
     </div>
 
-    <!-- Rezept 10 -->
     <div class="card">
-      <h2>Eier-Brotaufstrich</h2>
+      <h2>Eier Brotaufstrich</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>3 Eier (5 Zwerghuhneier)</li>
-        <li>2 EL Frischkäse</li>
-        <li>1 TL Senf</li>
-        <li>Salz & Pfeffer</li>
+        <li>3 Eier 5 Zwerghuhneier</li>
+        <li>2 Esslöffel Frischkäse</li>
+        <li>1 Teelöffel Senf</li>
+        <li>Salz und Pfeffer</li>
         <li>1 kleine Frühlingszwiebel</li>
       </ul>
-      <p><strong>Zubereitung:</strong> Eier hart kochen, hacken und mit Frischkäse, Senf, Salz, Pfeffer und Frühlingszwiebel verrühren. Auf frisches Brot streichen.</p>
-      <p><em>Dein Supertrick: Etwas Schnittlauch darüber streuen – sieht toll aus!</em></p>
-      <p><em>Eier-Spaß: Zwerg-Eier machen den Aufstrich zu einer cremigen Überraschung – streich's auf Brot und lass die Fantasie fliegen! 🧚‍♂️🥖</em></p>
-      <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=*EIER-BROTAUFSTRICH* 🧚‍♂️🥖%0A%0AZutaten:%0A- 3 Eier (5 Zwerghuhneier)%0A- 2 EL Frischkäse%0A- 1 TL Senf%0A- Salz & Pfeffer%0A- 1 kleine Frühlingszwiebel%0A%0AZubereitung: Eier hart kochen, hacken und mit Frischkäse, Senf, Salz, Pfeffer und Frühlingszwiebel verrühren. Auf frisches Brot streichen.%0A%0ADein Supertrick: Etwas Schnittlauch darüber streuen – sieht toll aus!%0A%0AEier-Spaß: Zwerg-Eier machen den Aufstrich zu einer cremigen Überraschung – streich's auf Brot und lass die Fantasie fliegen! 🧚‍♂️🥖%0A%0AProbier es aus!">Per WhatsApp teilen</a>
-        <a class="mail-btn" href="mailto:MeinZwergHuhn@web.de?subject=Teilen: Eier-Brotaufstrich&body=*EIER-BROTAUFSTRICH* 🧚‍♂️🥖%0A%0AZutaten:%0A- 3 Eier (5 Zwerghuhneier)%0A- 2 EL Frischkäse%0A- 1 TL Senf%0A- Salz & Pfeffer%0A- 1 kleine Frühlingszwiebel%0A%0AZubereitung: Eier hart kochen, hacken und mit Frischkäse, Senf, Salz, Pfeffer und Frühlingszwiebel verrühren. Auf frisches Brot streichen.%0A%0ADein Supertrick: Etwas Schnittlauch darüber streuen – sieht toll aus!%0A%0AEier-Spaß: Zwerg-Eier machen den Aufstrich zu einer cremigen Überraschung – streich's auf Brot und lass die Fantasie fliegen! 🧚‍♂️🥖">Per Mail teilen</a>
+
+      <button class="show-rezept-btn">Anleitung zum Rezept</button>
+      <div class="rezept-anleitung">
+        <p><strong>Zubereitung:</strong> Eier hart kochen hacken und mit Frischkäse Senf Salz Pfeffer und Frühlingszwiebel verrühren. Auf frisches Brot streichen.</p>
+        <p><em>Dein Supertrick Etwas Schnittlauch darüber streuen das sieht schön aus und schmeckt frisch.</em></p>
+        <p><em>Eier Spaß Zwerg Eier machen den Aufstrich besonders fein ideal für Kinderbrote und kleine Snacks.</em></p>
       </div>
     </div>
 
-    <!-- Abschließender Text unten im Rezept-Bereich (als eigene Card für Konsistenz) -->
     <div class="recipe-closing">
-      <p>Kinder lieben es, beim Kochen zu helfen – und Zwerg-Hühner-Eier sind perfekt, um spielerisch gesunde Gerichte zu entdecken. Viel Spaß beim Ausprobieren! 🥚😊</p>
+      <p>Kinder lieben es beim Kochen zu helfen und Zwerg Eier sind perfekt um spielerisch gesunde Gerichte zu entdecken. Viel Spaß beim Ausprobieren.</p>
     </div>
   </section>
 
-  <div class="btn-row">
-    <a href="https://wa.me/491638306166?text=Hallo, ich möchte gerne die extra frischen Eier bestellen. 6 Stück für 5 €. Bitte teile mir mit, wann ich die Bestellung abholen kann. Vielen Dank!" class="wa-btn">WhatsApp Teilen</a>
-    <a href="mailto:MeinZwergHuhn@web.de?subject=Anfrage frische Eier&body=Hallo, ich möchte gerne die extra frischen Eier bestellen. 6 Stück für 5 €. Bitte teile mir mit, wann ich die Bestellung abholen kann. Vielen Dank!" class="mail-btn">Rezept per Mail</a>
-  </div>
+  <section class="card no-border" aria-label="Hinweis">
+    <p style="text-align:center; font-weight:500;">
+      Wenn du Lust auf frische Eier oder Fragen zu unseren Hühnern hast sprich uns einfach direkt an oder nutze die Kontaktmöglichkeiten weiter oben auf der Seite.
+    </p>
+  </section>
 
   <footer class="footer">
-    <!-- Animierte Zwerg-Hühner am Ende -->
     <div class="footer-chickens">
       <div class="footer-chicken">🐣</div>
       <div class="footer-chicken">🐥</div>
@@ -865,19 +841,29 @@ h2.center { text-align: center; }
     </div>
     <div class="footer-emojis">☘️💯☘️</div>
     <p style="text-align: center; font-weight: 700; line-height: 1.5;">
-      Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt-Eiern zu vergleichen. Probier selbst!<br><br>
+      Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt Eiern zu vergleichen. Probier selbst.<br><br>
       Vielen Dank für deinen Besuch
     </p>
-    <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier, großes Lächeln</p>
+    <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier großes Lächeln</p>
   </footer>
 </main>
 
 <script>
-  // Einfache Animation für Huhn-Cards (falls mehr)
   document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.huhn-card');
     cards.forEach((card, index) => {
       setTimeout(() => card.classList.add('visible'), index * 300);
+    });
+
+    const buttons = document.querySelectorAll('.show-rezept-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const anleitung = btn.nextElementSibling;
+        if (!anleitung) return;
+        const sichtbar = anleitung.style.display === 'block';
+        anleitung.style.display = sichtbar ? 'none' : 'block';
+        btn.textContent = sichtbar ? 'Anleitung zum Rezept' : 'Anleitung ausblenden';
+      });
     });
   });
 </script>
