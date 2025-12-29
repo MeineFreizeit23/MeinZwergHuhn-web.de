@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kleine Eier, großes Lächeln</title>
 
-<!-- Google Analytics (mit Fallback für Privacy) -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7560QNW1Q"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -14,7 +14,7 @@
   gtag('config', 'G-7560QNW1Q');
 </script>
 
-<!-- Extra Schrift für kinderfreundlichen Rezepte-Block: Fredoka (rund & spaßig!) -->
+<!-- Schrift Fredoka -->
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -38,6 +38,7 @@
 }
 
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -51,7 +52,15 @@ body {
   flex-direction: column;
 }
 
-.wrap { width: 100%; max-width: 820px; display: flex; flex-direction: column; flex-grow: 1; }
+.wrap {
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Header */
 
 header {
   background: #fff9cc;
@@ -83,7 +92,11 @@ h1 {
   margin: 0.5rem 0 0.25rem;
 }
 
-.subtitle.extra { margin-top: 4px; }
+.subtitle.extra {
+  margin-top: 4px;
+}
+
+/* Karten */
 
 .card {
   background: var(--panel);
@@ -100,6 +113,8 @@ h1 {
   padding: 20px 0;
 }
 
+/* Buttons allgemein */
+
 .btn-row {
   display: flex;
   gap: 12px;
@@ -109,7 +124,8 @@ h1 {
   margin-top: 16px;
 }
 
-.wa-btn, .mail-btn {
+.wa-btn,
+.mail-btn {
   display: inline-flex;
   align-items: center;
   gap: .6rem;
@@ -127,16 +143,37 @@ h1 {
   min-height: 42px;
 }
 
-.wa-btn { background: var(--wa); }
-.wa-btn:hover { background: var(--wa-hover); transform: translateY(-2px); }
+.wa-btn {
+  background: var(--wa);
+}
+.wa-btn:hover {
+  background: var(--wa-hover);
+  transform: translateY(-2px);
+}
 
-.mail-btn { background: var(--mail); }
-.mail-btn:hover { background: var(--mail-hover); transform: translateY(-2px); }
+.mail-btn {
+  background: var(--mail);
+}
+.mail-btn:hover {
+  background: var(--mail-hover);
+  transform: translateY(-2px);
+}
 
 @media (max-width: 600px) {
-  .btn-row { flex-direction: column; gap: 10px; }
-  .wa-btn, .mail-btn { width: 100%; justify-content: center; font-size: 0.9rem; padding: 10px 16px; }
+  .btn-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .wa-btn,
+  .mail-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
 }
+
+/* Footer */
 
 .footer {
   margin-top: 28px;
@@ -145,8 +182,16 @@ h1 {
   text-align: center;
 }
 
-h2 { color: var(--brand); margin-top: 0; }
-h2.center { text-align: center; }
+h2 {
+  color: var(--brand);
+  margin-top: 0;
+}
+
+h2.center {
+  text-align: center;
+}
+
+/* Huhn Karten */
 
 .huhn-card {
   background: #fff;
@@ -164,20 +209,22 @@ h2.center { text-align: center; }
   transform: scale(1);
 }
 
-.huhn-card:hover { transform: scale(1.02); }
+.huhn-card:hover {
+  transform: scale(1.02);
+}
 
 .huhn-card img {
   width: 100%;
   border-radius: 15px;
-  loading: lazy;
 }
+
+/* Glücksmomente Eier Animation */
 
 .gluecksmomente-title {
   text-align: center;
   position: relative;
 }
 
-/* Eier Animation */
 .gluecksmomente-eggs {
   position: absolute;
   top: -10px;
@@ -197,12 +244,21 @@ h2.center { text-align: center; }
   animation: egg-bounce 3s ease-in-out infinite;
 }
 
-.gluecksmomente-eggs .egg:nth-child(2) { animation-delay: 1s; }
-.gluecksmomente-eggs .egg:nth-child(3) { animation-delay: 2s; }
+.gluecksmomente-eggs .egg:nth-child(2) {
+  animation-delay: 1s;
+}
+.gluecksmomente-eggs .egg:nth-child(3) {
+  animation-delay: 2s;
+}
 
 @keyframes egg-bounce {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-4px) scale(1.1); }
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.1);
+  }
 }
 
 .gluecksmomente-title span.main {
@@ -211,7 +267,6 @@ h2.center { text-align: center; }
   font-weight: 900;
   color: #FF7F50;
   font-family: 'Comic Sans MS', cursive;
-  animation: glow-pulse 3s ease-in-out infinite;
   text-shadow: 0 0 8px rgba(255, 127, 80, 0.3);
   margin-bottom: 4px;
 }
@@ -225,18 +280,7 @@ h2.center { text-align: center; }
   opacity: 0.9;
 }
 
-@keyframes glow-pulse {
-  0%, 100% {
-    opacity: 1;
-    text-shadow: 0 0 8px rgba(255, 127, 80, 0.3), 0 0 16px rgba(255, 127, 80, 0.1);
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.95;
-    text-shadow: 0 0 16px rgba(255, 127, 80, 0.6), 0 0 24px rgba(255, 127, 80, 0.2);
-    transform: scale(1.02);
-  }
-}
+/* Futterliste */
 
 .futter-list {
   list-style: none;
@@ -247,13 +291,16 @@ h2.center { text-align: center; }
 }
 
 /* Sekundäre Buttons */
-#wa-ideen, #wa-tausch {
+
+#wa-ideen,
+#wa-tausch {
   font-size: 0.9rem;
   padding: 8px 12px;
   min-height: 40px;
 }
 
 /* Quiz Styles */
+
 .quiz-card {
   background: linear-gradient(135deg, #fff9cc, #f5e97c);
   border: 2px solid var(--accent);
@@ -285,7 +332,7 @@ h2.center { text-align: center; }
   border-radius: 10px;
   padding: 10px 15px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition: background 0.2s, transform 0.1s, border-color 0.2s;
   width: 80%;
   max-width: 300px;
   font-size: 1rem;
@@ -318,6 +365,8 @@ h2.center { text-align: center; }
   opacity: 1;
 }
 
+/* Reset Button */
+
 #reset-quiz {
   display: none;
   background: #e07b00;
@@ -330,7 +379,7 @@ h2.center { text-align: center; }
   cursor: pointer;
   box-shadow: 0 3px 10px rgba(0,0,0,.08);
   transition: transform .1s ease, background .2s ease;
-  margin: 10px auto;
+  margin: 10px auto 0 auto;
 }
 
 #reset-quiz:hover {
@@ -338,7 +387,8 @@ h2.center { text-align: center; }
   transform: scale(1.02);
 }
 
-/* Pop up Quiz */
+/* Quiz Popup */
+
 #quiz-complete {
   display: none;
   position: fixed;
@@ -353,20 +403,9 @@ h2.center { text-align: center; }
   box-shadow: var(--shadow);
   z-index: 1000;
   max-width: 90%;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #28a745;
   font-weight: 700;
-}
-
-#quiz-complete::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: -1;
 }
 
 #quiz-complete button {
@@ -374,25 +413,15 @@ h2.center { text-align: center; }
   background: #28a745;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
-@media (max-width: 600px) {
-  #wa-ideen, #wa-tausch {
-    font-size: 0.88rem;
-    padding: 9px 12px;
-    width: 100%;
-  }
-  .gluecksmomente-eggs .egg { width: 10px; height: 15px; animation-duration: 3.5s; }
-  .quiz-option { width: 95%; }
-  #quiz-complete { font-size: 1.1rem; padding: 20px; }
-}
+/* Rezepte Block */
 
-/* Rezepte Styles */
 .rezepte-card .rezept-header {
   font-family: 'Fredoka', sans-serif;
   color: var(--brand);
@@ -434,6 +463,7 @@ h2.center { text-align: center; }
 }
 
 /* Footer Hühner */
+
 .footer-chickens {
   display: flex;
   justify-content: center;
@@ -449,15 +479,25 @@ h2.center { text-align: center; }
   filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
 }
 
-.footer-chicken:nth-child(2) { animation-delay: 0.5s; }
-.footer-chicken:nth-child(3) { animation-delay: 1s; }
-
-@keyframes chicken-bounce {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(5deg); }
+.footer-chicken:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.footer-chicken:nth-child(3) {
+  animation-delay: 1s;
 }
 
-/* Button für die Rezeptanleitung */
+@keyframes chicken-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+/* Rezept Anleitung Button */
+
 .show-rezept-btn {
   background: #e07b00;
   color: #fff;
@@ -481,6 +521,23 @@ h2.center { text-align: center; }
   display: none;
   margin-top: 12px;
 }
+
+/* Mobile Anpassungen */
+
+@media (max-width: 600px) {
+  .gluecksmomente-eggs .egg {
+    width: 10px;
+    height: 15px;
+    animation-duration: 3.5s;
+  }
+  .quiz-option {
+    width: 95%;
+  }
+  #quiz-complete {
+    font-size: 1rem;
+    padding: 20px;
+  }
+}
 </style>
 </head>
 <body>
@@ -490,12 +547,12 @@ h2.center { text-align: center; }
       <h1>Kleine Eier<br>großes Lächeln</h1>
     </div>
     <p class="subtitle">Hallo und willkommen!</p>
-    <p class="subtitle extra">Freut mich, dass du den QR Code entdeckt hast!</p>
+    <p class="subtitle extra">Freut mich, dass du den QR-Code entdeckt hast!</p>
   </header>
 
   <section class="card" aria-labelledby="garten-huehner">
     <h2 id="garten-huehner">Warum wir unsere Hühner im Garten halten</h2>
-    <p>Sie bringen Freude, bereichern den Alltag und schenken ein glückliches Miteinander. Das Verhalten der Tiere ist unbezahlbar und ganz nebenbei schenken sie uns frische Eier direkt aus dem eigenen Garten.</p>
+    <p>Sie bringen Freude, bereichern den Alltag und schenken ein glückliches Miteinander. Das Verhalten der Tiere ist unbezahlbar – und ganz nebenbei schenken sie uns frische Eier, direkt aus dem eigenen Garten.</p>
   </section>
 
   <section class="card" aria-labelledby="freilauf-title">
@@ -505,112 +562,129 @@ h2.center { text-align: center; }
   </section>
 
   <section class="card" aria-labelledby="ideen-title">
-    <h2 id="ideen-title" class="center">Ideen und Anregungen für den Hühnerfreilauf</h2>
+    <h2 id="ideen-title" class="center">Ideen & Anregungen für den Hühnerfreilauf</h2>
     <p class="center">Wenn ihr Anregungen zur Gestaltung oder Bepflanzung unseres Hühnerfreilaufs habt, schreibt uns gerne.</p>
     <div class="btn-row" style="justify-content: center; margin-top: 12px;">
-      <a class="wa-btn" id="wa-ideen">Über WhatsApp senden</a>
+      <a
+        class="wa-btn"
+        id="wa-ideen"
+        href="https://wa.me/491638306166?text=Hallo,%20ich%20habe%20Ideen%20oder%20Anregungen%20für%20euren%20Hühnerfreilauf."
+        target="_blank"
+        rel="noopener noreferrer"
+      >Über WhatsApp senden</a>
     </div>
   </section>
 
   <section class="card" aria-labelledby="futterliste-title">
-    <h2 id="futterliste-title">Futter und Snacks für unsere Hühner</h2>
-    <p>Die Snack Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
+    <h2 id="futterliste-title">Futter & Snacks für unsere Hühner</h2>
+    <p>Die Snack-Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
     <ul class="futter-list">
       <li>✔️ Gurke</li><li>✔️ Karotte</li><li>✔️ Verschiedene Salate</li><li>✔️ Beeren</li>
-      <li>✔️ Frisches Grün wie Löwenzahn Rucola Feldsalat Spinat</li>
-      <li>✔️ Frische Kräuter wie Petersilie Koriander Basilikum</li>
+      <li>✔️ Frisches Grün (z. B. Löwenzahn, Rucola, Feldsalat, Spinat)</li>
+      <li>✔️ Frische Kräuter (z. B. Petersilie, Koriander, Basilikum)</li>
       <li>❌ Zitrusfrüchte</li><li>❌ Avocado</li><li>❌ rohe Kartoffeln</li>
-      <li>❌ Zwiebeln</li><li>❌ Süßigkeiten und Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
+      <li>❌ Zwiebeln</li><li>❌ Süßigkeiten & Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
     </ul>
-    <p><strong>Wichtig:</strong> Alles sollte frisch unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen.</p>
-    <p style="font-weight: 600; margin-top: 1rem; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir sechs frische Eier 🥚</p>
+    <p><strong>Wichtig:</strong> Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen!</p>
+    <p style="font-weight: 600; margin-top: 1rem; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir 6 frische Eier 🥚</p>
     <div class="btn-row" style="justify-content: center; margin-top: 8px;">
-      <a class="wa-btn" id="wa-tausch">Snacks gegen Eier tauschen</a>
+      <a
+        class="wa-btn"
+        id="wa-tausch"
+        href="https://wa.me/491638306166?text=Hallo,%20ich%20habe%20Snacks%20für%20die%20Hühner%20in%20die%20Kiste%20gelegt%20und%20würde%20gerne%20gegen%20frische%20Eier%20tauschen."
+        target="_blank"
+        rel="noopener noreferrer"
+      >Snacks gegen Eier tauschen</a>
     </div>
   </section>
 
-  <!-- Hühnerkarten -->
-  <div id="huhn-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px; display: none;">
+  <!-- Hühnerkarten (werden nach Quiz angezeigt) -->
+  <div id="huhn-grid" style="display: none; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px;">
     <div class="huhn-card">
       <img src="huhn1.jpg" alt="Wella" loading="lazy">
       <h3>Wella</h3>
-      <p>Eine ruhige kuschelbedürftige japanische Seidenhuhn Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant nicht nur wegen ihres besonderen Aussehens sondern auch wegen ihres einzigartigen Charakters.</p>
+      <p>Eine ruhige, kuschelbedürftige japanische Seidenhuhn-Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant – nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.</p>
     </div>
     <div class="huhn-card">
       <img src="huhn2.jpg" alt="Wilma" loading="lazy">
       <h3>Wilma</h3>
-      <p>Eine selbstbewusste Zwerg Wyandotten Henne mit ruhigem beobachtendem Wesen. Sie nimmt sich Zeit bevor sie Neues wagt. Wer ihr Vertrauen gewinnt entdeckt eine sanfte herzliche Henne mit liebevollem Verhalten.</p>
+      <p>Eine selbstbewusste Zwerg-Wyandotten-Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.</p>
     </div>
     <div class="huhn-card">
       <img src="huhn3.jpg" alt="Lupni" loading="lazy">
       <h3>Lupni</h3>
-      <p>Eine entdeckungsfreudige Henne die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
+      <p>Eine entdeckungsfreudige Henne, die – genau wie ihre Schwester Wilma – mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
     </div>
   </div>
 
   <section class="card quiz-card" aria-labelledby="quiz-title">
-    <h2 id="quiz-title">Hühner Quiz für kleine Entdecker</h2>
-    <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
+    <h2 id="quiz-title">🥚 Hühner-Quiz für kleine Entdecker! 🐔</h2>
+    <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast, lernst du unsere Hühner kennen! 😊</p>
     
-    <div class="quiz-question">Frage eins Wie oft legen Hühner Eier</div>
+    <div class="quiz-question">Frage 1: Wie oft legen Hühner Eier? 🥚</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a einmal im Monat</div>
-      <div class="quiz-option" data-correct="false">b alle paar Tage</div>
-      <div class="quiz-option" data-correct="true">c jeden Tag</div>
+      <div class="quiz-option" data-correct="false">a) Einmal im Monat 🌙</div>
+      <div class="quiz-option" data-correct="false">b) Alle paar Tage 📅</div>
+      <div class="quiz-option" data-correct="true">c) Jeden Tag ☀️</div>
     </div>
     <div class="quiz-feedback" id="feedback1"></div>
 
-    <div class="quiz-question">Frage zwei Was essen Hühner am liebsten</div>
+    <div class="quiz-question">Frage 2: Was essen Hühner am liebsten? 🥬</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten</div>
-      <div class="quiz-option" data-correct="false">b Schokolade</div>
-      <div class="quiz-option" data-correct="false">c Eiscreme</div>
+      <div class="quiz-option" data-correct="true">a) Frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
+      <div class="quiz-option" data-correct="false">b) Schokolade 🍫</div>
+      <div class="quiz-option" data-correct="false">c) Eiscreme 🍦</div>
     </div>
     <div class="quiz-feedback" id="feedback2"></div>
 
-    <div class="quiz-question">Frage drei Wie heißen unsere drei Hühner</div>
+    <div class="quiz-question">Frage 3: Rate mal – Wie heißen unsere drei Hühner? 🐥</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a Mia Max und Leo</div>
-      <div class="quiz-option" data-correct="true">b Wella Wilma und Lupni</div>
-      <div class="quiz-option" data-correct="false">c Sunny Happy und Joy</div>
+      <div class="quiz-option" data-correct="false">a) Mia, Max und Leo</div>
+      <div class="quiz-option" data-correct="true">b) Wella, Wilma und Lupni</div>
+      <div class="quiz-option" data-correct="false">c) Sunny, Happy und Joy</div>
     </div>
     <div class="quiz-feedback" id="feedback3"></div>
 
-    <div class="quiz-question">Frage vier Was macht ein Huhn wenn es glücklich ist</div>
+    <div class="quiz-question">Frage 4: Was macht ein Huhn, wenn es glücklich ist? 🐔</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck</div>
-      <div class="quiz-option" data-correct="false">b singt Lieder wie ein Star</div>
-      <div class="quiz-option" data-correct="false">c malt Bilder mit den Füßen</div>
+      <div class="quiz-option" data-correct="true">a) Gackert laut und scharrt fröhlich im Dreck (wie unsere Wella beim Spielen!) 😄</div>
+      <div class="quiz-option" data-correct="false">b) Singt Lieder wie ein Star 🎤</div>
+      <div class="quiz-option" data-correct="false">c) Malt Bilder mit den Füßen 🖌️</div>
     </div>
     <div class="quiz-feedback" id="feedback4"></div>
 
-    <div class="quiz-question">Frage fünf Was passiert wenn ein Huhn ein Ei legt</div>
+    <div class="quiz-question">Frage 5: Was passiert, wenn ein Huhn ein Ei legt? 🥚</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz</div>
-      <div class="quiz-option" data-correct="true">b das Ei rollt aus dem Nest und ein neues Frühstück ist bereit</div>
-      <div class="quiz-option" data-correct="false">c es schickt das Ei per Post weg</div>
+      <div class="quiz-option" data-correct="false">a) Es feiert mit einem kleinen Tanz! 💃</div>
+      <div class="quiz-option" data-correct="true">b) Das Ei rollt aus dem Nest – und ein neues Frühstück ist bereit! (Danke, Lupni!) 🐔</div>
+      <div class="quiz-option" data-correct="false">c) Es schickt das Ei per Post weg 📬</div>
     </div>
     <div class="quiz-feedback" id="feedback5"></div>
 
-    <div class="quiz-question">Frage sechs Wie kommunizieren Hühner untereinander</div>
+    <div class="quiz-question">Frage 6: Wie kommunizieren Hühner untereinander? 🗣️</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code</div>
-      <div class="quiz-option" data-correct="true">b mit Gackern Glucksen und Scharren</div>
-      <div class="quiz-option" data-correct="false">c indem sie Selfies machen</div>
+      <div class="quiz-option" data-correct="false">a) Mit Geheimsprache und Morse-Code 🔢</div>
+      <div class="quiz-option" data-correct="true">b) Mit Gackern, Glucksen und Scharren (wie ein Hühner-Chat!) 😊</div>
+      <div class="quiz-option" data-correct="false">c) Indem sie Selfies machen 📱</div>
     </div>
     <div class="quiz-feedback" id="feedback6"></div>
 
-    <div class="quiz-question">Frage sieben Warum sind unsere Eier so besonders</div>
+    <div class="quiz-question">Frage 7: Warum sind unsere Eier so besonders? 🥚✨</div>
     <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a weil sie fliegen können</div>
-      <div class="quiz-option" data-correct="true">b weil glückliche Hühner im Freilauf sie legen frisch und lecker</div>
-      <div class="quiz-option" data-correct="false">c weil sie magisch sind und zaubern</div>
+      <div class="quiz-option" data-correct="false">a) Weil sie fliegen können! ✈️</div>
+      <div class="quiz-option" data-correct="true">b) Weil glückliche Hühner im Freilauf sie legen – frisch und lecker! 🌿</div>
+      <div class="quiz-option" data-correct="false">c) Weil sie magisch sind und zaubern! 🪄</div>
     </div>
     <div class="quiz-feedback" id="feedback7"></div>
 
     <button id="reset-quiz">Quiz neu starten</button>
-
   </section>
+
+  <div id="quiz-complete">
+    Super gemacht! Du kennst unsere Hühner jetzt richtig gut. 🐣🐥🐤
+    <br><br>
+    <button id="close-quiz-complete">Weiter</button>
+  </div>
 
   <section class="card" aria-labelledby="bestellung-title">
     <h2 id="bestellung-title" class="gluecksmomente-title">
@@ -623,213 +697,233 @@ h2.center { text-align: center; }
       <span class="sub">Harmonie für deinen Tag</span>
     </h2>
     <div class="btn-row" role="group" aria-label="Kontaktoptionen" style="justify-content: center; margin-top: 18px;">
-      <a class="wa-btn" id="wa-anfragen">Frische Eier per WhatsApp</a>
-      <a class="mail-btn" id="mail-anfragen">Frische Eier per Mail</a>
+      <a
+        class="wa-btn"
+        id="wa-anfragen"
+        href="https://wa.me/491638306166?text=Hallo,%20ich%20möchte%20gerne%20extra%20frische%20Eier%20bestellen.%20Bitte%20sag%20mir,%20wann%20ich%20sie%20abholen%20kann."
+        target="_blank"
+        rel="noopener noreferrer"
+      >Frische Eier per WhatsApp</a>
+      <a
+        class="mail-btn"
+        id="mail-anfragen"
+        href="mailto:MeinZwergHuhn@web.de?subject=Anfrage%20frische%20Eier&body=Hallo,%20ich%20möchte%20gerne%20extra%20frische%20Eier%20bestellen.%20Bitte%20teilen%20Sie%20mir%20mit,%20wann%20ich%20die%20Bestellung%20abholen%20kann.%20Vielen%20Dank!"
+      >Frische Eier per E-Mail</a>
     </div>
   </section>
 
   <section id="rezepte">
-    <!-- Rezepte mit Anleitung Button -->
+    <!-- Rezept 1 -->
     <div class="card">
       <h2>Rührei Deluxe</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>4 Eier 8 Zwerghuhneier</li>
-        <li>1 Esslöffel Milch</li>
-        <li>Salz und Pfeffer nach Geschmack</li>
-        <li>1 Teelöffel Butter</li>
+        <li>4 Eier (8 Zwerghuhneier)</li>
+        <li>1 EL Milch</li>
+        <li>Salz & Pfeffer nach Geschmack</li>
+        <li>1 TL Butter</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung:</strong> Eier in einer Schüssel verquirlen Milch hinzufügen salzen und pfeffern. Butter in einer Pfanne erhitzen und die Eiermasse bei mittlerer Hitze stocken lassen dabei vorsichtig rühren.</p>
-        <p><em>Dein Supertrick Für extra fluffiges Rührei ein bisschen Sprudelwasser hinzufügen.</em></p>
-        <p><em>Eier Zauber Unsere kleinen Zwerg Eier machen das Rührei super weich und lustig zu portionieren wie kleine Wolken für kleine Bäuche.</em></p>
+        <p><strong>Zubereitung:</strong> Eier in einer Schüssel verquirlen, Milch hinzufügen, salzen und pfeffern. Butter in einer Pfanne erhitzen und die Eiermasse bei mittlerer Hitze stocken lassen, dabei vorsichtig rühren.</p>
+        <p><em>Dein Supertrick: Für extra fluffiges Rührei ein bisschen Sprudelwasser hinzufügen.</em></p>
+        <p><em>Eier-Zauber: Unsere kleinen Zwerg-Eier machen das Rührei super weich und lustig zu portionieren – wie kleine Wolken für kleine Bäuche! 🥚☁️</em></p>
       </div>
     </div>
 
+    <!-- Rezept 2 -->
     <div class="card">
       <h2>Eierkuchen süß</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>2 Eier 3 Zwerghuhneier</li>
-        <li>150 Gramm Mehl</li>
-        <li>250 Milliliter Milch</li>
-        <li>1 Esslöffel Ahornsirup</li>
+        <li>2 Eier (3 Zwerghuhneier)</li>
+        <li>150 g Mehl</li>
+        <li>250 ml Milch</li>
+        <li>1 EL Ahornsirup</li>
         <li>1 Prise Salz</li>
         <li>Butter zum Braten</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung:</strong> Eier mit Milch und Ahornsirup verquirlen Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken bis sie goldbraun sind.</p>
-        <p><em>Dein Supertrick Den Teig zehn Minuten ruhen lassen das macht ihn noch geschmeidiger.</em></p>
-        <p><em>Eier Abenteuer Mit Zwerg Eiern backst du kleine Pfannkuchen die wie goldene Schätze schmecken ideal für kleine Entdecker.</em></p>
+        <p><strong>Zubereitung:</strong> Eier mit Milch und Ahornsirup verquirlen. Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken, bis sie goldbraun sind.</p>
+        <p><em>Dein Supertrick: Den Teig 10 Minuten ruhen lassen – das macht ihn noch geschmeidiger.</em></p>
+        <p><em>Eier-Abenteuer: Mit Zwerg-Eiern backst du winzige Pfannkuchen, die wie goldene Schätze schmecken – ideal für kleine Entdecker! 🥞🌟</em></p>
       </div>
     </div>
 
+    <!-- Rezept 3 -->
     <div class="card">
       <h2>Omelette Gemüse</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>3 Eier 5 Zwerghuhneier</li>
-        <li>50 Gramm Paprika gewürfelt</li>
-        <li>50 Gramm Zucchini gewürfelt</li>
-        <li>1 Esslöffel Milch</li>
-        <li>Salz und Pfeffer</li>
-        <li>1 Teelöffel Öl</li>
+        <li>3 Eier (5 Zwerghuhneier)</li>
+        <li>50 g Paprika, gewürfelt</li>
+        <li>50 g Zucchini, gewürfelt</li>
+        <li>1 EL Milch</li>
+        <li>Salz & Pfeffer</li>
+        <li>1 TL Öl</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung:</strong> Eier mit Milch Salz und Pfeffer verquirlen. Gemüse in Öl kurz anbraten Eiermasse darüber gießen und bei mittlerer Hitze stocken lassen.</p>
-        <p><em>Dein Supertrick Omelette einmal wenden so bleibt es saftig.</em></p>
-        <p><em>Eier Magie Zwerg Eier passen perfekt zu buntem Gemüse und zaubern ein Omelett das wie ein Regenbogen aussieht.</em></p>
+        <p><strong>Zubereitung:</strong> Eier mit Milch, Salz und Pfeffer verquirlen. Gemüse in Öl kurz anbraten, Eiermasse darüber gießen und bei mittlerer Hitze stocken lassen.</p>
+        <p><em>Dein Supertrick: Omelette einmal wenden – bleibt saftig.</em></p>
+        <p><em>Eier-Magie: Zwerg-Eier passen perfekt zu buntem Gemüse und zaubern ein Omelett, das wie ein Regenbogenbrot aussieht – yummi für kleine Helden! 🌈🥚</em></p>
       </div>
     </div>
 
+    <!-- Rezept 4 -->
     <div class="card">
       <h2>Gefüllte Eier</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>6 Eier 12 Zwerghuhneier</li>
-        <li>2 Esslöffel Joghurt</li>
-        <li>1 Teelöffel Senf</li>
-        <li>Salz und Pfeffer</li>
+        <li>6 Eier (12 Zwerghuhneier)</li>
+        <li>2 EL Joghurt</li>
+        <li>1 TL Senf</li>
+        <li>Salz & Pfeffer</li>
         <li>Paprika zum Bestreuen</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung:</strong> Eier hart kochen schälen und längs halbieren. Eigelbe herausnehmen mit Joghurt Senf Salz und Pfeffer vermengen. Masse zurück in die Eiweiß Hälften füllen und mit Paprika bestreuen.</p>
-        <p><em>Dein Supertrick Eier vor dem Füllen leicht mit heißem Wasser übergießen dann lassen sie sich leichter schälen.</em></p>
-        <p><em>Eier Spaß Kleine Zwerg Eier werden zu lustigen kleinen Happen ideal für Kindergeburtstage.</em></p>
+        <p><strong>Zubereitung:</strong> Eier hart kochen, schälen und längs halbieren. Eigelbe herausnehmen, mit Joghurt, Senf, Salz und Pfeffer vermengen. Masse zurück in die Eiweißhälften füllen und mit Paprika bestreuen.</p>
+        <p><em>Dein Supertrick: Eier vor dem Füllen leicht mit heißem Wasser übergießen – das erleichtert das Schälen.</em></p>
+        <p><em>Eier-Spaß: Kleine Zwerg-Eier werden zu lustigen "Eier-Bomben" – füll sie und lass sie explodieren vor Geschmack für kleine Partys! 💥🥚</em></p>
       </div>
     </div>
 
+    <!-- Rezept 5 -->
     <div class="card">
       <h2>Eiersalat klassisch</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>4 Eier 8 Zwerghuhneier</li>
-        <li>2 Esslöffel Mayonnaise</li>
-        <li>1 Teelöffel Senf</li>
-        <li>Salz und Pfeffer</li>
-        <li>1 kleine Frühlingszwiebel fein gehackt</li>
+        <li>4 Eier (8 Zwerghuhneier)</li>
+        <li>2 EL Mayonnaise</li>
+        <li>1 TL Senf</li>
+        <li>Salz & Pfeffer</li>
+        <li>1 kleine Frühlingszwiebel, fein gehackt</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung:</strong> Eier hart kochen schälen und würfeln. Mit Mayonnaise Senf Salz Pfeffer und Frühlingszwiebel vermengen kurz ziehen lassen und servieren.</p>
-        <p><em>Dein Supertrick Eier noch warm hacken dadurch wird der Salat cremiger.</em></p>
-        <p><em>Eier Geheimnis Zwerg Eier machen den Salat besonders fein und cremig ideal als Brotbelag oder Beilage.</em></p>
+        <p><strong>Zubereitung:</strong> Eier hart kochen, schälen und würfeln. Mit Mayonnaise, Senf, Salz, Pfeffer und Frühlingszwiebel vermengen. Kurz ziehen lassen und servieren.</p>
+        <p><em>Dein Supertrick: Eier noch warm hacken – dadurch wird der Salat cremiger.</em></p>
+        <p><em>Eier-Geheimnis: Zwerg-Eier machen den Salat zu kleinen cremigen Schätzen – perfekt, um mit Freunden zu teilen und zu kichern! 😄🥗</em></p>
       </div>
     </div>
 
+    <!-- Rezept 6 -->
     <div class="card">
-      <h2>Frühstücks Muffins mit Ei</h2>
+      <h2>Frühstücks-Muffins mit Ei</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>3 Eier 5 Zwerghuhneier</li>
-        <li>100 Gramm Mehl</li>
-        <li>50 Milliliter Milch</li>
-        <li>50 Gramm geriebener Käse</li>
-        <li>Salz und Pfeffer</li>
-        <li>1 Teelöffel Backpulver</li>
+        <li>3 Eier (5 Zwerghuhneier)</li>
+        <li>100 g Mehl</li>
+        <li>50 ml Milch</li>
+        <li>50 g geriebener Käse</li>
+        <li>Salz & Pfeffer</li>
+        <li>1 TL Backpulver</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung:</strong> Eier Milch Salz Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180 Grad etwa zwanzig bis fünfundzwanzig Minuten backen.</p>
-        <p><em>Dein Supertrick Muffins nach fünfzehn Minuten mit Alufolie abdecken dann werden sie nicht zu dunkel.</em></p>
-        <p><em>Eier Zauber Mit Zwerg Eiern entstehen kleine Muffins die perfekt in Kinderhände passen.</em></p>
+        <p><strong>Zubereitung:</strong> Eier, Milch, Salz, Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180°C 20–25 Minuten backen.</p>
+        <p><em>Dein Supertrick: Muffins nach 15 Minuten mit Alufolie abdecken, dann werden sie nicht zu braun.</em></p>
+        <p><em>Eier-Zauber: Mit Zwerg-Eiern entstehen Mini-Muffins, die wie flauschige Wolken hüpfen – Back-Abenteuer für kleine Chefs! ☁️🍪</em></p>
       </div>
     </div>
 
+    <!-- Rezept 7 -->
     <div class="card">
-      <h2>Spinat Ei Pfanne</h2>
+      <h2>Spinat-Ei-Pfanne</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>2 Eier 3 Zwerghuhneier</li>
-        <li>150 Gramm frischer Spinat</li>
-        <li>1 Teelöffel Öl</li>
-        <li>Salz und Pfeffer</li>
+        <li>2 Eier (3 Zwerghuhneier)</li>
+        <li>150 g frischer Spinat</li>
+        <li>1 TL Öl</li>
+        <li>Salz & Pfeffer</li>
         <li>1 kleine Zwiebel</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung:</strong> Zwiebel in Öl anbraten Spinat hinzufügen und zusammenfallen lassen. Eier verquirlen darüber geben und stocken lassen.</p>
-        <p><em>Dein Supertrick Mit etwas Wasser ablöschen so bleibt der Spinat schön saftig.</em></p>
-        <p><em>Eier Abenteuer Zwerg Eier tanzen mit grünem Spinat zu einem kräftigen Pfannengericht.</em></p>
+        <p><strong>Zubereitung:</strong> Zwiebel in Öl anbraten, Spinat hinzufügen und zusammenfallen lassen. Eier verquirlen, darüber geben und stocken lassen.</p>
+        <p><em>Dein Supertrick: Mit etwas Wasser ablöschen – Spinat bleibt saftig.</em></p>
+        <p><em>Eier-Abenteuer: Zwerg-Eier tanzen mit grünem Spinat zu einem superhelden-starken Pfannengericht – Kraft für kleine Ritter! 🦸🥬</em></p>
       </div>
     </div>
 
+    <!-- Rezept 8 -->
     <div class="card">
       <h2>Eier in Senfsoße</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>4 Eier 8 Zwerghuhneier</li>
-        <li>200 Milliliter Gemüsebrühe</li>
-        <li>2 Esslöffel Joghurt</li>
-        <li>1 Teelöffel Senf</li>
-        <li>Salz und Pfeffer</li>
+        <li>4 Eier (8 Zwerghuhneier)</li>
+        <li>200 ml Gemüsebrühe</li>
+        <li>2 EL Joghurt</li>
+        <li>1 TL Senf</li>
+        <li>Salz & Pfeffer</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung:</strong> Eier hart kochen. Brühe erhitzen Joghurt und Senf einrühren würzen. Eier halbieren und in die Soße legen.</p>
-        <p><em>Dein Supertrick Eier vor dem Servieren kurz in kaltem Wasser abschrecken so bleibt die Soße cremig.</em></p>
-        <p><em>Eier Magie Kleine Zwerg Eier schwimmen in der Soße wie kleine Boote ein schöner Teller für Kinder.</em></p>
+        <p><strong>Zubereitung:</strong> Eier hart kochen. Brühe erhitzen, Joghurt und Senf einrühren, würzen. Eier halbieren und in die Soße legen.</p>
+        <p><em>Dein Supertrick: Eier vor dem Servieren kurz in kaltem Wasser abschrecken – Soße bleibt cremig.</em></p>
+        <p><em>Eier-Magie: Kleine Zwerg-Eier schwimmen in der Soße wie goldene Schiffe – ein Geschmacksabenteuer für kleine Seefahrer! ⛵🥚</em></p>
       </div>
     </div>
 
+    <!-- Rezept 9 -->
     <div class="card">
       <h2>Eiersalat Deluxe</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>5 Eier 10 Zwerghuhneier</li>
-        <li>3 Esslöffel Mayonnaise</li>
-        <li>1 Teelöffel Senf</li>
-        <li>1 kleine rote Paprika gewürfelt</li>
-        <li>Salz und Pfeffer</li>
+        <li>5 Eier (10 Zwerghuhneier)</li>
+        <li>3 EL Mayonnaise</li>
+        <li>1 TL Senf</li>
+        <li>1 kleine rote Paprika, gewürfelt</li>
+        <li>Salz & Pfeffer</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung:</strong> Eier hart kochen würfeln und mit allen Zutaten vermengen kurz ziehen lassen und servieren.</p>
-        <p><em>Dein Supertrick Eier noch warm hacken dann wird der Salat besonders cremig.</em></p>
-        <p><em>Eier Geheimnis Zwerg Eier mit roter Paprika ergeben einen bunten Salat der auf dem Teller richtig fröhlich aussieht.</em></p>
+        <p><strong>Zubereitung:</strong> Eier hart kochen, würfeln und mit allen Zutaten vermengen. Kurz ziehen lassen und servieren.</p>
+        <p><em>Dein Supertrick: Eier noch warm hacken – Salat wird cremiger.</em></p>
+        <p><em>Eier-Geheimnis: Zwerg-Eier mit roter Paprika ergeben einen Salat wie einen Schatzfund – teile ihn mit Freunden und lach dabei! 💎😊</em></p>
       </div>
     </div>
 
+    <!-- Rezept 10 -->
     <div class="card">
-      <h2>Eier Brotaufstrich</h2>
+      <h2>Eier-Brotaufstrich</h2>
       <p><strong>Zutaten:</strong></p>
       <ul>
-        <li>3 Eier 5 Zwerghuhneier</li>
-        <li>2 Esslöffel Frischkäse</li>
-        <li>1 Teelöffel Senf</li>
-        <li>Salz und Pfeffer</li>
+        <li>3 Eier (5 Zwerghuhneier)</li>
+        <li>2 EL Frischkäse</li>
+        <li>1 TL Senf</li>
+        <li>Salz & Pfeffer</li>
         <li>1 kleine Frühlingszwiebel</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung:</strong> Eier hart kochen hacken und mit Frischkäse Senf Salz Pfeffer und Frühlingszwiebel verrühren. Auf frisches Brot streichen.</p>
-        <p><em>Dein Supertrick Etwas Schnittlauch darüber streuen das sieht schön aus und schmeckt frisch.</em></p>
-        <p><em>Eier Spaß Zwerg Eier machen den Aufstrich besonders fein ideal für Kinderbrote und kleine Snacks.</em></p>
+        <p><strong>Zubereitung:</strong> Eier hart kochen, hacken und mit Frischkäse, Senf, Salz, Pfeffer und Frühlingszwiebel verrühren. Auf frisches Brot streichen.</p>
+        <p><em>Dein Supertrick: Etwas Schnittlauch darüber streuen – sieht toll aus!</em></p>
+        <p><em>Eier-Spaß: Zwerg-Eier machen den Aufstrich zu einer cremigen Überraschung – streich's auf Brot und lass die Fantasie fliegen! 🧚‍♂️🥖</em></p>
       </div>
     </div>
 
+    <!-- Abschließender Text -->
     <div class="recipe-closing">
-      <p>Kinder lieben es beim Kochen zu helfen und Zwerg Eier sind perfekt um spielerisch gesunde Gerichte zu entdecken. Viel Spaß beim Ausprobieren.</p>
+      <p>Kinder lieben es, beim Kochen zu helfen – und Zwerg-Hühner-Eier sind perfekt, um spielerisch gesunde Gerichte zu entdecken. Viel Spaß beim Ausprobieren! 🥚😊</p>
     </div>
   </section>
 
   <section class="card no-border" aria-label="Hinweis">
     <p style="text-align:center; font-weight:500;">
-      Wenn du Lust auf frische Eier oder Fragen zu unseren Hühnern hast sprich uns einfach direkt an oder nutze die Kontaktmöglichkeiten weiter oben auf der Seite.
+      Wenn du Lust auf frische Eier oder Fragen zu unseren Hühnern hast, sprich uns einfach direkt an oder nutze die Kontaktmöglichkeiten weiter oben auf der Seite.
     </p>
   </section>
 
@@ -841,31 +935,110 @@ h2.center { text-align: center; }
     </div>
     <div class="footer-emojis">☘️💯☘️</div>
     <p style="text-align: center; font-weight: 700; line-height: 1.5;">
-      Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt Eiern zu vergleichen. Probier selbst.<br><br>
+      Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt-Eiern zu vergleichen. Probier selbst!<br><br>
       Vielen Dank für deinen Besuch
     </p>
-    <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier großes Lächeln</p>
+    <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier, großes Lächeln</p>
   </footer>
 </main>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.huhn-card');
-    cards.forEach((card, index) => {
-      setTimeout(() => card.classList.add('visible'), index * 300);
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  // Huhn Karten Animation
+  const cards = document.querySelectorAll('.huhn-card');
+  cards.forEach((card, index) => {
+    setTimeout(() => card.classList.add('visible'), index * 300);
+  });
 
-    const buttons = document.querySelectorAll('.show-rezept-btn');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const anleitung = btn.nextElementSibling;
-        if (!anleitung) return;
-        const sichtbar = anleitung.style.display === 'block';
-        anleitung.style.display = sichtbar ? 'none' : 'block';
-        btn.textContent = sichtbar ? 'Anleitung zum Rezept' : 'Anleitung ausblenden';
-      });
+  // Rezept-Anleitung Buttons
+  const rezeptButtons = document.querySelectorAll('.show-rezept-btn');
+  rezeptButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const box = btn.nextElementSibling;
+      if (!box) return;
+      const isOpen = box.style.display === 'block';
+      box.style.display = isOpen ? 'none' : 'block';
+      btn.textContent = isOpen ? 'Anleitung zum Rezept' : 'Anleitung ausblenden';
     });
   });
+
+  // Quiz Logik
+  const quizOptions = document.querySelectorAll('.quiz-option');
+  const huhnGrid = document.getElementById('huhn-grid');
+  const resetBtn = document.getElementById('reset-quiz');
+  const quizComplete = document.getElementById('quiz-complete');
+  const closeQuizComplete = document.getElementById('close-quiz-complete');
+
+  const totalQuestions = 7;
+  const answeredQuestions = new Set();
+
+  quizOptions.forEach((option, index) => {
+    const questionIndex = Math.floor(index / 3) + 1; // 1..7
+    const feedbackEl = document.getElementById('feedback' + questionIndex);
+
+    option.addEventListener('click', () => {
+      // innerhalb dieser Frage alle Klassen zurücksetzen
+      const group = option.parentElement.querySelectorAll('.quiz-option');
+      group.forEach(o => {
+        o.classList.remove('correct', 'incorrect');
+      });
+
+      const isCorrect = option.dataset.correct === 'true';
+      option.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+      if (feedbackEl) {
+        feedbackEl.textContent = isCorrect ? 'Richtig, super gemacht!' : 'Nicht ganz, versuch es nochmal.';
+        feedbackEl.classList.add('show');
+      }
+
+      answeredQuestions.add(questionIndex);
+
+      if (answeredQuestions.size === totalQuestions) {
+        if (huhnGrid) {
+          huhnGrid.style.display = 'grid';
+        }
+        if (resetBtn) {
+          resetBtn.style.display = 'inline-block';
+        }
+        if (quizComplete) {
+          quizComplete.style.display = 'block';
+        }
+      }
+    });
+  });
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      // Optionen zurücksetzen
+      quizOptions.forEach(opt => {
+        opt.classList.remove('correct', 'incorrect');
+      });
+      // Feedback zurücksetzen
+      for (let i = 1; i <= totalQuestions; i++) {
+        const fb = document.getElementById('feedback' + i);
+        if (fb) {
+          fb.textContent = '';
+          fb.classList.remove('show');
+        }
+      }
+      // Hühner verstecken
+      if (huhnGrid) {
+        huhnGrid.style.display = 'none';
+      }
+      if (quizComplete) {
+        quizComplete.style.display = 'none';
+      }
+      resetBtn.style.display = 'none';
+      answeredQuestions.clear();
+    });
+  }
+
+  if (closeQuizComplete && quizComplete) {
+    closeQuizComplete.addEventListener('click', () => {
+      quizComplete.style.display = 'none';
+    });
+  }
+});
 </script>
 </body>
 </html>
