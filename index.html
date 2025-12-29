@@ -35,6 +35,11 @@
   --card-padding: 20px;
   --btn-padding: 9px 14px;
   --btn-radius: 12px;
+
+  /* neue Farben für den Kopfbereich */
+  --header-bg: #fff9cc;
+  --header-border-outer: #f0dd7a;
+  --header-border-inner: #e4c24a;
 }
 
 * { box-sizing: border-box; }
@@ -53,8 +58,9 @@ body {
 
 .wrap { width: 100%; max-width: 820px; display: flex; flex-direction: column; flex-grow: 1; }
 
+/* Kopfbereich mit doppelter Umrandung */
 header {
-  background: #fff9cc;
+  background: var(--header-bg);
   border-radius: 16px;
   padding: var(--card-padding);
   margin-bottom: 18px;
@@ -64,6 +70,25 @@ header {
   overflow: visible;
 }
 
+/* äussere und innere Linie um den Header */
+header::before,
+header::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 22px;
+  border: 2px solid var(--header-border-outer);
+  z-index: 0;
+  pointer-events: none;
+}
+
+header::after {
+  inset: -14px;
+  border-color: var(--header-border-inner);
+  opacity: 0.9;
+}
+
+/* Inhalt bleibt darüber */
 .header-content {
   position: relative;
   z-index: 2;
@@ -480,24 +505,24 @@ h2.center { text-align: center; }
     <div class="header-content">
       <h1>Kleine Eier<br>großes Lächeln</h1>
     </div>
-    <p class="subtitle">Hallo und willkommen!</p>
-    <p class="subtitle extra">Freut mich, dass du den QR-Code entdeckt hast!</p>
+    <p class="subtitle">Hallo und willkommen</p>
+    <p class="subtitle extra">Freut mich dass du den QR Code entdeckt hast</p>
   </header>
 
   <section class="card" aria-labelledby="garten-huehner">
     <h2 id="garten-huehner">Warum wir unsere Hühner im Garten halten</h2>
-    <p>Sie bringen Freude, bereichern den Alltag und schenken ein glückliches Miteinander. Das Verhalten der Tiere ist unbezahlbar – und ganz nebenbei schenken sie uns frische Eier, direkt aus dem eigenen Garten.</p>
+    <p>Sie bringen Freude bereichern den Alltag und schenken ein glückliches Miteinander. Das Verhalten der Tiere ist unbezahlbar und ganz nebenbei schenken sie uns frische Eier direkt aus dem eigenen Garten.</p>
   </section>
 
   <section class="card" aria-labelledby="freilauf-title">
     <h2 id="freilauf-title">Unsere Hühner im Freilauf</h2>
-    <p>Die Hühner scharren neugierig und genießen die Natur. Ihr Scharren macht den Garten lebendig, ihr Flattern erfüllt den Alltag mit Bewegung und Freude. <strong>Jeder Moment erinnert uns daran, das Leben bewusst wahrzunehmen.</strong></p>
-    <p><strong>Die Idee:</strong> Glückliche Hühner lehren uns Gelassenheit, Achtsamkeit und Freude. Lasst euch von ihrer Lebendigkeit inspirieren und entdeckt die schönen Dinge im Alltag.</p>
+    <p>Die Hühner scharren neugierig und genießen die Natur. Ihr Scharren macht den Garten lebendig ihr Flattern erfüllt den Alltag mit Bewegung und Freude. <strong>Jeder Moment erinnert uns daran das Leben bewusst wahrzunehmen.</strong></p>
+    <p><strong>Die Idee</strong> Glückliche Hühner lehren uns Gelassenheit Achtsamkeit und Freude. Lasst euch von ihrer Lebendigkeit inspirieren und entdeckt die schönen Dinge im Alltag.</p>
   </section>
 
   <section class="card" aria-labelledby="ideen-title">
-    <h2 id="ideen-title" class="center">Ideen & Anregungen für den Hühnerfreilauf</h2>
-    <p class="center">Wenn ihr Anregungen zur Gestaltung oder Bepflanzung unseres Hühnerfreilaufs habt, schreibt uns gerne.</p>
+    <h2 id="ideen-title" class="center">Ideen und Anregungen für den Hühnerfreilauf</h2>
+    <p class="center">Wenn ihr Anregungen zur Gestaltung oder Bepflanzung unseres Hühnerfreilaufs habt schreibt uns gerne.</p>
     <div class="btn-row" style="justify-content: center; margin-top: 12px;">
       <a class="wa-btn" id="wa-ideen"
          href="https://wa.me/491638306166?text=Hallo,%20ich%20habe%20Ideen%20oder%20Anregungen%20für%20euren%20Hühnerfreilauf."
@@ -508,17 +533,17 @@ h2.center { text-align: center; }
   </section>
 
   <section class="card" aria-labelledby="futterliste-title">
-    <h2 id="futterliste-title">Futter & Snacks für unsere Hühner</h2>
-    <p>Die Snack-Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
+    <h2 id="futterliste-title">Futter und Snacks für unsere Hühner</h2>
+    <p>Die Snack Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
     <ul class="futter-list">
       <li>✔️ Gurke</li><li>✔️ Karotte</li><li>✔️ Verschiedene Salate</li><li>✔️ Beeren</li>
-      <li>✔️ Frisches Grün (z. B. Löwenzahn, Rucola, Feldsalat, Spinat)</li>
-      <li>✔️ Frische Kräuter (z. B. Petersilie, Koriander, Basilikum)</li>
+      <li>✔️ Frisches Grün zum Beispiel Löwenzahn Rucola Feldsalat Spinat</li>
+      <li>✔️ Frische Kräuter zum Beispiel Petersilie Koriander Basilikum</li>
       <li>❌ Zitrusfrüchte</li><li>❌ Avocado</li><li>❌ rohe Kartoffeln</li>
-      <li>❌ Zwiebeln</li><li>❌ Süßigkeiten & Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
+      <li>❌ Zwiebeln</li><li>❌ Süßigkeiten und Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
     </ul>
-    <p><strong>Wichtig:</strong> Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen!</p>
-    <p style="font-weight: 600; margin-top: 1rem; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir 6 frische Eier 🥚</p>
+    <p><strong>Wichtig</strong> Alles sollte frisch unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen.</p>
+    <p style="font-weight: 600; margin-top: 1rem; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir sechs frische Eier 🥚</p>
     <div class="btn-row" style="justify-content: center; margin-top: 8px;">
       <a class="wa-btn" id="wa-tausch"
          href="https://wa.me/491638306166?text=Hallo,%20ich%20habe%20Snacks%20für%20die%20Hühner%20in%20die%20Kiste%20gelegt%20und%20würde%20gerne%20gegen%20frische%20Eier%20tauschen."
@@ -528,30 +553,30 @@ h2.center { text-align: center; }
     </div>
   </section>
 
-  <!-- Hühnerkarten: Anfangs versteckt -->
+  <!-- Hühnerkarten Anfangs versteckt -->
   <div id="huhn-grid" style="display: none; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px;">
     <div class="huhn-card">
       <img src="huhn1.jpg" alt="Wella" loading="lazy">
       <h3>Wella</h3>
-      <p>Eine ruhige, kuschelbedürftige Japanische Seidenhuhn Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu, verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant nicht nur wegen ihres besonderen Aussehens, sondern auch wegen ihres einzigartigen Charakters.</p>
+      <p>Eine ruhige kuschelbedürftige Japanische Seidenhuhn Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant nicht nur wegen ihres besonderen Aussehens sondern auch wegen ihres einzigartigen Charakters.</p>
     </div>
     <div class="huhn-card">
       <img src="huhn2.jpg" alt="Wilma" loading="lazy">
       <h3>Wilma</h3>
-      <p>Eine selbstbewusste Zwerg Wyandotten Henne mit ruhigem, beobachtendem Wesen. Sie nimmt sich Zeit, bevor sie Neues wagt. Wer ihr Vertrauen gewinnt, entdeckt eine sanfte, herzliche Henne mit liebevollem Verhalten.</p>
+      <p>Eine selbstbewusste Zwerg Wyandotten Henne mit ruhigem beobachtendem Wesen. Sie nimmt sich Zeit bevor sie Neues wagt. Wer ihr Vertrauen gewinnt entdeckt eine sanfte herzliche Henne mit liebevollem Verhalten.</p>
     </div>
     <div class="huhn-card">
       <img src="huhn3.jpg" alt="Lupni" loading="lazy">
       <h3>Lupni</h3>
-      <p>Eine entdeckungsfreudige Henne, die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch, frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
+      <p>Eine entdeckungsfreudige Henne die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch frech und eigenwillig sorgt sie für Schwung in der Truppe.</p>
     </div>
   </div>
 
   <section class="card quiz-card" aria-labelledby="quiz-title">
     <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
-    <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast, lernst du unsere Hühner kennen.</p>
+    <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
     
-    <div class="quiz-question">Frage 1 Wie oft legen Hühner Eier 🥚</div>
+    <div class="quiz-question">Frage eins wie oft legen Hühner Eier 🥚</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a einmal im Monat 🌙</div>
       <div class="quiz-option" data-correct="false">b alle paar Tage 📅</div>
@@ -559,7 +584,7 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback1"></div>
 
-    <div class="quiz-question">Frage 2 Was essen Hühner am liebsten 🥬</div>
+    <div class="quiz-question">Frage zwei was essen Hühner am liebsten 🥬</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
       <div class="quiz-option" data-correct="false">b Schokolade 🍫</div>
@@ -567,7 +592,7 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback2"></div>
 
-    <div class="quiz-question">Frage 3 Rate mal wie heißen unsere drei Hühner 🐥</div>
+    <div class="quiz-question">Frage drei rate mal wie heißen unsere drei Hühner 🐥</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a Mia Max und Leo</div>
       <div class="quiz-option" data-correct="true">b Wella Wilma und Lupni</div>
@@ -575,7 +600,7 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback3"></div>
 
-    <div class="quiz-question">Frage 4 Was macht ein Huhn wenn es glücklich ist 🐔</div>
+    <div class="quiz-question">Frage vier was macht ein Huhn wenn es glücklich ist 🐔</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck wie unsere Wella beim Spielen 😄</div>
       <div class="quiz-option" data-correct="false">b singt Lieder wie ein Star 🎤</div>
@@ -583,7 +608,7 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback4"></div>
 
-    <div class="quiz-question">Frage 5 Was passiert wenn ein Huhn ein Ei legt 🥚</div>
+    <div class="quiz-question">Frage fünf was passiert wenn ein Huhn ein Ei legt 🥚</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz 💃</div>
       <div class="quiz-option" data-correct="true">b das Ei rollt aus dem Nest und ein neues Frühstück ist bereit danke Lupni 🐔</div>
@@ -591,7 +616,7 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback5"></div>
 
-    <div class="quiz-question">Frage 6 Wie kommunizieren Hühner untereinander 🗣️</div>
+    <div class="quiz-question">Frage sechs wie kommunizieren Hühner untereinander 🗣️</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code 🔢</div>
       <div class="quiz-option" data-correct="true">b mit Gackern Glucksen und Scharren wie ein Hühner Chat 😊</div>
@@ -599,7 +624,7 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback6"></div>
 
-    <div class="quiz-question">Frage 7 Warum sind unsere Eier so besonders 🥚✨</div>
+    <div class="quiz-question">Frage sieben warum sind unsere Eier so besonders 🥚✨</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a weil sie fliegen können ✈️</div>
       <div class="quiz-option" data-correct="true">b weil glückliche Hühner im Freilauf sie legen frisch und lecker 🌿</div>
@@ -633,8 +658,7 @@ h2.center { text-align: center; }
         Frische Eier per WhatsApp
       </a>
       <a class="mail-btn" id="mail-anfragen"
-         href="mailto:MeinZwergHuhn@web.de?subject=Anfrage%20frische%20Eier&body=Hallo,%20ich%20möchte%20gerne%20die%20extra%20frischen%20Eier%20bestellen.%206%20Stück%20für%205%20Euro.%20Bitte%20teile%20mir%20mit,%20wann%20ich%20die%20Bestellung%20abholen%20kann.%20Vielen%20Dank."
-      >
+         href="mailto:MeinZwergHuhn@web.de?subject=Anfrage%20frische%20Eier&body=Hallo,%20ich%20möchte%20gerne%20die%20extra%20frischen%20Eier%20bestellen.%206%20Stück%20für%205%20Euro.%20Bitte%20teile%20mir%20mit,%20wann%20ich%20die%20Bestellung%20abholen%20kann.%20Vielen%20Dank.">
         Frische Eier per E Mail
       </a>
     </div>
@@ -646,10 +670,10 @@ h2.center { text-align: center; }
       <h2>Rührei Deluxe</h2>
       <p><strong>Zutaten</strong></p>
       <ul>
-        <li>4 Eier 8 Zwerghuhneier</li>
-        <li>1 Esslöffel Milch</li>
+        <li>vier Eier acht Zwerghuhneier</li>
+        <li>ein Esslöffel Milch</li>
         <li>Salz und Pfeffer nach Geschmack</li>
-        <li>1 Teelöffel Butter</li>
+        <li>ein Teelöffel Butter</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
@@ -665,18 +689,18 @@ h2.center { text-align: center; }
       <h2>Eierkuchen süß</h2>
       <p><strong>Zutaten</strong></p>
       <ul>
-        <li>2 Eier 3 Zwerghuhneier</li>
-        <li>150 Gramm Mehl</li>
-        <li>250 Milliliter Milch</li>
-        <li>1 Esslöffel Ahornsirup</li>
-        <li>1 Prise Salz</li>
+        <li>zwei Eier drei Zwerghuhneier</li>
+        <li>hundertfünfzig Gramm Mehl</li>
+        <li>zweihundertfünfzig Milliliter Milch</li>
+        <li>ein Esslöffel Ahornsirup</li>
+        <li>eine Prise Salz</li>
         <li>Butter zum Braten</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
         <p><strong>Zubereitung</strong> Eier mit Milch und Ahornsirup verquirlen. Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken bis sie goldbraun sind.</p>
-        <p><em>Dein Supertrick den Teig 10 Minuten ruhen lassen das macht ihn noch geschmeidiger.</em></p>
+        <p><em>Dein Supertrick den Teig zehn Minuten ruhen lassen das macht ihn noch geschmeidiger.</em></p>
         <p><em>Eier Abenteuer mit Zwerg Eiern backst du winzige Pfannkuchen die wie goldene Schätze schmecken ideal für kleine Entdecker 🥞🌟</em></p>
       </div>
     </div>
@@ -686,12 +710,12 @@ h2.center { text-align: center; }
       <h2>Omelette Gemüse</h2>
       <p><strong>Zutaten</strong></p>
       <ul>
-        <li>3 Eier 5 Zwerghuhneier</li>
-        <li>50 Gramm Paprika gewürfelt</li>
-        <li>50 Gramm Zucchini gewürfelt</li>
-        <li>1 Esslöffel Milch</li>
+        <li>drei Eier fünf Zwerghuhneier</li>
+        <li>fünfzig Gramm Paprika gewürfelt</li>
+        <li>fünfzig Gramm Zucchini gewürfelt</li>
+        <li>ein Esslöffel Milch</li>
         <li>Salz und Pfeffer</li>
-        <li>1 Teelöffel Öl</li>
+        <li>ein Teelöffel Öl</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
@@ -707,9 +731,9 @@ h2.center { text-align: center; }
       <h2>Gefüllte Eier</h2>
       <p><strong>Zutaten</strong></p>
       <ul>
-        <li>6 Eier 12 Zwerghuhneier</li>
-        <li>2 Esslöffel Joghurt</li>
-        <li>1 Teelöffel Senf</li>
+        <li>sechs Eier zwölf Zwerghuhneier</li>
+        <li>zwei Esslöffel Joghurt</li>
+        <li>ein Teelöffel Senf</li>
         <li>Salz und Pfeffer</li>
         <li>Paprika zum Bestreuen</li>
       </ul>
@@ -727,11 +751,11 @@ h2.center { text-align: center; }
       <h2>Eiersalat klassisch</h2>
       <p><strong>Zutaten</strong></p>
       <ul>
-        <li>4 Eier 8 Zwerghuhneier</li>
-        <li>2 Esslöffel Mayonnaise</li>
-        <li>1 Teelöffel Senf</li>
+        <li>vier Eier acht Zwerghuhneier</li>
+        <li>zwei Esslöffel Mayonnaise</li>
+        <li>ein Teelöffel Senf</li>
         <li>Salz und Pfeffer</li>
-        <li>1 kleine Frühlingszwiebel fein gehackt</li>
+        <li>eine kleine Frühlingszwiebel fein gehackt</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
@@ -747,18 +771,18 @@ h2.center { text-align: center; }
       <h2>Frühstücks Muffins mit Ei</h2>
       <p><strong>Zutaten</strong></p>
       <ul>
-        <li>3 Eier 5 Zwerghuhneier</li>
-        <li>100 Gramm Mehl</li>
-        <li>50 Milliliter Milch</li>
-        <li>50 Gramm geriebener Käse</li>
+        <li>drei Eier fünf Zwerghuhneier</li>
+        <li>hundert Gramm Mehl</li>
+        <li>fünfzig Milliliter Milch</li>
+        <li>fünfzig Gramm geriebener Käse</li>
         <li>Salz und Pfeffer</li>
-        <li>1 Teelöffel Backpulver</li>
+        <li>ein Teelöffel Backpulver</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
       <div class="rezept-anleitung">
-        <p><strong>Zubereitung</strong> Eier Milch Salz Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180 Grad 20 bis 25 Minuten backen.</p>
-        <p><em>Dein Supertrick Muffins nach 15 Minuten mit Alufolie abdecken dann werden sie nicht zu braun.</em></p>
+        <p><strong>Zubereitung</strong> Eier Milch Salz Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei einhundertachtzig Grad ungefähr zwanzig bis fünfundzwanzig Minuten backen.</p>
+        <p><em>Dein Supertrick Muffins nach fünfzehn Minuten mit Alufolie abdecken dann werden sie nicht zu braun.</em></p>
         <p><em>Eier Zauber mit Zwerg Eiern entstehen Mini Muffins die wie flauschige Wolken hüpfen Back Abenteuer für kleine Chefs ☁️🍪</em></p>
       </div>
     </div>
@@ -768,11 +792,11 @@ h2.center { text-align: center; }
       <h2>Spinat Ei Pfanne</h2>
       <p><strong>Zutaten</strong></p>
       <ul>
-        <li>2 Eier 3 Zwerghuhneier</li>
-        <li>150 Gramm frischer Spinat</li>
-        <li>1 Teelöffel Öl</li>
+        <li>zwei Eier drei Zwerghuhneier</li>
+        <li>hundertfünfzig Gramm frischer Spinat</li>
+        <li>ein Teelöffel Öl</li>
         <li>Salz und Pfeffer</li>
-        <li>1 kleine Zwiebel</li>
+        <li>eine kleine Zwiebel</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
@@ -788,10 +812,10 @@ h2.center { text-align: center; }
       <h2>Eier in Senfsoße</h2>
       <p><strong>Zutaten</strong></p>
       <ul>
-        <li>4 Eier 8 Zwerghuhneier</li>
-        <li>200 Milliliter Gemüsebrühe</li>
-        <li>2 Esslöffel Joghurt</li>
-        <li>1 Teelöffel Senf</li>
+        <li>vier Eier acht Zwerghuhneier</li>
+        <li>zweihundert Milliliter Gemüsebrühe</li>
+        <li>zwei Esslöffel Joghurt</li>
+        <li>ein Teelöffel Senf</li>
         <li>Salz und Pfeffer</li>
       </ul>
 
@@ -808,10 +832,10 @@ h2.center { text-align: center; }
       <h2>Eiersalat Deluxe</h2>
       <p><strong>Zutaten</strong></p>
       <ul>
-        <li>5 Eier 10 Zwerghuhneier</li>
-        <li>3 Esslöffel Mayonnaise</li>
-        <li>1 Teelöffel Senf</li>
-        <li>1 kleine rote Paprika gewürfelt</li>
+        <li>fünf Eier zehn Zwerghuhneier</li>
+        <li>drei Esslöffel Mayonnaise</li>
+        <li>ein Teelöffel Senf</li>
+        <li>eine kleine rote Paprika gewürfelt</li>
         <li>Salz und Pfeffer</li>
       </ul>
 
@@ -828,11 +852,11 @@ h2.center { text-align: center; }
       <h2>Eier Brotaufstrich</h2>
       <p><strong>Zutaten</strong></p>
       <ul>
-        <li>3 Eier 5 Zwerghuhneier</li>
-        <li>2 Esslöffel Frischkäse</li>
-        <li>1 Teelöffel Senf</li>
+        <li>drei Eier fünf Zwerghuhneier</li>
+        <li>zwei Esslöffel Frischkäse</li>
+        <li>ein Teelöffel Senf</li>
         <li>Salz und Pfeffer</li>
-        <li>1 kleine Frühlingszwiebel</li>
+        <li>eine kleine Frühlingszwiebel</li>
       </ul>
 
       <button class="show-rezept-btn">Anleitung zum Rezept</button>
