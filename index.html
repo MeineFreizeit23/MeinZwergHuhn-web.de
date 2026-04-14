@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kleine Eier, großes Lächeln</title>
 
-<!-- Google Analytics (GA4) mit deiner Mess ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1665R35R6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -14,7 +13,6 @@
   gtag('config', 'G-H1665R35R6');
 </script>
 
-<!-- Extra Schrift für kinderfreundlichen Rezepte Block: Fredoka -->
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -36,13 +34,13 @@
   --btn-padding: 9px 14px;
   --btn-radius: 12px;
 
-  /* neue Farben für den Kopfbereich */
   --header-bg: #fff9cc;
   --header-border-outer: #f0dd7a;
   --header-border-inner: #e4c24a;
 }
 
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -56,9 +54,14 @@ body {
   flex-direction: column;
 }
 
-.wrap { width: 100%; max-width: 820px; display: flex; flex-direction: column; flex-grow: 1; }
+.wrap {
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
-/* Kopfbereich mit doppelter Umrandung */
 header {
   background: var(--header-bg);
   border-radius: 16px;
@@ -70,7 +73,6 @@ header {
   overflow: visible;
 }
 
-/* äussere und innere Linie um den Header */
 header::before,
 header::after {
   content: "";
@@ -88,7 +90,6 @@ header::after {
   opacity: 0.9;
 }
 
-/* Inhalt bleibt darüber */
 .header-content {
   position: relative;
   z-index: 2;
@@ -108,7 +109,9 @@ h1 {
   margin: 0.5rem 0 0.25rem;
 }
 
-.subtitle.extra { margin-top: 4px; }
+.subtitle.extra {
+  margin-top: 4px;
+}
 
 .card {
   background: var(--panel);
@@ -152,15 +155,36 @@ h1 {
   min-height: 42px;
 }
 
-.wa-btn { background: var(--wa); }
-.wa-btn:hover { background: var(--wa-hover); transform: translateY(-2px); }
+.wa-btn {
+  background: var(--wa);
+}
 
-.mail-btn { background: var(--mail); }
-.mail-btn:hover { background: var(--mail-hover); transform: translateY(-2px); }
+.wa-btn:hover {
+  background: var(--wa-hover);
+  transform: translateY(-2px);
+}
+
+.mail-btn {
+  background: var(--mail);
+}
+
+.mail-btn:hover {
+  background: var(--mail-hover);
+  transform: translateY(-2px);
+}
 
 @media (max-width: 600px) {
-  .btn-row { flex-direction: column; gap: 10px; }
-  .wa-btn, .mail-btn { width: 100%; justify-content: center; font-size: 0.9rem; padding: 10px 16px; }
+  .btn-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .wa-btn, .mail-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
 }
 
 .footer {
@@ -170,8 +194,14 @@ h1 {
   text-align: center;
 }
 
-h2 { color: var(--brand); margin-top: 0; }
-h2.center { text-align: center; }
+h2 {
+  color: var(--brand);
+  margin-top: 0;
+}
+
+h2.center {
+  text-align: center;
+}
 
 .huhn-card {
   background: #fff;
@@ -189,14 +219,15 @@ h2.center { text-align: center; }
   transform: scale(1);
 }
 
-.huhn-card:hover { transform: scale(1.02); }
+.huhn-card:hover {
+  transform: scale(1.02);
+}
 
 .huhn-card img {
   width: 100%;
   border-radius: 15px;
 }
 
-/* Titel mit Eiern */
 .gluecksmomente-title {
   text-align: center;
   position: relative;
@@ -221,8 +252,13 @@ h2.center { text-align: center; }
   animation: egg-bounce 3s ease-in-out infinite;
 }
 
-.gluecksmomente-eggs .egg:nth-child(2) { animation-delay: 1s; }
-.gluecksmomente-eggs .egg:nth-child(3) { animation-delay: 2s; }
+.gluecksmomente-eggs .egg:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.gluecksmomente-eggs .egg:nth-child(3) {
+  animation-delay: 2s;
+}
 
 @keyframes egg-bounce {
   0%, 100% { transform: translateY(0) scale(1); }
@@ -250,34 +286,33 @@ h2.center { text-align: center; }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { 
+  0%, 100% {
     opacity: 1;
     text-shadow: 0 0 8px rgba(255, 127, 80, 0.3), 0 0 16px rgba(255, 127, 80, 0.1);
     transform: scale(1);
   }
-  50% { 
+  50% {
     opacity: 0.95;
     text-shadow: 0 0 16px rgba(255, 127, 80, 0.6), 0 0 24px rgba(255, 127, 80, 0.2);
     transform: scale(1.02);
   }
 }
 
-.futter-list { 
-  list-style: none; 
-  padding: 0; 
-}
-.futter-list li { 
-  margin: 4px 0; 
+.futter-list {
+  list-style: none;
+  padding: 0;
 }
 
-/* Sekundäre Buttons */
+.futter-list li {
+  margin: 4px 0;
+}
+
 #wa-ideen, #wa-tausch {
   font-size: 0.9rem;
   padding: 8px 12px;
   min-height: 40px;
 }
 
-/* Quiz Styles */
 .quiz-card {
   background: linear-gradient(135deg, #fff9cc, #f5e97c);
   border: 2px solid var(--accent);
@@ -342,7 +377,6 @@ h2.center { text-align: center; }
   opacity: 1;
 }
 
-/* Reset Button */
 #reset-quiz {
   display: none;
   background: #e07b00;
@@ -363,7 +397,6 @@ h2.center { text-align: center; }
   transform: scale(1.02);
 }
 
-/* Pop up Hinweis nach Quiz */
 #quiz-complete {
   display: none;
   position: fixed;
@@ -395,7 +428,6 @@ h2.center { text-align: center; }
   font-weight: 600;
 }
 
-/* Rezepte Block Styling */
 .rezepte-card .rezept-header {
   font-family: 'Fredoka', sans-serif;
   color: var(--brand);
@@ -419,7 +451,6 @@ h2.center { text-align: center; }
   margin-top: 6px;
 }
 
-/* Abschlusssatz Rezepte */
 .recipe-closing {
   font-family: 'Fredoka', sans-serif;
   background: var(--panel);
@@ -437,7 +468,6 @@ h2.center { text-align: center; }
   margin: 0;
 }
 
-/* Hühner im Footer */
 .footer-chickens {
   display: flex;
   justify-content: center;
@@ -453,15 +483,19 @@ h2.center { text-align: center; }
   filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
 }
 
-.footer-chicken:nth-child(2) { animation-delay: 0.5s; }
-.footer-chicken:nth-child(3) { animation-delay: 1s; }
+.footer-chicken:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.footer-chicken:nth-child(3) {
+  animation-delay: 1s;
+}
 
 @keyframes chicken-bounce {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-10px) rotate(5deg); }
 }
 
-/* Button für Rezept Anleitung */
 .show-rezept-btn {
   background: #e07b00;
   color: #fff;
@@ -486,16 +520,71 @@ h2.center { text-align: center; }
   margin-top: 12px;
 }
 
-/* Mobile Anpassung */
+.like-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 10px;
+  flex-wrap: wrap;
+}
+
+.like-btn {
+  background: #ff7f50;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform .1s ease, background .2s ease;
+}
+
+.like-btn:hover {
+  background: #e56d43;
+  transform: scale(1.03);
+}
+
+.like-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.like-counter {
+  background: #fff;
+  border: 2px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 9px 14px;
+  font-weight: 700;
+  color: var(--brand);
+  min-width: 70px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
 @media (max-width: 600px) {
   #wa-ideen, #wa-tausch {
     font-size: 0.88rem;
     padding: 9px 12px;
     width: 100%;
   }
-  .gluecksmomente-eggs .egg { width: 10px; height: 15px; animation-duration: 3.5s; }
-  .quiz-option { width: 95%; }
-  #quiz-complete { font-size: 1rem; padding: 20px; }
+
+  .gluecksmomente-eggs .egg {
+    width: 10px;
+    height: 15px;
+    animation-duration: 3.5s;
+  }
+
+  .quiz-option {
+    width: 95%;
+  }
+
+  #quiz-complete {
+    font-size: 1rem;
+    padding: 20px;
+  }
 }
 </style>
 </head>
@@ -536,11 +625,19 @@ h2.center { text-align: center; }
     <h2 id="futterliste-title">Futter und Snacks für unsere Hühner</h2>
     <p>Die Snack Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
     <ul class="futter-list">
-      <li>✔️ Gurke</li><li>✔️ Karotte</li><li>✔️ Verschiedene Salate</li><li>✔️ Beeren</li>
+      <li>✔️ Gurke</li>
+      <li>✔️ Karotte</li>
+      <li>✔️ Verschiedene Salate</li>
+      <li>✔️ Beeren</li>
       <li>✔️ Frisches Grün zum Beispiel Löwenzahn Rucola Feldsalat Spinat</li>
       <li>✔️ Frische Kräuter zum Beispiel Petersilie Koriander Basilikum</li>
-      <li>❌ Zitrusfrüchte</li><li>❌ Avocado</li><li>❌ rohe Kartoffeln</li>
-      <li>❌ Zwiebeln</li><li>❌ Süßigkeiten und Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
+      <li>❌ Zitrusfrüchte</li>
+      <li>❌ Avocado</li>
+      <li>❌ rohe Kartoffeln</li>
+      <li>❌ Zwiebeln</li>
+      <li>❌ Süßigkeiten und Gewürze</li>
+      <li>❌ Knoblauch</li>
+      <li>❌ Schokolade</li>
     </ul>
     <p><strong>Wichtig</strong> Alles sollte frisch unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen.</p>
     <p style="font-weight: 600; margin-top: 1rem; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir sechs frische Eier 🥚</p>
@@ -553,7 +650,6 @@ h2.center { text-align: center; }
     </div>
   </section>
 
-  <!-- Hühnerkarten Anfangs versteckt -->
   <div id="huhn-grid" style="display: none; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px;">
     <div class="huhn-card">
       <img src="huhn1.jpg" alt="Wella" loading="lazy">
@@ -575,7 +671,7 @@ h2.center { text-align: center; }
   <section class="card quiz-card" aria-labelledby="quiz-title">
     <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
     <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
-    
+
     <div class="quiz-question">Frage eins wie oft legen Hühner Eier 🥚</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a einmal im Monat 🌙</div>
@@ -665,7 +761,6 @@ h2.center { text-align: center; }
   </section>
 
   <section id="rezepte">
-    <!-- Rezept 1 -->
     <div class="card">
       <h2>Rührei Deluxe</h2>
       <p><strong>Zutaten</strong></p>
@@ -684,7 +779,6 @@ h2.center { text-align: center; }
       </div>
     </div>
 
-    <!-- Rezept 2 -->
     <div class="card">
       <h2>Eierkuchen süß</h2>
       <p><strong>Zutaten</strong></p>
@@ -705,7 +799,6 @@ h2.center { text-align: center; }
       </div>
     </div>
 
-    <!-- Rezept 3 -->
     <div class="card">
       <h2>Omelette Gemüse</h2>
       <p><strong>Zutaten</strong></p>
@@ -726,7 +819,6 @@ h2.center { text-align: center; }
       </div>
     </div>
 
-    <!-- Rezept 4 -->
     <div class="card">
       <h2>Gefüllte Eier</h2>
       <p><strong>Zutaten</strong></p>
@@ -746,7 +838,6 @@ h2.center { text-align: center; }
       </div>
     </div>
 
-    <!-- Rezept 5 -->
     <div class="card">
       <h2>Eiersalat klassisch</h2>
       <p><strong>Zutaten</strong></p>
@@ -766,7 +857,6 @@ h2.center { text-align: center; }
       </div>
     </div>
 
-    <!-- Rezept 6 -->
     <div class="card">
       <h2>Frühstücks Muffins mit Ei</h2>
       <p><strong>Zutaten</strong></p>
@@ -787,7 +877,6 @@ h2.center { text-align: center; }
       </div>
     </div>
 
-    <!-- Rezept 7 -->
     <div class="card">
       <h2>Spinat Ei Pfanne</h2>
       <p><strong>Zutaten</strong></p>
@@ -807,7 +896,6 @@ h2.center { text-align: center; }
       </div>
     </div>
 
-    <!-- Rezept 8 -->
     <div class="card">
       <h2>Eier in Senfsoße</h2>
       <p><strong>Zutaten</strong></p>
@@ -827,7 +915,6 @@ h2.center { text-align: center; }
       </div>
     </div>
 
-    <!-- Rezept 9 -->
     <div class="card">
       <h2>Eiersalat Deluxe</h2>
       <p><strong>Zutaten</strong></p>
@@ -847,7 +934,6 @@ h2.center { text-align: center; }
       </div>
     </div>
 
-    <!-- Rezept 10 -->
     <div class="card">
       <h2>Eier Brotaufstrich</h2>
       <p><strong>Zutaten</strong></p>
@@ -872,7 +958,7 @@ h2.center { text-align: center; }
     </div>
   </section>
 
-  <section class="card no-border" aria label="Hinweis">
+  <section class="card no-border" aria-label="Hinweis">
     <p style="text-align:center; font-weight:500;">
       Wenn du Lust auf frische Eier oder Fragen zu unseren Hühnern hast sprich uns einfach direkt an oder nutze die Kontaktmöglichkeiten weiter oben auf der Seite.
     </p>
@@ -884,9 +970,15 @@ h2.center { text-align: center; }
       <div class="footer-chicken">🐥</div>
       <div class="footer-chicken">🐤</div>
     </div>
+
+    <div class="like-wrap">
+      <button class="like-btn" id="like-button">Gefällt mir 💛</button>
+      <div class="like-counter" id="like-count-box">0</div>
+    </div>
+
     <div class="footer-emojis">☘️💯☘️</div>
-    <p style="text-align: center; font-weight: 700; line-height: 1.5%;">
-      Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkt Eiern zu vergleichen. Probier selbst.<br><br>
+    <p style="text-align: center; font-weight: 700; line-height: 1.5;">
+      Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkteiern zu vergleichen. Probier selbst.<br><br>
       Vielen Dank für deinen Besuch
     </p>
     <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier großes Lächeln</p>
@@ -895,13 +987,11 @@ h2.center { text-align: center; }
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Huhn Karten Animation
   const cards = document.querySelectorAll('.huhn-card');
   cards.forEach((card, index) => {
     setTimeout(() => card.classList.add('visible'), index * 300);
   });
 
-  // Rezept Anleitung Buttons
   const rezeptButtons = document.querySelectorAll('.show-rezept-btn');
   rezeptButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -913,7 +1003,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Quiz Logik
   const quizOptions = document.querySelectorAll('.quiz-option');
   const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
@@ -965,6 +1054,7 @@ document.addEventListener('DOMContentLoaded', () => {
       quizOptions.forEach(opt => {
         opt.classList.remove('correct', 'incorrect');
       });
+
       for (let i = 1; i <= totalQuestions; i++) {
         const fb = document.getElementById('feedback' + i);
         if (fb) {
@@ -972,12 +1062,15 @@ document.addEventListener('DOMContentLoaded', () => {
           fb.classList.remove('show');
         }
       }
+
       if (huhnGrid) {
         huhnGrid.style.display = 'none';
       }
+
       if (quizComplete) {
         quizComplete.style.display = 'none';
       }
+
       resetBtn.style.display = 'none';
       answeredQuestions.clear();
     });
@@ -995,7 +1088,38 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  const likeButton = document.getElementById('like-button');
+  const likeCountBox = document.getElementById('like-count-box');
+
+  let likeCount = Number(localStorage.getItem('likeCount')) || 0;
+  let alreadyLiked = localStorage.getItem('alreadyLiked') === 'true';
+
+  if (likeCountBox) {
+    likeCountBox.textContent = likeCount;
+  }
+
+  if (likeButton && alreadyLiked) {
+    likeButton.textContent = 'Gefällt mir gesetzt 💛';
+    likeButton.disabled = true;
+  }
+
+  if (likeButton && likeCountBox) {
+    likeButton.addEventListener('click', () => {
+      if (alreadyLiked) return;
+
+      likeCount++;
+      alreadyLiked = true;
+
+      localStorage.setItem('likeCount', likeCount);
+      localStorage.setItem('alreadyLiked', 'true');
+
+      likeCountBox.textContent = likeCount;
+      likeButton.textContent = 'Gefällt mir gesetzt 💛';
+      likeButton.disabled = true;
+    });
+  }
 });
 </script>
 </body>
-                         </html>
+      </html>
