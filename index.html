@@ -41,13 +41,14 @@
 
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--ink);
   background: var(--bg);
   line-height: 1.6;
-  padding: 24px;
   display: flex;
   justify-content: center;
   min-height: 100vh;
@@ -60,6 +61,53 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}
+
+/* ========== NAVIGATION ========== */
+nav {
+  background: var(--panel);
+  border: 2px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 12px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 20px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  background: var(--accent);
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+  nav {
+    gap: 4px 8px;
+    padding: 8px 10px;
+    top: 6px;
+  }
+  nav a {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
 }
 
 header {
@@ -313,72 +361,39 @@ h2.center {
   min-height: 40px;
 }
 
-.quiz-card {
-  background: linear-gradient(135deg, #fff9cc, #f5e97c);
-  border: 2px solid var(--accent);
-  border-radius: var(--radius);
-  padding: var(--card-padding);
-  margin: 18px 0;
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-
-.quiz-question {
-  font-size: 1.2rem;
-  color: var(--brand);
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-.quiz-options {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.quiz-option {
+/* ========== QUIZ DETAILS ========== */
+.quiz-card details {
   background: #fff;
-  border: 2px solid #ddd;
+  border: 2px solid var(--panel-border);
   border-radius: 10px;
-  padding: 10px 15px;
+  padding: 10px 14px;
+  margin: 8px 0;
+  text-align: left;
+}
+
+.quiz-card details summary {
+  font-weight: 700;
+  color: var(--brand);
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s, border-color 0.2s;
-  width: 80%;
-  max-width: 300px;
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
-.quiz-option:hover {
-  background: #f0f8ff;
-  transform: scale(1.02);
+.quiz-card details p {
+  margin: 8px 0 0;
+  color: var(--ink-muted);
+  font-weight: 500;
 }
 
-.quiz-option.correct {
-  background: #d4edda;
-  border-color: #28a745;
-}
-
-.quiz-option.incorrect {
-  background: #f8d7da;
-  border-color: #dc3545;
-}
-
-.quiz-feedback {
-  margin-top: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.quiz-feedback.show {
-  opacity: 1;
+.quiz-success {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--brand);
+  margin-top: 16px;
+  animation: glow-pulse 2s ease-in-out infinite;
 }
 
 #reset-quiz {
-  display: none;
   background: #e07b00;
   color: #fff;
   font-weight: 600;
@@ -389,43 +404,13 @@ h2.center {
   cursor: pointer;
   box-shadow: 0 3px 10px rgba(0,0,0,.08);
   transition: transform .1s ease, background .2s ease;
-  margin: 10px auto;
+  margin: 12px auto 0;
+  display: block;
 }
 
 #reset-quiz:hover {
   background: #d06a00;
   transform: scale(1.02);
-}
-
-#quiz-complete {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(135deg, #fff9cc, #f5e97c);
-  border: 2px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 30px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  z-index: 1000;
-  max-width: 90%;
-  font-size: 1.1rem;
-  color: #28a745;
-  font-weight: 700;
-}
-
-#quiz-complete button {
-  margin-top: 15px;
-  background: #28a745;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 600;
 }
 
 .rezepte-card .rezept-header {
@@ -576,30 +561,32 @@ h2.center {
     height: 15px;
     animation-duration: 3.5s;
   }
-
-  .quiz-option {
-    width: 95%;
-  }
-
-  #quiz-complete {
-    font-size: 1rem;
-    padding: 20px;
-  }
 }
 </style>
 </head>
 <body>
 <main class="wrap">
-  <header>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav>
+    <a href="#start">🏠 Start</a>
+    <a href="#garten-huehner">🌿 Haltung</a>
+    <a href="#freilauf-title">🐔 Freilauf</a>
+    <a href="#futterliste-title">🥬 Futter</a>
+    <a href="#quiz-title">❓ Quiz</a>
+    <a href="#rezepte">🍳 Rezepte</a>
+  </nav>
+
+  <header id="start">
     <div class="header-content">
       <h1>Kleine Eier<br>großes Lächeln</h1>
     </div>
     <p class="subtitle">Hallo und willkommen</p>
-    <p class="subtitle extra">Freut mich dass du den QR Code entdeckt hast</p>
+    <p class="subtitle extra">Freut mich dass du den QR Code am Gartenzaun entdeckt hast</p>
   </header>
 
   <section class="card" aria-labelledby="garten-huehner">
-    <h2 id="garten-huehner">Warum wir unsere Hühner im Garten halten</h2>
+    <h2 id="garten-huehner">Warum wir unsere Hühner im Vorgarten halten</h2>
     <p>Sie bringen Freude bereichern den Alltag und schenken ein glückliches Miteinander. Das Verhalten der Tiere ist unbezahlbar und ganz nebenbei schenken sie uns frische Eier direkt aus dem eigenen Garten.</p>
   </section>
 
@@ -672,70 +659,17 @@ h2.center {
     <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
     <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
 
-    <div class="quiz-question">Frage eins wie oft legen Hühner Eier 🥚</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a einmal im Monat 🌙</div>
-      <div class="quiz-option" data-correct="false">b alle paar Tage 📅</div>
-      <div class="quiz-option" data-correct="true">c jeden Tag ☀️</div>
-    </div>
-    <div class="quiz-feedback" id="feedback1"></div>
+    <details><summary>🥚 Frage eins: Wie oft legen Hühner Eier?</summary><p>Die meisten Hühner legen etwa ein Ei pro Tag, manchmal auch eine kleine Pause dazwischen. Unsere Zwerghennen legen etwas kleinere, aber dafür ganz besonders leckere Eier!</p></details>
+    <details><summary>🥬 Frage zwei: Was essen Hühner am liebsten?</summary><p>Hühner lieben frisches Grün, Körner, Salat, Beeren und kleine Leckerlis wie Gurke oder Karotte. Sie sind echte Feinschmecker!</p></details>
+    <details><summary>🐥 Frage drei: Rate mal – wie heißen unsere drei Hühner?</summary><p>Wella, Wilma und Lupni! Drei wundervolle Hennen mit ganz unterschiedlichen Persönlichkeiten.</p></details>
+    <details><summary>🐔 Frage vier: Was macht ein Huhn, wenn es glücklich ist?</summary><p>Es scharrt zufrieden im Boden, gurrt leise, sonnt sich gemütlich oder flattert fröhlich durch den Garten.</p></details>
+    <details><summary>🥚 Frage fünf: Was passiert, wenn ein Huhn ein Ei legt?</summary><p>Es verkündet sein Werk oft mit einem lauten, stolzen Gegacker – das berühmte „Eier-Lied“!</p></details>
+    <details><summary>🗣️ Frage sechs: Wie kommunizieren Hühner untereinander?</summary><p>Hühner haben über 30 verschiedene Laute! Sie warnen sich vor Gefahren, rufen ihre Küken und unterhalten sich regelrecht miteinander.</p></details>
+    <details><summary>✨ Frage sieben: Warum sind unsere Eier so besonders?</summary><p>Weil sie von glücklichen Hühnern aus dem eigenen Garten stammen – mit ganz viel Liebe, frischer Luft und artgerechter Haltung.</p></details>
 
-    <div class="quiz-question">Frage zwei was essen Hühner am liebsten 🥬</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
-      <div class="quiz-option" data-correct="false">b Schokolade 🍫</div>
-      <div class="quiz-option" data-correct="false">c Eiscreme 🍦</div>
-    </div>
-    <div class="quiz-feedback" id="feedback2"></div>
-
-    <div class="quiz-question">Frage drei rate mal wie heißen unsere drei Hühner 🐥</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a Mia Max und Leo</div>
-      <div class="quiz-option" data-correct="true">b Wella Wilma und Lupni</div>
-      <div class="quiz-option" data-correct="false">c Sunny Happy und Joy</div>
-    </div>
-    <div class="quiz-feedback" id="feedback3"></div>
-
-    <div class="quiz-question">Frage vier was macht ein Huhn wenn es glücklich ist 🐔</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck wie unsere Wella beim Spielen 😄</div>
-      <div class="quiz-option" data-correct="false">b singt Lieder wie ein Star 🎤</div>
-      <div class="quiz-option" data-correct="false">c malt Bilder mit den Füßen 🖌️</div>
-    </div>
-    <div class="quiz-feedback" id="feedback4"></div>
-
-    <div class="quiz-question">Frage fünf was passiert wenn ein Huhn ein Ei legt 🥚</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz 💃</div>
-      <div class="quiz-option" data-correct="true">b das Ei rollt aus dem Nest und ein neues Frühstück ist bereit danke Lupni 🐔</div>
-      <div class="quiz-option" data-correct="false">c es schickt das Ei per Post weg 📬</div>
-    </div>
-    <div class="quiz-feedback" id="feedback5"></div>
-
-    <div class="quiz-question">Frage sechs wie kommunizieren Hühner untereinander 🗣️</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code 🔢</div>
-      <div class="quiz-option" data-correct="true">b mit Gackern Glucksen und Scharren wie ein Hühner Chat 😊</div>
-      <div class="quiz-option" data-correct="false">c indem sie Selfies machen 📱</div>
-    </div>
-    <div class="quiz-feedback" id="feedback6"></div>
-
-    <div class="quiz-question">Frage sieben warum sind unsere Eier so besonders 🥚✨</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a weil sie fliegen können ✈️</div>
-      <div class="quiz-option" data-correct="true">b weil glückliche Hühner im Freilauf sie legen frisch und lecker 🌿</div>
-      <div class="quiz-option" data-correct="false">c weil sie magisch sind und zaubern 🪄</div>
-    </div>
-    <div class="quiz-feedback" id="feedback7"></div>
-
+    <p class="quiz-success" id="quiz-success-msg">🌟 Super gemacht! Du kennst unsere Hühner jetzt richtig gut! 🐣🐥🐤</p>
     <button id="reset-quiz">Quiz neu starten</button>
   </section>
-
-  <div id="quiz-complete">
-    Super gemacht. Du kennst unsere Hühner jetzt richtig gut 🐣🐥🐤
-    <br><br>
-    <button id="close-quiz-complete">Weiter</button>
-  </div>
 
   <section class="card" aria-labelledby="bestellung-title">
     <h2 id="bestellung-title" class="gluecksmomente-title">
@@ -988,9 +922,41 @@ h2.center {
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.huhn-card');
-  cards.forEach((card, index) => {
-    setTimeout(() => card.classList.add('visible'), index * 300);
+  const huhnGrid = document.getElementById('huhn-grid');
+  const quizSuccess = document.getElementById('quiz-success-msg');
+  const resetBtn = document.getElementById('reset-quiz');
+
+  function revealHuehner() {
+    if (huhnGrid) huhnGrid.style.display = 'grid';
+    cards.forEach((card, index) => {
+      setTimeout(() => card.classList.add('visible'), index * 300);
+    });
+    if (quizSuccess) quizSuccess.style.display = 'block';
+    if (resetBtn) resetBtn.style.display = 'block';
+  }
+
+  function resetQuiz() {
+    if (huhnGrid) huhnGrid.style.display = 'none';
+    cards.forEach(c => c.classList.remove('visible'));
+    if (quizSuccess) quizSuccess.style.display = 'none';
+    if (resetBtn) resetBtn.style.display = 'none';
+    const allDetails = document.querySelectorAll('.quiz-card details');
+    allDetails.forEach(d => d.open = false);
+  }
+
+  const allDetails = document.querySelectorAll('.quiz-card details');
+  allDetails.forEach(detail => {
+    detail.addEventListener('toggle', () => {
+      const allOpen = Array.from(allDetails).every(d => d.open);
+      if (allOpen) {
+        revealHuehner();
+      }
+    });
   });
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', resetQuiz);
+  }
 
   const rezeptButtons = document.querySelectorAll('.show-rezept-btn');
   rezeptButtons.forEach((btn) => {
@@ -1002,92 +968,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = isOpen ? 'Anleitung zum Rezept' : 'Anleitung ausblenden';
     });
   });
-
-  const quizOptions = document.querySelectorAll('.quiz-option');
-  const huhnGrid = document.getElementById('huhn-grid');
-  const resetBtn = document.getElementById('reset-quiz');
-  const quizComplete = document.getElementById('quiz-complete');
-  const closeQuizComplete = document.getElementById('close-quiz-complete');
-
-  const totalQuestions = 7;
-  const answeredQuestions = new Set();
-
-  quizOptions.forEach((option, index) => {
-    const questionIndex = Math.floor(index / 3) + 1;
-    const feedbackEl = document.getElementById('feedback' + questionIndex);
-
-    option.addEventListener('click', () => {
-      const group = option.parentElement.querySelectorAll('.quiz-option');
-      group.forEach(o => {
-        o.classList.remove('correct', 'incorrect');
-      });
-
-      const isCorrect = option.dataset.correct === 'true';
-      option.classList.add(isCorrect ? 'correct' : 'incorrect');
-
-      if (feedbackEl) {
-        feedbackEl.textContent = isCorrect ? 'Richtig super gemacht.' : 'Nicht ganz versuch es nochmal.';
-        feedbackEl.classList.add('show');
-      }
-
-      answeredQuestions.add(questionIndex);
-
-      if (answeredQuestions.size === totalQuestions) {
-        if (huhnGrid) {
-          huhnGrid.style.display = 'grid';
-        }
-        if (resetBtn) {
-          resetBtn.style.display = 'inline-block';
-        }
-        if (quizComplete) {
-          quizComplete.style.display = 'block';
-        }
-        cards.forEach((card, index) => {
-          setTimeout(() => card.classList.add('visible'), index * 300);
-        });
-      }
-    });
-  });
-
-  if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
-      quizOptions.forEach(opt => {
-        opt.classList.remove('correct', 'incorrect');
-      });
-
-      for (let i = 1; i <= totalQuestions; i++) {
-        const fb = document.getElementById('feedback' + i);
-        if (fb) {
-          fb.textContent = '';
-          fb.classList.remove('show');
-        }
-      }
-
-      if (huhnGrid) {
-        huhnGrid.style.display = 'none';
-      }
-
-      if (quizComplete) {
-        quizComplete.style.display = 'none';
-      }
-
-      resetBtn.style.display = 'none';
-      answeredQuestions.clear();
-    });
-  }
-
-  if (closeQuizComplete && quizComplete) {
-    closeQuizComplete.addEventListener('click', () => {
-      quizComplete.style.display = 'none';
-      const huhnGridElement = document.getElementById('huhn-grid');
-      if (huhnGridElement) {
-        huhnGridElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  }
 
   const likeButton = document.getElementById('like-button');
   const likeCountBox = document.getElementById('like-count-box');
@@ -1122,4 +1002,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </body>
-      </html>
+</html>
