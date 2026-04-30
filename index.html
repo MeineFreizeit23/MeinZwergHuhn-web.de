@@ -2053,3 +2053,106 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.huhn-card');
+  const huhnGrid = document.getElementById('huhn-grid');
+  const resetBtn = document.getElementById('reset-quiz');
+  const quizOptions = document.querySelectorAll('.quiz-option');
+  const totalQuestions = 7;
+  const answeredQuestions = new Set();
+
+  const questionGroups = document.querySelectorAll('.quiz-options');
+
+  quizOptions.forEach(option => {
+    option.addEventListener('click', function() {
+      const questionEl = this.closest('.quiz-options');
+      if (!questionEl) return;
+      const group = questionEl.querySelectorAll('.quiz-option');
+
+      let questionIndex = 0;
+      questionGroups.forEach((qg, idx) => {
+        if (qg === questionEl) questionIndex = idx + 1;
+      });
+
+      const feedbackEl = document.getElementById('feedback' + questionIndex);
+      const infoEl = document.getElementById('info' + questionIndex);
+
+      group.forEach(o => {
+        o.classList.remove('correct', 'incorrect');
+        o.classList.add('disabled');
+      });
+
+      const isCorrect = this.dataset.correct === 'true';
+      this.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+      if (feedbackEl) {
+        feedbackEl.textContent = isCorrect ? '✅ Richtig, super gemacht!' : '❌ Leider falsch. Beim nächsten Mal klappt es!';
+      }
+      if (infoEl) {
+        infoEl.classList.add('show');
+      }
+
+      answeredQuestions.add(questionIndex);
+
+      if (answeredQuestions.size === totalQuestions) {
+        if (huhnGrid) {
+          huhnGrid.style.display = 'grid';
+          setTimeout(() => {
+            huhnGrid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 200);
+        }
+        if (resetBtn) {
+          resetBtn.style.display = 'block';
+        }
+        cards.forEach((card, index) => {
+          setTimeout(() => card.classList.add('visible'), index * 300);
+        });
+      }
+    });
+  });
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      quizOptions.forEach(opt => {
+        opt.classList.remove('correct', 'incorrect', 'disabled');
+      });
+      for (let i = 1; i <= totalQuestions; i++) {
+        const fb = document.getElementById('feedback' + i);
+        const info = document.getElementById('info' + i);
+        if (fb) fb.textContent = '';
+        if (info) info.classList.remove('show');
+      }
+      if (huhnGrid) huhnGrid.style.display = 'none';
+      cards.forEach(c => c.classList.remove('visible'));
+      resetBtn.style.display = 'none';
+      answeredQuestions.clear();
+      document.getElementById('quiz-title').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  document.querySelectorAll('.show-rezept-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const box = btn.nextElementSibling;
+      if (!box) return;
+      const isOpen = box.style.display === 'block';
+      box.style.display = isOpen ? 'none' : 'block';
+      btn.textContent = isOpen ? 'Anleitung zum Rezept' : 'Anleitung ausblenden';
+    });
+  });
+
+  // LIKE-BUTTON: Jetzt beliebig oft klickbar
+  const likeBtn = document.getElementById('like-button');
+  const likeBox = document.getElementById('like-count-box');
+  let count = Number(localStorage.getItem('likeCount')) || 0;
+  if (likeBox) likeBox.textContent = count;
+
+  if (likeBtn && likeBox) {
+    likeBtn.addEventListener('click', () => {
+      count++;
+      localStorage.setItem('likeCount', count);
+      likeBox.textContent = count;
+    });
+  }
+});
+           </script>
