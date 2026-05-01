@@ -84,42 +84,6 @@ h1 {
   margin: 18px 0; box-shadow: var(--shadow);
 }
 .card.no-border { border: none; box-shadow: none; padding: 20px 0; }
-.snack-einladung {
-  text-align: center; background: #fff; border: 2px dashed var(--panel-border);
-  border-radius: var(--radius); padding: 20px 16px; margin-top: 18px;
-}
-.snack-einladung .emoji-gross { font-size: 2.5rem; display: block; margin-bottom: 8px; }
-.snack-einladung p { font-size: 1.05rem; margin: 6px 0; color: var(--ink); }
-.snack-link {
-  display: inline-block; margin-top: 10px; background: var(--brand);
-  color: #fff; text-decoration: none; padding: 8px 18px;
-  border-radius: 20px; font-weight: 700; font-size: 0.9rem; transition: background 0.2s;
-}
-.snack-link:hover { background: #2d4a1e; }
-.btn-row { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 16px; }
-.wa-btn, .mail-btn {
-  display: inline-flex; align-items: center; gap: .6rem;
-  padding: var(--btn-padding); border-radius: var(--btn-radius);
-  color: #fff; text-decoration: none; font-weight: 700; font-size: 0.92rem;
-  box-shadow: var(--shadow); transition: transform .06s ease; border: 0;
-  cursor: pointer; min-height: 42px;
-}
-.wa-btn { background: var(--wa); }
-.wa-btn:hover { background: var(--wa-hover); transform: translateY(-2px); }
-.mail-btn { background: var(--mail); }
-.mail-btn:hover { background: var(--mail-hover); transform: translateY(-2px); }
-.footer { margin-top: 28px; color: #666; font-size: .92rem; text-align: center; }
-h2 { color: var(--brand); margin-top: 0; }
-h2.center { text-align: center; }
-.huhn-card {
-  background: #fff; border-radius: 20px; padding: 15px;
-  box-shadow: var(--shadow); text-align: center;
-  transition: transform .2s ease, opacity 0.5s ease;
-  opacity: 0; transform: scale(0.9);
-}
-.huhn-card.visible { opacity: 1; transform: scale(1); }
-.huhn-card:hover { transform: scale(1.02); }
-.huhn-card img { width: 100%; border-radius: 15px; }
 .gluecksmomente-title { text-align: center; position: relative; }
 .gluecksmomente-eggs {
   position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
@@ -151,6 +115,41 @@ h2.center { text-align: center; }
   0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(255,127,80,0.3); transform: scale(1); }
   50% { opacity: 0.95; text-shadow: 0 0 16px rgba(255,127,80,0.6); transform: scale(1.02); }
 }
+.snack-einladung {
+  text-align: center; background: #fff; border: 2px dashed var(--panel-border);
+  border-radius: var(--radius); padding: 20px 16px; margin-top: 18px;
+}
+.snack-einladung p { font-size: 1.05rem; margin: 6px 0; color: var(--ink); }
+.snack-link {
+  display: inline-block; margin-top: 10px; background: var(--brand);
+  color: #fff; text-decoration: none; padding: 8px 18px;
+  border-radius: 20px; font-weight: 700; font-size: 0.9rem; transition: background 0.2s;
+}
+.snack-link:hover { background: #2d4a1e; }
+.btn-row { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 16px; }
+.wa-btn, .mail-btn {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: var(--btn-padding); border-radius: var(--btn-radius);
+  color: #fff; text-decoration: none; font-weight: 700; font-size: 0.92rem;
+  box-shadow: var(--shadow); transition: transform .06s ease; border: 0;
+  cursor: pointer; min-height: 42px;
+}
+.wa-btn { background: var(--wa); }
+.wa-btn:hover { background: var(--wa-hover); transform: translateY(-2px); }
+.mail-btn { background: var(--mail); }
+.mail-btn:hover { background: var(--mail-hover); transform: translateY(-2px); }
+.footer { margin-top: 28px; color: #666; font-size: .92rem; text-align: center; }
+h2 { color: var(--brand); margin-top: 0; }
+h2.center { text-align: center; }
+.huhn-card {
+  background: #fff; border-radius: 20px; padding: 15px;
+  box-shadow: var(--shadow); text-align: center;
+  transition: transform .2s ease, opacity 0.5s ease;
+  opacity: 0; transform: scale(0.9);
+}
+.huhn-card.visible { opacity: 1; transform: scale(1); }
+.huhn-card:hover { transform: scale(1.02); }
+.huhn-card img { width: 100%; border-radius: 15px; }
 .futter-list { list-style: none; padding: 0; }
 .futter-list li { margin: 4px 0; }
 #wa-ideen, #wa-tausch { font-size: 0.9rem; padding: 8px 12px; min-height: 40px; }
@@ -164,17 +163,14 @@ h2.center { text-align: center; }
 .quiz-options { display: flex; flex-direction: column; gap: 8px; align-items: center; margin-bottom: 6px; }
 .quiz-option {
   background: #fff; border: 2px solid #ddd; border-radius: 10px;
-  padding: 10px 15px; cursor: pointer; transition: background 0.2s, transform 0.1s;
+  padding: 10px 15px; cursor: pointer; transition: background 0.2s;
   width: 80%; max-width: 350px; font-size: 1rem;
 }
 .quiz-option:hover { background: #f0f8ff; transform: scale(1.02); }
 .quiz-option.correct { background: #d4edda; border-color: #28a745; pointer-events: none; }
 .quiz-option.incorrect { background: #f8d7da; border-color: #dc3545; pointer-events: none; }
 .quiz-option.disabled { pointer-events: none; opacity: 0.7; }
-.quiz-feedback {
-  font-size: 0.95rem; margin: 6px 0 2px; font-weight: 600;
-  min-height: 22px; color: var(--brand);
-}
+.quiz-feedback { font-size: 0.95rem; margin: 6px 0 2px; font-weight: 600; min-height: 22px; color: var(--brand); }
 .quiz-info {
   background: #fff; border: 2px solid var(--panel-border); border-radius: 10px;
   padding: 10px 14px; margin: 4px 0 14px; font-size: 0.9rem;
@@ -295,7 +291,6 @@ h2.center { text-align: center; }
   <section class="card quiz-card" aria-labelledby="quiz-title">
     <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
     <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
-
     <div class="quiz-question">Frage eins wie oft legen Hühner Eier 🥚</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a einmal im Monat 🌙</div>
@@ -304,7 +299,6 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback1"></div>
     <div class="quiz-info" id="info1">🐔 Die meisten Hühner legen fast jeden Tag ein Ei – unsere Wella, Wilma und Lupni machen das mit viel Freude im Vorgarten!</div>
-
     <div class="quiz-question">Frage zwei was essen Hühner am liebsten 🥬</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
@@ -313,7 +307,6 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback2"></div>
     <div class="quiz-info" id="info2">🥬 Hühner lieben frisches Grün, Gemüse und Kräuter. Schokolade und Eiscreme wären übrigens sogar gefährlich für sie!</div>
-
     <div class="quiz-question">Frage drei rate mal wie heißen unsere drei Hühner 🐥</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a Mia Max und Leo</div>
@@ -322,7 +315,6 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback3"></div>
     <div class="quiz-info" id="info3">🐥 Wella ist die Kuschelige, Wilma die Beobachtende und Lupni die Freche – gemeinsam sind sie ein unschlagbares Team!</div>
-
     <div class="quiz-question">Frage vier was macht ein Huhn wenn es glücklich ist 🐔</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck wie unsere Wella beim Spielen 😄</div>
@@ -331,7 +323,6 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback4"></div>
     <div class="quiz-info" id="info4">🐔 Ein glückliches Huhn gackert zufrieden, scharrt im Boden und sucht nach Leckerbissen – bei uns im Vorgarten kannst du das täglich beobachten!</div>
-
     <div class="quiz-question">Frage fünf was passiert wenn ein Huhn ein Ei legt 🥚</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz 💃</div>
@@ -340,7 +331,6 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback5"></div>
     <div class="quiz-info" id="info5">🥚 Nach dem Legen gackert die Henne oft stolz – das ist ihr „Eier-Lied"! Unsere Eier sind dann bereit für dein Frühstück.</div>
-
     <div class="quiz-question">Frage sechs wie kommunizieren Hühner untereinander 🗣️</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code 🔢</div>
@@ -349,7 +339,6 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback6"></div>
     <div class="quiz-info" id="info6">🗣️ Hühner haben über 30 verschiedene Laute! Sie warnen sich, rufen Küken und unterhalten sich – ein echter Hühner-Chat im Vorgarten.</div>
-
     <div class="quiz-question">Frage sieben warum sind unsere Eier so besonders 🥚✨</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a weil sie fliegen können ✈️</div>
@@ -358,7 +347,6 @@ h2.center { text-align: center; }
     </div>
     <div class="quiz-feedback" id="feedback7"></div>
     <div class="quiz-info" id="info7">✨ Unsere Eier sind so besonders, weil sie von glücklichen Hühnern stammen, die viel Auslauf, frische Luft und leckeres Futter bekommen!</div>
-
     <button id="reset-quiz">Quiz neu starten</button>
   </section>
 
@@ -369,9 +357,7 @@ h2.center { text-align: center; }
       <span class="sub">Harmonie für deinen Tag</span>
     </h2>
     <div class="snack-einladung">
-      <span class="emoji-gross">🥬🥒🥕</span>
-      <p><strong>Hast du Lust, unsere Hühner zu verwöhnen?</strong></p>
-      <p>Wirf einen Blick in unsere Snack-Kiste am Hühnerzaun – dort findest du, was den Hühnern schmeckt und was lieber nicht gefüttert werden sollte.</p>
+      <p><strong>Wella, Wilma und Lupni lieben Besucher, die ihnen eine kleine Überraschung in die Snack-Kiste legen. Schau auf unsere Futterliste, was ihnen schmeckt!</strong></p>
       <a href="#futterliste-title" class="snack-link">🍎 Zur Snack-Kiste</a>
     </div>
   </section>
@@ -412,59 +398,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalQuestions = 7;
   const answeredQuestions = new Set();
   const questionGroups = document.querySelectorAll('.quiz-options');
-
   quizOptions.forEach(option => {
     option.addEventListener('click', function() {
       const questionEl = this.closest('.quiz-options');
       if (!questionEl) return;
       const group = questionEl.querySelectorAll('.quiz-option');
       let questionIndex = 0;
-      questionGroups.forEach((qg, idx) => {
-        if (qg === questionEl) questionIndex = idx + 1;
-      });
+      questionGroups.forEach((qg, idx) => { if (qg === questionEl) questionIndex = idx + 1; });
       const feedbackEl = document.getElementById('feedback' + questionIndex);
       const infoEl = document.getElementById('info' + questionIndex);
-      group.forEach(o => {
-        o.classList.remove('correct', 'incorrect');
-        o.classList.add('disabled');
-      });
+      group.forEach(o => { o.classList.remove('correct', 'incorrect'); o.classList.add('disabled'); });
       const isCorrect = this.dataset.correct === 'true';
       this.classList.add(isCorrect ? 'correct' : 'incorrect');
-      if (feedbackEl) {
-        feedbackEl.textContent = isCorrect ? '✅ Richtig, super gemacht!' : '❌ Leider falsch. Beim nächsten Mal klappt es!';
-      }
-      if (infoEl) {
-        infoEl.classList.add('show');
-      }
+      if (feedbackEl) feedbackEl.textContent = isCorrect ? '✅ Richtig, super gemacht!' : '❌ Leider falsch. Beim nächsten Mal klappt es!';
+      if (infoEl) infoEl.classList.add('show');
       answeredQuestions.add(questionIndex);
       if (answeredQuestions.size === totalQuestions) {
-        if (huhnGrid) {
-          huhnGrid.style.display = 'grid';
-          setTimeout(() => {
-            huhnGrid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 200);
-        }
-        if (resetBtn) {
-          resetBtn.style.display = 'block';
-        }
-        cards.forEach((card, index) => {
-          setTimeout(() => card.classList.add('visible'), index * 300);
-        });
+        if (huhnGrid) { huhnGrid.style.display = 'grid'; setTimeout(() => { huhnGrid.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 200); }
+        if (resetBtn) resetBtn.style.display = 'block';
+        cards.forEach((card, index) => { setTimeout(() => card.classList.add('visible'), index * 300); });
       }
     });
   });
-
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      quizOptions.forEach(opt => {
-        opt.classList.remove('correct', 'incorrect', 'disabled');
-      });
-      for (let i = 1; i <= totalQuestions; i++) {
-        const fb = document.getElementById('feedback' + i);
-        const info = document.getElementById('info' + i);
-        if (fb) fb.textContent = '';
-        if (info) info.classList.remove('show');
-      }
+      quizOptions.forEach(opt => { opt.classList.remove('correct', 'incorrect', 'disabled'); });
+      for (let i = 1; i <= totalQuestions; i++) { const fb = document.getElementById('feedback' + i); const info = document.getElementById('info' + i); if (fb) fb.textContent = ''; if (info) info.classList.remove('show'); }
       if (huhnGrid) huhnGrid.style.display = 'none';
       cards.forEach(c => c.classList.remove('visible'));
       resetBtn.style.display = 'none';
@@ -472,29 +431,17 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('quiz-title').scrollIntoView({ behavior: 'smooth' });
     });
   }
-
   document.querySelectorAll('.show-rezept-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const box = btn.nextElementSibling;
-      if (!box) return;
-      const isOpen = box.style.display === 'block';
-      box.style.display = isOpen ? 'none' : 'block';
-      btn.textContent = isOpen ? 'Anleitung zum Rezept' : 'Anleitung ausblenden';
-    });
+    btn.addEventListener('click', () => { const box = btn.nextElementSibling; if (!box) return; const isOpen = box.style.display === 'block'; box.style.display = isOpen ? 'none' : 'block'; btn.textContent = isOpen ? 'Anleitung zum Rezept' : 'Anleitung ausblenden'; });
   });
-
   const likeBtn = document.getElementById('like-button');
   const likeBox = document.getElementById('like-count-box');
   let count = Number(localStorage.getItem('likeCount')) || 0;
   if (likeBox) likeBox.textContent = count;
   if (likeBtn && likeBox) {
-    likeBtn.addEventListener('click', () => {
-      count++;
-      localStorage.setItem('likeCount', count);
-      likeBox.textContent = count;
-    });
+    likeBtn.addEventListener('click', () => { count++; localStorage.setItem('likeCount', count); likeBox.textContent = count; });
   }
 });
 </script>
 </body>
-  </html>
+</html>
