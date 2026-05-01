@@ -123,6 +123,7 @@ h1 {
   display: inline-block; margin-top: 10px; background: var(--brand);
   color: #fff; text-decoration: none; padding: 8px 18px;
   border-radius: 20px; font-weight: 700; font-size: 0.9rem; transition: background 0.2s;
+  cursor: pointer; border: none;
 }
 .snack-link:hover { background: #2d4a1e; }
 .btn-row { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 16px; }
@@ -151,6 +152,7 @@ h2.center { text-align: center; }
 .huhn-card img { width: 100%; border-radius: 15px; }
 .futter-list { list-style: none; padding: 0; }
 .futter-list li { margin: 4px 0; }
+#futterbereich { display: none; }
 #wa-ideen, #wa-tausch { font-size: 0.9rem; padding: 8px 12px; min-height: 40px; }
 .quiz-card {
   background: linear-gradient(135deg, #fff9cc, #f5e97c);
@@ -264,22 +266,24 @@ h2.center { text-align: center; }
     </div>
   </section>
 
-  <section class="card" aria-labelledby="futterliste-title">
-    <h2 id="futterliste-title">Futter und Snacks für unsere Hühner</h2>
-    <p>Die Snack Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
-    <ul class="futter-list">
-      <li>✔️ Gurke</li><li>✔️ Karotte</li><li>✔️ Verschiedene Salate</li><li>✔️ Beeren</li>
-      <li>✔️ Frisches Grün zum Beispiel Löwenzahn Rucola Feldsalat Spinat</li>
-      <li>✔️ Frische Kräuter zum Beispiel Petersilie Koriander Basilikum</li>
-      <li>❌ Zitrusfrüchte</li><li>❌ Avocado</li><li>❌ rohe Kartoffeln</li><li>❌ Zwiebeln</li>
-      <li>❌ Süßigkeiten und Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
-    </ul>
-    <p><strong>Wichtig</strong> Alles sollte frisch unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen.</p>
-    <p style="font-weight: 600; margin-top: 1rem; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir sechs frische Eier 🥚</p>
-    <div class="btn-row" style="justify-content: center; margin-top: 8px;">
-      <a class="wa-btn" id="wa-tausch" href="https://wa.me/491638306166?text=Hallo,%20ich%20habe%20Snacks%20für%20die%20Hühner%20in%20die%20Kiste%20gelegt%20und%20würde%20gerne%20gegen%20frische%20Eier%20tauschen." target="_blank" rel="noopener noreferrer">Snacks gegen Eier tauschen</a>
-    </div>
-  </section>
+  <div id="futterbereich">
+    <section class="card" aria-labelledby="futterliste-title">
+      <h2 id="futterliste-title">Futter und Snacks für unsere Hühner</h2>
+      <p>Die Snack Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
+      <ul class="futter-list">
+        <li>✔️ Gurke</li><li>✔️ Karotte</li><li>✔️ Verschiedene Salate</li><li>✔️ Beeren</li>
+        <li>✔️ Frisches Grün zum Beispiel Löwenzahn Rucola Feldsalat Spinat</li>
+        <li>✔️ Frische Kräuter zum Beispiel Petersilie Koriander Basilikum</li>
+        <li>❌ Zitrusfrüchte</li><li>❌ Avocado</li><li>❌ rohe Kartoffeln</li><li>❌ Zwiebeln</li>
+        <li>❌ Süßigkeiten und Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
+      </ul>
+      <p><strong>Wichtig</strong> Alles sollte frisch unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen.</p>
+      <p style="font-weight: 600; margin-top: 1rem; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir sechs frische Eier 🥚</p>
+      <div class="btn-row" style="justify-content: center; margin-top: 8px;">
+        <a class="wa-btn" id="wa-tausch" href="https://wa.me/491638306166?text=Hallo,%20ich%20habe%20Snacks%20für%20die%20Hühner%20in%20die%20Kiste%20gelegt%20und%20würde%20gerne%20gegen%20frische%20Eier%20tauschen." target="_blank" rel="noopener noreferrer">Snacks gegen Eier tauschen</a>
+      </div>
+    </section>
+  </div>
 
   <div id="huhn-grid" style="display: none; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px;">
     <div class="huhn-card"><img src="huhn1.jpg" alt="Wella" loading="lazy"><h3>Wella</h3><p>Eine ruhige kuschelbedürftige Japanische Seidenhuhn Henne mit sanfter und liebevoller Persönlichkeit. Sie ist treu verschmust und von bezaubernder Liebenswürdigkeit. Für mich ist sie ein wahrer Diamant nicht nur wegen ihres besonderen Aussehens sondern auch wegen ihres einzigartigen Charakters.</p></div>
@@ -357,7 +361,7 @@ h2.center { text-align: center; }
     </h2>
     <div class="snack-einladung">
       <p><strong>Wella, Wilma und Lupni lieben Besucher, die ihnen eine kleine Überraschung in die Snack-Kiste legen. Schau auf unsere Futterliste, was ihnen schmeckt!</strong></p>
-      <a href="#futterliste-title" class="snack-link">🍎 Zur Snack-Kiste</a>
+      <button class="snack-link" id="snack-button">🍎 Zur Snack-Kiste</button>
     </div>
   </section>
 
@@ -386,6 +390,17 @@ h2.center { text-align: center; }
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+  // Snack-Kiste Button
+  const snackButton = document.getElementById('snack-button');
+  const futterbereich = document.getElementById('futterbereich');
+  if (snackButton && futterbereich) {
+    snackButton.addEventListener('click', () => {
+      futterbereich.style.display = 'block';
+      futterbereich.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  // Quiz-Logik
   const cards = document.querySelectorAll('.huhn-card');
   const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
@@ -393,6 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalQuestions = 7;
   const answeredQuestions = new Set();
   const questionGroups = document.querySelectorAll('.quiz-options');
+
   quizOptions.forEach(option => {
     option.addEventListener('click', function() {
       const questionEl = this.closest('.quiz-options');
@@ -415,6 +431,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Reset-Button
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       quizOptions.forEach(opt => { opt.classList.remove('correct', 'incorrect', 'disabled'); });
@@ -426,9 +444,13 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('quiz-title').scrollIntoView({ behavior: 'smooth' });
     });
   }
+
+  // Rezept-Buttons
   document.querySelectorAll('.show-rezept-btn').forEach(btn => {
     btn.addEventListener('click', () => { const box = btn.nextElementSibling; if (!box) return; const isOpen = box.style.display === 'block'; box.style.display = isOpen ? 'none' : 'block'; btn.textContent = isOpen ? 'Anleitung zum Rezept' : 'Anleitung ausblenden'; });
   });
+
+  // Like-Button
   const likeBtn = document.getElementById('like-button');
   const likeBox = document.getElementById('like-count-box');
   let count = Number(localStorage.getItem('likeCount')) || 0;
@@ -439,4 +461,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </body>
-  </html>
+</html>
