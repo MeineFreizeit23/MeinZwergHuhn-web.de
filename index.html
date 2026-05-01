@@ -218,6 +218,48 @@ h2.center { text-align: center; }
   padding: 9px 14px; font-weight: 700; color: var(--brand); min-width: 70px;
   text-align: center; box-shadow: var(--shadow);
 }
+.kommentar-formular {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.kommentar-formular input,
+.kommentar-formular textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid var(--panel-border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  background: #fff;
+}
+.kommentar-formular textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.kommentar-formular button {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.kommentar-formular button:hover {
+  background: #2d4a1e;
+}
+.kommentar-danke {
+  display: none;
+  text-align: center;
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 20px;
+}
 @media (max-width: 600px) {
   body { padding: 8px; }
   nav { gap: 4px 8px; padding: 8px 8px; top: 4px; }
@@ -379,6 +421,23 @@ h2.center { text-align: center; }
     <div class="recipe-closing"><p>Kinder lieben es beim Kochen zu helfen und Zwerg Hühner Eier sind perfekt um spielerisch gesunde Gerichte zu entdecken. Viel Spaß beim Ausprobieren 🥚😊</p></div>
   </section>
 
+  <!-- Kommentar-Bereich -->
+  <section class="card" aria-labelledby="kommentar-title">
+    <h2 id="kommentar-title" style="text-align:center;">💬 Kommentare</h2>
+    <p style="text-align:center; margin-bottom: 16px;">Hinterlasse einen netten Kommentar – die Hühner freuen sich!</p>
+    
+    <form class="kommentar-formular" id="kommentar-form" action="https://formspree.io/f/mqenazdd" method="POST">
+      <input type="text" name="name" placeholder="Dein Name" required>
+      <textarea name="message" placeholder="Dein Kommentar..." required></textarea>
+      <input type="text" name="_gotcha" style="display:none">
+      <button type="submit">Absenden 🐔</button>
+    </form>
+    
+    <div class="kommentar-danke" id="kommentar-danke">
+      Vielen Dank für deinen Kommentar! 🐣
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="footer-chickens"><div class="footer-chicken">🐣</div><div class="footer-chicken">🐥</div><div class="footer-chicken">🐤</div></div>
     <div class="like-wrap"><button class="like-btn" id="like-button">Gefällt mir 💛</button><div class="like-counter" id="like-count-box">0</div></div>
@@ -390,7 +449,6 @@ h2.center { text-align: center; }
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Snack-Kiste Button
   const snackButton = document.getElementById('snack-button');
   const futterbereich = document.getElementById('futterbereich');
   if (snackButton && futterbereich) {
@@ -400,7 +458,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Quiz-Logik
   const cards = document.querySelectorAll('.huhn-card');
   const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
@@ -408,7 +465,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalQuestions = 7;
   const answeredQuestions = new Set();
   const questionGroups = document.querySelectorAll('.quiz-options');
-
   quizOptions.forEach(option => {
     option.addEventListener('click', function() {
       const questionEl = this.closest('.quiz-options');
@@ -431,8 +487,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  // Reset-Button
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       quizOptions.forEach(opt => { opt.classList.remove('correct', 'incorrect', 'disabled'); });
@@ -444,19 +498,36 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('quiz-title').scrollIntoView({ behavior: 'smooth' });
     });
   }
-
-  // Rezept-Buttons
   document.querySelectorAll('.show-rezept-btn').forEach(btn => {
     btn.addEventListener('click', () => { const box = btn.nextElementSibling; if (!box) return; const isOpen = box.style.display === 'block'; box.style.display = isOpen ? 'none' : 'block'; btn.textContent = isOpen ? 'Anleitung zum Rezept' : 'Anleitung ausblenden'; });
   });
-
-  // Like-Button
   const likeBtn = document.getElementById('like-button');
   const likeBox = document.getElementById('like-count-box');
   let count = Number(localStorage.getItem('likeCount')) || 0;
   if (likeBox) likeBox.textContent = count;
   if (likeBtn && likeBox) {
     likeBtn.addEventListener('click', () => { count++; localStorage.setItem('likeCount', count); likeBox.textContent = count; });
+  }
+
+  // Kommentar-Formular
+  const kommentarForm = document.getElementById('kommentar-form');
+  const kommentarDanke = document.getElementById('kommentar-danke');
+  if (kommentarForm) {
+    kommentarForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetch(kommentarForm.action, {
+        method: 'POST',
+        body: new FormData(kommentarForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          kommentarForm.style.display = 'none';
+          kommentarDanke.style.display = 'block';
+        }
+      }).catch(error => {
+        alert('Fehler beim Senden. Bitte versuche es später noch einmal.');
+      });
+    });
   }
 });
 </script>
