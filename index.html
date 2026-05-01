@@ -425,7 +425,7 @@ h2.center { text-align: center; }
 
   <footer class="footer">
     <div class="footer-chickens"><div class="footer-chicken">🐣</div><div class="footer-chicken">🐥</div><div class="footer-chicken">🐤</div></div>
-    <div class="like-wrap"><button class="like-btn" id="like-button">Gefällt mir 💛</button><div class="like-counter" id="like-count-box">0</div></div>
+    <div class="like-wrap"><button class="like-btn" id="like-button">Gefällt mir 💛</button><div class="like-counter" id="like-count-box">…</div></div>
     <div class="footer-emojis">☘️💯☘️</div>
     <p style="text-align: center; font-weight: 700; line-height: 1.5;">Der unvergessliche Geschmack unserer Eier ist intensiv und nicht mit Supermarkteiern zu vergleichen. Probier selbst.<br><br>Vielen Dank für deinen Besuch</p>
     <p style="text-align: center; font-size: .75rem;">&copy; 2025 Kleine Eier großes Lächeln</p>
@@ -433,14 +433,38 @@ h2.center { text-align: center; }
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+// Globaler Like-Zähler über countapi.xyz
+const NAMESPACE = 'kleine-eier-grosses-laecheln';
+const KEY = 'like-counter';
+
+async function getGlobalCount() {
+  try {
+    const res = await fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`);
+    const data = await res.json();
+    return data.value || 0;
+  } catch(e) {
+    return 0;
+  }
+}
+
+async function hitGlobalCount() {
+  try {
+    const res = await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
+    const data = await res.json();
+    return data.value;
+  } catch(e) {
+    return null;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  // Quiz-Logik
   const cards = document.querySelectorAll('.huhn-card');
   const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
   const quizOptions = document.querySelectorAll('.quiz-option');
   const totalQuestions = 7;
   const answeredQuestions = new Set();
-
   const questionGroups = document.querySelectorAll('.quiz-options');
 
   quizOptions.forEach(option => {
@@ -510,6 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Rezept-Buttons
   document.querySelectorAll('.show-rezept-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const box = btn.nextElementSibling;
@@ -520,19 +545,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Globaler Like-Button
   const likeBtn = document.getElementById('like-button');
   const likeBox = document.getElementById('like-count-box');
-  let count = Number(localStorage.getItem('likeCount')) || 0;
-  if (likeBox) likeBox.textContent = count;
+
+  // Startwert vom Server laden
+  const initialCount = await getGlobalCount();
+  if (likeBox) likeBox.textContent = initialCount;
 
   if (likeBtn && likeBox) {
-    likeBtn.addEventListener('click', () => {
-      count++;
-      localStorage.setItem('likeCount', count);
-      likeBox.textContent = count;
+    likeBtn.addEventListener('click', async () => {
+      likeBtn.disabled = true;
+      likeBtn.textContent = '…';
+      const newCount = await hitGlobalCount();
+      if (newCount !== null) {
+        likeBox.textContent = newCount;
+      }
+      likeBtn.textContent = 'Gefällt mir 💛';
+      likeBtn.disabled = false;
     });
   }
 });
 </script>
 </body>
-      </html>
+</html>
