@@ -104,17 +104,17 @@ h1 { color: var(--brand); font-size: clamp(2.4rem, 5vw, 3rem); font-weight: 900;
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.95; transform: scale(1.02); }
 }
-.snack-einladung {
+.snack-einladung, .rezepte-einladung {
   text-align: center; background: #fff; border: 2px dashed var(--panel-border);
   border-radius: var(--radius); padding: 20px 16px; margin-top: 18px;
 }
-.snack-einladung p { font-size: 1.05rem; }
-.snack-link {
+.snack-einladung p, .rezepte-einladung p { font-size: 1.05rem; }
+.snack-link, .rezepte-link {
   display: inline-block; margin-top: 10px; background: var(--brand);
   color: #fff; text-decoration: none; padding: 8px 18px;
   border-radius: 20px; font-weight: 700; cursor: pointer; border: none;
 }
-.snack-link:hover { background: #2d4a1e; }
+.snack-link:hover, .rezepte-link:hover { background: #2d4a1e; }
 .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
 .wa-btn {
   display: inline-flex; align-items: center; gap: .6rem;
@@ -133,7 +133,7 @@ h2 { color: var(--brand); }
 .huhn-card.visible { opacity: 1; }
 .huhn-card img { width: 100%; border-radius: 15px; }
 .futter-list { list-style: none; padding: 0; }
-#futterbereich { display: none; }
+#futterbereich, #rezeptebereich { display: none; }
 .quiz-card {
   background: linear-gradient(135deg, #fff9cc, #f5e97c);
   border: 2px solid var(--accent); border-radius: var(--radius);
@@ -204,7 +204,7 @@ h2 { color: var(--brand); }
     <a href="#freilauf-title">🐔 Freilauf</a>
     <a href="#futterliste-title">🥬 Futter</a>
     <a href="#quiz-title">❓ Quiz</a>
-    <a href="#rezepte">🍳 Rezepte</a>
+    <a href="#rezepte-title">🍳 Rezepte</a>
   </nav>
 
   <header id="start">
@@ -257,6 +257,7 @@ h2 { color: var(--brand); }
     <div class="huhn-card"><img src="huhn3.jpg" alt="Lupni" loading="lazy"><h3>Lupni</h3><p>Eine entdeckungsfreudige Henne die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch frech und eigenwillig sorgt sie für Schwung in der Truppe.</p></div>
   </div>
 
+  <!-- Quiz-Bereich -->
   <section class="card quiz-card">
     <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
     <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
@@ -319,6 +320,7 @@ h2 { color: var(--brand); }
     <button id="reset-quiz">Quiz neu starten</button>
   </section>
 
+  <!-- Glücksmomente mit Snack-Kiste -->
   <section class="card">
     <h2 class="gluecksmomente-title">
       <div class="gluecksmomente-eggs"><div class="egg"></div><div class="egg"></div><div class="egg"></div></div>
@@ -331,21 +333,32 @@ h2 { color: var(--brand); }
     </div>
   </section>
 
-  <section id="rezepte">
-    <div class="card"><h2>Rührei Deluxe</h2><p><strong>Zutaten</strong></p><ul><li>vier Eier acht Zwerghuhneier</li><li>ein Esslöffel Milch</li><li>Salz und Pfeffer nach Geschmack</li><li>ein Teelöffel Butter</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier in einer Schüssel verquirlen Milch hinzufügen salzen und pfeffern. Butter in einer Pfanne erhitzen und die Eiermasse bei mittlerer Hitze stocken lassen dabei vorsichtig rühren.</p><p><em>Dein Supertrick für extra fluffiges Rührei ein bisschen Sprudelwasser hinzufügen.</em></p></div></div>
-    <div class="card"><h2>Eierkuchen süß</h2><p><strong>Zutaten</strong></p><ul><li>zwei Eier drei Zwerghuhneier</li><li>hundertfünfzig Gramm Mehl</li><li>zweihundertfünfzig Milliliter Milch</li><li>ein Esslöffel Ahornsirup</li><li>eine Prise Salz</li><li>Butter zum Braten</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier mit Milch und Ahornsirup verquirlen. Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken bis sie goldbraun sind.</p></div></div>
-    <div class="card"><h2>Omelette Gemüse</h2><p><strong>Zutaten</strong></p><ul><li>drei Eier fünf Zwerghuhneier</li><li>fünfzig Gramm Paprika gewürfelt</li><li>fünfzig Gramm Zucchini gewürfelt</li><li>ein Esslöffel Milch</li><li>Salz und Pfeffer</li><li>ein Teelöffel Öl</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier mit Milch Salz und Pfeffer verquirlen. Gemüse in Öl kurz anbraten Eiermasse darüber gießen und bei mittlerer Hitze stocken lassen.</p></div></div>
-    <div class="card"><h2>Gefüllte Eier</h2><p><strong>Zutaten</strong></p><ul><li>sechs Eier zwölf Zwerghuhneier</li><li>zwei Esslöffel Joghurt</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li><li>Paprika zum Bestreuen</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen schälen und längs halbieren. Eigelbe herausnehmen mit Joghurt Senf Salz und Pfeffer vermengen. Masse zurück in die Eiweißhälften füllen und mit Paprika bestreuen.</p></div></div>
-    <div class="card"><h2>Eiersalat klassisch</h2><p><strong>Zutaten</strong></p><ul><li>vier Eier acht Zwerghuhneier</li><li>zwei Esslöffel Mayonnaise</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li><li>eine kleine Frühlingszwiebel fein gehackt</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen schälen und würfeln. Mit Mayonnaise Senf Salz Pfeffer und Frühlingszwiebel vermengen.</p></div></div>
-    <div class="card"><h2>Frühstücks Muffins mit Ei</h2><p><strong>Zutaten</strong></p><ul><li>drei Eier fünf Zwerghuhneier</li><li>hundert Gramm Mehl</li><li>fünfzig Milliliter Milch</li><li>fünfzig Gramm geriebener Käse</li><li>Salz und Pfeffer</li><li>ein Teelöffel Backpulver</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier Milch Salz Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180 Grad ungefähr 20–25 Minuten backen.</p></div></div>
-    <div class="card"><h2>Spinat Ei Pfanne</h2><p><strong>Zutaten</strong></p><ul><li>zwei Eier drei Zwerghuhneier</li><li>hundertfünfzig Gramm frischer Spinat</li><li>ein Teelöffel Öl</li><li>Salz und Pfeffer</li><li>eine kleine Zwiebel</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Zwiebel in Öl anbraten Spinat hinzufügen und zusammenfallen lassen. Eier verquirlen darüber geben und stocken lassen.</p></div></div>
-    <div class="card"><h2>Eier in Senfsoße</h2><p><strong>Zutaten</strong></p><ul><li>vier Eier acht Zwerghuhneier</li><li>zweihundert Milliliter Gemüsebrühe</li><li>zwei Esslöffel Joghurt</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen. Brühe erhitzen Joghurt und Senf einrühren würzen. Eier halbieren und in die Soße legen.</p></div></div>
-    <div class="card"><h2>Eiersalat Deluxe</h2><p><strong>Zutaten</strong></p><ul><li>fünf Eier zehn Zwerghuhneier</li><li>drei Esslöffel Mayonnaise</li><li>ein Teelöffel Senf</li><li>eine kleine rote Paprika gewürfelt</li><li>Salz und Pfeffer</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen würfeln und mit allen Zutaten vermengen.</p></div></div>
-    <div class="card"><h2>Eier Brotaufstrich</h2><p><strong>Zutaten</strong></p><ul><li>drei Eier fünf Zwerghuhneier</li><li>zwei Esslöffel Frischkäse</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li><li>eine kleine Frühlingszwiebel</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen hacken und mit Frischkäse Senf Salz Pfeffer und Frühlingszwiebel verrühren. Auf frisches Brot streichen.</p></div></div>
-    <div class="recipe-closing"><p>Kinder lieben es beim Kochen zu helfen und Zwerg Hühner Eier sind perfekt um spielerisch gesunde Gerichte zu entdecken. Viel Spaß beim Ausprobieren 🥚😊</p></div>
+  <!-- Rezepte-Bereich (versteckt) -->
+  <section class="card" id="rezepte-title">
+    <h2 class="center">🍳 Rezepte für kleine Köche</h2>
+    <div class="rezepte-einladung">
+      <p><strong>Magst du auch so gerne Eier wie wir? Dann probier doch mal unsere leckeren Rezepte aus – extra einfach für kleine Köche!</strong></p>
+      <button class="rezepte-link" id="rezepte-button">👩‍🍳 Rezepte entdecken</button>
+    </div>
   </section>
 
-  <!-- Kommentar-Bereich -->
+  <div id="rezeptebereich">
+    <section id="rezepte">
+      <div class="card"><h2>Rührei Deluxe</h2><p><strong>Zutaten</strong></p><ul><li>vier Eier acht Zwerghuhneier</li><li>ein Esslöffel Milch</li><li>Salz und Pfeffer nach Geschmack</li><li>ein Teelöffel Butter</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier in einer Schüssel verquirlen Milch hinzufügen salzen und pfeffern. Butter in einer Pfanne erhitzen und die Eiermasse bei mittlerer Hitze stocken lassen dabei vorsichtig rühren.</p><p><em>Dein Supertrick für extra fluffiges Rührei ein bisschen Sprudelwasser hinzufügen.</em></p></div></div>
+      <div class="card"><h2>Eierkuchen süß</h2><p><strong>Zutaten</strong></p><ul><li>zwei Eier drei Zwerghuhneier</li><li>hundertfünfzig Gramm Mehl</li><li>zweihundertfünfzig Milliliter Milch</li><li>ein Esslöffel Ahornsirup</li><li>eine Prise Salz</li><li>Butter zum Braten</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier mit Milch und Ahornsirup verquirlen. Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken bis sie goldbraun sind.</p></div></div>
+      <div class="card"><h2>Omelette Gemüse</h2><p><strong>Zutaten</strong></p><ul><li>drei Eier fünf Zwerghuhneier</li><li>fünfzig Gramm Paprika gewürfelt</li><li>fünfzig Gramm Zucchini gewürfelt</li><li>ein Esslöffel Milch</li><li>Salz und Pfeffer</li><li>ein Teelöffel Öl</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier mit Milch Salz und Pfeffer verquirlen. Gemüse in Öl kurz anbraten Eiermasse darüber gießen und bei mittlerer Hitze stocken lassen.</p></div></div>
+      <div class="card"><h2>Gefüllte Eier</h2><p><strong>Zutaten</strong></p><ul><li>sechs Eier zwölf Zwerghuhneier</li><li>zwei Esslöffel Joghurt</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li><li>Paprika zum Bestreuen</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen schälen und längs halbieren. Eigelbe herausnehmen mit Joghurt Senf Salz und Pfeffer vermengen. Masse zurück in die Eiweißhälften füllen und mit Paprika bestreuen.</p></div></div>
+      <div class="card"><h2>Eiersalat klassisch</h2><p><strong>Zutaten</strong></p><ul><li>vier Eier acht Zwerghuhneier</li><li>zwei Esslöffel Mayonnaise</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li><li>eine kleine Frühlingszwiebel fein gehackt</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen schälen und würfeln. Mit Mayonnaise Senf Salz Pfeffer und Frühlingszwiebel vermengen.</p></div></div>
+      <div class="card"><h2>Frühstücks Muffins mit Ei</h2><p><strong>Zutaten</strong></p><ul><li>drei Eier fünf Zwerghuhneier</li><li>hundert Gramm Mehl</li><li>fünfzig Milliliter Milch</li><li>fünfzig Gramm geriebener Käse</li><li>Salz und Pfeffer</li><li>ein Teelöffel Backpulver</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier Milch Salz Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180 Grad ungefähr 20–25 Minuten backen.</p></div></div>
+      <div class="card"><h2>Spinat Ei Pfanne</h2><p><strong>Zutaten</strong></p><ul><li>zwei Eier drei Zwerghuhneier</li><li>hundertfünfzig Gramm frischer Spinat</li><li>ein Teelöffel Öl</li><li>Salz und Pfeffer</li><li>eine kleine Zwiebel</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Zwiebel in Öl anbraten Spinat hinzufügen und zusammenfallen lassen. Eier verquirlen darüber geben und stocken lassen.</p></div></div>
+      <div class="card"><h2>Eier in Senfsoße</h2><p><strong>Zutaten</strong></p><ul><li>vier Eier acht Zwerghuhneier</li><li>zweihundert Milliliter Gemüsebrühe</li><li>zwei Esslöffel Joghurt</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen. Brühe erhitzen Joghurt und Senf einrühren würzen. Eier halbieren und in die Soße legen.</p></div></div>
+      <div class="card"><h2>Eiersalat Deluxe</h2><p><strong>Zutaten</strong></p><ul><li>fünf Eier zehn Zwerghuhneier</li><li>drei Esslöffel Mayonnaise</li><li>ein Teelöffel Senf</li><li>eine kleine rote Paprika gewürfelt</li><li>Salz und Pfeffer</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen würfeln und mit allen Zutaten vermengen.</p></div></div>
+      <div class="card"><h2>Eier Brotaufstrich</h2><p><strong>Zutaten</strong></p><ul><li>drei Eier fünf Zwerghuhneier</li><li>zwei Esslöffel Frischkäse</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li><li>eine kleine Frühlingszwiebel</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen hacken und mit Frischkäse Senf Salz Pfeffer und Frühlingszwiebel verrühren. Auf frisches Brot streichen.</p></div></div>
+      <div class="recipe-closing"><p>Kinder lieben es beim Kochen zu helfen und Zwerg Hühner Eier sind perfekt um spielerisch gesunde Gerichte zu entdecken. Viel Spaß beim Ausprobieren 🥚😊</p></div>
+    </section>
+  </div>
+
+  <!-- Gästebuch -->
   <section class="card">
     <h2 style="text-align:center;">💬 Gästebuch</h2>
     <p style="text-align:center;">Hinterlasse einen netten Kommentar – die Hühner freuen sich!</p>
@@ -376,11 +389,19 @@ h2 { color: var(--brand); }
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+  // Snack-Kiste Button
   document.getElementById('snack-button').addEventListener('click', () => {
     document.getElementById('futterbereich').style.display = 'block';
     document.getElementById('futterbereich').scrollIntoView({ behavior: 'smooth' });
   });
 
+  // Rezepte Button
+  document.getElementById('rezepte-button').addEventListener('click', () => {
+    document.getElementById('rezeptebereich').style.display = 'block';
+    document.getElementById('rezeptebereich').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Quiz
   const cards = document.querySelectorAll('.huhn-card');
   const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
@@ -423,6 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
     answeredQuestions.clear();
   });
 
+  // Rezept-Anleitungen
   document.querySelectorAll('.show-rezept-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const box = btn.nextElementSibling;
@@ -432,6 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Like-Button
   const likeBtn = document.getElementById('like-button');
   const likeBox = document.getElementById('like-count-box');
   let count = Number(localStorage.getItem('likeCount')) || 0;
@@ -440,4 +463,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </body>
-</html>
+                                                                                                                                                                                                                                                                                                                                           </html>
