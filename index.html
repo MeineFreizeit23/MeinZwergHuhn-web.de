@@ -138,7 +138,7 @@ h2 { color: var(--brand); }
   padding: var(--card-padding); margin: 18px 0;
   box-shadow: var(--shadow); text-align: center;
 }
-.quiz-question { font-size: 1.2rem; color: var(--brand); font-weight: bold; }
+.quiz-question { font-size: 1.2rem; color: var(--brand); font-weight: bold; margin-top: 12px; }
 .quiz-options { display: flex; flex-direction: column; gap: 8px; align-items: center; }
 .quiz-option {
   background: #fff; border: 2px solid #ddd; border-radius: 10px;
@@ -157,6 +157,7 @@ h2 { color: var(--brand); }
 #reset-quiz {
   background: #e07b00; color: #fff; font-weight: 600; border: none;
   padding: 8px 16px; border-radius: 10px; cursor: pointer; display: none;
+  margin-top: 16px;
 }
 #reset-quiz:hover { background: #d06a00; }
 .recipe-closing {
@@ -269,7 +270,7 @@ h2 { color: var(--brand); }
     <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
     
     <!-- Neuer Hinweis: Alle Fragen müssen richtig sein -->
-    <p style="background: #fff0b5; padding: 8px; border-radius: 10px; font-weight: bold; color: #b45f00;">
+    <p style="background: #fff0b5; padding: 10px; border-radius: 10px; font-weight: bold; color: #b45f00; margin: 10px 0;">
       ⭐ Wichtig: Du musst alle Fragen RICHTIG beantworten, dann lernst du unsere Hühner kennen! ⭐
     </p>
     
@@ -281,6 +282,7 @@ h2 { color: var(--brand); }
     </div>
     <div class="quiz-feedback" id="feedback1"></div>
     <div class="quiz-info" id="info1">🐔 Die meisten Hühner legen fast jeden Tag ein Ei – unsere Wella, Wilma und Lupni machen das mit viel Freude im Vorgarten!</div>
+    
     <div class="quiz-question">Frage zwei was essen Hühner am liebsten 🥬</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
@@ -289,6 +291,7 @@ h2 { color: var(--brand); }
     </div>
     <div class="quiz-feedback" id="feedback2"></div>
     <div class="quiz-info" id="info2">🥬 Hühner lieben frisches Grün, Gemüse und Kräuter. Schokolade und Eiscreme wären übrigens sogar gefährlich für sie!</div>
+    
     <div class="quiz-question">Frage drei rate mal wie heißen unsere drei Hühner 🐥</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a Mia Max und Leo</div>
@@ -297,6 +300,7 @@ h2 { color: var(--brand); }
     </div>
     <div class="quiz-feedback" id="feedback3"></div>
     <div class="quiz-info" id="info3">🐥 Wella ist die Kuschelige, Wilma die Beobachtende und Lupni die Freche – gemeinsam sind sie ein unschlagbares Team!</div>
+    
     <div class="quiz-question">Frage vier was macht ein Huhn wenn es glücklich ist 🐔</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck wie unsere Wella beim Spielen 😄</div>
@@ -305,6 +309,7 @@ h2 { color: var(--brand); }
     </div>
     <div class="quiz-feedback" id="feedback4"></div>
     <div class="quiz-info" id="info4">🐔 Ein glückliches Huhn gackert zufrieden, scharrt im Boden und sucht nach Leckerbissen – bei uns im Vorgarten kannst du das täglich beobachten!</div>
+    
     <div class="quiz-question">Frage fünf was passiert wenn ein Huhn ein Ei legt 🥚</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz 💃</div>
@@ -313,6 +318,7 @@ h2 { color: var(--brand); }
     </div>
     <div class="quiz-feedback" id="feedback5"></div>
     <div class="quiz-info" id="info5">🥚 Nach dem Legen gackert die Henne oft stolz – das ist ihr „Eier-Lied"! Unsere Eier sind dann bereit für dein Frühstück.</div>
+    
     <div class="quiz-question">Frage sechs wie kommunizieren Hühner untereinander 🗣️</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code 🔢</div>
@@ -321,6 +327,7 @@ h2 { color: var(--brand); }
     </div>
     <div class="quiz-feedback" id="feedback6"></div>
     <div class="quiz-info" id="info6">🗣️ Hühner haben über 30 verschiedene Laute! Sie warnen sich, rufen Küken und unterhalten sich – ein echter Hühner-Chat im Vorgarten.</div>
+    
     <div class="quiz-question">Frage sieben warum sind unsere Eier so besonders 🥚✨</div>
     <div class="quiz-options">
       <div class="quiz-option" data-correct="false">a weil sie fliegen können ✈️</div>
@@ -329,6 +336,7 @@ h2 { color: var(--brand); }
     </div>
     <div class="quiz-feedback" id="feedback7"></div>
     <div class="quiz-info" id="info7">✨ Unsere Eier sind so besonders, weil sie von glücklichen Hühnern stammen, die viel Auslauf, frische Luft und leckeres Futter bekommen!</div>
+    
     <button id="reset-quiz">Quiz neu starten</button>
   </section>
 
@@ -418,19 +426,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
   
-  let correctAnswers = 0;         // Zählt nur richtige Antworten
-  let questionAnswered = new Array(7).fill(false);  // Ob Frage schon beantwortet wurde
-  let questionCorrect = new Array(7).fill(false);   // Ob Frage richtig beantwortet wurde
+  let questionAnswered = new Array(7).fill(false);
+  let questionCorrect = new Array(7).fill(false);
+
+  function showCardsOneByOne() {
+    cards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, index * 500);
+    });
+  }
 
   function checkAllCorrect() {
-    // Prüfen ob alle 7 Fragen richtig sind
     const allCorrect = questionCorrect.every(val => val === true);
     if (allCorrect) {
       huhnGrid.style.display = 'grid';
       resetBtn.style.display = 'block';
-      cards.forEach((card, index) => {
-        setTimeout(() => card.classList.add('visible'), index * 300);
-      });
+      showCardsOneByOne();
       setTimeout(() => {
         huhnGrid.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 500);
@@ -446,7 +458,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (qg === questionEl) questionIndex = idx;
       });
       
-      // Prüfen, ob diese Frage schon beantwortet wurde
       if (questionAnswered[questionIndex]) return;
       
       const feedbackEl = document.getElementById('feedback' + (questionIndex + 1));
@@ -461,7 +472,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (infoEl) infoEl.classList.add('show');
       
-      // Merken dass Frage beantwortet wurde
       questionAnswered[questionIndex] = true;
       if (isCorrect) {
         questionCorrect[questionIndex] = true;
@@ -485,7 +495,6 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(c => c.classList.remove('visible'));
     resetBtn.style.display = 'none';
     
-    // Zähler zurücksetzen
     questionAnswered = new Array(7).fill(false);
     questionCorrect = new Array(7).fill(false);
   });
@@ -509,4 +518,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </body>
-                                                                                             </html>
+  </html>
