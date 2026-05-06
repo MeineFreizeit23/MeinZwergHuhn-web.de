@@ -104,17 +104,17 @@ h1 { color: var(--brand); font-size: clamp(2.4rem, 5vw, 3rem); font-weight: 900;
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.95; transform: scale(1.02); }
 }
-.snack-einladung, .rezepte-einladung {
+.snack-einladung, .rezepte-einladung, .quiz-einladung {
   text-align: center; background: #fff; border: 2px dashed var(--panel-border);
   border-radius: var(--radius); padding: 20px 16px; margin-top: 18px;
 }
-.snack-einladung p, .rezepte-einladung p { font-size: 1.05rem; }
-.snack-link, .rezepte-link {
+.snack-einladung p, .rezepte-einladung p, .quiz-einladung p { font-size: 1.05rem; }
+.snack-link, .rezepte-link, .quiz-link {
   display: inline-block; margin-top: 10px; background: var(--brand);
   color: #fff; text-decoration: none; padding: 8px 18px;
   border-radius: 20px; font-weight: 700; cursor: pointer; border: none;
 }
-.snack-link:hover, .rezepte-link:hover { background: #2d4a1e; }
+.snack-link:hover, .rezepte-link:hover, .quiz-link:hover { background: #2d4a1e; }
 .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
 .wa-btn {
   display: inline-flex; align-items: center; gap: .6rem;
@@ -133,7 +133,7 @@ h2 { color: var(--brand); }
 .huhn-card.visible { opacity: 1; }
 .huhn-card img { width: 100%; border-radius: 15px; }
 .futter-list { list-style: none; padding: 0; }
-#futterbereich, #rezeptebereich { display: none; }
+#futterbereich, #rezeptebereich, #quizbereich { display: none; }
 .quiz-card {
   background: linear-gradient(135deg, #fff9cc, #f5e97c);
   border: 2px solid var(--accent); border-radius: var(--radius);
@@ -257,68 +257,77 @@ h2 { color: var(--brand); }
     <div class="huhn-card"><img src="huhn3.jpg" alt="Lupni" loading="lazy"><h3>Lupni</h3><p>Eine entdeckungsfreudige Henne die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch frech und eigenwillig sorgt sie für Schwung in der Truppe.</p></div>
   </div>
 
-  <!-- Quiz-Bereich -->
-  <section class="card quiz-card">
-    <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
-    <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
-    <div class="quiz-question">Frage eins wie oft legen Hühner Eier 🥚</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a einmal im Monat 🌙</div>
-      <div class="quiz-option" data-correct="false">b alle paar Tage 📅</div>
-      <div class="quiz-option" data-correct="true">c jeden Tag ☀️</div>
+  <!-- Quiz-Bereich (versteckt, erscheint auf Klick) -->
+  <section class="card" id="quiz-title">
+    <h2 class="center">❓ Hühner Quiz</h2>
+    <div class="quiz-einladung">
+      <p><strong>Schaffst du alle 7 Fragen? Dann warten Wella, Wilma und Lupni auf dich!</strong></p>
+      <button class="quiz-link" id="quiz-button">❓ Schaffst du alle 7?</button>
     </div>
-    <div class="quiz-feedback" id="feedback1"></div>
-    <div class="quiz-info" id="info1">🐔 Die meisten Hühner legen fast jeden Tag ein Ei – unsere Wella, Wilma und Lupni machen das mit viel Freude im Vorgarten!</div>
-    <div class="quiz-question">Frage zwei was essen Hühner am liebsten 🥬</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
-      <div class="quiz-option" data-correct="false">b Schokolade 🍫</div>
-      <div class="quiz-option" data-correct="false">c Eiscreme 🍦</div>
-    </div>
-    <div class="quiz-feedback" id="feedback2"></div>
-    <div class="quiz-info" id="info2">🥬 Hühner lieben frisches Grün, Gemüse und Kräuter. Schokolade und Eiscreme wären übrigens sogar gefährlich für sie!</div>
-    <div class="quiz-question">Frage drei rate mal wie heißen unsere drei Hühner 🐥</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a Mia Max und Leo</div>
-      <div class="quiz-option" data-correct="true">b Wella Wilma und Lupni</div>
-      <div class="quiz-option" data-correct="false">c Sunny Happy und Joy</div>
-    </div>
-    <div class="quiz-feedback" id="feedback3"></div>
-    <div class="quiz-info" id="info3">🐥 Wella ist die Kuschelige, Wilma die Beobachtende und Lupni die Freche – gemeinsam sind sie ein unschlagbares Team!</div>
-    <div class="quiz-question">Frage vier was macht ein Huhn wenn es glücklich ist 🐔</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck wie unsere Wella beim Spielen 😄</div>
-      <div class="quiz-option" data-correct="false">b singt Lieder wie ein Star 🎤</div>
-      <div class="quiz-option" data-correct="false">c malt Bilder mit den Füßen 🖌️</div>
-    </div>
-    <div class="quiz-feedback" id="feedback4"></div>
-    <div class="quiz-info" id="info4">🐔 Ein glückliches Huhn gackert zufrieden, scharrt im Boden und sucht nach Leckerbissen – bei uns im Vorgarten kannst du das täglich beobachten!</div>
-    <div class="quiz-question">Frage fünf was passiert wenn ein Huhn ein Ei legt 🥚</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz 💃</div>
-      <div class="quiz-option" data-correct="true">b das Ei rollt aus dem Nest und ein neues Frühstück ist bereit danke Lupni 🐔</div>
-      <div class="quiz-option" data-correct="false">c es schickt das Ei per Post weg 📬</div>
-    </div>
-    <div class="quiz-feedback" id="feedback5"></div>
-    <div class="quiz-info" id="info5">🥚 Nach dem Legen gackert die Henne oft stolz – das ist ihr „Eier-Lied"! Unsere Eier sind dann bereit für dein Frühstück.</div>
-    <div class="quiz-question">Frage sechs wie kommunizieren Hühner untereinander 🗣️</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code 🔢</div>
-      <div class="quiz-option" data-correct="true">b mit Gackern Glucksen und Scharren wie ein Hühner Chat 😊</div>
-      <div class="quiz-option" data-correct="false">c indem sie Selfies machen 📱</div>
-    </div>
-    <div class="quiz-feedback" id="feedback6"></div>
-    <div class="quiz-info" id="info6">🗣️ Hühner haben über 30 verschiedene Laute! Sie warnen sich, rufen Küken und unterhalten sich – ein echter Hühner-Chat im Vorgarten.</div>
-    <div class="quiz-question">Frage sieben warum sind unsere Eier so besonders 🥚✨</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a weil sie fliegen können ✈️</div>
-      <div class="quiz-option" data-correct="true">b weil glückliche Hühner im Vorgarten sie legen frisch und lecker 🌿</div>
-      <div class="quiz-option" data-correct="false">c weil sie magisch sind und zaubern 🪄</div>
-    </div>
-    <div class="quiz-feedback" id="feedback7"></div>
-    <div class="quiz-info" id="info7">✨ Unsere Eier sind so besonders, weil sie von glücklichen Hühnern stammen, die viel Auslauf, frische Luft und leckeres Futter bekommen!</div>
-    <button id="reset-quiz">Quiz neu starten</button>
   </section>
+
+  <div id="quizbereich">
+    <section class="card quiz-card">
+      <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
+      <div class="quiz-question">Frage eins wie oft legen Hühner Eier 🥚</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a einmal im Monat 🌙</div>
+        <div class="quiz-option" data-correct="false">b alle paar Tage 📅</div>
+        <div class="quiz-option" data-correct="true">c jeden Tag ☀️</div>
+      </div>
+      <div class="quiz-feedback" id="feedback1"></div>
+      <div class="quiz-info" id="info1">🐔 Die meisten Hühner legen fast jeden Tag ein Ei – unsere Wella, Wilma und Lupni machen das mit viel Freude im Vorgarten!</div>
+      <div class="quiz-question">Frage zwei was essen Hühner am liebsten 🥬</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
+        <div class="quiz-option" data-correct="false">b Schokolade 🍫</div>
+        <div class="quiz-option" data-correct="false">c Eiscreme 🍦</div>
+      </div>
+      <div class="quiz-feedback" id="feedback2"></div>
+      <div class="quiz-info" id="info2">🥬 Hühner lieben frisches Grün, Gemüse und Kräuter. Schokolade und Eiscreme wären übrigens sogar gefährlich für sie!</div>
+      <div class="quiz-question">Frage drei rate mal wie heißen unsere drei Hühner 🐥</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a Mia Max und Leo</div>
+        <div class="quiz-option" data-correct="true">b Wella Wilma und Lupni</div>
+        <div class="quiz-option" data-correct="false">c Sunny Happy und Joy</div>
+      </div>
+      <div class="quiz-feedback" id="feedback3"></div>
+      <div class="quiz-info" id="info3">🐥 Wella ist die Kuschelige, Wilma die Beobachtende und Lupni die Freche – gemeinsam sind sie ein unschlagbares Team!</div>
+      <div class="quiz-question">Frage vier was macht ein Huhn wenn es glücklich ist 🐔</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck wie unsere Wella beim Spielen 😄</div>
+        <div class="quiz-option" data-correct="false">b singt Lieder wie ein Star 🎤</div>
+        <div class="quiz-option" data-correct="false">c malt Bilder mit den Füßen 🖌️</div>
+      </div>
+      <div class="quiz-feedback" id="feedback4"></div>
+      <div class="quiz-info" id="info4">🐔 Ein glückliches Huhn gackert zufrieden, scharrt im Boden und sucht nach Leckerbissen – bei uns im Vorgarten kannst du das täglich beobachten!</div>
+      <div class="quiz-question">Frage fünf was passiert wenn ein Huhn ein Ei legt 🥚</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz 💃</div>
+        <div class="quiz-option" data-correct="true">b das Ei rollt aus dem Nest und ein neues Frühstück ist bereit danke Lupni 🐔</div>
+        <div class="quiz-option" data-correct="false">c es schickt das Ei per Post weg 📬</div>
+      </div>
+      <div class="quiz-feedback" id="feedback5"></div>
+      <div class="quiz-info" id="info5">🥚 Nach dem Legen gackert die Henne oft stolz – das ist ihr „Eier-Lied"! Unsere Eier sind dann bereit für dein Frühstück.</div>
+      <div class="quiz-question">Frage sechs wie kommunizieren Hühner untereinander 🗣️</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code 🔢</div>
+        <div class="quiz-option" data-correct="true">b mit Gackern Glucksen und Scharren wie ein Hühner Chat 😊</div>
+        <div class="quiz-option" data-correct="false">c indem sie Selfies machen 📱</div>
+      </div>
+      <div class="quiz-feedback" id="feedback6"></div>
+      <div class="quiz-info" id="info6">🗣️ Hühner haben über 30 verschiedene Laute! Sie warnen sich, rufen Küken und unterhalten sich – ein echter Hühner-Chat im Vorgarten.</div>
+      <div class="quiz-question">Frage sieben warum sind unsere Eier so besonders 🥚✨</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a weil sie fliegen können ✈️</div>
+        <div class="quiz-option" data-correct="true">b weil glückliche Hühner im Vorgarten sie legen frisch und lecker 🌿</div>
+        <div class="quiz-option" data-correct="false">c weil sie magisch sind und zaubern 🪄</div>
+      </div>
+      <div class="quiz-feedback" id="feedback7"></div>
+      <div class="quiz-info" id="info7">✨ Unsere Eier sind so besonders, weil sie von glücklichen Hühnern stammen, die viel Auslauf, frische Luft und leckeres Futter bekommen!</div>
+      <button id="reset-quiz">Quiz neu starten</button>
+    </section>
+  </div>
 
   <!-- Glücksmomente mit Snack-Kiste -->
   <section class="card">
@@ -401,7 +410,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('rezeptebereich').scrollIntoView({ behavior: 'smooth' });
   });
 
-  // Quiz
+  // Quiz Button
+  document.getElementById('quiz-button').addEventListener('click', () => {
+    document.getElementById('quizbereich').style.display = 'block';
+    document.getElementById('quizbereich').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Quiz-Logik
   const cards = document.querySelectorAll('.huhn-card');
   const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
@@ -463,4 +478,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </body>
-                                                                                                                                                                                                                                                                                                                                           </html>
+</html>
