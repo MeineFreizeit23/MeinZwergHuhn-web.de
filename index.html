@@ -272,7 +272,7 @@ h2 { color: var(--brand); }
     <div class="huhn-card"><img src="huhn3.jpg" alt="Lupni" loading="lazy"><h3>Lupni</h3><p>Eine entdeckungsfreudige Henne die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch frech und eigenwillig sorgt sie für Schwung in der Truppe.</p></div>
   </div>
 
-  <!-- Quiz-Button und Quiz-Bereich -->
+  <!-- Quiz-Button -->
   <button class="quiz-start-btn" id="show-quiz-btn">📖 Hühner Quiz starten 🐔</button>
 
   <div id="quizbereich">
@@ -351,8 +351,8 @@ h2 { color: var(--brand); }
     </section>
   </div>
 
-  <!-- Glücksmomente mit Snack-Kiste -->
-  <section class="card">
+  <!-- Glücksmomente mit Snack-Kiste (mit ID zum Ausblenden) -->
+  <section class="card" id="gluecksmomente-section">
     <h2 class="gluecksmomente-title">
       <div class="gluecksmomente-eggs"><div class="egg"></div><div class="egg"></div><div class="egg"></div></div>
       <span class="main">Glücksmomente</span>
@@ -364,7 +364,7 @@ h2 { color: var(--brand); }
     </div>
   </section>
 
-  <!-- Rezepte-Bereich (versteckt) -->
+  <!-- Rezepte-Bereich -->
   <section class="card" id="rezepte-title">
     <h2 class="center">🍳 Rezepte für kleine Köche</h2>
     <div class="rezepte-einladung">
@@ -420,9 +420,10 @@ h2 { color: var(--brand); }
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Snack-Kiste Button
+  // Snack-Kiste Button: Zeige Futterbereich und blende Glücksmomente aus
   document.getElementById('snack-button').addEventListener('click', () => {
     document.getElementById('futterbereich').style.display = 'block';
+    document.getElementById('gluecksmomente-section').style.display = 'none';  // Bereich ausblenden
     document.getElementById('futterbereich').scrollIntoView({ behavior: 'smooth' });
   });
 
@@ -536,4 +537,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </body>
-</html>
+  </html>
