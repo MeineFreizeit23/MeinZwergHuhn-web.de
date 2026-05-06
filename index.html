@@ -132,10 +132,18 @@ h2 { color: var(--brand); }
 .huhn-card img { width: 100%; border-radius: 15px; }
 .futter-list { list-style: none; padding: 0; }
 #futterbereich, #rezeptebereich { display: none; }
+#quizbereich { display: none; }
+.quiz-start-btn {
+  background: var(--brand); color: #fff; border: none;
+  padding: 12px 24px; border-radius: 30px; font-size: 1.2rem;
+  font-weight: bold; cursor: pointer; margin: 18px 0;
+  width: 100%;
+}
+.quiz-start-btn:hover { background: #2d4a1e; }
 .quiz-card {
   background: linear-gradient(135deg, #fff9cc, #f5e97c);
   border: 2px solid var(--accent); border-radius: var(--radius);
-  padding: var(--card-padding); margin: 18px 0;
+  padding: var(--card-padding);
   box-shadow: var(--shadow); text-align: center;
 }
 .quiz-question { font-size: 1.2rem; color: var(--brand); font-weight: bold; margin-top: 12px; }
@@ -222,7 +230,7 @@ h2 { color: var(--brand); }
     <p>Die Hühner scharren neugierig und genießen die Natur. Ihr Scharren macht den Vorgarten lebendig ihr Flattern erfüllt den Alltag mit Bewegung und Freude. <strong>Jeder Moment erinnert uns daran das Leben bewusst wahrzunehmen.</strong></p>
     <p><strong>Die Idee</strong> Glückliche Hühner lehren uns Gelassenheit Achtsamkeit und Freude. Lasst euch von ihrer Lebendigkeit inspirieren und entdeckt die schönen Dinge im Alltag.</p>
     
-    <!-- ROTER HINWEIS (kindgerecht, ohne Emojis) -->
+    <!-- ROTER HINWEIS -->
     <p style="color: red; font-weight: bold; background: #fff0f0; padding: 12px; border-radius: 12px; border-left: 5px solid red; margin-top: 16px;">
       Zurzeit dürfen unsere Hühner leider nicht überall im Garten rumlaufen.<br>
       Es gibt eine Viren-Krankheit namens „Vogelgrippe“.<br>
@@ -264,81 +272,84 @@ h2 { color: var(--brand); }
     <div class="huhn-card"><img src="huhn3.jpg" alt="Lupni" loading="lazy"><h3>Lupni</h3><p>Eine entdeckungsfreudige Henne die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch frech und eigenwillig sorgt sie für Schwung in der Truppe.</p></div>
   </div>
 
-  <!-- Quiz-Bereich -->
-  <section class="card quiz-card">
-    <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
-    <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle gemacht hast lernst du unsere Hühner kennen.</p>
-    
-    <!-- Neuer Hinweis: Alle Fragen müssen richtig sein -->
-    <p style="background: #fff0b5; padding: 10px; border-radius: 10px; font-weight: bold; color: #b45f00; margin: 10px 0;">
-      ⭐ Wichtig: Du musst alle Fragen RICHTIG beantworten, dann lernst du unsere Hühner kennen! ⭐
-    </p>
-    
-    <div class="quiz-question">Frage eins wie oft legen Hühner Eier 🥚</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a einmal im Monat 🌙</div>
-      <div class="quiz-option" data-correct="false">b alle paar Tage 📅</div>
-      <div class="quiz-option" data-correct="true">c jeden Tag ☀️</div>
-    </div>
-    <div class="quiz-feedback" id="feedback1"></div>
-    <div class="quiz-info" id="info1">🐔 Die meisten Hühner legen fast jeden Tag ein Ei – unsere Wella, Wilma und Lupni machen das mit viel Freude im Vorgarten!</div>
-    
-    <div class="quiz-question">Frage zwei was essen Hühner am liebsten 🥬</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
-      <div class="quiz-option" data-correct="false">b Schokolade 🍫</div>
-      <div class="quiz-option" data-correct="false">c Eiscreme 🍦</div>
-    </div>
-    <div class="quiz-feedback" id="feedback2"></div>
-    <div class="quiz-info" id="info2">🥬 Hühner lieben frisches Grün, Gemüse und Kräuter. Schokolade und Eiscreme wären übrigens sogar gefährlich für sie!</div>
-    
-    <div class="quiz-question">Frage drei rate mal wie heißen unsere drei Hühner 🐥</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a Mia Max und Leo</div>
-      <div class="quiz-option" data-correct="true">b Wella Wilma und Lupni</div>
-      <div class="quiz-option" data-correct="false">c Sunny Happy und Joy</div>
-    </div>
-    <div class="quiz-feedback" id="feedback3"></div>
-    <div class="quiz-info" id="info3">🐥 Wella ist die Kuschelige, Wilma die Beobachtende und Lupni die Freche – gemeinsam sind sie ein unschlagbares Team!</div>
-    
-    <div class="quiz-question">Frage vier was macht ein Huhn wenn es glücklich ist 🐔</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck wie unsere Wella beim Spielen 😄</div>
-      <div class="quiz-option" data-correct="false">b singt Lieder wie ein Star 🎤</div>
-      <div class="quiz-option" data-correct="false">c malt Bilder mit den Füßen 🖌️</div>
-    </div>
-    <div class="quiz-feedback" id="feedback4"></div>
-    <div class="quiz-info" id="info4">🐔 Ein glückliches Huhn gackert zufrieden, scharrt im Boden und sucht nach Leckerbissen – bei uns im Vorgarten kannst du das täglich beobachten!</div>
-    
-    <div class="quiz-question">Frage fünf was passiert wenn ein Huhn ein Ei legt 🥚</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz 💃</div>
-      <div class="quiz-option" data-correct="true">b das Ei rollt aus dem Nest und ein neues Frühstück ist bereit danke Lupni 🐔</div>
-      <div class="quiz-option" data-correct="false">c es schickt das Ei per Post weg 📬</div>
-    </div>
-    <div class="quiz-feedback" id="feedback5"></div>
-    <div class="quiz-info" id="info5">🥚 Nach dem Legen gackert die Henne oft stolz – das ist ihr „Eier-Lied"! Unsere Eier sind dann bereit für dein Frühstück.</div>
-    
-    <div class="quiz-question">Frage sechs wie kommunizieren Hühner untereinander 🗣️</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code 🔢</div>
-      <div class="quiz-option" data-correct="true">b mit Gackern Glucksen und Scharren wie ein Hühner Chat 😊</div>
-      <div class="quiz-option" data-correct="false">c indem sie Selfies machen 📱</div>
-    </div>
-    <div class="quiz-feedback" id="feedback6"></div>
-    <div class="quiz-info" id="info6">🗣️ Hühner haben über 30 verschiedene Laute! Sie warnen sich, rufen Küken und unterhalten sich – ein echter Hühner-Chat im Vorgarten.</div>
-    
-    <div class="quiz-question">Frage sieben warum sind unsere Eier so besonders 🥚✨</div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-correct="false">a weil sie fliegen können ✈️</div>
-      <div class="quiz-option" data-correct="true">b weil glückliche Hühner im Vorgarten sie legen frisch und lecker 🌿</div>
-      <div class="quiz-option" data-correct="false">c weil sie magisch sind und zaubern 🪄</div>
-    </div>
-    <div class="quiz-feedback" id="feedback7"></div>
-    <div class="quiz-info" id="info7">✨ Unsere Eier sind so besonders, weil sie von glücklichen Hühnern stammen, die viel Auslauf, frische Luft und leckeres Futter bekommen!</div>
-    
-    <button id="reset-quiz">Quiz neu starten</button>
-  </section>
+  <!-- Quiz-Button und Quiz-Bereich -->
+  <button class="quiz-start-btn" id="show-quiz-btn">📖 Hühner Quiz starten 🐔</button>
+
+  <div id="quizbereich">
+    <section class="card quiz-card">
+      <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
+      <p>Beantworte die Fragen und klicke auf die richtige Antwort. Sobald du alle richtig beantwortet hast, lernst du unsere Hühner kennen.</p>
+      
+      <p style="background: #fff0b5; padding: 10px; border-radius: 10px; font-weight: bold; color: #b45f00; margin: 10px 0;">
+        ⭐ Wichtig: Du musst alle Fragen RICHTIG beantworten, dann lernst du unsere Hühner kennen! ⭐
+      </p>
+      
+      <div class="quiz-question">Frage eins wie oft legen Hühner Eier 🥚</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a einmal im Monat 🌙</div>
+        <div class="quiz-option" data-correct="false">b alle paar Tage 📅</div>
+        <div class="quiz-option" data-correct="true">c jeden Tag ☀️</div>
+      </div>
+      <div class="quiz-feedback" id="feedback1"></div>
+      <div class="quiz-info" id="info1">🐔 Die meisten Hühner legen fast jeden Tag ein Ei – unsere Wella, Wilma und Lupni machen das mit viel Freude im Vorgarten!</div>
+      
+      <div class="quiz-question">Frage zwei was essen Hühner am liebsten 🥬</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
+        <div class="quiz-option" data-correct="false">b Schokolade 🍫</div>
+        <div class="quiz-option" data-correct="false">c Eiscreme 🍦</div>
+      </div>
+      <div class="quiz-feedback" id="feedback2"></div>
+      <div class="quiz-info" id="info2">🥬 Hühner lieben frisches Grün, Gemüse und Kräuter. Schokolade und Eiscreme wären übrigens sogar gefährlich für sie!</div>
+      
+      <div class="quiz-question">Frage drei rate mal wie heißen unsere drei Hühner 🐥</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a Mia Max und Leo</div>
+        <div class="quiz-option" data-correct="true">b Wella Wilma und Lupni</div>
+        <div class="quiz-option" data-correct="false">c Sunny Happy und Joy</div>
+      </div>
+      <div class="quiz-feedback" id="feedback3"></div>
+      <div class="quiz-info" id="info3">🐥 Wella ist die Kuschelige, Wilma die Beobachtende und Lupni die Freche – gemeinsam sind sie ein unschlagbares Team!</div>
+      
+      <div class="quiz-question">Frage vier was macht ein Huhn wenn es glücklich ist 🐔</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck wie unsere Wella beim Spielen 😄</div>
+        <div class="quiz-option" data-correct="false">b singt Lieder wie ein Star 🎤</div>
+        <div class="quiz-option" data-correct="false">c malt Bilder mit den Füßen 🖌️</div>
+      </div>
+      <div class="quiz-feedback" id="feedback4"></div>
+      <div class="quiz-info" id="info4">🐔 Ein glückliches Huhn gackert zufrieden, scharrt im Boden und sucht nach Leckerbissen – bei uns im Vorgarten kannst du das täglich beobachten!</div>
+      
+      <div class="quiz-question">Frage fünf was passiert wenn ein Huhn ein Ei legt 🥚</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz 💃</div>
+        <div class="quiz-option" data-correct="true">b das Ei rollt aus dem Nest und ein neues Frühstück ist bereit danke Lupni 🐔</div>
+        <div class="quiz-option" data-correct="false">c es schickt das Ei per Post weg 📬</div>
+      </div>
+      <div class="quiz-feedback" id="feedback5"></div>
+      <div class="quiz-info" id="info5">🥚 Nach dem Legen gackert die Henne oft stolz – das ist ihr „Eier-Lied"! Unsere Eier sind dann bereit für dein Frühstück.</div>
+      
+      <div class="quiz-question">Frage sechs wie kommunizieren Hühner untereinander 🗣️</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code 🔢</div>
+        <div class="quiz-option" data-correct="true">b mit Gackern Glucksen und Scharren wie ein Hühner Chat 😊</div>
+        <div class="quiz-option" data-correct="false">c indem sie Selfies machen 📱</div>
+      </div>
+      <div class="quiz-feedback" id="feedback6"></div>
+      <div class="quiz-info" id="info6">🗣️ Hühner haben über 30 verschiedene Laute! Sie warnen sich, rufen Küken und unterhalten sich – ein echter Hühner-Chat im Vorgarten.</div>
+      
+      <div class="quiz-question">Frage sieben warum sind unsere Eier so besonders 🥚✨</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a weil sie fliegen können ✈️</div>
+        <div class="quiz-option" data-correct="true">b weil glückliche Hühner im Vorgarten sie legen frisch und lecker 🌿</div>
+        <div class="quiz-option" data-correct="false">c weil sie magisch sind und zaubern 🪄</div>
+      </div>
+      <div class="quiz-feedback" id="feedback7"></div>
+      <div class="quiz-info" id="info7">✨ Unsere Eier sind so besonders, weil sie von glücklichen Hühnern stammen, die viel Auslauf, frische Luft und leckeres Futter bekommen!</div>
+      
+      <button id="reset-quiz">Quiz neu starten</button>
+    </section>
+  </div>
 
   <!-- Glücksmomente mit Snack-Kiste -->
   <section class="card">
@@ -419,6 +430,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('rezepte-button').addEventListener('click', () => {
     document.getElementById('rezeptebereich').style.display = 'block';
     document.getElementById('rezeptebereich').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Quiz-Button: Zeige Quiz an
+  document.getElementById('show-quiz-btn').addEventListener('click', () => {
+    document.getElementById('quizbereich').style.display = 'block';
+    document.getElementById('show-quiz-btn').style.display = 'none';
+    document.getElementById('quizbereich').scrollIntoView({ behavior: 'smooth' });
   });
 
   // Quiz-Logik: Nur wenn alle Fragen RICHTIG beantwortet wurden
@@ -518,4 +536,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </body>
-  </html>
+</html>
