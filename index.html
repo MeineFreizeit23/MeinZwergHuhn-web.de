@@ -229,14 +229,6 @@ h2 { color: var(--brand); }
     <h2 id="freilauf-title">Unsere Hühner im Freilauf</h2>
     <p>Die Hühner scharren neugierig und genießen die Natur. Ihr Scharren macht den Vorgarten lebendig ihr Flattern erfüllt den Alltag mit Bewegung und Freude. <strong>Jeder Moment erinnert uns daran das Leben bewusst wahrzunehmen.</strong></p>
     <p><strong>Die Idee</strong> Glückliche Hühner lehren uns Gelassenheit Achtsamkeit und Freude. Lasst euch von ihrer Lebendigkeit inspirieren und entdeckt die schönen Dinge im Alltag.</p>
-    
-    <!-- ROTER HINWEIS -->
-    <p style="color: red; font-weight: bold; background: #fff0f0; padding: 12px; border-radius: 12px; border-left: 5px solid red; margin-top: 16px;">
-      Zurzeit dürfen unsere Hühner leider nicht überall im Garten rumlaufen.<br>
-      Es gibt eine Viren-Krankheit namens „Vogelgrippe“.<br>
-      Damit die Hühner gesund bleiben, müssen sie in ihrem sicheren Gehege bleiben.<br>
-      Sobald die Gefahr vorbei ist, hüpfen sie wieder fröhlich durch den Vorgarten.
-    </p>
   </section>
 
   <section class="card">
@@ -351,7 +343,7 @@ h2 { color: var(--brand); }
     </section>
   </div>
 
-  <!-- Glücksmomente mit Snack-Kiste (mit ID zum Ausblenden) -->
+  <!-- Glücksmomente mit Snack-Kiste -->
   <section class="card" id="gluecksmomente-section">
     <h2 class="gluecksmomente-title">
       <div class="gluecksmomente-eggs"><div class="egg"></div><div class="egg"></div><div class="egg"></div></div>
@@ -423,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Snack-Kiste Button: Zeige Futterbereich und blende Glücksmomente aus
   document.getElementById('snack-button').addEventListener('click', () => {
     document.getElementById('futterbereich').style.display = 'block';
-    document.getElementById('gluecksmomente-section').style.display = 'none';  // Bereich ausblenden
+    document.getElementById('gluecksmomente-section').style.display = 'none';
     document.getElementById('futterbereich').scrollIntoView({ behavior: 'smooth' });
   });
 
@@ -537,4 +529,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </body>
-  </html>
+</html>
