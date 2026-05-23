@@ -131,7 +131,8 @@ h2 { color: var(--brand); }
 .huhn-card.visible { opacity: 1; }
 .huhn-card img { width: 100%; border-radius: 15px; }
 .futter-list { list-style: none; padding: 0; }
-#futterbereich, #rezeptebereich { display: none; }
+#futterbereich { display: none; }
+#rezeptebereich { display: none; }
 #quizbereich { display: none; }
 .quiz-start-btn {
   background: var(--brand); color: #fff; border: none;
@@ -205,6 +206,7 @@ h2 { color: var(--brand); }
 <body>
 <main class="wrap">
 
+  <!-- Navigation: Nur Sprungmarken, kein Öffnen von versteckten Bereichen -->
   <nav>
     <a href="#start">🏠 Start</a>
     <a href="#garten-huehner">🌿 Haltung</a>
@@ -239,6 +241,7 @@ h2 { color: var(--brand); }
     </div>
   </section>
 
+  <!-- Futterbereich: Anfangs unsichtbar, wird nur durch Snack-Kiste-Button geöffnet -->
   <div id="futterbereich">
     <section class="card">
       <h2 id="futterliste-title">Futter und Snacks für unsere Hühner</h2>
@@ -264,9 +267,7 @@ h2 { color: var(--brand); }
     <div class="huhn-card"><img src="huhn3.jpg" alt="Lupni" loading="lazy"><h3>Lupni</h3><p>Eine entdeckungsfreudige Henne die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch frech und eigenwillig sorgt sie für Schwung in der Truppe.</p></div>
   </div>
 
-  <!-- Quiz-Button -->
-  <button class="quiz-start-btn" id="show-quiz-btn">📖 Hühner Quiz starten 🐔</button>
-
+  <!-- Quizbereich: Anfangs unsichtbar, wird nur durch den Quiz-Button geöffnet -->
   <div id="quizbereich">
     <section class="card quiz-card">
       <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
@@ -343,7 +344,7 @@ h2 { color: var(--brand); }
     </section>
   </div>
 
-  <!-- Glücksmomente mit Snack-Kiste -->
+  <!-- Glücksmomente mit Snack-Kiste (bunter Button öffnet Futterbereich) -->
   <section class="card" id="gluecksmomente-section">
     <h2 class="gluecksmomente-title">
       <div class="gluecksmomente-eggs"><div class="egg"></div><div class="egg"></div><div class="egg"></div></div>
@@ -412,31 +413,52 @@ h2 { color: var(--brand); }
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Snack-Kiste Button: Zeige Futterbereich und blende Glücksmomente aus
-  document.getElementById('snack-button').addEventListener('click', () => {
-    document.getElementById('futterbereich').style.display = 'block';
-    document.getElementById('gluecksmomente-section').style.display = 'none';
-    document.getElementById('futterbereich').scrollIntoView({ behavior: 'smooth' });
-  });
+  // Snack-Kiste Button: Zeigt den Futterbereich an
+  const snackBtn = document.getElementById('snack-button');
+  const futterbereich = document.getElementById('futterbereich');
+  if (snackBtn && futterbereich) {
+    snackBtn.addEventListener('click', () => {
+      futterbereich.style.display = 'block';
+      // Zur Überschrift der Futterliste scrollen
+      document.getElementById('futterliste-title').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 
-  // Rezepte Button
-  document.getElementById('rezepte-button').addEventListener('click', () => {
-    document.getElementById('rezeptebereich').style.display = 'block';
-    document.getElementById('rezeptebereich').scrollIntoView({ behavior: 'smooth' });
-  });
+  // Rezepte Button: Zeigt den Rezeptebereich an
+  const rezepteBtn = document.getElementById('rezepte-button');
+  const rezeptebereich = document.getElementById('rezeptebereich');
+  if (rezepteBtn && rezeptebereich) {
+    rezepteBtn.addEventListener('click', () => {
+      rezeptebereich.style.display = 'block';
+      document.getElementById('rezepte-title').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 
-  // Quiz-Button: Zeige Quiz an
-  document.getElementById('show-quiz-btn').addEventListener('click', () => {
-    document.getElementById('quizbereich').style.display = 'block';
-    document.getElementById('show-quiz-btn').style.display = 'none';
-    document.getElementById('quizbereich').scrollIntoView({ behavior: 'smooth' });
-  });
+  // Quiz-Button (großer gelber) – zeigt den Quizbereich an
+  const showQuizBtn = document.getElementById('show-quiz-btn');
+  const quizbereich = document.getElementById('quizbereich');
+  if (showQuizBtn && quizbereich) {
+    showQuizBtn.addEventListener('click', () => {
+      quizbereich.style.display = 'block';
+      showQuizBtn.style.display = 'none';
+      document.getElementById('quiz-title').scrollIntoView({ behavior: 'smooth' });
+    });
+  } else {
+    // Falls der Button nicht existiert (z.B. weil er im Code fehlt), hier simulieren:
+    const existingBtn = document.querySelector('.quiz-start-btn');
+    if (existingBtn && quizbereich) {
+      existingBtn.addEventListener('click', () => {
+        quizbereich.style.display = 'block';
+        existingBtn.style.display = 'none';
+        document.getElementById('quiz-title').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+  }
 
-  // Quiz-Logik: Nur wenn alle Fragen RICHTIG beantwortet wurden
+  // Quiz-Logik (wie gehabt)
   const cards = document.querySelectorAll('.huhn-card');
   const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
-  
   let questionAnswered = new Array(7).fill(false);
   let questionCorrect = new Array(7).fill(false);
 
@@ -450,9 +472,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function checkAllCorrect() {
     const allCorrect = questionCorrect.every(val => val === true);
-    if (allCorrect) {
+    if (allCorrect && huhnGrid) {
       huhnGrid.style.display = 'grid';
-      resetBtn.style.display = 'block';
+      if (resetBtn) resetBtn.style.display = 'block';
       showCardsOneByOne();
       setTimeout(() => {
         huhnGrid.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -463,52 +485,45 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.quiz-option').forEach(option => {
     option.addEventListener('click', function() {
       const questionEl = this.closest('.quiz-options');
-      const group = questionEl.querySelectorAll('.quiz-option');
       let questionIndex = 0;
       document.querySelectorAll('.quiz-options').forEach((qg, idx) => {
         if (qg === questionEl) questionIndex = idx;
       });
-      
       if (questionAnswered[questionIndex]) return;
-      
       const feedbackEl = document.getElementById('feedback' + (questionIndex + 1));
       const infoEl = document.getElementById('info' + (questionIndex + 1));
       const isCorrect = this.dataset.correct === 'true';
-      
+      const group = questionEl.querySelectorAll('.quiz-option');
       group.forEach(o => o.classList.add('disabled'));
       this.classList.add(isCorrect ? 'correct' : 'incorrect');
-      
       if (feedbackEl) {
         feedbackEl.textContent = isCorrect ? '✅ Richtig!' : '❌ Leider falsch.';
       }
       if (infoEl) infoEl.classList.add('show');
-      
       questionAnswered[questionIndex] = true;
-      if (isCorrect) {
-        questionCorrect[questionIndex] = true;
-      }
-      
+      if (isCorrect) questionCorrect[questionIndex] = true;
       checkAllCorrect();
     });
   });
 
-  resetBtn.addEventListener('click', () => {
-    document.querySelectorAll('.quiz-option').forEach(opt => {
-      opt.classList.remove('correct', 'incorrect', 'disabled');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      document.querySelectorAll('.quiz-option').forEach(opt => {
+        opt.classList.remove('correct', 'incorrect', 'disabled');
+      });
+      for (let i = 1; i <= 7; i++) {
+        const fb = document.getElementById('feedback' + i);
+        const info = document.getElementById('info' + i);
+        if (fb) fb.textContent = '';
+        if (info) info.classList.remove('show');
+      }
+      if (huhnGrid) huhnGrid.style.display = 'none';
+      cards.forEach(c => c.classList.remove('visible'));
+      if (resetBtn) resetBtn.style.display = 'none';
+      questionAnswered = new Array(7).fill(false);
+      questionCorrect = new Array(7).fill(false);
     });
-    for (let i = 1; i <= 7; i++) {
-      const fb = document.getElementById('feedback' + i);
-      const info = document.getElementById('info' + i);
-      if (fb) fb.textContent = '';
-      if (info) info.classList.remove('show');
-    }
-    huhnGrid.style.display = 'none';
-    cards.forEach(c => c.classList.remove('visible'));
-    resetBtn.style.display = 'none';
-    
-    questionAnswered = new Array(7).fill(false);
-    questionCorrect = new Array(7).fill(false);
-  });
+  }
 
   // Rezept-Anleitungen
   document.querySelectorAll('.show-rezept-btn').forEach(btn => {
@@ -524,8 +539,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const likeBtn = document.getElementById('like-button');
   const likeBox = document.getElementById('like-count-box');
   let count = Number(localStorage.getItem('likeCount')) || 0;
-  likeBox.textContent = count;
-  likeBtn.addEventListener('click', () => { count++; localStorage.setItem('likeCount', count); likeBox.textContent = count; });
+  if (likeBox) likeBox.textContent = count;
+  if (likeBtn) {
+    likeBtn.addEventListener('click', () => {
+      count++;
+      localStorage.setItem('likeCount', count);
+      if (likeBox) likeBox.textContent = count;
+    });
+  }
 });
 </script>
 </body>
