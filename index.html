@@ -206,7 +206,6 @@ h2 { color: var(--brand); }
 <body>
 <main class="wrap">
 
-  <!-- Navigation: Nur Sprungmarken, kein Öffnen von versteckten Bereichen -->
   <nav>
     <a href="#start">🏠 Start</a>
     <a href="#garten-huehner">🌿 Haltung</a>
@@ -229,8 +228,10 @@ h2 { color: var(--brand); }
 
   <section class="card">
     <h2 id="freilauf-title">Unsere Hühner im Freilauf</h2>
-    <p>Die Hühner scharren neugierig und genießen die Natur. Ihr Scharren macht den Vorgarten lebendig ihr Flattern erfüllt den Alltag mit Bewegung und Freude. <strong>Jeder Moment erinnert uns daran das Leben bewusst wahrzunehmen.</strong></p>
-    <p><strong>Die Idee</strong> Glückliche Hühner lehren uns Gelassenheit Achtsamkeit und Freude. Lasst euch von ihrer Lebendigkeit inspirieren und entdeckt die schönen Dinge im Alltag.</p>
+    <p>Die Hühner scharren neugierig und genießen die Natur. Ihr Scharren macht den Vorgarten lebendig, ihr Flattern erfüllt den Alltag mit Bewegung und Freude.</p>
+    <p>Besonders schön ist es, ihnen zuzusehen. Ihre Freude ist ansteckend, ihre Laute erzählen kleine Geschichten – ein zufriedenes Glucksen, ein aufgeregtes Gackern oder das stolze Ei-Lied.</p>
+    <p><strong>Wie sie gemeinsam einfach glücklich sind</strong> – das ist doch total toll.</p>
+    <p><strong>Die Idee:</strong> Glückliche Hühner lehren uns <strong>Gelassenheit, Achtsamkeit und Freude</strong>. Lasst euch von ihrer Lebendigkeit inspirieren und entdeckt die schönen Dinge im Alltag.</p>
   </section>
 
   <section class="card">
@@ -241,7 +242,7 @@ h2 { color: var(--brand); }
     </div>
   </section>
 
-  <!-- Futterbereich: Anfangs unsichtbar, wird nur durch Snack-Kiste-Button geöffnet -->
+  <!-- Futterbereich: Anfangs unsichtbar -->
   <div id="futterbereich">
     <section class="card">
       <h2 id="futterliste-title">Futter und Snacks für unsere Hühner</h2>
@@ -267,7 +268,7 @@ h2 { color: var(--brand); }
     <div class="huhn-card"><img src="huhn3.jpg" alt="Lupni" loading="lazy"><h3>Lupni</h3><p>Eine entdeckungsfreudige Henne die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch frech und eigenwillig sorgt sie für Schwung in der Truppe.</p></div>
   </div>
 
-  <!-- Quizbereich: Anfangs unsichtbar, wird nur durch den Quiz-Button geöffnet -->
+  <!-- Quizbereich: Anfangs unsichtbar -->
   <div id="quizbereich">
     <section class="card quiz-card">
       <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
@@ -419,7 +420,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (snackBtn && futterbereich) {
     snackBtn.addEventListener('click', () => {
       futterbereich.style.display = 'block';
-      // Zur Überschrift der Futterliste scrollen
       document.getElementById('futterliste-title').scrollIntoView({ behavior: 'smooth' });
     });
   }
@@ -444,7 +444,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('quiz-title').scrollIntoView({ behavior: 'smooth' });
     });
   } else {
-    // Falls der Button nicht existiert (z.B. weil er im Code fehlt), hier simulieren:
     const existingBtn = document.querySelector('.quiz-start-btn');
     if (existingBtn && quizbereich) {
       existingBtn.addEventListener('click', () => {
@@ -455,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Quiz-Logik (wie gehabt)
+  // Quiz-Logik
   const cards = document.querySelectorAll('.huhn-card');
   const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
