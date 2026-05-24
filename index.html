@@ -131,6 +131,7 @@ h2 { color: var(--brand); }
 .huhn-card.visible { opacity: 1; }
 .huhn-card img { width: 100%; border-radius: 15px; }
 .futter-list { list-style: none; padding: 0; }
+.futter-list li { margin: 6px 0; }
 #futterbereich { display: none; }
 #rezeptebereich { display: none; }
 #quizbereich { display: none; }
@@ -195,11 +196,61 @@ h2 { color: var(--brand); }
   background: #fff; border: 2px solid var(--panel-border); border-radius: 12px;
   padding: 9px 14px; font-weight: 700; color: var(--brand);
 }
+/* Emotionen-Like-Buttons */
+.emotion-wrap {
+  background: #fff8e7;
+  border-radius: 30px;
+  padding: 15px 20px;
+  margin: 20px 0;
+  text-align: center;
+  border: 2px solid var(--accent);
+}
+.emotion-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: var(--brand);
+}
+.emotion-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.emotion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.emotion-btn {
+  font-size: 2.2rem;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 60px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--shadow);
+}
+.emotion-btn:hover {
+  transform: scale(1.05);
+  border-color: var(--brand);
+}
+.emotion-count {
+  font-size: 0.85rem;
+  background: var(--panel);
+  padding: 4px 10px;
+  border-radius: 30px;
+  font-weight: bold;
+  color: var(--brand);
+}
 @media (max-width: 600px) {
   body { padding: 8px; }
   nav { gap: 4px 8px; padding: 8px; }
   nav a { font-size: 0.78rem; }
   .quiz-option { width: 95%; }
+  .emotion-btn { font-size: 1.6rem; padding: 6px 12px; }
+  .emotion-buttons { gap: 10px; }
 }
 </style>
 </head>
@@ -242,19 +293,42 @@ h2 { color: var(--brand); }
     </div>
   </section>
 
-  <!-- Futterbereich: Anfangs unsichtbar -->
+  <!-- Futterbereich: Aktualisierte Liste mit ✅ und ❌ -->
   <div id="futterbereich">
     <section class="card">
-      <h2 id="futterliste-title">Futter und Snacks für unsere Hühner</h2>
-      <p>Die Snack Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
+      <h2 id="futterliste-title">Unsere Hühner freuen sich über 🐓</h2>
+      <p>Die Snack Kiste hängt direkt am Hühnerzaun. Wenn ihr den Hühnern etwas Gutes tun wollt, legt einfach Leckerlis hinein. Auf Wunsch tausche ich diese auch gerne gegen frische Eier.</p>
       <ul class="futter-list">
-        <li>✔️ Gurke</li><li>✔️ Karotte</li><li>✔️ Verschiedene Salate</li><li>✔️ Beeren</li>
-        <li>✔️ Frisches Grün zum Beispiel Löwenzahn Rucola Feldsalat Spinat</li>
-        <li>✔️ Frische Kräuter zum Beispiel Petersilie Koriander Basilikum</li>
-        <li>❌ Zitrusfrüchte</li><li>❌ Avocado</li><li>❌ rohe Kartoffeln</li><li>❌ Zwiebeln</li>
-        <li>❌ Süßigkeiten und Gewürze</li><li>❌ Knoblauch</li><li>❌ Schokolade</li>
+        <!-- Erlaubte Snacks (grüner Haken) -->
+        <li>✅ Gurke</li>
+        <li>✅ Karotte</li>
+        <li>✅ Apfel (entkernt)</li>
+        <li>✅ Verschiedene Salate (z. B. Kopfsalat, Römersalat)</li>
+        <li>✅ Beeren (Erdbeeren, Himbeeren, Blaubeeren)</li>
+        <li>✅ Frisches Grün: Löwenzahn, Rucola, Feldsalat, Spinat</li>
+        <li>✅ Frische Kräuter: Petersilie, Koriander, Basilikum, Oregano</li>
+        <li>✅ Gekochte Nudeln oder Reis (ungesalzen)</li>
+        <li>✅ Haferflocken (natur, ungesüßt)</li>
+        <li>✅ Weich gekochte Kartoffeln (ohne Schale, ungesalzen)</li>
+        <li>✅ Kürbis- oder Sonnenblumenkerne (ungesalzen)</li>
+        <li>✅ Melone</li>
+        <li>✅ Zucchini</li>
+        <li>✅ Gekochte Eier (klein gehackt, als Protein-Boost)</li>
+
+        <!-- Nicht erlaubte / gefährliche Snacks (rotes X) -->
+        <li>❌ Zitrusfrüchte (Orange, Zitrone, Mandarine)</li>
+        <li>❌ Avocado</li>
+        <li>❌ Rohe Kartoffeln (besonders grüne Stellen / Keime)</li>
+        <li>❌ Rohe Bohnen</li>
+        <li>❌ Zwiebeln (roh oder gekocht)</li>
+        <li>❌ Knoblauch (roh, in großen Mengen)</li>
+        <li>❌ Schokolade, Süßigkeiten, Kuchen</li>
+        <li>❌ Salziges oder stark Gewürztes (Chips, Brot mit Salz)</li>
+        <li>❌ Schimmeliges oder verdorbenes Obst/Gemüse</li>
+        <li>❌ Grüne Tomaten oder rohe Auberginen</li>
+        <li>❌ Rohe Pilze</li>
       </ul>
-      <p><strong>Wichtig</strong> Alles sollte frisch unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen.</p>
+      <p><strong>Wichtig:</strong> Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen (z. B. Eiben, Buchsbaum, Nachtschattengewächse).</p>
       <p style="font-weight: 600; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir sechs frische Eier 🥚</p>
       <div class="btn-row">
         <a class="wa-btn" href="https://wa.me/491638306166?text=Hallo,%20ich%20habe%20Snacks%20für%20die%20Hühner%20in%20die%20Kiste%20gelegt%20und%20würde%20gerne%20gegen%20frische%20Eier%20tauschen." target="_blank" rel="noopener">Snacks gegen Eier tauschen</a>
@@ -268,7 +342,7 @@ h2 { color: var(--brand); }
     <div class="huhn-card"><img src="huhn3.jpg" alt="Lupni" loading="lazy"><h3>Lupni</h3><p>Eine entdeckungsfreudige Henne die genau wie ihre Schwester Wilma mit neugierigem Blick Neues erkundet. Forsch frech und eigenwillig sorgt sie für Schwung in der Truppe.</p></div>
   </div>
 
-  <!-- Quizbereich: Anfangs unsichtbar -->
+  <!-- Quizbereich -->
   <div id="quizbereich">
     <section class="card quiz-card">
       <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
@@ -345,7 +419,7 @@ h2 { color: var(--brand); }
     </section>
   </div>
 
-  <!-- Glücksmomente mit Snack-Kiste (bunter Button öffnet Futterbereich) -->
+  <!-- Glücksmomente mit Snack-Kiste -->
   <section class="card" id="gluecksmomente-section">
     <h2 class="gluecksmomente-title">
       <div class="gluecksmomente-eggs"><div class="egg"></div><div class="egg"></div><div class="egg"></div></div>
@@ -383,6 +457,29 @@ h2 { color: var(--brand); }
     </section>
   </div>
 
+  <!-- Emotionen-Like-Buttons (Idee 5) -->
+  <div class="emotion-wrap">
+    <div class="emotion-title">🐔 Was löst die Seite bei dir aus?</div>
+    <div class="emotion-buttons">
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="freude">😊</button>
+        <span class="emotion-count" id="count-freude">0</span>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="huehner">🐓</button>
+        <span class="emotion-count" id="count-huehner">0</span>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="eier">🥚</button>
+        <span class="emotion-count" id="count-eier">0</span>
+      </div>
+      <div class="emotion-item">
+        <button class="emotion-btn" data-emotion="idee">💡</button>
+        <span class="emotion-count" id="count-idee">0</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Gästebuch -->
   <section class="card">
     <h2 style="text-align:center;">💬 Gästebuch</h2>
@@ -405,7 +502,6 @@ h2 { color: var(--brand); }
 
   <footer class="footer">
     <div class="footer-chickens"><div class="footer-chicken">🐣</div><div class="footer-chicken">🐥</div><div class="footer-chicken">🐤</div></div>
-    <div class="like-wrap"><button class="like-btn" id="like-button">Gefällt mir 💛</button><div class="like-counter" id="like-count-box">0</div></div>
     <div>☘️💯☘️</div>
     <p style="font-weight: 700;">Ein Lächeln, drei Hühner, ein Vorgarten. Mehr braucht es nicht.</p>
     <p style="font-size: .75rem;">&copy; 2025 Kleine Eier großes Lächeln</p>
@@ -414,7 +510,7 @@ h2 { color: var(--brand); }
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Snack-Kiste Button: Zeigt den Futterbereich an
+  // Snack-Kiste Button
   const snackBtn = document.getElementById('snack-button');
   const futterbereich = document.getElementById('futterbereich');
   if (snackBtn && futterbereich) {
@@ -424,7 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Rezepte Button: Zeigt den Rezeptebereich an
+  // Rezepte Button
   const rezepteBtn = document.getElementById('rezepte-button');
   const rezeptebereich = document.getElementById('rezeptebereich');
   if (rezepteBtn && rezeptebereich) {
@@ -434,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Quiz-Button (großer gelber) – zeigt den Quizbereich an
+  // Quiz Button
   const showQuizBtn = document.getElementById('show-quiz-btn');
   const quizbereich = document.getElementById('quizbereich');
   if (showQuizBtn && quizbereich) {
@@ -534,18 +630,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Like-Button
-  const likeBtn = document.getElementById('like-button');
-  const likeBox = document.getElementById('like-count-box');
-  let count = Number(localStorage.getItem('likeCount')) || 0;
-  if (likeBox) likeBox.textContent = count;
-  if (likeBtn) {
-    likeBtn.addEventListener('click', () => {
+  // Emotionen-Like-Buttons (Idee 5)
+  const emotions = ['freude', 'huehner', 'eier', 'idee'];
+  emotions.forEach(emotion => {
+    const count = localStorage.getItem('emotion_' + emotion) || 0;
+    document.getElementById('count-' + emotion).textContent = count;
+  });
+
+  document.querySelectorAll('.emotion-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const emotion = btn.dataset.emotion;
+      let count = Number(localStorage.getItem('emotion_' + emotion)) || 0;
       count++;
-      localStorage.setItem('likeCount', count);
-      if (likeBox) likeBox.textContent = count;
+      localStorage.setItem('emotion_' + emotion, count);
+      document.getElementById('count-' + emotion).textContent = count;
+      
+      // Kleine Animation als Feedback
+      btn.style.transform = 'scale(1.2)';
+      setTimeout(() => {
+        btn.style.transform = 'scale(1)';
+      }, 200);
     });
-  }
+  });
 });
 </script>
 </body>
