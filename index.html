@@ -198,6 +198,7 @@ h2 { color: var(--brand); }
   font-weight: bold;
   margin-bottom: 12px;
   color: var(--brand);
+  font-size: 1.2rem;
 }
 .emotion-buttons {
   display: flex;
@@ -389,14 +390,14 @@ h2 { color: var(--brand); }
 
   <!-- Emotionen mit zentraler Google Sheets Speicherung (für alle sichtbar) -->
   <div class="emotion-wrap">
-    <div class="emotion-title">🐔 Was löst die Seite bei dir aus?</div>
+    <div class="emotion-title">🐔 Drück dein Lieblingsgefühl!</div>
     <div class="emotion-buttons">
       <div class="emotion-item"><button class="emotion-btn" data-emotion="freude">😊</button><span class="emotion-count" id="count-freude">0</span></div>
       <div class="emotion-item"><button class="emotion-btn" data-emotion="henne">🐔</button><span class="emotion-count" id="count-henne">0</span></div>
       <div class="emotion-item"><button class="emotion-btn" data-emotion="eier">🥚</button><span class="emotion-count" id="count-eier">0</span></div>
       <div class="emotion-item"><button class="emotion-btn" data-emotion="daumen">👍</button><span class="emotion-count" id="count-daumen">0</span></div>
     </div>
-    <p style="font-size:0.75rem; margin-top:10px;">✨ Jeder Klick wird gezählt – alle sehen die aktuellen Stimmen!</p>
+    <p style="font-size:0.7rem; margin-top:8px; color:#666;">✨ Jeder Klick wird gezählt – alle sehen die aktuellen Stimmen!</p>
   </div>
 
   <section class="card">
@@ -532,7 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxNGtWy7BGY2d5nLxRu1dTgOzhgl4WkDSLRX2LSqzQ0uFKcWBWcrYA6rWe_gpcuc/exec';
   const EMOTIONS = ['freude', 'henne', 'eier', 'daumen'];
 
-  // Aktuelle Zähler aus dem Google Sheet lesen (über die Web-App)
+  // Aktuelle Zähler aus dem Google Sheet lesen
   async function loadCounts() {
     try {
       const response = await fetch(WEB_APP_URL + '?action=read');
@@ -544,20 +545,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     } catch (error) {
-      console.warn('Fehler beim Laden der Zähler:', error);
+      console.warn('Fehler beim Laden:', error);
     }
   }
 
   // Stimme für eine Emotion abschicken
   async function sendVote(emotion) {
     try {
-      const response = await fetch(WEB_APP_URL, {
+      await fetch(WEB_APP_URL, {
         method: 'POST',
-        mode: 'no-cors', // wichtig für Apps Script
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ emotion: emotion })
       });
-      // Nach dem Absenden neu laden
       setTimeout(loadCounts, 500);
     } catch (error) {
       console.warn('Fehler beim Senden:', error);
@@ -566,12 +566,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Event-Listener für Smiley-Buttons
   document.querySelectorAll('.emotion-btn').forEach(btn => {
-    btn.addEventListener('click', async () => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
       const emotion = btn.dataset.emotion;
-      await sendVote(emotion);
-      // Kleine Animation
+      // Animation
       btn.style.transform = 'scale(1.2)';
       setTimeout(() => { btn.style.transform = 'scale(1)'; }, 200);
+      // Stimme abschicken
+      await sendVote(emotion);
     });
   });
 
