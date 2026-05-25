@@ -186,16 +186,6 @@ h2 { color: var(--brand); }
 }
 .show-rezept-btn:hover { background: #d06a00; }
 .rezept-anleitung { display: none; margin-top: 12px; }
-.like-wrap { display: flex; justify-content: center; gap: 12px; margin: 18px 0; }
-.like-btn {
-  background: #ff7f50; color: #fff; font-weight: 700; border: none;
-  padding: 10px 16px; border-radius: 12px; cursor: pointer;
-}
-.like-btn:hover { background: #e56d43; }
-.like-counter {
-  background: #fff; border: 2px solid var(--panel-border); border-radius: 12px;
-  padding: 9px 14px; font-weight: 700; color: var(--brand);
-}
 .emotion-wrap {
   background: #fff8e7;
   border-radius: 30px;
@@ -339,27 +329,21 @@ h2 { color: var(--brand); }
       <div class="quiz-question">Frage eins wie oft legen Hühner Eier 🥚</div>
       <div class="quiz-options"><div class="quiz-option" data-correct="false">a einmal im Monat 🌙</div><div class="quiz-option" data-correct="false">b alle paar Tage 📅</div><div class="quiz-option" data-correct="true">c jeden Tag ☀️</div></div>
       <div class="quiz-feedback" id="feedback1"></div><div class="quiz-info" id="info1">🐔 Die meisten Hühner legen fast jeden Tag ein Ei – unsere Wella, Wilma und Lupni machen das mit viel Freude im Vorgarten!</div>
-      
       <div class="quiz-question">Frage zwei was essen Hühner am liebsten 🥬</div>
       <div class="quiz-options"><div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten 🥒🥕</div><div class="quiz-option" data-correct="false">b Schokolade 🍫</div><div class="quiz-option" data-correct="false">c Eiscreme 🍦</div></div>
       <div class="quiz-feedback" id="feedback2"></div><div class="quiz-info" id="info2">🥬 Hühner lieben frisches Grün, Gemüse und Kräuter. Schokolade und Eiscreme wären übrigens sogar gefährlich für sie!</div>
-      
       <div class="quiz-question">Frage drei rate mal wie heißen unsere drei Hühner 🐥</div>
       <div class="quiz-options"><div class="quiz-option" data-correct="false">a Mia Max und Leo</div><div class="quiz-option" data-correct="true">b Wella Wilma und Lupni</div><div class="quiz-option" data-correct="false">c Sunny Happy und Joy</div></div>
       <div class="quiz-feedback" id="feedback3"></div><div class="quiz-info" id="info3">🐥 Wella ist die Kuschelige, Wilma die Beobachtende und Lupni die Freche – gemeinsam sind sie ein unschlagbares Team!</div>
-      
       <div class="quiz-question">Frage vier was macht ein Huhn wenn es glücklich ist 🐔</div>
       <div class="quiz-options"><div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck wie unsere Wella beim Spielen 😄</div><div class="quiz-option" data-correct="false">b singt Lieder wie ein Star 🎤</div><div class="quiz-option" data-correct="false">c malt Bilder mit den Füßen 🖌️</div></div>
       <div class="quiz-feedback" id="feedback4"></div><div class="quiz-info" id="info4">🐔 Ein glückliches Huhn gackert zufrieden, scharrt im Boden und sucht nach Leckerbissen – bei uns im Vorgarten kannst du das täglich beobachten!</div>
-      
       <div class="quiz-question">Frage fünf was passiert wenn ein Huhn ein Ei legt 🥚</div>
       <div class="quiz-options"><div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz 💃</div><div class="quiz-option" data-correct="true">b das Ei rollt aus dem Nest und ein neues Frühstück ist bereit danke Lupni 🐔</div><div class="quiz-option" data-correct="false">c es schickt das Ei per Post weg 📬</div></div>
       <div class="quiz-feedback" id="feedback5"></div><div class="quiz-info" id="info5">🥚 Nach dem Legen gackert die Henne oft stolz – das ist ihr „Eier-Lied"! Unsere Eier sind dann bereit für dein Frühstück.</div>
-      
       <div class="quiz-question">Frage sechs wie kommunizieren Hühner untereinander 🗣️</div>
       <div class="quiz-options"><div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code 🔢</div><div class="quiz-option" data-correct="true">b mit Gackern Glucksen und Scharren wie ein Hühner Chat 😊</div><div class="quiz-option" data-correct="false">c indem sie Selfies machen 📱</div></div>
       <div class="quiz-feedback" id="feedback6"></div><div class="quiz-info" id="info6">🗣️ Hühner haben über 30 verschiedene Laute! Sie warnen sich, rufen Küken und unterhalten sich – ein echter Hühner-Chat im Vorgarten.</div>
-      
       <div class="quiz-question">Frage sieben warum sind unsere Eier so besonders 🥚✨</div>
       <div class="quiz-options"><div class="quiz-option" data-correct="false">a weil sie fliegen können ✈️</div><div class="quiz-option" data-correct="true">b weil glückliche Hühner im Vorgarten sie legen frisch und lecker 🌿</div><div class="quiz-option" data-correct="false">c weil sie magisch sind und zaubern 🪄</div></div>
       <div class="quiz-feedback" id="feedback7"></div><div class="quiz-info" id="info7">✨ Unsere Eier sind so besonders, weil sie von glücklichen Hühnern stammen, die viel Auslauf, frische Luft und leckeres Futter bekommen!</div>
@@ -403,14 +387,14 @@ h2 { color: var(--brand); }
     </section>
   </div>
 
-  <!-- Emotionen mit Google Sheets-Speicherung (für alle sichtbar) -->
+  <!-- Emotionen mit zentraler Google Sheets Speicherung (für alle sichtbar) -->
   <div class="emotion-wrap">
     <div class="emotion-title">🐔 Was löst die Seite bei dir aus?</div>
     <div class="emotion-buttons">
       <div class="emotion-item"><button class="emotion-btn" data-emotion="freude">😊</button><span class="emotion-count" id="count-freude">0</span></div>
-      <div class="emotion-item"><button class="emotion-btn" data-emotion="huehner">🐓</button><span class="emotion-count" id="count-huehner">0</span></div>
+      <div class="emotion-item"><button class="emotion-btn" data-emotion="henne">🐔</button><span class="emotion-count" id="count-henne">0</span></div>
       <div class="emotion-item"><button class="emotion-btn" data-emotion="eier">🥚</button><span class="emotion-count" id="count-eier">0</span></div>
-      <div class="emotion-item"><button class="emotion-btn" data-emotion="idee">💡</button><span class="emotion-count" id="count-idee">0</span></div>
+      <div class="emotion-item"><button class="emotion-btn" data-emotion="daumen">👍</button><span class="emotion-count" id="count-daumen">0</span></div>
     </div>
     <p style="font-size:0.75rem; margin-top:10px;">✨ Jeder Klick wird gezählt – alle sehen die aktuellen Stimmen!</p>
   </div>
@@ -444,7 +428,7 @@ h2 { color: var(--brand); }
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // ----- Snack-Kiste, Rezepte, Quiz, etc. (unverändert) -----
+  // ==================== Snack-Kiste, Rezepte, Quiz ====================
   const snackBtn = document.getElementById('snack-button');
   const futterbereich = document.getElementById('futterbereich');
   if (snackBtn && futterbereich) {
@@ -453,6 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('futterliste-title').scrollIntoView({ behavior: 'smooth' });
     });
   }
+
   const rezepteBtn = document.getElementById('rezepte-button');
   const rezeptebereich = document.getElementById('rezeptebereich');
   if (rezepteBtn && rezeptebereich) {
@@ -461,6 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('rezepte-title').scrollIntoView({ behavior: 'smooth' });
     });
   }
+
   const showQuizBtn = document.getElementById('show-quiz-btn');
   const quizbereich = document.getElementById('quizbereich');
   if (showQuizBtn && quizbereich) {
@@ -480,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ----- Quiz-Logik -----
+  // Quiz-Logik
   const cards = document.querySelectorAll('.huhn-card');
   const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
@@ -542,76 +528,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ----- ZENTRALE GOOGLE SHEETS STIMMEN (für ALLE sichtbar) -----
-  const SHEET_ID = '1_uBieCoFcqCuULrJxSKL1t_KFL2HJ0G9GrPJ87CF7bY';
-  const SHEET_NAME = 'Tabelle1'; // falls du sie umbenannt hast, anpassen
-  const EMOTIONS = ['freude', 'huehner', 'eier', 'idee'];
+  // ==================== ZENTRALE SMILEY-ZÄHLER (für alle sichtbar) ====================
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxNGtWy7BGY2d5nLxRu1dTgOzhgl4WkDSLRX2LSqzQ0uFKcWBWcrYA6rWe_gpcuc/exec';
+  const EMOTIONS = ['freude', 'henne', 'eier', 'daumen'];
 
-  // Hilfsfunktion: Zellenwert aus Sheet lesen (via Google Sheets API v4)
-  async function readCounts() {
+  // Aktuelle Zähler aus dem Google Sheet lesen (über die Web-App)
+  async function loadCounts() {
     try {
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A:C?key=AIzaSyA7nIYb3IqEZcXhqUqXyqXyqXyqXyqXyqXyqXy`; 
-      // Öffentliche Lese-API erfordert einen API-Key – wir nutzen einen öffentlichen, eingeschränkten Key
-      // Alternativ: Einfache JSON-Ausgabe über google sheets export als csv/json (besser)
-      // Da die Tabelle öffentlich als "Jeder mit Link kann bearbeiten" ist, nutzen wir den einfachen JSON-Export
-      const jsonUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&tq=SELECT%20A,B,C`;
-      const response = await fetch(jsonUrl);
-      const text = await response.text();
-      const json = JSON.parse(text.substring(47, text.length-2));
-      const rows = json.table.rows;
-      // Erwartete Spalten: A=Zeitstempel, B=Emotion, C=Stimmen (optional)
-      // Wir suchen die letzte Stimmenzahl für jede Emotion (neuester Eintrag)
-      let counts = { freude:0, huehner:0, eier:0, idee:0 };
-      if(rows && rows.length) {
-        for(let i=rows.length-1; i>=0; i--) {
-          const emotion = rows[i].c[1]?.v;
-          const stimmen = parseInt(rows[i].c[2]?.v) || 0;
-          if(emotion && counts[emotion] === undefined && stimmen>0) counts[emotion] = stimmen;
+      const response = await fetch(WEB_APP_URL + '?action=read');
+      const data = await response.json();
+      if (data && data.counts) {
+        for (let emotion of EMOTIONS) {
+          const span = document.getElementById(`count-${emotion}`);
+          if (span) span.textContent = data.counts[emotion] || 0;
         }
-        // falls keine Werte gefunden, dann Standard 0
-        for(let e of EMOTIONS) if(!counts[e]) counts[e]=0;
       }
-      // Zähler aktualisieren
-      for(let emotion of EMOTIONS) {
-        const span = document.getElementById(`count-${emotion}`);
-        if(span) span.textContent = counts[emotion];
-      }
-      return counts;
-    } catch(e) {
-      console.warn("Fehler beim Lesen aus Google Sheet:", e);
-      return { freude:0, huehner:0, eier:0, idee:0 };
+    } catch (error) {
+      console.warn('Fehler beim Laden der Zähler:', error);
     }
   }
 
-  // Stimme schreiben (neue Zeile anhängen)
-  async function addVote(emotion) {
+  // Stimme für eine Emotion abschicken
+  async function sendVote(emotion) {
     try {
-      // Aktuelle Gesamtzahl auslesen, erhöhen, dann neuen Gesamtwert in neue Zeile schreiben
-      const current = await readCounts();
-      const newCount = (current[emotion] || 0) + 1;
-      // Google Sheet via fetch mit POST (benötigt publizierte Web-App, daher einfachere Lösung: 
-      // Wir nutzen den Google Forms Ersatz? – Am einfachsten: Wir schreiben über einen Google Apps Script Webhook.
-      // Da dies zu aufwendig wird, hier eine pragmatische Lösung: 
-      // Der Besucher bekommt einen Link zum manuellen Aktualisieren? Nein.
-      // Stattdessen nutzen wir einen offenen Google Sheet Proxy Dienst – oder wir erzeugen eine fertige Web-App.
-      // Zeitlich effizienter: Ich baue dir einen kleinen Google Apps Script Code, den du einmal ausführst.
-      // Da das hier den Rahmen sprengt, zeige ich dir direkt den letzten Schritt:
-      alert("Die Stimme wurde gezählt! (Technisch müsste nun ein Google Script die Zeile schreiben. Ich kann dir den Code dafür separat geben.)")
-      // Für den finalen produktiven Einsatz baue ich dir die komplette Web-App in 5 Minuten – sag einfach Bescheid.
-    } catch(e) { console.error(e); }
+      const response = await fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors', // wichtig für Apps Script
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ emotion: emotion })
+      });
+      // Nach dem Absenden neu laden
+      setTimeout(loadCounts, 500);
+    } catch (error) {
+      console.warn('Fehler beim Senden:', error);
+    }
   }
 
-  // Event Listener für Emotionen
+  // Event-Listener für Smiley-Buttons
   document.querySelectorAll('.emotion-btn').forEach(btn => {
-    btn.addEventListener('click', async (e) => {
+    btn.addEventListener('click', async () => {
       const emotion = btn.dataset.emotion;
-      await addVote(emotion);
-      await readCounts(); // neu laden nach dem Schreiben
+      await sendVote(emotion);
+      // Kleine Animation
+      btn.style.transform = 'scale(1.2)';
+      setTimeout(() => { btn.style.transform = 'scale(1)'; }, 200);
     });
   });
 
   // Initial laden
-  readCounts();
+  loadCounts();
 });
 </script>
 </body>
