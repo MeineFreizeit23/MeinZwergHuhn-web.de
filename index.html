@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kleine Eier, großes Lächeln</title>
+<title>Kleine Eier, großes Lächeln – Hühner Quiz</title>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7560QNW1QH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -43,18 +43,6 @@ body {
   flex-direction: column;
 }
 .wrap { width: 100%; max-width: 820px; display: flex; flex-direction: column; flex-grow: 1; }
-nav {
-  background: var(--panel); border: 2px solid var(--panel-border);
-  border-radius: var(--radius); padding: 10px 14px; margin: 0 0 18px;
-  box-shadow: var(--shadow); position: sticky; top: 10px; z-index: 100;
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 12px;
-}
-nav a {
-  text-decoration: none; color: var(--brand); font-weight: 700;
-  font-size: 0.9rem; padding: 6px 10px; border-radius: 20px;
-  transition: background 0.2s; white-space: nowrap;
-}
-nav a:hover { background: var(--accent); }
 header {
   background: var(--header-bg); border-radius: 16px; padding: var(--card-padding);
   margin-bottom: 18px; box-shadow: var(--shadow); text-align: center;
@@ -102,38 +90,8 @@ h1 { color: var(--brand); font-size: clamp(2.4rem, 5vw, 3rem); font-weight: 900;
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.95; transform: scale(1.02); }
 }
-.snack-einladung, .rezepte-einladung {
-  text-align: center; background: #fff; border: 2px dashed var(--panel-border);
-  border-radius: var(--radius); padding: 20px 16px; margin-top: 18px;
-}
-.snack-einladung p, .rezepte-einladung p { font-size: 1.05rem; }
-.snack-link, .rezepte-link {
-  display: inline-block; margin-top: 10px; background: var(--brand);
-  color: #fff; text-decoration: none; padding: 8px 18px;
-  border-radius: 20px; font-weight: 700; cursor: pointer; border: none;
-}
-.snack-link:hover, .rezepte-link:hover { background: #2d4a1e; }
-.btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
-.wa-btn {
-  display: inline-flex; align-items: center; gap: .6rem;
-  padding: 9px 14px; border-radius: 12px;
-  color: #fff; text-decoration: none; font-weight: 700;
-  background: #25D366; box-shadow: var(--shadow);
-}
-.wa-btn:hover { background: #1ebd5a; }
 .footer { margin-top: 28px; color: #666; text-align: center; }
 h2 { color: var(--brand); }
-.huhn-card {
-  background: #fff; border-radius: 20px; padding: 15px;
-  box-shadow: var(--shadow); text-align: center;
-  transition: opacity 0.5s ease; opacity: 0;
-}
-.huhn-card.visible { opacity: 1; }
-.huhn-card img { width: 100%; border-radius: 15px; }
-.futter-list { list-style: none; padding: 0; }
-.futter-list li { margin: 6px 0; }
-#futterbereich { display: none; }
-#rezeptebereich { display: none; }
 #quizbereich { display: none; }
 .quiz-start-btn {
   background: var(--brand); color: #fff; border: none;
@@ -170,70 +128,6 @@ h2 { color: var(--brand); }
   margin-top: 16px;
 }
 #reset-quiz:hover { background: #d06a00; }
-.recipe-closing {
-  background: var(--panel); border: 2px solid var(--panel-border);
-  border-radius: var(--radius); padding: var(--card-padding); text-align: center;
-}
-.footer-chickens { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }
-.footer-chicken { font-size: 3rem; animation: chicken-bounce 2s infinite; }
-@keyframes chicken-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-.show-rezept-btn {
-  background: #e07b00; color: #fff; border: none;
-  padding: 8px 16px; border-radius: 10px; cursor: pointer;
-}
-.show-rezept-btn:hover { background: #d06a00; }
-.rezept-anleitung { display: none; margin-top: 12px; }
-.emotion-wrap {
-  background: #fff8e7;
-  border-radius: 30px;
-  padding: 15px 20px;
-  margin: 20px 0;
-  text-align: center;
-  border: 2px solid var(--accent);
-}
-.emotion-title {
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: var(--brand);
-  font-size: 1.2rem;
-}
-.emotion-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.emotion-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
-.emotion-btn {
-  font-size: 2.2rem;
-  background: white;
-  border: 2px solid #ddd;
-  border-radius: 60px;
-  padding: 10px 18px;
-  cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: var(--shadow);
-}
-.emotion-btn:hover {
-  transform: scale(1.05);
-  border-color: var(--brand);
-}
-.emotion-count {
-  font-size: 0.85rem;
-  background: var(--panel);
-  padding: 4px 10px;
-  border-radius: 30px;
-  font-weight: bold;
-  color: var(--brand);
-}
 .einladung-klein {
   text-align: center;
   background: #fffef7;
@@ -252,43 +146,29 @@ h2 { color: var(--brand); }
   display: block;
   margin-bottom: 8px;
 }
-/* Dunkler Hintergrund für die Snack-Kiste – Häkchen und Kreuze bleiben farbig */
-#futterbereich .card {
-  background: #2c2820;
-  border-color: #5a5244;
+/* Gästebuch-Kommentare sichtbar machen */
+#HCB_comment_box {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--panel-border);
+  min-height: 80px;
 }
-#futterbereich .card h2,
-#futterbereich .card p,
-#futterbereich .card li,
-#futterbereich .card strong {
-  color: #fef9e6;
-}
-#futterbereich .card .wa-btn {
-  background: #25D366;
-}
-#futterbereich .card .wa-btn:hover {
-  background: #1ebd5a;
+#HCB_comment_box .hcb-comment {
+  background: #f9f9f9;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border-left: 4px solid var(--brand);
 }
 @media (max-width: 600px) {
   body { padding: 8px; }
-  nav { gap: 4px 8px; padding: 8px; }
-  nav a { font-size: 0.78rem; }
   .quiz-option { width: 95%; }
-  .emotion-btn { font-size: 1.6rem; padding: 6px 12px; }
-  .emotion-buttons { gap: 10px; }
 }
 </style>
 </head>
 <body>
 <main class="wrap">
-
-  <nav>
-    <a href="#start">🏠 Start</a>
-    <a href="#garten-huehner">🌿 Haltung</a>
-    <a href="#futterliste-title">🥬 Futter</a>
-    <a href="#quiz-title">❓ Quiz</a>
-    <a href="#rezepte-title">🍳 Rezepte</a>
-  </nav>
 
   <header id="start">
     <div class="header-content"><h1>Kleine Eier<br>großes Lächeln</h1></div>
@@ -303,45 +183,13 @@ h2 { color: var(--brand); }
     <p><strong>Die Idee:</strong> Glückliche Hühner lehren uns Gelassenheit, Achtsamkeit und Freude. Lasst euch von ihrer Lebendigkeit inspirieren und entdeckt die schönen Dinge im Alltag – und ganz nebenbei sind ihre Eier frischer, als jeder Supermarkt sie liefern kann.</p>
   </section>
 
-  <div id="futterbereich">
-    <section class="card">
-      <h2 id="futterliste-title">Unsere Hühner freuen sich über 🐓</h2>
-      <p>Die Snack Kiste hängt direkt am Hühnerzaun.</p>
-      <ul class="futter-list">
-        <li>✅ Gurke</li> <li>✅ Karotte</li> <li>✅ Apfel (entkernt)</li>
-        <li>✅ Verschiedene Salate (z. B. Kopfsalat, Römersalat)</li>
-        <li>✅ Beeren (Erdbeeren, Himbeeren, Blaubeeren)</li>
-        <li>✅ Frisches Grün: Löwenzahn, Rucola, Feldsalat, Spinat</li>
-        <li>✅ Frische Kräuter: Petersilie, Koriander, Basilikum, Oregano</li>
-        <li>✅ Gekochte Nudeln oder Reis (ungesalzen)</li>
-        <li>✅ Haferflocken (natur, ungesüßt)</li>
-        <li>✅ Weich gekochte Kartoffeln (ohne Schale, ungesalzen)</li>
-        <li>✅ Kürbis- oder Sonnenblumenkerne (ungesalzen)</li>
-        <li>✅ Melone</li> <li>✅ Zucchini</li> <li>✅ Gekochte Eier (klein gehackt)</li>
-        <li>❌ Zitrusfrüchte (Orange, Zitrone, Mandarine)</li>
-        <li>❌ Avocado</li> <li>❌ Rohe Kartoffeln (besonders grüne Stellen / Keime)</li>
-        <li>❌ Rohe Bohnen</li> <li>❌ Zwiebeln (roh oder gekocht)</li>
-        <li>❌ Knoblauch (roh, in großen Mengen)</li>
-        <li>❌ Schokolade, Süßigkeiten, Kuchen</li>
-        <li>❌ Salziges oder stark Gewürztes (Chips, Brot mit Salz)</li>
-        <li>❌ Schimmeliges oder verdorbenes Obst/Gemüse</li>
-        <li>❌ Grüne Tomaten oder rohe Auberginen</li>
-        <li>❌ Rohe Pilze</li>
-      </ul>
-      <p><strong>Wichtig:</strong> Alles sollte frisch, unbehandelt und frei von Gewürzen oder Chemie sein. Keine Blätter von giftigen Pflanzen (z. B. Eiben, Buchsbaum, Nachtschattengewächse).</p>
-      <p style="font-weight: 600; text-align: center;">Leg ein paar Leckerlis in die Kiste und hol dir sechs frische Eier 🥚</p>
-      <div class="btn-row">
-        <a class="wa-btn" href="https://wa.me/491638306166?text=Hallo,%20ich%20habe%20Snacks%20für%20die%20Hühner%20in%20die%20Kiste%20gelegt%20und%20würde%20gerne%20gegen%20frische%20Eier%20tauschen." target="_blank" rel="noopener">Snacks gegen Eier tauschen</a>
-      </div>
-      <p style="text-align: center; margin-top: 20px; font-style: italic;">✨ Du kannst die Leckerlis in die Kiste legen, um den Hühnern eine Freude zu machen. ✨</p>
-    </section>
-  </div>
-
-  <div id="huhn-grid" style="display:none; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
-    <div class="huhn-card"><img src="huhn1.jpg" alt="Huhn 1" loading="lazy"><h3>Unsere Hühner</h3><p>Jedes unserer Hühner hat seinen eigenen Charakter – verschmust, neugierig oder frech. Gemeinsam machen sie unseren Vorgarten lebendig.</p></div>
-    <div class="huhn-card"><img src="huhn2.jpg" alt="Huhn 2" loading="lazy"><h3>Unsere Hühner</h3><p>Sie lieben es, im Garten zu scharren, die Sonne zu genießen und kleine Leckerbissen zu suchen. Jedes ist einzigartig.</p></div>
-    <div class="huhn-card"><img src="huhn3.jpg" alt="Huhn 3" loading="lazy"><h3>Unsere Hühner</h3><p>Mit ihrem fröhlichen Gackern und ihrem neugierigen Wesen sorgen sie täglich für gute Laune und frische Eier.</p></div>
-  </div>
+  <section class="card" id="gluecksmomente-section">
+    <h2 class="gluecksmomente-title">
+      <div class="gluecksmomente-eggs"><div class="egg"></div><div class="egg"></div><div class="egg"></div></div>
+      <span class="main">Glücksmomente</span>
+      <span class="sub">Harmonie für deinen Tag</span>
+    </h2>
+  </section>
 
   <button class="quiz-start-btn" id="show-quiz-btn">📖 Hühner Quiz starten 🐔</button>
 
@@ -349,119 +197,160 @@ h2 { color: var(--brand); }
     <section class="card quiz-card">
       <h2 id="quiz-title">🥚 Hühner Quiz für kleine Entdecker 🐔</h2>
       <p>Beantworte die Fragen und klicke auf die richtige Antwort.</p>
-      <p style="background: #fff0b5; padding: 10px; border-radius: 10px; font-weight: bold; color: #b45f00; margin: 10px 0;">⭐ Wichtig: Du musst alle 7 Fragen RICHTIG beantworten – dann lernst du unsere Hühner kennen! ⭐</p>
+      <p style="background: #fff0b5; padding: 10px; border-radius: 10px; font-weight: bold; color: #b45f00; margin: 10px 0;">⭐ Wichtig: Du musst alle 15 Fragen RICHTIG beantworten – dann hast du das Quiz gemeistert! ⭐</p>
       
-      <div class="quiz-question">Frage eins wie oft legen Hühner Eier 🥚</div>
+      <!-- Frage 1 -->
+      <div class="quiz-question">Frage 1: Wie oft legen Hühner normalerweise ein Ei? 🥚</div>
       <div class="quiz-options">
-        <div class="quiz-option" data-correct="false">a einmal im Monat 🌙</div>
-        <div class="quiz-option" data-correct="false">b alle paar Tage 📅</div>
-        <div class="quiz-option" data-correct="true">c jeden Tag ☀️</div>
+        <div class="quiz-option" data-correct="false">a) Einmal im Monat 🌙</div>
+        <div class="quiz-option" data-correct="false">b) Alle paar Tage 📅</div>
+        <div class="quiz-option" data-correct="true">c) Fast jeden Tag ☀️</div>
       </div>
       <div class="quiz-feedback" id="feedback1"></div>
-      <div class="quiz-info" id="info1">🐔 Die meisten Hühner legen fast jeden Tag ein Ei – das tun auch unsere Hühner mit viel Freude im Vorgarten!</div>
-      
-      <div class="quiz-question">Frage zwei was essen Hühner am liebsten 🥬</div>
+      <div class="quiz-info" id="info1">🐔 Die meisten Hühner legen fast jeden Tag ein Ei – so legen es auch unsere glücklichen Hühner im Vorgarten!</div>
+
+      <!-- Frage 2 -->
+      <div class="quiz-question">Frage 2: Was essen Hühner am liebsten? 🥬</div>
       <div class="quiz-options">
-        <div class="quiz-option" data-correct="true">a frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
-        <div class="quiz-option" data-correct="false">b Schokolade 🍫</div>
-        <div class="quiz-option" data-correct="false">c Eiscreme 🍦</div>
+        <div class="quiz-option" data-correct="true">a) Frisches Gemüse wie Gurken und Karotten 🥒🥕</div>
+        <div class="quiz-option" data-correct="false">b) Schokolade 🍫</div>
+        <div class="quiz-option" data-correct="false">c) Eiscreme 🍦</div>
       </div>
       <div class="quiz-feedback" id="feedback2"></div>
-      <div class="quiz-info" id="info2">🥬 Hühner lieben frisches Grün, Gemüse und Kräuter. Schokolade und Eiscreme wären übrigens sogar gefährlich für sie!</div>
-      
-      <div class="quiz-question">Frage drei wie heißen unsere Hühner 🐥</div>
+      <div class="quiz-info" id="info2">🥬 Hühner lieben frisches Grün, Gemüse und Kräuter. Schokolade und Eis wären sogar gefährlich für sie!</div>
+
+      <!-- Frage 3 -->
+      <div class="quiz-question">Frage 3: Was macht ein Huhn, wenn es glücklich ist? 🐔</div>
       <div class="quiz-options">
-        <div class="quiz-option" data-correct="false">a Mia, Max und Leo</div>
-        <div class="quiz-option" data-correct="false">b Sunny, Happy und Joy</div>
-        <div class="quiz-option" data-correct="true">c Das verrate ich dir, wenn du alle Fragen richtig beantwortet hast 😊</div>
+        <div class="quiz-option" data-correct="true">a) Es gackert laut und scharrt fröhlich im Dreck 😄</div>
+        <div class="quiz-option" data-correct="false">b) Es singt Lieder wie ein Star 🎤</div>
+        <div class="quiz-option" data-correct="false">c) Es malt Bilder mit den Füßen 🖌️</div>
       </div>
       <div class="quiz-feedback" id="feedback3"></div>
-      <div class="quiz-info" id="info3">🐥 Unsere Hühner haben alle eigene Namen und sind ein richtig gutes Team – fröhlich, neugierig und immer in Bewegung.</div>
-      
-      <div class="quiz-question">Frage vier was macht ein Huhn wenn es glücklich ist 🐔</div>
+      <div class="quiz-info" id="info3">🐔 Ein glückliches Huhn gackert zufrieden, scharrt im Boden und sucht nach Leckerbissen – das kannst du bei uns täglich beobachten!</div>
+
+      <!-- Frage 4 -->
+      <div class="quiz-question">Frage 4: Was passiert, wenn ein Huhn ein Ei gelegt hat? 🥚</div>
       <div class="quiz-options">
-        <div class="quiz-option" data-correct="true">a gackert laut und scharrt fröhlich im Dreck 😄</div>
-        <div class="quiz-option" data-correct="false">b singt Lieder wie ein Star 🎤</div>
-        <div class="quiz-option" data-correct="false">c malt Bilder mit den Füßen 🖌️</div>
+        <div class="quiz-option" data-correct="false">a) Es feiert mit einem kleinen Tanz 💃</div>
+        <div class="quiz-option" data-correct="true">b) Es gackert stolz sein "Ei-Lied" 🎵</div>
+        <div class="quiz-option" data-correct="false">c) Es schickt das Ei per Post weg 📬</div>
       </div>
       <div class="quiz-feedback" id="feedback4"></div>
-      <div class="quiz-info" id="info4">🐔 Ein glückliches Huhn gackert zufrieden, scharrt im Boden und sucht nach Leckerbissen – bei uns im Vorgarten kannst du das täglich beobachten!</div>
-      
-      <div class="quiz-question">Frage fünf was passiert wenn ein Huhn ein Ei legt 🥚</div>
+      <div class="quiz-info" id="info4">🥚 Nach dem Legen gackert die Henne oft stolz – das ist ihr „Eier-Lied"! So sagt sie: "Schau her, ich hab ein Ei gelegt!"</div>
+
+      <!-- Frage 5 -->
+      <div class="quiz-question">Frage 5: Wie kommunizieren Hühner miteinander? 🗣️</div>
       <div class="quiz-options">
-        <div class="quiz-option" data-correct="false">a es feiert mit einem kleinen Tanz 💃</div>
-        <div class="quiz-option" data-correct="true">b das Ei rollt aus dem Nest und ein neues Frühstück ist bereit 🐔</div>
-        <div class="quiz-option" data-correct="false">c es schickt das Ei per Post weg 📬</div>
+        <div class="quiz-option" data-correct="false">a) Mit Geheimsprache und Morse-Code 🔢</div>
+        <div class="quiz-option" data-correct="true">b) Mit Gackern, Glucksen und Scharren – wie ein Hühner-Chat 😊</div>
+        <div class="quiz-option" data-correct="false">c) Indem sie Selfies machen 📱</div>
       </div>
       <div class="quiz-feedback" id="feedback5"></div>
-      <div class="quiz-info" id="info5">🥚 Nach dem Legen gackert die Henne oft stolz – das ist ihr „Eier-Lied"! Unsere Eier sind dann bereit für dein Frühstück.</div>
-      
-      <div class="quiz-question">Frage sechs wie kommunizieren Hühner untereinander 🗣️</div>
+      <div class="quiz-info" id="info5">🗣️ Hühner haben über 30 verschiedene Laute! Sie warnen sich, rufen ihre Küken und unterhalten sich – ein echter Hühner-Chat!</div>
+
+      <!-- Frage 6 -->
+      <div class="quiz-question">Frage 6: Warum sind die Eier von glücklichen Hühnern besonders? 🥚✨</div>
       <div class="quiz-options">
-        <div class="quiz-option" data-correct="false">a mit Geheimsprache und Morse Code 🔢</div>
-        <div class="quiz-option" data-correct="true">b mit Gackern, Glucksen und Scharren – wie ein Hühner-Chat 😊</div>
-        <div class="quiz-option" data-correct="false">c indem sie Selfies machen 📱</div>
+        <div class="quiz-option" data-correct="false">a) Weil sie fliegen können ✈️</div>
+        <div class="quiz-option" data-correct="true">b) Weil die Hühner viel Auslauf und frisches Futter bekommen 🌿</div>
+        <div class="quiz-option" data-correct="false">c) Weil sie magisch sind und zaubern 🪄</div>
       </div>
       <div class="quiz-feedback" id="feedback6"></div>
-      <div class="quiz-info" id="info6">🗣️ Hühner haben über 30 verschiedene Laute! Sie warnen sich, rufen Küken und unterhalten sich – ein echter Hühner-Chat im Vorgarten.</div>
-      
-      <div class="quiz-question">Frage sieben warum sind unsere Eier so besonders 🥚✨</div>
+      <div class="quiz-info" id="info6">✨ Glückliche Hühner mit viel Auslauf, frischer Luft und leckerem Futter legen die besten Eier – das schmeckt man!</div>
+
+      <!-- Frage 7 -->
+      <div class="quiz-question">Frage 7: Was braucht ein Huhn zum Glücklichsein? 🐓</div>
       <div class="quiz-options">
-        <div class="quiz-option" data-correct="false">a weil sie fliegen können ✈️</div>
-        <div class="quiz-option" data-correct="true">b weil glückliche Hühner im Vorgarten sie legen – frisch und lecker 🌿</div>
-        <div class="quiz-option" data-correct="false">c weil sie magisch sind und zaubern 🪄</div>
+        <div class="quiz-option" data-correct="false">a) Ein eigenes Zimmer 🛏️</div>
+        <div class="quiz-option" data-correct="true">b) Viel Auslauf, Sonne und Gesellschaft 🐔</div>
+        <div class="quiz-option" data-correct="false">c) Einen Fernseher 📺</div>
       </div>
       <div class="quiz-feedback" id="feedback7"></div>
-      <div class="quiz-info" id="info7">✨ Unsere Eier sind so besonders, weil sie von glücklichen Hühnern stammen, die viel Auslauf, frische Luft und leckeres Futter bekommen!</div>
-      
+      <div class="quiz-info" id="info7">🐔 Hühner sind soziale Tiere! Sie brauchen Bewegungsfreiheit, Sonne und andere Hühner um sich herum – dann sind sie richtig glücklich.</div>
+
+      <!-- Frage 8 -->
+      <div class="quiz-question">Frage 8: Wie heißt ein männliches Huhn? 🐓</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="true">a) Hahn 🐓</div>
+        <div class="quiz-option" data-correct="false">b) Henne 🐔</div>
+        <div class="quiz-option" data-correct="false">c) Küken 🐥</div>
+      </div>
+      <div class="quiz-feedback" id="feedback8"></div>
+      <div class="quiz-info" id="info8">🐓 Der Hahn ist das männliche Huhn. Er kräht oft laut und beschützt seine Hennen.</div>
+
+      <!-- Frage 9 -->
+      <div class="quiz-question">Frage 9: Wie nennt man ein junges Huhn? 🐥</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a) Hahn 🐓</div>
+        <div class="quiz-option" data-correct="false">b) Henne 🐔</div>
+        <div class="quiz-option" data-correct="true">c) Küken 🐥</div>
+      </div>
+      <div class="quiz-feedback" id="feedback9"></div>
+      <div class="quiz-info" id="info9">🐥 Ein kleines Huhn nennt man Küken. Es ist flauschig, gelb und wird von seiner Mama beschützt.</div>
+
+      <!-- Frage 10 -->
+      <div class="quiz-question">Frage 10: Was machen Hühner gerne den ganzen Tag? 🌞</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a) Fernsehen 📺</div>
+        <div class="quiz-option" data-correct="true">b) Scharren, picken und im Dreck baden 🐔</div>
+        <div class="quiz-option" data-correct="false">c) Schlafen bis mittags 😴</div>
+      </div>
+      <div class="quiz-feedback" id="feedback10"></div>
+      <div class="quiz-info" id="info10">🌞 Hühner sind den ganzen Tag aktiv! Sie scharren nach Würmern, picken Körner und baden gerne im Staub – das hält ihr Gefieder sauber.</div>
+
+      <!-- Frage 11 -->
+      <div class="quiz-question">Frage 11: Woraus besteht ein Hühnerei? 🥚</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a) Nur aus Schale und Wasser 💧</div>
+        <div class="quiz-option" data-correct="true">b) Aus Schale, Eiweiß und Eigelb 🥚</div>
+        <div class="quiz-option" data-correct="false">c) Aus Schokolade und Zucker 🍫</div>
+      </div>
+      <div class="quiz-feedback" id="feedback11"></div>
+      <div class="quiz-info" id="info11">🥚 Ein Ei besteht aus der festen Schale, dem klaren Eiweiß und dem gelben Eigelb – das ist das Beste fürs Frühstück!</div>
+
+      <!-- Frage 12 -->
+      <div class="quiz-question">Frage 12: Wie viele Eier legen Hühner im Jahr ungefähr? 📊</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a) Etwa 50 Eier</div>
+        <div class="quiz-option" data-correct="false">b) Etwa 100 Eier</div>
+        <div class="quiz-option" data-correct="true">c) Etwa 250–300 Eier</div>
+      </div>
+      <div class="quiz-feedback" id="feedback12"></div>
+      <div class="quiz-info" id="info12">📊 Ein glückliches Huhn kann im Jahr bis zu 300 Eier legen – das sind viele leckere Frühstücke!</div>
+
+      <!-- Frage 13 -->
+      <div class="quiz-question">Frage 13: Was dürfen Hühner auf gar keinen Fall essen? 🚫</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a) Salat 🥬</div>
+        <div class="quiz-option" data-correct="true">b) Schokolade und Zitrusfrüchte 🍫🍊</div>
+        <div class="quiz-option" data-correct="false">c) Gurken und Karotten 🥒🥕</div>
+      </div>
+      <div class="quiz-feedback" id="feedback13"></div>
+      <div class="quiz-info" id="info13">🚫 Schokolade, Zitrusfrüchte, rohe Kartoffeln und Zwiebeln sind für Hühner giftig – also lieber nicht in die Snack-Kiste legen!</div>
+
+      <!-- Frage 14 -->
+      <div class="quiz-question">Frage 14: Warum scharren Hühner so gerne im Boden? 🐔</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a) Weil sie Häuser bauen wollen 🏠</div>
+        <div class="quiz-option" data-correct="true">b) Weil sie nach Würmern, Insekten und Samen suchen 🐛</div>
+        <div class="quiz-option" data-correct="false">c) Weil sie Verstecken spielen 🙈</div>
+      </div>
+      <div class="quiz-feedback" id="feedback14"></div>
+      <div class="quiz-info" id="info14">🐛 Hühner scharren, um nach leckeren Würmern, Insekten und Samen zu suchen – das ist ihr natürlicher Instinkt!</div>
+
+      <!-- Frage 15 -->
+      <div class="quiz-question">Frage 15: Was können wir von Hühnern lernen? 🌟</div>
+      <div class="quiz-options">
+        <div class="quiz-option" data-correct="false">a) Wie man fliegt ✈️</div>
+        <div class="quiz-option" data-correct="true">b) Gelassenheit, Achtsamkeit und Freude am Leben 😊</div>
+        <div class="quiz-option" data-correct="false">c) Wie man Schokolade macht 🍫</div>
+      </div>
+      <div class="quiz-feedback" id="feedback15"></div>
+      <div class="quiz-info" id="info15">😊 Hühner leben im Hier und Jetzt – sie genießen jeden Moment. Wir können von ihnen lernen, achtsamer und fröhlicher zu sein!</div>
+
       <button id="reset-quiz">Quiz neu starten</button>
     </section>
-  </div>
-
-  <section class="card" id="gluecksmomente-section">
-    <h2 class="gluecksmomente-title">
-      <div class="gluecksmomente-eggs"><div class="egg"></div><div class="egg"></div><div class="egg"></div></div>
-      <span class="main">Glücksmomente</span>
-      <span class="sub">Harmonie für deinen Tag</span>
-    </h2>
-    <div class="snack-einladung">
-      <p><strong>Schau auf unsere Futterliste.</strong></p>
-      <button class="snack-link" id="snack-button">🍎 Zur Snack-Kiste</button>
-    </div>
-  </section>
-
-  <section class="card" id="rezepte-title">
-    <h2 class="center">🍳 Rezepte für kleine Köche</h2>
-    <div class="rezepte-einladung">
-      <p><strong>Magst du auch so gerne Eier wie wir? Dann probier doch mal unsere leckeren Rezepte aus – extra einfach für kleine Köche!</strong></p>
-      <button class="rezepte-link" id="rezepte-button">👩‍🍳 Rezepte entdecken</button>
-    </div>
-  </section>
-
-  <div id="rezeptebereich">
-    <section id="rezepte">
-      <div class="card"><h2>Rührei Deluxe</h2><p><strong>Zutaten</strong></p><ul><li>vier Eier (acht Zwerghuhneier)</li><li>ein Esslöffel Milch</li><li>Salz und Pfeffer nach Geschmack</li><li>ein Teelöffel Butter</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier in einer Schüssel verquirlen, Milch hinzufügen, salzen und pfeffern. Butter in einer Pfanne erhitzen und die Eiermasse bei mittlerer Hitze stocken lassen, dabei vorsichtig rühren.</p><p><em>Dein Supertrick für extra fluffiges Rührei: ein bisschen Sprudelwasser hinzufügen.</em></p></div></div>
-      <div class="card"><h2>Eierkuchen süß</h2><p><strong>Zutaten</strong></p><ul><li>zwei Eier (drei Zwerghuhneier)</li><li>150 Gramm Mehl</li><li>250 Milliliter Milch</li><li>ein Esslöffel Ahornsirup</li><li>eine Prise Salz</li><li>Butter zum Braten</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier mit Milch und Ahornsirup verquirlen. Mehl und Salz hinzufügen und zu einem glatten Teig verrühren. Etwas Butter in der Pfanne erhitzen und kleine Eierkuchen ausbacken bis sie goldbraun sind.</p></div></div>
-      <div class="card"><h2>Omelette Gemüse</h2><p><strong>Zutaten</strong></p><ul><li>drei Eier (fünf Zwerghuhneier)</li><li>50 Gramm Paprika gewürfelt</li><li>50 Gramm Zucchini gewürfelt</li><li>ein Esslöffel Milch</li><li>Salz und Pfeffer</li><li>ein Teelöffel Öl</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier mit Milch, Salz und Pfeffer verquirlen. Gemüse in Öl kurz anbraten, Eiermasse darüber gießen und bei mittlerer Hitze stocken lassen.</p></div></div>
-      <div class="card"><h2>Gefüllte Eier</h2><p><strong>Zutaten</strong></p><ul><li>sechs Eier (zwölf Zwerghuhneier)</li><li>zwei Esslöffel Joghurt</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li><li>Paprika zum Bestreuen</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen, schälen und längs halbieren. Eigelbe herausnehmen, mit Joghurt, Senf, Salz und Pfeffer vermengen. Masse zurück in die Eiweißhälften füllen und mit Paprika bestreuen.</p></div></div>
-      <div class="card"><h2>Eiersalat klassisch</h2><p><strong>Zutaten</strong></p><ul><li>vier Eier (acht Zwerghuhneier)</li><li>zwei Esslöffel Mayonnaise</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li><li>eine kleine Frühlingszwiebel fein gehackt</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen, schälen und würfeln. Mit Mayonnaise, Senf, Salz, Pfeffer und Frühlingszwiebel vermengen.</p></div></div>
-      <div class="card"><h2>Frühstücks Muffins mit Ei</h2><p><strong>Zutaten</strong></p><ul><li>drei Eier (fünf Zwerghuhneier)</li><li>100 Gramm Mehl</li><li>50 Milliliter Milch</li><li>50 Gramm geriebener Käse</li><li>Salz und Pfeffer</li><li>ein Teelöffel Backpulver</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier, Milch, Salz, Pfeffer und Käse verquirlen. Mehl und Backpulver hinzufügen. In Muffinförmchen füllen und bei 180 Grad ca. 20-25 Minuten backen.</p></div></div>
-      <div class="card"><h2>Spinat Ei Pfanne</h2><p><strong>Zutaten</strong></p><ul><li>zwei Eier (drei Zwerghuhneier)</li><li>150 Gramm frischer Spinat</li><li>ein Teelöffel Öl</li><li>Salz und Pfeffer</li><li>eine kleine Zwiebel</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Zwiebel in Öl anbraten, Spinat hinzufügen und zusammenfallen lassen. Eier verquirlen, darüber geben und stocken lassen.</p></div></div>
-      <div class="card"><h2>Eier in Senfsoße</h2><p><strong>Zutaten</strong></p><ul><li>vier Eier (acht Zwerghuhneier)</li><li>200 Milliliter Gemüsebrühe</li><li>zwei Esslöffel Joghurt</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen. Brühe erhitzen, Joghurt und Senf einrühren, würzen. Eier halbieren und in die Soße legen.</p></div></div>
-      <div class="card"><h2>Eiersalat Deluxe</h2><p><strong>Zutaten</strong></p><ul><li>fünf Eier (zehn Zwerghuhneier)</li><li>drei Esslöffel Mayonnaise</li><li>ein Teelöffel Senf</li><li>eine kleine rote Paprika gewürfelt</li><li>Salz und Pfeffer</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen, würfeln und mit allen Zutaten vermengen.</p></div></div>
-      <div class="card"><h2>Eier Brotaufstrich</h2><p><strong>Zutaten</strong></p><ul><li>drei Eier (fünf Zwerghuhneier)</li><li>zwei Esslöffel Frischkäse</li><li>ein Teelöffel Senf</li><li>Salz und Pfeffer</li><li>eine kleine Frühlingszwiebel</li></ul><button class="show-rezept-btn">Anleitung zum Rezept</button><div class="rezept-anleitung"><p><strong>Zubereitung</strong> Eier hart kochen, hacken und mit Frischkäse, Senf, Salz, Pfeffer und Frühlingszwiebel verrühren. Auf frisches Brot streichen.</p></div></div>
-      <div class="recipe-closing"><p>Kinder lieben es beim Kochen zu helfen und Zwerghühner-Eier sind perfekt, um spielerisch gesunde Gerichte zu entdecken. Viel Spaß beim Ausprobieren 🥚😊</p></div>
-    </section>
-  </div>
-
-  <div class="emotion-wrap">
-    <div class="emotion-title">🐔 Drück dein Lieblingsgefühl!</div>
-    <div class="emotion-buttons">
-      <div class="emotion-item"><button class="emotion-btn" data-emotion="freude">😊</button><span class="emotion-count" id="count-freude">0</span></div>
-      <div class="emotion-item"><button class="emotion-btn" data-emotion="henne">🐔</button><span class="emotion-count" id="count-henne">0</span></div>
-      <div class="emotion-item"><button class="emotion-btn" data-emotion="eier">🥚</button><span class="emotion-count" id="count-eier">0</span></div>
-      <div class="emotion-item"><button class="emotion-btn" data-emotion="daumen">👍</button><span class="emotion-count" id="count-daumen">0</span></div>
-    </div>
   </div>
 
   <div class="einladung-klein">
@@ -489,33 +378,26 @@ h2 { color: var(--brand); }
   </section>
 
   <footer class="footer">
-    <div class="footer-chickens"><div class="footer-chicken">🐣</div><div class="footer-chicken">🐥</div><div class="footer-chicken">🐤</div></div>
+    <div class="footer-chickens" style="display:flex; justify-content:center; gap:20px; margin:20px 0;">
+      <div class="footer-chicken" style="font-size:3rem; animation: chicken-bounce 2s infinite;">🐣</div>
+      <div class="footer-chicken" style="font-size:3rem; animation: chicken-bounce 2s infinite 0.3s;">🐥</div>
+      <div class="footer-chicken" style="font-size:3rem; animation: chicken-bounce 2s infinite 0.6s;">🐤</div>
+    </div>
     <div>☘️💯☘️</div>
-    <p style="font-weight: 700;">Ein Lächeln, drei Hühner, ein Vorgarten. Mehr braucht es nicht.</p>
+    <p style="font-weight: 700;">Manchmal ist das Größte das Kleinste: Ein Vorgarten, ein paar Hühner, ein Lächeln.</p>
     <p style="font-size: .75rem;">&copy; 2025 Kleine Eier großes Lächeln</p>
   </footer>
 </main>
 
+<style>
+@keyframes chicken-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+</style>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const snackBtn = document.getElementById('snack-button');
-  const futterbereich = document.getElementById('futterbereich');
-  if (snackBtn && futterbereich) {
-    snackBtn.addEventListener('click', () => {
-      futterbereich.style.display = 'block';
-      document.getElementById('futterliste-title').scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-
-  const rezepteBtn = document.getElementById('rezepte-button');
-  const rezeptebereich = document.getElementById('rezeptebereich');
-  if (rezepteBtn && rezeptebereich) {
-    rezepteBtn.addEventListener('click', () => {
-      rezeptebereich.style.display = 'block';
-      document.getElementById('rezepte-title').scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-
   const showQuizBtn = document.getElementById('show-quiz-btn');
   const quizbereich = document.getElementById('quizbereich');
   if (showQuizBtn && quizbereich) {
@@ -526,23 +408,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const cards = document.querySelectorAll('.huhn-card');
-  const huhnGrid = document.getElementById('huhn-grid');
   const resetBtn = document.getElementById('reset-quiz');
-  let questionAnswered = new Array(7).fill(false);
-  let questionCorrect = new Array(7).fill(false);
-
-  function showCardsOneByOne() {
-    cards.forEach((card, index) => { setTimeout(() => { card.classList.add('visible'); }, index * 500); });
-  }
+  let questionAnswered = new Array(15).fill(false);
+  let questionCorrect = new Array(15).fill(false);
 
   function checkAllCorrect() {
     const allCorrect = questionCorrect.every(val => val === true);
-    if (allCorrect && huhnGrid) {
-      huhnGrid.style.display = 'grid';
+    if (allCorrect) {
       if (resetBtn) resetBtn.style.display = 'block';
-      showCardsOneByOne();
-      setTimeout(() => { huhnGrid.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 500);
     }
   }
 
@@ -569,50 +442,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       document.querySelectorAll('.quiz-option').forEach(opt => { opt.classList.remove('correct', 'incorrect', 'disabled'); });
-      for (let i = 1; i <= 7; i++) {
+      for (let i = 1; i <= 15; i++) {
         const fb = document.getElementById('feedback' + i);
         const info = document.getElementById('info' + i);
         if (fb) fb.textContent = '';
         if (info) info.classList.remove('show');
       }
-      if (huhnGrid) huhnGrid.style.display = 'none';
-      cards.forEach(c => c.classList.remove('visible'));
       if (resetBtn) resetBtn.style.display = 'none';
-      questionAnswered = new Array(7).fill(false);
-      questionCorrect = new Array(7).fill(false);
+      questionAnswered = new Array(15).fill(false);
+      questionCorrect = new Array(15).fill(false);
     });
   }
-
-  document.querySelectorAll('.show-rezept-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const box = btn.nextElementSibling;
-      const isOpen = box.style.display === 'block';
-      box.style.display = isOpen ? 'none' : 'block';
-      btn.textContent = isOpen ? 'Anleitung zum Rezept' : 'Anleitung ausblenden';
-    });
-  });
-
-  const emotionCounts = {
-    freude: parseInt(localStorage.getItem('count-freude') || '0'),
-    henne: parseInt(localStorage.getItem('count-henne') || '0'),
-    eier: parseInt(localStorage.getItem('count-eier') || '0'),
-    daumen: parseInt(localStorage.getItem('count-daumen') || '0')
-  };
-  for (const [id, count] of Object.entries(emotionCounts)) {
-    const span = document.getElementById(`count-${id}`);
-    if (span) span.textContent = count;
-  }
-  document.querySelectorAll('.emotion-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const emotion = btn.dataset.emotion;
-      if (emotion && emotionCounts[emotion] !== undefined) {
-        emotionCounts[emotion]++;
-        const span = document.getElementById(`count-${emotion}`);
-        if (span) span.textContent = emotionCounts[emotion];
-        localStorage.setItem(`count-${emotion}`, emotionCounts[emotion]);
-      }
-    });
-  });
 });
 </script>
 </body>
