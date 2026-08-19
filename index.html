@@ -142,6 +142,28 @@ h2 { color: var(--brand); }
   border-radius: 8px;
   border-left: 4px solid var(--brand);
 }
+.homepage-hinweis {
+  text-align: center;
+  background: #fffef7;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 20px 20px;
+  margin: 18px 0;
+}
+.homepage-hinweis p {
+  font-size: 1.05rem;
+  margin: 8px 0;
+  color: var(--ink);
+}
+.homepage-hinweis a {
+  color: var(--brand);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.homepage-hinweis a:hover {
+  text-decoration: underline;
+}
 @media (max-width: 600px) {
   body { padding: 8px; }
   .quiz-option { width: 95%; }
@@ -353,6 +375,13 @@ h2 { color: var(--brand); }
     </script>
   </section>
 
+  <!-- Homepage-Hinweis -->
+  <div class="homepage-hinweis">
+    <p>Ein kleiner Vorgarten, ein paar Hühner – und dahinter steckt mehr.</p>
+    <p>Entdecke unsere Welt:</p>
+    <p><a href="https://www.rundumservice-harburg.de" target="_blank" rel="noopener">🌿 www.rundumservice-harburg.de</a></p>
+  </div>
+
   <footer class="footer">
     <div class="footer-chickens" style="display:flex; justify-content:center; gap:20px; margin:20px 0;">
       <div class="footer-chicken" style="font-size:3rem; animation: chicken-bounce 2s infinite;">🐣</div>
@@ -360,7 +389,6 @@ h2 { color: var(--brand); }
       <div class="footer-chicken" style="font-size:3rem; animation: chicken-bounce 2s infinite 0.6s;">🐤</div>
     </div>
     <div>☘️💯☘️</div>
-    <p style="font-weight: 700;">Manchmal ist das Größte das Kleinste: Ein Vorgarten, ein paar Hühner, ein Lächeln.</p>
     <p style="font-size: .75rem;">&copy; 2025 Kleine Eier großes Lächeln</p>
   </footer>
 </main>
